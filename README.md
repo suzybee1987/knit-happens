@@ -1,4 +1,4 @@
-# The Book Nook
+# Knit Happens
 
 ![](static/images/readme/amiresponsive.PNG)
 

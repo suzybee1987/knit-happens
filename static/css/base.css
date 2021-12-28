@@ -1,0 +1,38 @@
+/* https://coolors.co/a100ff  */
+/* google fonts  */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+/* navbar */
+
+.navbar-item img {
+    max-height: 3.75rem !important;
+}
+
+img .home-button {
+    padding: 0.25rem 0 0 1rem;
+}
+
+.title-heading {
+    font-family: 'Lobster', cursive;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* https://unsplash.com/photos/uYf_C34PAao  */
+
+.hero-bground {
+    background: url("../../media/rainbow.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+}
+
+.image-down {
+    padding-top: 200px;
+}
+
+/* footer  */
+
+
