@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -37,6 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # works with the social media accounts
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount', # allows users to log in with facebook/google etc
+
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -54,18 +62,43 @@ ROOT_URLCONF = 'knit_happens.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',
+                'django.template.context_processors.request', # required by allauth - Allows allauth and django to access HTTP request objects
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
         },
     },
 ]
+
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # tells allauth we want to authenticate with username or email
+ACCOUNT_EMAIL_REQUIRED = True  # confirm email required for site
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # verify the email is valid
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # email required twice to check for typos
+ACCOUNT_USERNAME_MIN_LENGTH = 4  # username min length
+LOGIN_URL = '/accounts/login/'  # log in page
+LOGIN_REDIRECT_URL = '/'
+
 
 WSGI_APPLICATION = 'knit_happens.wsgi.application'
 
@@ -118,6 +151,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

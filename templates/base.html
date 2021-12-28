@@ -1,0 +1,184 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta tags  -->
+    {% block meta %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+    <!-- end meta tags  -->
+
+    {% block extra_meta %}
+
+    {% endblock %}
+
+    {% block corecss %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+    <script src="https://kit.fontawesome.com/3f6b0a0556.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>Knit Happens {% block extra_title %} {% endblock %}</title>
+</head>
+
+<body>
+    <section class="hero is-large">
+        <!-- navigation  -->
+        <div class="hero-head">
+            <nav class="navbar columns" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand column is-one-third">
+                    <a class="navbar-item" href="{% url 'home' %}">
+                        <img src="media/knitting-black.png" alt="home-button" class="home-button">
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="column is-one-third">
+                    <h1 class="title-heading">Knit Happens</h1>
+                </div>
+                <div class="navbar-end column is-one-third">
+                    <div id="navbarBasicExample" class="navbar-menu column">
+                        <div class="navbar-end has-text-centered">
+                            <a class="navbar-item" href="#">
+                                blog
+                            </a>
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a class="navbar-item is-justify-content-center" href="">
+                                product management
+                            </a>
+                            {% endif %}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="is-justify-content-center navbar-link">
+                                    profile
+                                </a>
+                                <div class="navbar-dropdown">
+                                    <a class="navbar-item" href="">
+                                        see profile
+                                    </a>
+                                    <a class="navbar-item" href="">
+                                        see orders
+                                    </a>
+                                    <a class="navbar-item" href="{% url 'account_logout' %}">
+                                        log out
+                                    </a>
+                                    {% else %}
+                                    <a class="navbar-item" href="{% url 'account_login' %}">
+                                        log in
+                                    </a>
+                                    <a class="navbar-item" href="{% url 'account_signup' %}">
+                                        register
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <a class="navbar-item is-justify-content-center" href="">
+                                <p>bag</p>
+                                <p>{% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    £0.00
+                                    {% endif %}
+                                </p>
+                            </a>
+                           
+                        </div>
+                        
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block page_header %}
+        {% endblock %}
+
+        {% block content %}
+
+
+        {% endblock %}
+        <!-- Hero footer: will stick at the bottom -->
+        <div class="hero-foot">
+            <nav class="tabs">
+                <div class="container">
+                    <div class="columns">
+                        <ul class="column is-justify-content-flex-start is-flex-direction-column">
+                            <li class="is-active"><a>Overview</a></li>
+                            <li><a>T&Cs</a></li>
+                            <li><a>Privacy Policy</a></li>
+                            <li><a>FAQs</a></li>
+                        </ul>
+                        <ul class="column is-justify-content-flex-end is-flex-direction-column">
+                            <li class="is-active"><a>Facebook</a></li>
+                            <li><a>Instagram</a></li>
+                            <li><a>GitHub</a></li>
+                            <li><a>Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    {% block postloadjs %}
+    <script>
+        // $('.toast').toast('show');
+
+        // $(document).ready(function () {
+
+        //     // Check for click events on the navbar burger icon
+        //     $(".navbar-burger").click(function () {
+
+        //         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        //         $(".navbar-burger").toggleClass("is-active");
+        //         $(".navbar-menu").toggleClass("is-active");
+
+        //     });
+        // });
+    </script>
+    {% endblock %}
+
+</body>
+
+</html>
