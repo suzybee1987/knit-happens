@@ -44,10 +44,11 @@
     <section class="hero is-large">
         <!-- navigation  -->
         <div class="hero-head">
-            <nav class="navbar columns" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand column is-one-third">
+            <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
                     <a class="navbar-item" href="{% url 'home' %}">
                         <img src="media/knitting-black.png" alt="home-button" class="home-button">
+                        <h1 class="title-heading">Knit Happens</h1>
                     </a>
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                         data-target="navbarBasicExample">
@@ -56,57 +57,98 @@
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-                <div class="column is-one-third">
-                    <h1 class="title-heading">Knit Happens</h1>
-                </div>
-                <div class="navbar-end column is-one-third">
-                    <div id="navbarBasicExample" class="navbar-menu column">
-                        <div class="navbar-end has-text-centered">
-                            <a class="navbar-item" href="#">
-                                blog
-                            </a>
-                            {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                            <a class="navbar-item is-justify-content-center" href="">
-                                product management
-                            </a>
-                            {% endif %}
-                            <div class="navbar-item has-dropdown is-hoverable">
-                                <a class="is-justify-content-center navbar-link">
-                                    profile
-                                </a>
-                                <div class="navbar-dropdown">
-                                    <a class="navbar-item" href="">
-                                        see profile
-                                    </a>
-                                    <a class="navbar-item" href="">
-                                        see orders
-                                    </a>
-                                    <a class="navbar-item" href="{% url 'account_logout' %}">
-                                        log out
-                                    </a>
-                                    {% else %}
-                                    <a class="navbar-item" href="{% url 'account_login' %}">
-                                        log in
-                                    </a>
-                                    <a class="navbar-item" href="{% url 'account_signup' %}">
-                                        register
-                                    </a>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <a class="navbar-item is-justify-content-center" href="">
-                                <p>bag</p>
-                                <p>{% if grand_total %}
-                                    £{{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                    £0.00
-                                    {% endif %}
-                                </p>
-                            </a>
-                           
-                        </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
                         
+                    </div>
+                    <div class="navbar-end is-hidden-touch">
+                        <a class="navbar-item" href="#">
+                            <img src="../media/blog.png" alt="blog">
+                        </a>
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a class="navbar-item" href="">
+                            <img src="../media/admin.png" alt="admin">
+                        </a>
+                        {% endif %}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                <img src="../media/profile-icon.png" alt="profile-icon">
+                            </a>
+                            <div class="navbar-dropdown is-right">
+                                <a class="navbar-item" href="">
+                                    see profile
+                                </a>
+                                <a class="navbar-item" href="">
+                                    see orders
+                                </a>
+                                <a class="navbar-item" href="{% url 'account_logout' %}">
+                                    log out
+                                </a>
+                                {% else %}
+                                <a class="navbar-item" href="{% url 'account_login' %}">
+                                    log in
+                                </a>
+                                <a class="navbar-item" href="{% url 'account_signup' %}">
+                                    register
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <a class="navbar-item" href="">
+                            <img src="../media/bag.png" alt="bag-icon">
+                            <p>{% if grand_total %}
+                                £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                £0.00
+                                {% endif %}
+                            </p>
+                        </a>
+                    </div>
+                    <div class="navbar-end is-hidden-desktop">
+                        <a class="navbar-item" href="#">
+                            <img src="../media/blog.png" alt="blog" class="mobile-icon">
+                        </a>
+                        {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                        <a class="navbar-item" href="">
+                            <img src="../media/admin.png" alt="admin" class="mobile-icon">
+                        </a>
+                        {% endif %}
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                <img src="../media/profile-icon.png" alt="profile-icon" class="mobile-icon">
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item" href="">
+                                    see profile
+                                </a>
+                                <a class="navbar-item" href="">
+                                    see orders
+                                </a>
+                                <a class="navbar-item" href="{% url 'account_logout' %}">
+                                    log out
+                                </a>
+                                {% else %}
+                                <a class="navbar-item" href="{% url 'account_login' %}">
+                                    log in
+                                </a>
+                                <a class="navbar-item" href="{% url 'account_signup' %}">
+                                    register
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <a class="navbar-item" href="">
+                            <img src="../media/bag.png" alt="bag-icon" class="mobile-icon">
+                            <p>{% if grand_total %}
+                                £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                £0.00
+                                {% endif %}
+                            </p>
+                        </a>
                     </div>
                 </div>
             </nav>
@@ -144,13 +186,13 @@
                 <div class="container">
                     <div class="columns">
                         <ul class="column is-justify-content-flex-start is-flex-direction-column">
-                            <li class="is-active"><a>Overview</a></li>
+                            <li><a>Overview</a></li>
                             <li><a>T&Cs</a></li>
                             <li><a>Privacy Policy</a></li>
                             <li><a>FAQs</a></li>
                         </ul>
                         <ul class="column is-justify-content-flex-end is-flex-direction-column">
-                            <li class="is-active"><a>Facebook</a></li>
+                            <li><a>Facebook</a></li>
                             <li><a>Instagram</a></li>
                             <li><a>GitHub</a></li>
                             <li><a>Pinterest</a></li>
@@ -165,17 +207,28 @@
     <script>
         // $('.toast').toast('show');
 
-        // $(document).ready(function () {
+        // code from Bulma GitHub to fix the navbar menu always open on mobile 
+        // https://github.com/jgthms/bulma/issues/2361
+        document.addEventListener("DOMContentLoaded", () => {
+                const hamburgerButton = document.querySelector(".navbar-burger");
+                const navMenu = document.querySelector(".navbar-menu");
 
-        //     // Check for click events on the navbar burger icon
-        //     $(".navbar-burger").click(function () {
+                hamburgerButton.addEventListener("click", () => {
+                    hamburgerButton.classList.toggle("is-active");
+                    navMenu.classList.toggle("is-active");
+                });
 
-        //         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-        //         $(".navbar-burger").toggleClass("is-active");
-        //         $(".navbar-menu").toggleClass("is-active");
+                const allDropdowns = document.querySelectorAll(
+                    ".navbar-item.has-dropdown"
+                );
 
-        //     });
-        // });
+                allDropdowns.forEach((dropdown) => {
+                    dropdown.addEventListener("click", () => {
+                        const elem = dropdown.querySelector(".navbar-dropdown");
+                        elem.classList.toggle("is-active");
+                    });
+                });
+            });
     </script>
     {% endblock %}
 

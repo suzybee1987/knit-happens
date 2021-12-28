@@ -4,7 +4,7 @@
 
 /* navbar */
 
-.navbar-item img {
+.navbar-brand img {
     max-height: 3.75rem !important;
 }
 
@@ -18,6 +18,20 @@ img .home-button {
     text-align: center;
 }
 
+.mobile-icon {
+    max-height: 1.5rem;
+}
+ /* code from Bulma GitHub to fix the navbar menu always open on mobile 
+ https://github.com/jgthms/bulma/issues/2361 */
+@media screen and (max-width: 1024px) {
+    .navbar-dropdown .is-active {
+        display: block;
+    }
+
+    .navbar-dropdown:not(.is-active) {
+        display: none;
+    }
+}
 /* https://unsplash.com/photos/uYf_C34PAao  */
 
 .hero-bground {
