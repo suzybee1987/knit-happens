@@ -1,0 +1,169 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- meta tags  -->
+    {% block meta %}
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+    <!-- end meta tags  -->
+
+    {% block extra_meta %}
+
+    {% endblock %}
+
+    {% block corecss %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static\css\style.css">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+    <script src="https://kit.fontawesome.com/3f6b0a0556.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
+
+    <title>Knit Happens {% block extra_title %} {% endblock %}</title>
+</head>
+
+<body>
+
+
+    <section class="hero is-large">
+        <!-- Hero head: will stick at the top -->
+        <div class="hero-head">
+            <nav class="navbar columns" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand column">
+                    <a class="navbar-item" href="#">
+                        <img src="static\images\knitting-black.png" alt="home-button" class="home-button">
+                    </a>
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div class="column">
+                    <h1 class="title-heading">Knit Happens</h1>
+                </div>
+                <div id="navbarBasicExample" class="navbar-menu column">
+                    <div class="columns">
+                        <div class="navbar-end column has-text-centered">
+                            <img src="static\images\blog.png" alt="blog-logo">
+                            <a class="navbar-item is-justify-content-center" href="#">
+                                blog
+                            </a>
+                        </div>
+                        <div class="navbar-end column has-text-centered">
+                            <img src="static/images/profile-icon.png" alt="profile-logo">
+                            <a class="navbar-item is-justify-content-center" href="">
+                                profile
+                            </a>
+                        </div>
+                        <div class="navbar-end column has-text-centered">
+                            <img src="static/images/bag.png" alt="bag-icon">
+                            <a class="navbar-item is-justify-content-center" href="">
+                                bag
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Hero content: will be in the middle -->
+
+        <!-- Add hero-bground class beside hero-body for home page  -->
+        <!-- <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="image-down">
+                    <a href="#">
+                        <img src="static/images/down.png" alt="scroll down">
+                    </a>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Hero footer: will stick at the bottom -->
+        <div class="hero-foot">
+            <nav class="tabs">
+                <div class="container">
+                    <div class="columns">
+                        <ul class="column is-justify-content-flex-start is-flex-direction-column">
+                            <li class="is-active"><a>Overview</a></li>
+                            <li><a>T&Cs</a></li>
+                            <li><a>Privacy Policy</a></li>
+                            <li><a>FAQs</a></li>
+                        </ul>
+                        <ul class="column is-justify-content-flex-end is-flex-direction-column">
+                            <li class="is-active"><a>Facebook</a></li>
+                            <li><a>Instagram</a></li>
+                            <li><a>GitHub</a></li>
+                            <li><a>Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    <script>
+        // $('.toast').toast('show');
+
+        // $(document).ready(function () {
+
+        //     // Check for click events on the navbar burger icon
+        //     $(".navbar-burger").click(function () {
+
+        //         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        //         $(".navbar-burger").toggleClass("is-active");
+        //         $(".navbar-menu").toggleClass("is-active");
+
+        //     });
+        // });
+    </script>
+    {% endblock %}
+
+</body>
+
+</html>
