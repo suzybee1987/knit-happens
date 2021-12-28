@@ -21,11 +21,12 @@ img .home-button {
 /* https://unsplash.com/photos/uYf_C34PAao  */
 
 .hero-bground {
-    background: url(../images/rainbow.jpg) no-repeat center center fixed;
+    background: url("../../media/rainbow.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height: 100vh;
 }
 
 .image-down {
@@ -35,8 +36,3 @@ img .home-button {
 /* footer  */
 
 
-.hero-foot {
-    background-color: #00d1b2;
-    color: #fff;
-
-}

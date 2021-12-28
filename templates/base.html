@@ -21,7 +21,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static\css\style.css">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
@@ -42,12 +42,12 @@
 
 <body>
     <section class="hero is-large">
-        <!-- Hero head: will stick at the top -->
+        <!-- navigation  -->
         <div class="hero-head">
             <nav class="navbar columns" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand column">
-                    <a class="navbar-item" href="#">
-                        <img src="static\images\knitting-black.png" alt="home-button" class="home-button">
+                <div class="navbar-brand column is-one-third">
+                    <a class="navbar-item" href="{% url 'home' %}">
+                        <img src="media/knitting-black.png" alt="home-button" class="home-button">
                     </a>
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
                         data-target="navbarBasicExample">
@@ -56,47 +56,88 @@
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
-                <div class="column">
+                <div class="column is-one-third">
                     <h1 class="title-heading">Knit Happens</h1>
                 </div>
-                <div id="navbarBasicExample" class="navbar-menu column">
-                    <div class="columns">
-                        <div class="navbar-end column has-text-centered">
-                            <img src="static\images\blog.png" alt="blog-logo">
-                            <a class="navbar-item is-justify-content-center" href="#">
+                <div class="navbar-end column is-one-third">
+                    <div id="navbarBasicExample" class="navbar-menu column">
+                        <div class="navbar-end has-text-centered">
+                            <a class="navbar-item" href="#">
                                 blog
                             </a>
-                        </div>
-                        <div class="navbar-end column has-text-centered">
-                            <img src="static/images/profile-icon.png" alt="profile-logo">
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
                             <a class="navbar-item is-justify-content-center" href="">
-                                profile
+                                product management
                             </a>
-                        </div>
-                        <div class="navbar-end column has-text-centered">
-                            <img src="static/images/bag.png" alt="bag-icon">
+                            {% endif %}
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="is-justify-content-center navbar-link">
+                                    profile
+                                </a>
+                                <div class="navbar-dropdown">
+                                    <a class="navbar-item" href="">
+                                        see profile
+                                    </a>
+                                    <a class="navbar-item" href="">
+                                        see orders
+                                    </a>
+                                    <a class="navbar-item" href="{% url 'account_logout' %}">
+                                        log out
+                                    </a>
+                                    {% else %}
+                                    <a class="navbar-item" href="{% url 'account_login' %}">
+                                        log in
+                                    </a>
+                                    <a class="navbar-item" href="{% url 'account_signup' %}">
+                                        register
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
                             <a class="navbar-item is-justify-content-center" href="">
-                                bag
+                                <p>bag</p>
+                                <p>{% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    £0.00
+                                    {% endif %}
+                                </p>
                             </a>
+                           
                         </div>
+                        
                     </div>
                 </div>
             </nav>
         </div>
 
-        <!-- Hero content: will be in the middle -->
 
-        <!-- Add hero-bground class beside hero-body for home page  -->
-        <!-- <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="image-down">
-                    <a href="#">
-                        <img src="static/images/down.png" alt="scroll down">
-                    </a>
-                </div>
-            </div>
-        </div> -->
+        {% if messages %}
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
+        {% endif %}
 
+        {% block page_header %}
+        {% endblock %}
+
+        {% block content %}
+
+
+        {% endblock %}
         <!-- Hero footer: will stick at the bottom -->
         <div class="hero-foot">
             <nav class="tabs">
@@ -119,30 +160,6 @@
             </nav>
         </div>
     </section>
-
-        {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-            {% with message.level as level %}
-            {% if level == 40 %}
-            {% include 'includes/toasts/toast_error.html' %}
-            {% elif level == 30 %}
-            {% include 'includes/toasts/toast_warning.html' %}
-            {% elif level == 25 %}
-            {% include 'includes/toasts/toast_success.html' %}
-            {% else %}
-            {% include 'includes/toasts/toast_info.html' %}
-            {% endif %}
-            {% endwith %}
-            {% endfor %}
-        </div>
-        {% endif %}
-
-    {% block page_header %}
-    {% endblock %}
-
-    {% block content %}
-    {% endblock %}
 
     {% block postloadjs %}
     <script>
