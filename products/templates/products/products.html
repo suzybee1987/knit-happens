@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="columns">
+    <div class="column">
+        <h1 class="title-header">Products</h1>
+    </div>
+</div>
+<div class="columns is-multiline">
+    {% for product in products %}
+    <div class="column is-3-widescreen is-12-mobile is-4-tablet ">
+        <div class="card">
+            {% if product.image %}
+            <div class="card-image">
+                <figure class="image is-5by4">
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                </figure>
+            </div>
+            {% else %}
+            <div class="card-image">
+                <figure class="image">
+                    <img src="{{ MEDIA_URL }}knitting.png" alt="{{ product.name }}">
+                </figure>
+            </div>
+            {% endif %}
+            <div class="card-content">
+                <p class="product-name"> {{ product.name }}
+                </p>
+                <p>
+                    {{ product.colour }}
+                </p>
+                <p class="has-text-weight-bold"> £{{ product.price }}
+                </p>
+                {% if product.rating %}
+                <p>{{ product.rating }}</p>
+                {% else %}
+                <p>No rating</p>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

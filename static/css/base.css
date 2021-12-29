@@ -67,3 +67,12 @@ img .home-button {
 /* footer  */
 
 
+
+/* products  */
+
+/* truncate text if product name too long https: //css-tricks.com/flexbox-truncated-text/  */
+.product-name {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+}
