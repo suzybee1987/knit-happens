@@ -33,7 +33,24 @@ img .home-button {
     }
 }
 /* https://unsplash.com/photos/uYf_C34PAao  */
+.navbar-burger{
+    padding: 42px;
+}
 
+.navbar-menu.is-active {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.notification.is-danger {
+    text-align: center;
+    padding: 0.5rem 2.5rem 0.5rem 1.5rem;
+}
+
+
+.search-form {
+    padding: 12px;
+}
 .hero-bground {
     background: url("../../media/rainbow.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;

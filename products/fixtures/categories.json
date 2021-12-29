@@ -1,0 +1,73 @@
+[{
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "lace",
+            "friendly_name": "Lace"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "2-ply",
+            "friendly_name": "2 Ply/Thread"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "3-ply",
+            "friendly_name": "3 Ply/Sock"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "4-ply",
+            "friendly_name": "4 Ply/Fingering"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "dk",
+            "friendly_name": "Double Knit"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "aran",
+            "friendly_name": "Aran"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "chunky",
+            "friendly_name": "Chunky"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "super-chunky",
+            "friendly_name": "Super Chunky"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.category",
+        "fields": {
+            "name": "special",
+            "friendly_name": "Special Offer"
+        }
+    }
+]
