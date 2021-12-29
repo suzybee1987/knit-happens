@@ -33,7 +33,13 @@ img .home-button {
     }
 }
 /* https://unsplash.com/photos/uYf_C34PAao  */
+.navbar-burger{
+    padding: 42px;
+}
 
+.search-form {
+    padding: 12px;
+}
 .hero-bground {
     background: url("../../media/rainbow.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;

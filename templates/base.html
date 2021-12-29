@@ -47,7 +47,7 @@
             <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{% url 'home' %}">
-                        <img src="media/knitting-black.png" alt="home-button" class="home-button">
+                        <!-- <img src="media/knitting-black.png" alt="home-button" class="home-button"> -->
                         <h1 class="title-heading">Knit Happens</h1>
                     </a>
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -60,7 +60,20 @@
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
-                        
+                        <!-- search form  -->
+                        <div class="column is-vcentered">
+                            <div class="field has-addons search-form">
+                                <div class="control" method="GET" action="">
+                                    <input class="input" type="text" placeholder="Find a product" name="q">
+                                </div>
+                                <div class="control">
+                                    <a class="button is-primary">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end of search form  -->
                     </div>
                     <div class="navbar-end is-hidden-touch">
                         <a class="navbar-item" href="#">
@@ -210,25 +223,25 @@
         // code from Bulma GitHub to fix the navbar menu always open on mobile 
         // https://github.com/jgthms/bulma/issues/2361
         document.addEventListener("DOMContentLoaded", () => {
-                const hamburgerButton = document.querySelector(".navbar-burger");
-                const navMenu = document.querySelector(".navbar-menu");
+            const hamburgerButton = document.querySelector(".navbar-burger");
+            const navMenu = document.querySelector(".navbar-menu");
 
-                hamburgerButton.addEventListener("click", () => {
-                    hamburgerButton.classList.toggle("is-active");
-                    navMenu.classList.toggle("is-active");
-                });
+            hamburgerButton.addEventListener("click", () => {
+                hamburgerButton.classList.toggle("is-active");
+                navMenu.classList.toggle("is-active");
+            });
 
-                const allDropdowns = document.querySelectorAll(
-                    ".navbar-item.has-dropdown"
-                );
+            const allDropdowns = document.querySelectorAll(
+                ".navbar-item.has-dropdown"
+            );
 
-                allDropdowns.forEach((dropdown) => {
-                    dropdown.addEventListener("click", () => {
-                        const elem = dropdown.querySelector(".navbar-dropdown");
-                        elem.classList.toggle("is-active");
-                    });
+            allDropdowns.forEach((dropdown) => {
+                dropdown.addEventListener("click", () => {
+                    const elem = dropdown.querySelector(".navbar-dropdown");
+                    elem.classList.toggle("is-active");
                 });
             });
+        });
     </script>
     {% endblock %}
 
