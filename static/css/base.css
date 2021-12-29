@@ -37,6 +37,12 @@ img .home-button {
     padding: 42px;
 }
 
+.navbar-menu.is-active {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
 .search-form {
     padding: 12px;
 }

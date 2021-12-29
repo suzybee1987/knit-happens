@@ -59,15 +59,15 @@
                 </div>
 
                 <div id="navbarBasicExample" class="navbar-menu">
-                    <div class="navbar-start">
+                    <div class="navbar-start ">
                         <!-- search form  -->
-                        <div class="column is-vcentered">
+                        <div class="column is-vcentered is-hidden-touch">
                             <div class="field has-addons search-form">
                                 <div class="control" method="GET" action="">
                                     <input class="input" type="text" placeholder="Find a product" name="q">
                                 </div>
                                 <div class="control">
-                                    <a class="button is-primary">
+                                    <a class="button is-danger">
                                         <i class="fas fa-search"></i>
                                     </a>
                                 </div>
@@ -75,6 +75,7 @@
                         </div>
                         <!-- end of search form  -->
                     </div>
+                    <!-- right side of navbar hidden mobile  -->
                     <div class="navbar-end is-hidden-touch">
                         <a class="navbar-item" href="#">
                             <img src="../media/blog.png" alt="blog">
@@ -119,50 +120,81 @@
                             </p>
                         </a>
                     </div>
+                    <!-- end of hidden mobile  -->
+                    <!-- navbar end hidden desktop  -->
                     <div class="navbar-end is-hidden-desktop">
+                        <div class="column is-vcentered">
+                            <div class="field has-addons search-form">
+                                <div class="control" method="GET" action="">
+                                    <input class="input" type="text" placeholder="Find a product" name="q">
+                                </div>
+                                <div class="control">
+                                    <a class="button is-danger">
+                                        <i class="fas fa-search"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                         <a class="navbar-item" href="#">
                             <img src="../media/blog.png" alt="blog" class="mobile-icon">
+                            blog
                         </a>
                         {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                         <a class="navbar-item" href="">
                             <img src="../media/admin.png" alt="admin" class="mobile-icon">
+                            admin
                         </a>
                         {% endif %}
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link">
                                 <img src="../media/profile-icon.png" alt="profile-icon" class="mobile-icon">
+                                profile
                             </a>
                             <div class="navbar-dropdown">
-                                <a class="navbar-item" href="">
-                                    see profile
-                                </a>
-                                <a class="navbar-item" href="">
-                                    see orders
-                                </a>
-                                <a class="navbar-item" href="{% url 'account_logout' %}">
-                                    log out
-                                </a>
-                                {% else %}
-                                <a class="navbar-item" href="{% url 'account_login' %}">
-                                    log in
-                                </a>
-                                <a class="navbar-item" href="{% url 'account_signup' %}">
-                                    register
-                                </a>
-                                {% endif %}
+                                <ul>
+                                    <li>
+                                        <a class="navbar-item" href="">
+                                            see profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="navbar-item" href="">
+                                            see orders
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="navbar-item" href="{% url 'account_logout' %}">
+                                            log out
+                                        </a>
+                                    </li>
+                                    {% else %}
+                                    <li>
+                                        <a class="navbar-item" href="{% url 'account_login' %}">
+                                            log in
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="navbar-item" href="{% url 'account_signup' %}">
+                                            register
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+
                             </div>
                         </div>
                         <a class="navbar-item" href="">
                             <img src="../media/bag.png" alt="bag-icon" class="mobile-icon">
-                            <p>{% if grand_total %}
-                                £{{ grand_total|floatformat:2 }}
-                                {% else %}
-                                £0.00
-                                {% endif %}
-                            </p>
+                            {% if grand_total %}
+                            £{{ grand_total|floatformat:2 }}
+                            {% else %}
+                            £0.00
+                            {% endif %}
+
                         </a>
                     </div>
+                    <!-- end of hidden on desktop  -->
                 </div>
             </nav>
         </div>
