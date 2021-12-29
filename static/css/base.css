@@ -42,6 +42,11 @@ img .home-button {
     justify-content: flex-end;
 }
 
+.notification.is-danger {
+    text-align: center;
+    padding: 0.5rem 2.5rem 0.5rem 1.5rem;
+}
+
 
 .search-form {
     padding: 12px;

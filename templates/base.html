@@ -43,7 +43,7 @@
 <body>
     <section class="hero is-large">
         <!-- navigation  -->
-        <div class="hero-head">
+        <header class="hero-head">
             <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{% url 'home' %}">
@@ -197,7 +197,18 @@
                     <!-- end of hidden on desktop  -->
                 </div>
             </nav>
-        </div>
+            <section id="delivery-banner">
+                <div class="notification is-danger">
+                    <div class="columns">
+                        <div class="column is-text-centered">
+                            <h5 class="delivery">
+                                Free delivery on orders over £{{ free_delivery_threshold }}
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
 
 
         {% if messages %}
