@@ -16,6 +16,7 @@ img .home-button {
     font-family: 'Lobster', cursive;
     font-size: 3rem;
     text-align: center;
+
 }
 
 .mobile-icon {
@@ -75,4 +76,19 @@ img .home-button {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+}
+
+.filter-heading {
+    font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+.small-heading{
+    font-size: 1em;
+    text-decoration: underline;
+}
+
+.filter-columns {
+    padding: 20px 0;
 }
