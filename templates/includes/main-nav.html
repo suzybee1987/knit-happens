@@ -1,4 +1,23 @@
 <nav class="navbar is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
+    
+    <div class="navbar-item has-dropdown is-hoverable">
+        <a href="{% url 'products' %}" class="navbar-link">
+            All Products
+        </a>
+        <div class="navbar-dropdown">
+            <a class="navbar-item">
+                By Price
+            </a>
+            <a class="navbar-item">
+                By Category
+            </a>
+            <a class="navbar-item">
+                By Rating
+            </a>
+        </div>
+    </div>
+    
+    
     <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
             Wool
