@@ -8,11 +8,64 @@
 {% block content %}
 <div class="hero-body">
     <div class="">
-        <div class="columns">
+        <div class="columns has-text-centered">
             <div class="column">
-                <h1 class="title-heading has-text-centered ">Products</h1>
+                <h1 class="title-heading has-text-centered is-justify-content-center">Products</h1>
+            {% for c in current_categories %}
+            <a class="button is-danger" href="{% url 'products' %}?category={{ c.name }}">
+                {{ c.friendly_name }}</a>
+            {% endfor %}
+                </a>
             </div>
         </div>
+
+
+        <!-- sorting  -->
+        <div class="columns">
+            <div class="column">
+                <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
+                    <ul>
+                        <li>{% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <a href="{% url 'products' %}">Products Home</a>
+                            {% endif %}
+                        </li>
+                        <li class="is-active">
+                            <a href="#" aria-current="page">{{ products|length }} Products</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="columns is-justify-content-end">
+            <div class="column is-3">
+                <div class="columns is-justify-content-end">
+                    <div class="select my-3">
+                        <select id="sort-selector">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
+                            </option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
+                                (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
+                                (high to low)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
+                                Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
+                                Rating (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                                (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
+                                (Z-A)</option>
+                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
+                                Category (A-Z)</option>
+                            <option value="category_desc"
+                                {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- end of sorting  -->
 
         <!-- filter products  -->
         <div class="columns">
@@ -116,11 +169,13 @@
                 <div class="column is-3-widescreen is-12-mobile is-6-tablet ">
                     <div class="card">
                         {% if product.image %}
-                        <div class="card-image">
-                            <figure class="image is-5by4">
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                            </figure>
-                        </div>
+                        <a href="{% url 'product_detail' product.id %}">
+                            <div class="card-image">
+                                <figure class="image is-5by4">
+                                    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                                </figure>
+                            </div>
+                        </a>
                         {% else %}
                         <div class="card-image">
                             <figure class="image">
@@ -136,6 +191,11 @@
                             </p>
                             <p class="has-text-weight-bold"> £{{ product.price }}
                             </p>
+                            {% if product.category %}
+                            <a href="{% url 'products' %}?category={{ product.category.name }}">
+                                <i class="fas fa-circle is-grey mx-1"></i>{{ product.category.friendly_name }}
+                            </a>
+                            {% endif %}
                             {% if product.rating %}
                             <p>{{ product.rating }}</p>
                             {% else %}

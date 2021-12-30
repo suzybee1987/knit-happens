@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="hero-body">
+    <div class="columns">
+        <div class="column">
+            <h1 class="title-heading has-text-centered ">Products</h1>
+        </div>
+    </div>
+    <div class="columns box  is-justify-content-center">
+        <div class="column box is-one-third">
+            <div class="image">
+                {% if product.image %}
+                <a href="{{ product.image.url }}" target="_blank">
+                    <div class="card-image">
+                        <figure class="image is-5by4">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image"
+                                target="_blank">
+                        </figure>
+                    </div>
+                </a>
+                {% else %}
+                <a href="{{ product.image.url }}" target="_blank">
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="{{ MEDIA_URL }}knitting.png" alt="{{ product.name }}" target="_blank">
+                        </figure>
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="column is-one-third">
+            <table>
+                <tr>
+                    <td>Name: {{ product.name }}</td>
+                </tr>
+                <tr>
+                    <td>Price: £{{ product.price }}</td>
+
+                    {% if product.rating %}
+                <tr>
+                    <td>Rating: {{ product.rating }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>No Rating</td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td>Colour: {{ product.colour }}</td>
+                </tr>
+                <tr>
+                    <td>Description: {{ product.description }}</td>
+                </tr>
+                <tr><td>{% if product.category %}
+                <a href="{% url 'products' %}?category={{ product.category.name }}">
+                    <i class="fas fa-circle is-grey mx-1"></i>{{ product.category.friendly_name }}
+                </a>
+                {% endif %}</td></tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
