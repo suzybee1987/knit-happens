@@ -2,6 +2,12 @@
 /* google fonts  */
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+/* https: //www.w3schools.com/howto/howto_css_smooth_scroll.asp#section2  */
+/* for scrolling down from homepage to product-card-image section  */
+html {
+    scroll-behavior: smooth;
+}
+
 /* navbar */
 
 .navbar-brand img {
@@ -16,7 +22,6 @@ img .home-button {
     font-family: 'Lobster', cursive;
     font-size: 3rem;
     text-align: center;
-
 }
 
 .mobile-icon {
@@ -52,18 +57,75 @@ img .home-button {
 .search-form {
     padding: 12px;
 }
+
+/* home  */
 .hero-bground {
     background: url("../../media/rainbow.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 100vh;
+    height: 150vh;
 }
 
-.image-down {
-    padding-top: 200px;
+.product-card-columns {
+    margin-top: 10vh;
 }
+
+.product-card {
+    padding: 20px;
+    border-color: darkcyan;
+    background-color: darkcyan;
+    border-radius:25px;
+}
+
+
+.notification {
+    padding: 1.5rem; 
+    background-color: unset;
+}
+.image-down {
+    padding-top: 60vh;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-name: bounce-1;
+    animation-timing-function: linear;
+}
+
+@keyframes bounce-1 {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+
+.scroll-down {
+        width: 300px;
+        margin: auto;
+        border-color: white;
+        border-style: solid;
+        border-width: 5px;
+        color: white;
+        font-family: math;
+        font-size: x-large;
+        border-radius: 25px;
+}
+
+.button.is-primary.is-light {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* end of home  */
 
 /* footer  */
 
@@ -92,3 +154,4 @@ img .home-button {
 .filter-columns {
     padding: 20px 0;
 }
+

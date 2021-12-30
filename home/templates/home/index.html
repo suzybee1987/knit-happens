@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %} 
+{% block page_header %}
 <div class="container header-container">
     <div class="row">
         <div class="col"></div>
@@ -12,11 +12,59 @@
 {% block content %}
 <div class="hero-body hero-bground is-full-height">
     <div class="container has-text-centered">
-        <div class="image-down">
-            <a href="#">
-                <img src="media/down.png" alt="scroll down">
-            </a>
+        <div class="columns is-justify-content-center">
+            <div class="column">
+                <div class="image-down">
+                    <h2 class="notification scroll-down">
+                        Check out our store
+                        <a href="#product-card-columns">
+                            <img src="media/down.png" alt="scroll down">
+                        </a>
+                    </h2>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="columns product-card-columns">
+            <div class="column">
+                <div class="card product-card" id="product-card-columns">
+                    <div class="card-image image is-5by4">
+                        <img src="../../../media/2070685.jpg" alt="knitting image">
+                        <a class="button is-primary is-light">Shop All</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card product-card">
+                    <div class="card-image image is-5by4">
+                        <img src="../../../media/7188997.jpg" alt="needles image">
+                        <a class="button is-primary is-light">Shop Wool</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card product-card">
+
+                    <div class="card-image image is-5by4">
+                        <img src="../../../media/7244809.jpg" alt="patterns image">
+                        <a class="button is-primary is-light">Shop Patterns</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns is-justify-content-center">
+            <div class="column is-6">
+                <div class="card">
+                    <h2>Looking for inspiration?</h2>
+                    <h3>
+                        Check out the <a href="">blog</a>
+                    </h3>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+
+
 {% endblock %}

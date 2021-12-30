@@ -2,152 +2,153 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
+
 {% endblock %}
 
 {% block content %}
-<div class="columns">
-    <div class="column">
-        <h1 class="title-heading">Products</h1>
-    </div>
-</div>
-
-<!-- filter products  -->
-<div class="columns">
-    <div class="column is-one-fifth">
-        <h2 class="filter-heading">Filter</h2>
-        <!-- form fibres  -->
-        <div class="filter-columns">
-            <form action="" method="GET" class="has-text-left">
-                <div class="field">
-                    <h3 class="filter-heading">Fibres</h3>
-                    <ul>
-                        <li>
-                            <label class="checkbox" for="wool">
-                                <input type="checkbox" name="wool" id="wool">
-                                Wool
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="merino">
-                                <input type="checkbox" name="merino" id="merino">
-                                Merino
-
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="bamboo">
-                                <input type="checkbox" name="bamboo" id="bamboo">
-                                Bamboo
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="alpaca">
-                                <input type="checkbox" name="alpaca" id="alpaca">
-                                Alpaca
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="acrylic">
-                                <input type="checkbox" name="acrylic" id="acrylic">
-                                Acrylic
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </form>
-        </div>
-        <!-- form weight  -->
-        <div class="filter-columns">
-            <form action="" method="GET" class="has-text-left">
-                <div class="field">
-                    <h3 class="filter-heading">Weight</h3>
-                    <ul>
-                        <li>
-                            <label class="checkbox" for="dk">
-                                <input type="checkbox" name="dk" id="dk">
-                                DK
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="aran">
-                                <input type="checkbox" name="aran" id="aran">
-                                Aran
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="chunky">
-                                <input type="checkbox" name="chunky" id="chunky">
-                                Chunky
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="2ply">
-                                <input type="checkbox" name="2ply" id="2ply">
-                                2-ply
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="3ply">
-                                <input type="checkbox" name="3ply" id="3ply">
-                                3-ply
-                            </label>
-                        </li>
-                        <li>
-                            <label class="checkbox" for="4ply">
-                                <input type="checkbox" name="4ply" id="4ply">
-                                4-ply
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </form>
-        </div>
-        
-    </div>
-
-    <!-- end of filter products  -->
-
-    <!-- products list -->
-    <div class="columns is-multiline">
-        {% for product in products %}
-        <div class="column is-3-widescreen is-12-mobile is-4-tablet ">
-            <div class="card">
-                {% if product.image %}
-                <div class="card-image">
-                    <figure class="image is-5by4">
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
-                    </figure>
-                </div>
-                {% else %}
-                <div class="card-image">
-                    <figure class="image">
-                        <img src="{{ MEDIA_URL }}knitting.png" alt="{{ product.name }}">
-                    </figure>
-                </div>
-                {% endif %}
-                <div class="card-content">
-                    <p class="product-trunc"> {{ product.name }}
-                    </p>
-                    <p class="product-trunc">
-                        {{ product.colour }}
-                    </p>
-                    <p class="has-text-weight-bold"> £{{ product.price }}
-                    </p>
-                    {% if product.rating %}
-                    <p>{{ product.rating }}</p>
-                    {% else %}
-                    <p>No rating</p>
-                    {% endif %}
-
-                </div>
+<div class="hero-body">
+    <div class="">
+        <div class="columns">
+            <div class="column">
+                <h1 class="title-heading has-text-centered ">Products</h1>
             </div>
         </div>
-        {% endfor %}
+
+        <!-- filter products  -->
+        <div class="columns">
+            <div class="column filter is-one-fifth">
+                <h2 class="filter-heading">Filter</h2>
+                <!-- form fibres  -->
+                <div class="filter-columns">
+                    <form action="" method="GET" class="has-text-left">
+                        <div class="field">
+                            <h3 class="filter-heading">Fibres</h3>
+                            <ul>
+                                <li>
+                                    <label class="checkbox" for="wool">
+                                        <input type="checkbox" name="wool" id="wool">
+                                        Wool
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="merino">
+                                        <input type="checkbox" name="merino" id="merino">
+                                        Merino
+
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="bamboo">
+                                        <input type="checkbox" name="bamboo" id="bamboo">
+                                        Bamboo
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="alpaca">
+                                        <input type="checkbox" name="alpaca" id="alpaca">
+                                        Alpaca
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="acrylic">
+                                        <input type="checkbox" name="acrylic" id="acrylic">
+                                        Acrylic
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <!-- form weight  -->
+                <div class="filter-columns">
+                    <form action="" method="GET" class="has-text-left">
+                        <div class="field">
+                            <h3 class="filter-heading">Weight</h3>
+                            <ul>
+                                <li>
+                                    <label class="checkbox" for="dk">
+                                        <input type="checkbox" name="dk" id="dk">
+                                        DK
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="aran">
+                                        <input type="checkbox" name="aran" id="aran">
+                                        Aran
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="chunky">
+                                        <input type="checkbox" name="chunky" id="chunky">
+                                        Chunky
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="2ply">
+                                        <input type="checkbox" name="2ply" id="2ply">
+                                        2-ply
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="3ply">
+                                        <input type="checkbox" name="3ply" id="3ply">
+                                        3-ply
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox" for="4ply">
+                                        <input type="checkbox" name="4ply" id="4ply">
+                                        4-ply
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- end of filter products  -->
+
+            <!-- products list -->
+            <div class="columns is-multiline">
+                {% for product in products %}
+                <div class="column is-3-widescreen is-12-mobile is-6-tablet ">
+                    <div class="card">
+                        {% if product.image %}
+                        <div class="card-image">
+                            <figure class="image is-5by4">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                            </figure>
+                        </div>
+                        {% else %}
+                        <div class="card-image">
+                            <figure class="image">
+                                <img src="{{ MEDIA_URL }}knitting.png" alt="{{ product.name }}">
+                            </figure>
+                        </div>
+                        {% endif %}
+                        <div class="card-content">
+                            <p class="product-trunc"> {{ product.name }}
+                            </p>
+                            <p class="product-trunc">
+                                {{ product.colour }}
+                            </p>
+                            <p class="has-text-weight-bold"> £{{ product.price }}
+                            </p>
+                            {% if product.rating %}
+                            <p>{{ product.rating }}</p>
+                            {% else %}
+                            <p>No rating</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- end of products list  -->
+        </div>
     </div>
-    <!-- end of products list  -->
-    {% endblock %}
+</div>
+{% endblock %}
