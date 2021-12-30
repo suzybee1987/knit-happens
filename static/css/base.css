@@ -45,7 +45,12 @@ img .home-button {
 
 .navbar-menu.is-active {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+}
+
+.navbar-mobile {
+    display:flex;
+    flex-direction: row;
 }
 
 .notification.is-danger {
