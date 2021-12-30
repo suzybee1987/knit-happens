@@ -69,5 +69,102 @@
             "name": "special",
             "friendly_name": "Special Offer"
         }
+    },
+    {
+        "pk": 10,
+        "model": "products.category",
+        "fields": {
+            "name": "2mm",
+            "friendly_name": "2.0mm/US size 0/UK size 14"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.category",
+        "fields": {
+            "name": "2.5mm",
+            "friendly_name": "2.5mm/US size 1.5"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.category",
+        "fields": {
+            "name": "3mm",
+            "friendly_name": "3.0mm/US size 2.5/UK size 11"
+        }
+    }, {
+        "pk": 13,
+        "model": "products.category",
+        "fields": {
+            "name": "3.5mm",
+            "friendly_name": "3.5mm/US size 4"
+        }
+    }, {
+        "pk": 14,
+        "model": "products.category",
+        "fields": {
+            "name": "4mm",
+            "friendly_name": "4.0mm/US size 6/UK size 8"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.category",
+        "fields": {
+            "name": "4.5mm",
+            "friendly_name": "4.5mm/US size 7/UK size 7"
+        }
+    }, {
+        "pk": 16,
+        "model": "products.category",
+        "fields": {
+            "name": "5mm",
+            "friendly_name": "5.0mm/US size 8/UK size 6"
+        }
+    }, {
+        "pk": 17,
+        "model": "products.category",
+        "fields": {
+            "name": "5.5mm",
+            "friendly_name": "5.5mm/US size 9/UK size 5"
+        }
+    }, {
+        "pk": 18,
+        "model": "products.category",
+        "fields": {
+            "name": "6mm",
+            "friendly_name": "6.0mm/US size 10/UK size 4"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.category",
+        "fields": {
+            "name": "6.5mm",
+            "friendly_name": "6.5mm/US size 10.5/UK size 3"
+        }
+    }, {
+        "pk": 20,
+        "model": "products.category",
+        "fields": {
+            "name": "7mm",
+            "friendly_name": "7.0mm/UK size 2"
+        }
+    }, {
+        "pk": 21,
+        "model": "products.category",
+        "fields": {
+            "name": "7.5mm",
+            "friendly_name": "7.5mm/UK size 1"
+        }
+    }, {
+        "pk": 22,
+        "model": "products.category",
+        "fields": {
+            "name": "8mm",
+            "friendly_name": "8mm/US size 11/UK size 0"
+        }
     }
+
 ]

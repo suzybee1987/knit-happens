@@ -47,7 +47,6 @@
             <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{% url 'home' %}">
-                        <!-- <img src="media/knitting-black.png" alt="home-button" class="home-button"> -->
                         <h1 class="title-heading">Knit Happens</h1>
                     </a>
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -62,16 +61,18 @@
                     <div class="navbar-start ">
                         <!-- search form  -->
                         <div class="column is-vcentered is-hidden-touch">
-                            <div class="field has-addons search-form">
-                                <div class="control" method="GET" action="">
-                                    <input class="input" type="text" placeholder="Find a product" name="q">
+                            <form method="GET" action="{% url 'products' %}">
+                                <div class="field has-addons">
+                                    <div class="control">
+                                        <input class="input" type="text" name="q" placeholder="Find something">
+                                    </div>
+                                    <div class="control">
+                                        <a class="button is-danger" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="control">
-                                    <a class="button is-danger">
-                                        <i class="fas fa-search"></i>
-                                    </a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <!-- end of search form  -->
                     </div>
@@ -125,16 +126,18 @@
                     <div class="navbar-end is-hidden-desktop">
                         {% include 'includes/main-nav.html' %}
                         <div class="column is-vcentered">
-                            <div class="field has-addons search-form">
-                                <div class="control" method="GET" action="">
-                                    <input class="input" type="text" placeholder="Find a product" name="q">
+                            <form method="GET" action="{% url 'products' %}">
+                                <div class="field has-addons">
+                                    <div class="control">
+                                        <input class="input" type="text" name="q" placeholder="Find something">
+                                    </div>
+                                    <div class="control">
+                                        <a class="button is-danger" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                                <div class="control">
-                                    <a class="button is-danger">
-                                        <i class="fas fa-search"></i>
-                                    </a>
-                                </div>
-                            </div>
+                            </form>
                         </div>
 
                         <div class="navbar-mobile">
