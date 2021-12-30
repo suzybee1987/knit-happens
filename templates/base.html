@@ -123,6 +123,7 @@
                     <!-- end of hidden mobile  -->
                     <!-- navbar end hidden desktop  -->
                     <div class="navbar-end is-hidden-desktop">
+                        {% include 'includes/main-nav.html' %}
                         <div class="column is-vcentered">
                             <div class="field has-addons search-form">
                                 <div class="control" method="GET" action="">
@@ -135,68 +136,73 @@
                                 </div>
                             </div>
                         </div>
-                        <a class="navbar-item" href="#">
-                            <img src="../media/blog.png" alt="blog" class="mobile-icon">
-                            blog
-                        </a>
-                        {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                        <a class="navbar-item" href="">
-                            <img src="../media/admin.png" alt="admin" class="mobile-icon">
-                            admin
-                        </a>
-                        {% endif %}
-                        <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">
-                                <img src="../media/profile-icon.png" alt="profile-icon" class="mobile-icon">
-                                profile
+
+                        <div class="navbar-mobile">
+                            <a class="navbar-item" href="#">
+                                <img src="../media/blog.png" alt="blog" class="mobile-icon">
+                                <!-- blog -->
                             </a>
-                            <div class="navbar-dropdown">
-                                <ul>
-                                    <li>
-                                        <a class="navbar-item" href="">
-                                            see profile
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="navbar-item" href="">
-                                            see orders
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="navbar-item" href="{% url 'account_logout' %}">
-                                            log out
-                                        </a>
-                                    </li>
-                                    {% else %}
-                                    <li>
-                                        <a class="navbar-item" href="{% url 'account_login' %}">
-                                            log in
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="navbar-item" href="{% url 'account_signup' %}">
-                                            register
-                                        </a>
-                                    </li>
-                                    {% endif %}
-                                </ul>
-
-                            </div>
-                        </div>
-                        <a class="navbar-item" href="">
-                            <img src="../media/bag.png" alt="bag-icon" class="mobile-icon">
-                            {% if grand_total %}
-                            £{{ grand_total|floatformat:2 }}
-                            {% else %}
-                            £0.00
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a class="navbar-item" href="">
+                                <img src="../media/admin.png" alt="admin" class="mobile-icon">
+                                <!-- admin -->
+                            </a>
                             {% endif %}
-
-                        </a>
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    <img src="../media/profile-icon.png" alt="profile-icon" class="mobile-icon">
+                                    <!-- profile -->
+                                </a>
+                                <div class="navbar-dropdown">
+                                    <ul>
+                                        <li>
+                                            <a class="navbar-item" href="">
+                                                see profile
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="navbar-item" href="">
+                                                see orders
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="navbar-item" href="{% url 'account_logout' %}">
+                                                log out
+                                            </a>
+                                        </li>
+                                        {% else %}
+                                        <li>
+                                            <a class="navbar-item" href="{% url 'account_login' %}">
+                                                log in
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="navbar-item" href="{% url 'account_signup' %}">
+                                                register
+                                            </a>
+                                        </li>
+                                        {% endif %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <a class="navbar-item" href="">
+                                <img src="../media/bag.png" alt="bag-icon" class="mobile-icon">
+                                {% if grand_total %}
+                                £{{ grand_total|floatformat:2 }}
+                                {% else %}
+                                £0.00
+                                {% endif %}
+                            </a>
+                        </div>
+                        <!-- end of hidden on desktop  -->
                     </div>
-                    <!-- end of hidden on desktop  -->
                 </div>
             </nav>
+            <div class="is-hidden-touch">
+                {% include 'includes/main-nav.html' %}
+            </div>
+
             <section id="delivery-banner">
                 <div class="notification is-danger">
                     <div class="columns">
@@ -233,7 +239,7 @@
         {% endblock %}
 
         {% block content %}
-        
+
         {% endblock %}
 
         <!-- Hero footer: will stick at the bottom -->
