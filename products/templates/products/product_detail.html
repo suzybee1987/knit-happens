@@ -12,8 +12,8 @@
             <h1 class="title-heading has-text-centered ">Products</h1>
         </div>
     </div>
-    <div class="columns">
-        <div class="column">
+    <div class="columns box  is-justify-content-center">
+        <div class="column box is-one-third">
             <div class="image">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
@@ -35,19 +35,34 @@
                 {% endif %}
             </div>
         </div>
-        <div class="column">
-            <p>{{ product.name }}</p>
-            <p>{{ product.price }}</p>
-            {% if product.rating %}
-            <p>{{ product.rating }}</p>
-            {% else %}
-            <p>No Rating</p>
-            {% endif %}
-            <p>{{ product.description }}</p>
-            <p>{{ product.colour }}</p>
+        <div class="column is-one-third">
+            <table>
+                <tr>
+                    <td>Name: {{ product.name }}</td>
+                </tr>
+                <tr>
+                    <td>Price: £{{ product.price }}</td>
 
+                    {% if product.rating %}
+                <tr>
+                    <td>Rating: {{ product.rating }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>No Rating</td>
+                </tr>
+                {% endif %}
+
+                <tr>
+                    <td>Colour: {{ product.colour }}</td>
+                </tr>
+                <tr>
+                    <td>Description: {{ product.description }}</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
+
 
 {% endblock %}
