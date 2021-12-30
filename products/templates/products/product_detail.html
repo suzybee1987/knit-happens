@@ -59,6 +59,11 @@
                 <tr>
                     <td>Description: {{ product.description }}</td>
                 </tr>
+                <tr><td>{% if product.category %}
+                <a href="{% url 'products' %}?category={{ product.category.name }}">
+                    <i class="fas fa-circle is-grey mx-1"></i>{{ product.category.friendly_name }}
+                </a>
+                {% endif %}</td></tr>
             </table>
         </div>
     </div>
