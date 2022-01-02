@@ -2,13 +2,13 @@
         "pk": 1,
         "model": "products.product",
         "fields": {
-            "sku": "woo-lam-pin-6",
+            "sku": "woo-lam-pin-5",
             "name": "'Lambie' Bah Sleep, 200g",
             "colour": "Pink, purple and blue-green",
-            "description": "Variegated yarn from Lambie sheep in variety of colours, hand wash only",
+            "description": "Variegated yarn made of lambswool in variety of colours, hand wash only",
             "has_sizes": true,
             "price": 8.99,
-            "category": 6,
+            "category": 5,
             "image_url": "https://images.pexels.com/photos/7179228/pexels-photo-7179228.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
             "image": "7179228.jpg"
         }
@@ -17,13 +17,13 @@
         "pk": 2,
         "model": "products.product",
         "fields": {
-            "sku": "woo-ron-gra-2",
+            "sku": "woo-ron-gra-6",
             "name": "3 pack 'Ronan' Bah Sleep, 3 x 100g",
             "colour": "Grey, black and yellow",
-            "description": "100% wool, hand wash only",
+            "description": "100% Melton wool, hand wash only",
             "has_sizes": true,
             "price": 26.99,
-            "category": 2,
+            "category": 6,
             "image_url": "https://images.pexels.com/photos/2061918/pexels-photo-2061918.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             "image": "2061918.jpg"
         }
@@ -32,13 +32,13 @@
         "pk": 3,
         "model": "products.product",
         "fields": {
-            "sku": "mer-fai-cho-2",
+            "sku": "mer-fai-cho-7",
             "name": "4 pack 'Fairy' red mix, 4 x 100g",
             "colour": "Chocolate, ruby, autumn, denim",
             "description": "100% merino, machine wash at 30°C",
             "has_sizes": true,
             "price": 46.99,
-            "category": 5,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2062069/pexels-photo-2062069.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             "image": "2062069.jpg"
         }
@@ -47,7 +47,7 @@
         "pk": 4,
         "model": "products.product",
         "fields": {
-            "sku": "alp-gho-ivory-2",
+            "sku": "alp-gho-ivory-1",
             "name": "3 pack 'Ghost' white mix, 3 x 50g",
             "colour": "Ivory",
             "description": "100% alpaca, hand wash only",
@@ -62,13 +62,13 @@
         "pk": 5,
         "model": "products.product",
         "fields": {
-            "sku": "mer-fai-cho-2",
+            "sku": "mer-fai-cho-1",
             "name": "3 pack 'Ghost' blue mix, 3 x 50g",
             "colour": "Blue Skies",
             "description": "100% alpaca, hand wash only",
             "has_sizes": true,
             "price": 28.99,
-            "category": 2,
+            "category": 1,
             "image_url": "https://images.pexels.com/photos/2070685/pexels-photo-2070685.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             "image": "2070685.jpg"
         }
@@ -88,7 +88,6 @@
             "image": "2070647.jpg"
         }
     },
-
     {
         "pk": 7,
         "model": "products.product",
@@ -104,34 +103,32 @@
             "image": "2070670.jpg"
         }
     },
-
     {
         "pk": 8,
         "model": "products.product",
         "fields": {
-            "sku": "mer-reb-den-3",
+            "sku": "mer-reb-den-7",
             "name": "4 pack 'Rebel' merino, 4 x 50g",
             "colour": "Denim, red, cafe au lait and cream",
             "description": "100% merino wool, hand wash only",
             "has_sizes": true,
             "price": 30.99,
-            "category": 3,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2070676/pexels-photo-2070676.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             "image": "2070676.jpg"
         }
     },
-
     {
         "pk": 9,
         "model": "products.product",
         "fields": {
-            "sku": "mer-kno-blu-4",
+            "sku": "mer-kno-blu-7",
             "name": "4 pack 'Knotty Habit' merino, 4 x 50g",
             "colour": "Blue range",
             "description": "100% merino wool, hand wash only",
             "has_sizes": true,
             "price": 28.99,
-            "category": 4,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2070681/pexels-photo-2070681.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
             "image": "2070681.jpg"
         }
@@ -140,13 +137,13 @@
         "pk": 10,
         "model": "products.product",
         "fields": {
-            "sku": "alp-gho-gre-1",
+            "sku": "alp-gho-gre-2",
             "name": "3 pack 'Ghost' white mix, 3 x 50g",
             "colour": "Grey Skies",
-            "description": "100% alpaca, hand wash only",
+            "description": "100% angora, hand wash only",
             "has_sizes": true,
             "price": 8.99,
-            "category": 1,
+            "category": 2,
             "image_url": "https://images.pexels.com/photos/2070684/pexels-photo-2070684.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2070684.jpg"
         }
@@ -155,13 +152,13 @@
         "pk": 11,
         "model": "products.product",
         "fields": {
-            "sku": "mer-cow-sal-4",
+            "sku": "mer-cow-sal-7",
             "name": "2 pack 'cowgirlblues' salmon, 2 x 100g",
             "colour": "Salmon",
             "description": "100% merino, superwash",
             "has_sizes": true,
             "price": 14.99,
-            "category": 4,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2070687/pexels-photo-2070687.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2070687.jpg"
         }
@@ -170,13 +167,13 @@
         "pk": 12,
         "model": "products.product",
         "fields": {
-            "sku": "cot-moy-ban-7",
+            "sku": "cot-moy-ban-10",
             "name": "'Moya' chunky 100% cotton",
             "colour": "Banana",
             "description": "1 pack of 100% cotton, machine wash 30°C",
             "has_sizes": true,
             "price": 4.99,
-            "category": 7,
+            "category": 10,
             "image_url": "https://images.pexels.com/photos/2399113/pexels-photo-2399113.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399113.jpg"
         }
@@ -185,13 +182,13 @@
         "pk": 13,
         "model": "products.product",
         "fields": {
-            "sku": "mer-kno-blu-1",
+            "sku": "mer-kno-blu-7",
             "name": "3 pack 'Knotty Habit' blue mix, 3 x 50g",
             "colour": "Blue mix",
             "description": "3 pack of 100% merino wool, hand wash only",
             "has_sizes": true,
             "price": 21.99,
-            "category": 1,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2399121/pexels-photo-2399121.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399121.jpg"
         }
@@ -200,13 +197,13 @@
         "pk": 14,
         "model": "products.product",
         "fields": {
-            "sku": "mer-cow-bri-3",
+            "sku": "mer-cow-bri-7",
             "name": "4 pack 'cowgirlblues' brick, 4 x 100g",
             "colour": "Brick combo",
             "description": "100% merino sock wool, superwash",
             "has_sizes": true,
             "price": 30.99,
-            "category": 3,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2399122/pexels-photo-2399122.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399122.jpg"
         }
@@ -215,13 +212,13 @@
         "pk": 15,
         "model": "products.product",
         "fields": {
-            "sku": "mer-kno-for-1",
+            "sku": "mer-kno-for-6",
             "name": "2 pack 'Knotty Habit' forest, 2 x 100g",
             "colour": "Forest",
-            "description": "2 x 100g, 90% merino, 10% linen",
+            "description": "2 x 100g, 100% melton",
             "has_sizes": true,
             "price": 12.99,
-            "category": 1,
+            "category": 6,
             "image_url": "https://images.pexels.com/photos/2399125/pexels-photo-2399125.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399125.jpg"
         }
@@ -230,13 +227,13 @@
         "pk": 16,
         "model": "products.product",
         "fields": {
-            "sku": "bam-pen-ros-2",
+            "sku": "bam-pen-ros-11",
             "name": "3 pack 'Penny' pastel, 3 x 100g",
             "colour": "rose, pink, pistachio",
             "description": "100% bamboo, machine wash at 30°C",
             "has_sizes": true,
             "price": 22.99,
-            "category": 2,
+            "category": 11,
             "image_url": "https://images.pexels.com/photos/2399128/pexels-photo-2399128.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399128.jpg"
         }
@@ -245,13 +242,13 @@
         "pk": 17,
         "model": "products.product",
         "fields": {
-            "sku": "mer-kno-van-1",
+            "sku": "mer-kno-van-7",
             "name": "3 pack 'Knotty Habit' ice cream mix, 3 x 50g",
             "colour": "Vanilla, chocolate, raspberry",
             "description": "100 merino, superwash",
             "has_sizes": true,
             "price": 20.99,
-            "category": 1,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2399132/pexels-photo-2399132.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399132.jpg"
         }
@@ -260,13 +257,13 @@
         "pk": 18,
         "model": "products.product",
         "fields": {
-            "sku": "alp-que-gre-7",
+            "sku": "alp-que-gre-1",
             "name": "3 pack'Quenti' Alpaca, 3 x 100g",
             "colour": "Grey",
             "description": "3 x 100g, 100% alpaca, superwash",
             "has_sizes": true,
             "price": 14.99,
-            "category": 7,
+            "category": 1,
             "image_url": "https://images.pexels.com/photos/2399133/pexels-photo-2399133.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399133.jpg"
         }
@@ -275,13 +272,13 @@
         "pk": 19,
         "model": "products.product",
         "fields": {
-            "sku": "mer-lun-blu-3",
+            "sku": "mer-lun-blu-7",
             "name": "2 pack 'Luna Fibers' Merino, 2 x 100g ",
             "colour": "Blue-white, variegated",
             "description": "2 x 100g, 100% Merino wool, handwash only",
             "has_sizes": true,
             "price": 12.99,
-            "category": 3,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2429058/pexels-photo-2429058.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2429058.jpg"
         }
@@ -290,13 +287,13 @@
         "pk": 20,
         "model": "products.product",
         "fields": {
-            "sku": "mer-cow-rub-4",
+            "sku": "mer-cow-rub-7",
             "name": "'cowgirlblues', Merino 100g",
             "colour": "Ruby Red",
             "description": "100% Merino wool, handwash only",
             "has_sizes": true,
             "price": 4.99,
-            "category": 4,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2429082/pexels-photo-2429082.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2429082.jpg"
         }
@@ -305,13 +302,13 @@
         "pk": 21,
         "model": "products.product",
         "fields": {
-            "sku": "cot-dre-pur-5",
+            "sku": "cot-dre-pur-10",
             "name": "4 pack 'Dreambow' cotton, 4 x 100g",
             "colour": "Purple Rain",
             "description": "100% cotton, machine wash at 30°C",
             "has_sizes": true,
             "price": 16.99,
-            "category": 5,
+            "category": 10,
             "image_url": "https://images.pexels.com/photos/2767653/pexels-photo-2767653.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767653.jpg"
         }
@@ -320,13 +317,13 @@
         "pk": 22,
         "model": "products.product",
         "fields": {
-            "sku": "mer-lun-dar-5",
+            "sku": "mer-lun-dar-7",
             "name": "2 pack 'Luna Fibers' Merino Wool, 2 x 100g",
             "colour": "Daring Red",
             "description": "100% Merino Wool, hand wash only",
             "has_sizes": true,
             "price": 12.99,
-            "category": 5,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/2767655/pexels-photo-2767655.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767655.jpg"
         }
@@ -335,13 +332,13 @@
         "pk": 23,
         "model": "products.product",
         "fields": {
-            "sku": "alp-kal-red-7",
+            "sku": "alp-kal-red-1",
             "name": "'Kaleidoscope' chunky, 100g",
             "colour": "Red",
             "description": "100% Alpaca, superwash",
             "has_sizes": true,
             "price": 7.99,
-            "category": 7,
+            "category": 1,
             "image_url": "https://images.pexels.com/photos/2767657/pexels-photo-2767657.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767657.jpg"
         }
@@ -350,13 +347,13 @@
         "pk": 24,
         "model": "products.product",
         "fields": {
-            "sku": "var-kal-gre-9",
+            "sku": "var-kal-gre-8",
             "name": "'Kaleidoscope', 'Eco-Fusion', 'Moya' bumper pack",
             "colour": "Green",
-            "description": "Bumper pack of 'Kaleidoscope', 'Eco-Fusion', 'Moya' in green tones",
+            "description": "Bumper pack of 'Kaleidoscope', 'Eco-Fusion', 'Moya' in green tones. 100% mohair",
             "has_sizes": true,
             "price": 12.99,
-            "category": 9,
+            "category": 8,
             "image_url": "https://images.pexels.com/photos/2767667/pexels-photo-2767667.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767667.jpg"
         }
@@ -365,13 +362,13 @@
         "pk": 25,
         "model": "products.product",
         "fields": {
-            "sku": "var-kal-blu-9",
+            "sku": "var-kal-blu-8",
             "name": "'Kaleidoscope', 'Eco-Fusion', 'Moya' bumper pack",
             "colour": "Blue",
-            "description": "Bumper pack of 'Kaleidoscope', 'Eco-Fusion', 'Moya' in blue tones",
+            "description": "Bumper pack of 'Kaleidoscope', 'Eco-Fusion', 'Moya' in blue tones. 100% mohair",
             "has_sizes": true,
             "price": 12.99,
-            "category": 9,
+            "category": 8,
             "image_url": "https://images.pexels.com/photos/2767685/pexels-photo-2767685.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767685.jpg"
         }
@@ -380,13 +377,13 @@
         "pk": 26,
         "model": "products.product",
         "fields": {
-            "sku": "var-kal-pin-9",
+            "sku": "var-kal-pin-8",
             "name": "'Kaleidoscope', 'Eco-Fusion', 'Moya' bumper pack",
             "colour": "Pink",
-            "description": "Bumper pack of 'Kaleidoscope', 'Eco-Fusion', 'Moya' in pink tones",
+            "description": "Bumper pack of 'Kaleidoscope', 'Eco-Fusion', 'Moya' in pink tones. 100% mohair",
             "has_sizes": true,
             "price": 12.99,
-            "category": 9,
+            "category": 8,
             "image_url": "https://images.pexels.com/photos/2767687/pexels-photo-2767687.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767687.jpg"
         }
@@ -395,13 +392,13 @@
         "pk": 27,
         "model": "products.product",
         "fields": {
-            "sku": "bam-eco-red-8",
+            "sku": "bam-eco-red-11",
             "name": "'Eco-Fusion' bamboo 50g",
             "colour": "Red",
             "description": "100% bamboo wool, machine washable at 30°C",
             "has_sizes": true,
             "price": 4.99,
-            "category": 8,
+            "category": 11,
             "image_url": "https://images.pexels.com/photos/2767689/pexels-photo-2767689.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767689.jpg"
         }
@@ -410,15 +407,325 @@
         "pk": 28,
         "model": "products.product",
         "fields": {
-            "sku": "mer-luc-lav-2",
+            "sku": "mer-luc-lav-7",
             "name": "'Lucious Lavender' 4 x 100g ",
             "colour": "Lavender",
             "description": "100% merino, machine washable at 30°C",
             "has_sizes": true,
             "price": 29.99,
-            "category": 2,
+            "category": 7,
             "image_url": "https://images.pexels.com/photos/7179222/pexels-photo-7179222.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "7179222.jpg"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "products.product",
+        "fields": {
+            "sku": "mer-day-var-7",
+            "name": "Day at the Park, 5 x 100g",
+            "colour": "Variegated pink, green, yellow, grey",
+            "description": "100% merino, handwash only",
+            "has_sizes": true,
+            "price": 34.99,
+            "category": 7,
+            "image_url": "https://images.pexels.com/photos/7179225/pexels-photo-7179225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7179225.jpg"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "products.product",
+        "fields": {
+            "sku": "mer-day-var-7",
+            "name": "Day at the Park, 5 x 100g",
+            "colour": "Variegated pink, green, yellow, grey",
+            "description": "100% merino, handwash only",
+            "has_sizes": true,
+            "price": 32.99,
+            "category": 7,
+            "image_url": "https://images.pexels.com/photos/7179228/pexels-photo-7179228.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7179228.jpg"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "products.product",
+        "fields": {
+            "sku": "ang-sim-lav-2",
+            "name": "Simple Days, 3 x 100g",
+            "colour": "Lavender daisies",
+            "description": "100% angora wool, hand wash only",
+            "has_sizes": true,
+            "price": 23.99,
+            "category": 2,
+            "image_url": "https://images.pexels.com/photos/7179261/pexels-photo-7179261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7179261.jpg"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "products.product",
+        "fields": {
+            "sku": "cam-dol-pur-3",
+            "name": "'Dollface' 4 x 100g",
+            "colour": "Purple Paradise Pack",
+            "description": "100% Camel Hair wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/7179266/pexels-photo-7179266.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7179266.jpg"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "products.product",
+        "fields": {
+            "sku": "cam-dol-ras-3",
+            "name": "'Dollface' 4 x 100g",
+            "colour": "Raspberry Ripple & Vanilla",
+            "description": "100% Camel Hair wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/7179283/pexels-photo-7179283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7179283.jpg"
+        }
+    }, {
+        "pk": 34,
+        "model": "products.product",
+        "fields": {
+            "sku": "cam-dol-van-3",
+            "name": "'Dollface' 4 x 100g",
+            "colour": "Raspberry Ripple & Blueberry Sorbet",
+            "description": "100% Camel Hair wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/7188989/pexels-photo-7188989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7188989.jpg"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "products.product",
+        "fields": {
+            "sku": "cam-dol-del-3",
+            "name": "'Dollface' 3 x 100g",
+            "colour": "Raspberry Delight",
+            "description": "100% Camel Hair wool, hand wash only",
+            "has_sizes": true,
+            "price": 23.99,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/7188997/pexels-photo-7188997.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7188997.jpg"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "products.product",
+        "fields": {
+            "sku": "cas-emb-per-4",
+            "name": "'Embellish' 2 x 100g",
+            "colour": "Periwinkle",
+            "description": "100% Cashmere wool, hand wash only",
+            "has_sizes": true,
+            "price": 23.99,
+            "category": 4,
+            "image_url": "https://images.pexels.com/photos/7188999/pexels-photo-7188999.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7188999.jpg"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "products.product",
+        "fields": {
+            "sku": "cas-bow-sun-4",
+            "name": "'Bowling for Wool' 3 x 100g",
+            "colour": "Sunset Beach",
+            "description": "100% Cashmere wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 4,
+            "image_url": "https://images.pexels.com/photos/7244805/pexels-photo-7244805.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7244805.jpg"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "products.product",
+        "fields": {
+            "sku": "ang-bow-tur-2",
+            "name": "'Bowling for Wool' 3 x 100g",
+            "colour": "Turquoise Dance",
+            "description": "100% Angora wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 2,
+            "image_url": "https://images.pexels.com/photos/7244809/pexels-photo-7244805.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7244809.jpg"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "products.product",
+        "fields": {
+            "sku": "bam-kni-bam-11",
+            "name": "'Knitting Pro' Bamboo Knitting Needles",
+            "colour": "Bamboo",
+            "description": "Bamboo straight Knitting Needles",
+            "has_sizes": true,
+            "price": 3.99,
+            "category": 11,
+            "image_url": "https://images.pexels.com/photos/2061918/pexels-photo-2061918.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2061918.jpg"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "products.product",
+        "fields": {
+            "sku": "bam-kni-woo-14",
+            "name": "'Knitting Pro' Wooden Knitting Needles",
+            "colour": "Bamboo",
+            "description": "Wooden straight Knitting Needles",
+            "has_sizes": true,
+            "price": 2.99,
+            "category": 14,
+            "image_url": "https://images.pexels.com/photos/2062061/pexels-photo-2062061.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2062061.jpg"
+        }
+    },
+    {
+        "pk": 41,
+        "model": "products.product",
+        "fields": {
+            "sku": "oak-bol-oak-13",
+            "name": "'Bold Choice' crochet hook",
+            "colour": "Oak",
+            "description": "100% oak crochet hook with knobbled grip",
+            "has_sizes": true,
+            "price": 5.99,
+            "category": 13,
+            "image_url": "https://images.pexels.com/photos/2399133/pexels-photo-2399133.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2399133.jpg"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-que-kni-16",
+            "name": "'Quenti Alpaca' Cushion Cover Knitting Pattern",
+            "colour": "Various",
+            "description": "Knitting pattern for cable knit cushion with buttons. 100 x 100 stitches 10cm swatch 5.0mm needle",
+            "has_sizes": false,
+            "price": 5.99,
+            "category": 16,
+            "image_url": "https://images.pexels.com/photos/2399133/pexels-photo-2399133.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2399133.jpg"
+        }
+    },
+    {
+        "pk": 43,
+        "model": "products.product",
+        "fields": {
+            "sku": "met-bol-met-12",
+            "name": "'Bold Choice' Circular Knitting Needles",
+            "colour": "metal",
+            "description": "Metal Circular Knitting Needles with 80cm wire",
+            "has_sizes": true,
+            "price": 9.99,
+            "category": 12,
+            "image_url": "https://images.pexels.com/photos/2429082/pexels-photo-2429082.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2429082.jpg"
+        }
+    },
+    {
+        "pk": 44,
+        "model": "products.product",
+        "fields": {
+            "sku": "cre-spe-cro-12",
+            "name": "'Special Choice' crochet hook",
+            "colour": "Cream",
+            "description": "Crochet hook with plastic handle",
+            "has_sizes": true,
+            "price": 2.97,
+            "category": 12,
+            "image_url": "https://images.pexels.com/photos/7244809/pexels-photo-7244805.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7244809.jpg"
+        }
+    },
+    {
+        "pk": 45,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-aut-kni-16",
+            "name": "'Autograph' 3 x jumper knitting patterns",
+            "colour": "Various",
+            "description": "3 knitting patterns for ribbed jumpers 100 x 100 stitches 10cm swatch 5.0mm needle",
+            "has_sizes": false,
+            "price": 12.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/close-up-photo-of-three-sweatshirts-1030946/",
+            "image": "combo-jumpers.jpg"
+        }
+    }, {
+        "pk": 46,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-she-kni-16",
+            "name": "'Sheepish' cable knit blanket pattern",
+            "colour": "various",
+            "description": "Knitting pattern for cable knit blanket. Various sizes displayed using 5.0mm, 6.0mm and 7.0mm knitting needles. Cable needle required. ",
+            "has_sizes": false,
+            "price": 3.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/stack-of-warm-scarfs-on-table-5704188/",
+            "image": "cable-blanket.jpg"
+        }
+    }, {
+        "pk": 47,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-mad-rib-16",
+            "name": "'Madison' knitted jumper pattern",
+            "colour": "various",
+            "description": "Ribbed collar knitted jumper pattern using size 5.0mm needles",
+            "has_sizes": false,
+            "price": 4.97,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/woolen-sweater-put-on-back-of-chair-4210854/",
+            "image": "sweater.jpg"
+        }
+    }, {
+        "pk": 48,
+        "model": "products.product",
+        "fields": {
+            "sku": "bro-slo-slo-16",
+            "name": "'Slopey' sweater knitting pattern",
+            "colour": "Brown, cream",
+            "description": "Slopey sweater knitting pattern using size 6.0mm knitting needles",
+            "has_sizes": false,
+            "price": 4.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/woman-wearing-a-knitted-sweater-holding-a-wreath-5709905/",
+            "image": "stripey-sweater.jpg"
+        }
+    }, {
+        "pk": 49,
+        "model": "products.product",
+        "fields": {
+            "sku": "",
+            "name": "'Ohio' ribbed hat knitting pattern",
+            "colour": "various",
+            "description": "Ribbed knitting pattern for cosy hat for the winter. Made up using 4.0mm knitting needles.",
+            "has_sizes": false,
+            "price": 3.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/contemplative-ethnic-woman-with-curly-hair-in-snowfall-7585607/",
+            "image": "ribbed-hat.jpg"
         }
     }
 ]

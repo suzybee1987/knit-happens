@@ -134,7 +134,10 @@ img .home-button {
 
 /* footer  */
 
-
+.hero-foot {
+    border-top: 3px grey solid;
+    padding: 20px;
+}
 
 /* products  */
 
