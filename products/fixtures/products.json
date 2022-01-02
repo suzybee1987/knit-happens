@@ -88,7 +88,6 @@
             "image": "2070647.jpg"
         }
     },
-
     {
         "pk": 7,
         "model": "products.product",
@@ -104,7 +103,6 @@
             "image": "2070670.jpg"
         }
     },
-
     {
         "pk": 8,
         "model": "products.product",
@@ -120,7 +118,6 @@
             "image": "2070676.jpg"
         }
     },
-
     {
         "pk": 9,
         "model": "products.product",
@@ -420,7 +417,8 @@
             "image_url": "https://images.pexels.com/photos/7179222/pexels-photo-7179222.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "7179222.jpg"
         }
-    }, {
+    },
+    {
         "pk": 29,
         "model": "products.product",
         "fields": {
@@ -434,7 +432,8 @@
             "image_url": "https://images.pexels.com/photos/7179225/pexels-photo-7179225.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "7179225.jpg"
         }
-    }, {
+    },
+    {
         "pk": 30,
         "model": "products.product",
         "fields": {
@@ -448,7 +447,8 @@
             "image_url": "https://images.pexels.com/photos/7179228/pexels-photo-7179228.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "7179228.jpg"
         }
-    }, {
+    },
+    {
         "pk": 31,
         "model": "products.product",
         "fields": {
@@ -459,11 +459,11 @@
             "has_sizes": true,
             "price": 23.99,
             "category": 2,
-            "rating": 4.3,
             "image_url": "https://images.pexels.com/photos/7179261/pexels-photo-7179261.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "7179261.jpg"
         }
-    }, {
+    },
+    {
         "pk": 32,
         "model": "products.product",
         "fields": {
@@ -474,9 +474,258 @@
             "has_sizes": true,
             "price": 31.99,
             "category": 3,
-            "rating": 4.6,
-            "image_url": "https://",
-            "image": ".jpg"
+            "image_url": "https://images.pexels.com/photos/7179266/pexels-photo-7179266.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7179266.jpg"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "products.product",
+        "fields": {
+            "sku": "cam-dol-ras-3",
+            "name": "'Dollface' 4 x 100g",
+            "colour": "Raspberry Ripple & Vanilla",
+            "description": "100% Camel Hair wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/7179283/pexels-photo-7179283.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7179283.jpg"
+        }
+    }, {
+        "pk": 34,
+        "model": "products.product",
+        "fields": {
+            "sku": "cam-dol-van-3",
+            "name": "'Dollface' 4 x 100g",
+            "colour": "Raspberry Ripple & Blueberry Sorbet",
+            "description": "100% Camel Hair wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/7188989/pexels-photo-7188989.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7188989.jpg"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "products.product",
+        "fields": {
+            "sku": "cam-dol-del-3",
+            "name": "'Dollface' 3 x 100g",
+            "colour": "Raspberry Delight",
+            "description": "100% Camel Hair wool, hand wash only",
+            "has_sizes": true,
+            "price": 23.99,
+            "category": 3,
+            "image_url": "https://images.pexels.com/photos/7188997/pexels-photo-7188997.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7188997.jpg"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "products.product",
+        "fields": {
+            "sku": "cas-emb-per-4",
+            "name": "'Embellish' 2 x 100g",
+            "colour": "Periwinkle",
+            "description": "100% Cashmere wool, hand wash only",
+            "has_sizes": true,
+            "price": 23.99,
+            "category": 4,
+            "image_url": "https://images.pexels.com/photos/7188999/pexels-photo-7188999.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7188999.jpg"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "products.product",
+        "fields": {
+            "sku": "cas-bow-sun-4",
+            "name": "'Bowling for Wool' 3 x 100g",
+            "colour": "Sunset Beach",
+            "description": "100% Cashmere wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 4,
+            "image_url": "https://images.pexels.com/photos/7244805/pexels-photo-7244805.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7244805.jpg"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "products.product",
+        "fields": {
+            "sku": "ang-bow-tur-2",
+            "name": "'Bowling for Wool' 3 x 100g",
+            "colour": "Turquoise Dance",
+            "description": "100% Angora wool, hand wash only",
+            "has_sizes": true,
+            "price": 31.99,
+            "category": 2,
+            "image_url": "https://images.pexels.com/photos/7244809/pexels-photo-7244805.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7244809.jpg"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "products.product",
+        "fields": {
+            "sku": "bam-kni-bam-11",
+            "name": "'Knitting Pro' Bamboo Knitting Needles",
+            "colour": "Bamboo",
+            "description": "Bamboo straight Knitting Needles",
+            "has_sizes": true,
+            "price": 3.99,
+            "category": 11,
+            "image_url": "https://images.pexels.com/photos/2061918/pexels-photo-2061918.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2061918.jpg"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "products.product",
+        "fields": {
+            "sku": "bam-kni-woo-14",
+            "name": "'Knitting Pro' Wooden Knitting Needles",
+            "colour": "Bamboo",
+            "description": "Wooden straight Knitting Needles",
+            "has_sizes": true,
+            "price": 2.99,
+            "category": 14,
+            "image_url": "https://images.pexels.com/photos/2062061/pexels-photo-2062061.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2062061.jpg"
+        }
+    },
+    {
+        "pk": 41,
+        "model": "products.product",
+        "fields": {
+            "sku": "oak-bol-oak-13",
+            "name": "'Bold Choice' crochet hook",
+            "colour": "Oak",
+            "description": "100% oak crochet hook with knobbled grip",
+            "has_sizes": true,
+            "price": 5.99,
+            "category": 13,
+            "image_url": "https://images.pexels.com/photos/2399133/pexels-photo-2399133.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2399133.jpg"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-que-kni-16",
+            "name": "'Quenti Alpaca' Cushion Cover Knitting Pattern",
+            "colour": "Various",
+            "description": "Knitting pattern for cable knit cushion with buttons. 100 x 100 stitches 10cm swatch 5.0mm needle",
+            "has_sizes": false,
+            "price": 5.99,
+            "category": 16,
+            "image_url": "https://images.pexels.com/photos/2399133/pexels-photo-2399133.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2399133.jpg"
+        }
+    },
+    {
+        "pk": 43,
+        "model": "products.product",
+        "fields": {
+            "sku": "met-bol-met-12",
+            "name": "'Bold Choice' Circular Knitting Needles",
+            "colour": "metal",
+            "description": "Metal Circular Knitting Needles with 80cm wire",
+            "has_sizes": true,
+            "price": 9.99,
+            "category": 12,
+            "image_url": "https://images.pexels.com/photos/2429082/pexels-photo-2429082.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "2429082.jpg"
+        }
+    },
+    {
+        "pk": 44,
+        "model": "products.product",
+        "fields": {
+            "sku": "cre-spe-cro-12",
+            "name": "'Special Choice' crochet hook",
+            "colour": "Cream",
+            "description": "Crochet hook with plastic handle",
+            "has_sizes": true,
+            "price": 2.97,
+            "category": 12,
+            "image_url": "https://images.pexels.com/photos/7244809/pexels-photo-7244805.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "image": "7244809.jpg"
+        }
+    },
+    {
+        "pk": 45,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-aut-kni-16",
+            "name": "'Autograph' 3 x jumper knitting patterns",
+            "colour": "Various",
+            "description": "3 knitting patterns for ribbed jumpers 100 x 100 stitches 10cm swatch 5.0mm needle",
+            "has_sizes": false,
+            "price": 12.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/close-up-photo-of-three-sweatshirts-1030946/",
+            "image": "combo-jumpers.jpg"
+        }
+    }, {
+        "pk": 46,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-she-kni-16",
+            "name": "'Sheepish' cable knit blanket pattern",
+            "colour": "various",
+            "description": "Knitting pattern for cable knit blanket. Various sizes displayed using 5.0mm, 6.0mm and 7.0mm knitting needles. Cable needle required. ",
+            "has_sizes": false,
+            "price": 3.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/stack-of-warm-scarfs-on-table-5704188/",
+            "image": "cable-blanket.jpg"
+        }
+    }, {
+        "pk": 47,
+        "model": "products.product",
+        "fields": {
+            "sku": "var-mad-rib-16",
+            "name": "'Madison' knitted jumper pattern",
+            "colour": "various",
+            "description": "Ribbed collar knitted jumper pattern using size 5.0mm needles",
+            "has_sizes": false,
+            "price": 4.97,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/woolen-sweater-put-on-back-of-chair-4210854/",
+            "image": "sweater.jpg"
+        }
+    }, {
+        "pk": 48,
+        "model": "products.product",
+        "fields": {
+            "sku": "bro-slo-slo-16",
+            "name": "'Slopey' sweater knitting pattern",
+            "colour": "Brown, cream",
+            "description": "Slopey sweater knitting pattern using size 6.0mm knitting needles",
+            "has_sizes": false,
+            "price": 4.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/woman-wearing-a-knitted-sweater-holding-a-wreath-5709905/",
+            "image": "stripey-sweater.jpg"
+        }
+    }, {
+        "pk": 49,
+        "model": "products.product",
+        "fields": {
+            "sku": "",
+            "name": "'Ohio' ribbed hat knitting pattern",
+            "colour": "various",
+            "description": "Ribbed knitting pattern for cosy hat for the winter. Made up using 4.0mm knitting needles.",
+            "has_sizes": false,
+            "price": 3.99,
+            "category": 16,
+            "image_url": "https://www.pexels.com/photo/contemplative-ethnic-woman-with-curly-hair-in-snowfall-7585607/",
+            "image": "ribbed-hat.jpg"
         }
     }
 ]

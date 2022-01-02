@@ -98,21 +98,32 @@
         "pk": 13,
         "model": "products.category",
         "fields": {
-            "name": "acrylic",
-            "friendly_name": "Acrylic"
+            "name": "oak",
+            "friendly_name": "Oak"
         }
-    }, {
+    },
+    {
         "pk": 14,
         "model": "products.category",
         "fields": {
             "name": "wooden",
             "friendly_name": "Wooden"
         }
-    }, {
+    },
+    {
         "pk": 15,
         "model": "products.category",
         "fields": {
             "name": "carbon-fibre",
             "friendly_name": "Carbon Fibre"
         }
+    },
+    {
+        "pk": 16,
+        "model": "products.category",
+        "fields": {
+            "name": "knitting-pattern",
+            "friendly_name": "Knitting Pattern"
+        }
     }
+]
