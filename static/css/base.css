@@ -27,7 +27,8 @@ img .home-button {
 .mobile-icon {
     max-height: 1.5rem;
 }
- /* code from Bulma GitHub to fix the navbar menu always open on mobile 
+
+/* code from Bulma GitHub to fix the navbar menu always open on mobile 
  https://github.com/jgthms/bulma/issues/2361 */
 @media screen and (max-width: 1024px) {
     .navbar-dropdown .is-active {
@@ -38,8 +39,9 @@ img .home-button {
         display: none;
     }
 }
+
 /* https://unsplash.com/photos/uYf_C34PAao  */
-.navbar-burger{
+.navbar-burger {
     padding: 42px;
 }
 
@@ -49,7 +51,7 @@ img .home-button {
 }
 
 .navbar-mobile {
-    display:flex;
+    display: flex;
     flex-direction: row;
 }
 
@@ -81,14 +83,15 @@ img .home-button {
     padding: 20px;
     border-color: darkcyan;
     background-color: darkcyan;
-    border-radius:25px;
+    border-radius: 25px;
 }
 
 
 .notification {
-    padding: 1.5rem; 
+    padding: 1.5rem;
     background-color: unset;
 }
+
 .image-down {
     padding-top: 60vh;
     animation-duration: 1.5s;
@@ -110,16 +113,17 @@ img .home-button {
         transform: translateY(0);
     }
 }
+
 .scroll-down {
-        width: 300px;
-        margin: auto;
-        border-color: white;
-        border-style: solid;
-        border-width: 5px;
-        color: white;
-        font-family: math;
-        font-size: x-large;
-        border-radius: 25px;
+    width: 300px;
+    margin: auto;
+    border-color: white;
+    border-style: solid;
+    border-width: 5px;
+    color: white;
+    font-family: math;
+    font-size: x-large;
+    border-radius: 25px;
 }
 
 .button.is-primary.is-light {
@@ -140,9 +144,9 @@ img .home-button {
 
 /* truncate text if product name too long https: //css-tricks.com/flexbox-truncated-text/  */
 .product-trunc {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .filter-heading {
@@ -151,7 +155,7 @@ img .home-button {
     text-decoration: underline;
 }
 
-.small-heading{
+.small-heading {
     font-size: 1em;
     text-decoration: underline;
 }
@@ -168,9 +172,9 @@ img .home-button {
     right: 10px;
 
 
-      display: none;
-      position: fixed;
-      z-index: 99;
+    display: none;
+    position: fixed;
+    z-index: 99;
 }
 
 .btt-link {
@@ -179,3 +183,35 @@ img .home-button {
 
 /* end of Boutique  */
 
+/* Product detail  */
+/* help from w3schools to make the accordian https://www.w3schools.com/howto/howto_js_accordion.asp */
+.accordion {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion:hover {
+    background-color: #ccc;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+
+/* end of product detail  */
+
+/* bag  */
+.total-column {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+
+}
+
+/* end of bag  */

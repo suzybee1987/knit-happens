@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block content %}
+<!-- heading  -->
+<div class="container">
+    <div class="columns">
+        <div class="column">
+            <h2 class="title-heading">Shopping Bag</h2>
+        </div>
+    </div>
+</div>
+<!-- end of heading  -->
+
+<div class="columns is-multiline">
+    {% if bag_items %}
+    {% for item in bag_items %}
+    <div class="column is-3-widescreen is-12-mobile is-6-tablet ">
+        <div class="card">
+            {% if item.image %}
+            <a href="{% url 'product_detail' item.id %}">
+                <div class="card-image">
+                    <figure class="image is-5by4">
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="item-image">
+                    </figure>
+                </div>
+            </a>
+            {% else %}
+            <div class="card-image">
+                <figure class="image">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                </figure>
+            </div>
+            {% endif %}
+            <div class="card-content">
+                <p class="item-trunc"> {{ item.product.name }}
+                </p>
+                <p class="item-trunc">
+                    {{ item.product.colour }}
+                </p>
+                <p class="has-text-weight-bold"> £{{ item.product.price }}
+                </p>
+                {% if item.product.category %}
+                <a href="{% url 'products' %}?category={{ item.category.name }}">
+                    <i class="fas fa-circle is-grey mx-1"></i>{{ item.product.category.friendly_name }}
+                </a>
+                {% endif %}
+                {% if item.product.rating %}
+                <p>{{ item.product.rating }}</p>
+                {% else %}
+                <p>No rating</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+<!-- back to products  -->
+<div class="columns">
+    <div class="column has-text-centered">
+        <a href="{% url 'products' %}" class="button is-danger is-outlined">
+            <i class="fas fa-angle-left mr-1"></i>Keep Shopping
+        </a>
+    </div>
+</div>
+<!-- end of back to products  -->
+<!-- checkout button  -->
+<div class="columns">
+    <div class="column has-text-centered">
+        <a href="{% url 'products' %}" class="button is-danger">
+            <i class="fas fa-lock"></i>Secure Checkout
+        </a>
+    </div>
+</div>
+<!-- end of back to products  -->
+{% else %}
+<!-- back to products  -->
+<div class="columns">
+    <div class="column has-text-centered">
+        <a href="{% url 'products' %}" class="button is-danger is-outlined">
+            <i class="fas fa-angle-left mr-1"></i>Keep Shopping
+        </a>
+    </div>
+</div>
+<!-- end of back to products  -->
+{% endif %}
+</div>
+
+
+{% endblock %}
