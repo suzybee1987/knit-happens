@@ -87,9 +87,10 @@
                 <div class="columns">
                     <div class="field column">
                         <div class="control">
-                            <button class="button is-danger">Add to bag</button>
+                            <input type="submit" class="button is-danger" value="Add to Bag">
                         </div>
                     </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
             </form>
 
@@ -97,7 +98,7 @@
     </div> <!-- back to products  -->
     <div class="columns">
         <div class="column has-text-centered">
-            <a href="{% url 'products' %}" class="button is-danger">
+            <a href="{% url 'products' %}" class="button is-danger is-outlined">
                 <i class="fas fa-angle-left mr-1"></i>Keep Shopping
             </a>
         </div>
