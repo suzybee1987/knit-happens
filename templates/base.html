@@ -111,7 +111,7 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <a class="navbar-item" href="">
+                        <a class="navbar-item" href="{% url 'view_bag' %}">
                             <img src="../media/bag.png" alt="bag-icon">
                             <p>{% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
@@ -189,7 +189,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <a class="navbar-item" href="">
+                            <a class="navbar-item" href="{% url 'view_bag' %}">
                                 <img src="../media/bag.png" alt="bag-icon" class="mobile-icon">
                                 {% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
@@ -217,6 +217,7 @@
                     </div>
                 </div>
             </section>
+            
         </header>
 
 

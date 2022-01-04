@@ -110,9 +110,6 @@ img .home-button {
         transform: translateY(0);
     }
 }
-
-
-
 .scroll-down {
         width: 300px;
         margin: auto;
@@ -162,4 +159,23 @@ img .home-button {
 .filter-columns {
     padding: 20px 0;
 }
+
+/* from Boutique Ado  */
+.btt-button {
+    height: 42px;
+    width: 42px;
+    bottom: 10px;
+    right: 10px;
+
+
+      display: none;
+      position: fixed;
+      z-index: 99;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
+/* end of Boutique  */
 

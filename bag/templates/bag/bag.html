@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="hero-body has-text-centered">
+    <div class="columns">
+        <div class="column">
+            <h1 class="title-heading has-text-centered is-justify-content-center">Products</h1>
+        </div>
+    </div>
+
+    {% if bag_items %}
+    <table>
+
+    </table>
+    {% else %}
+    <p>Your bag is empty</p>
+    <a href="{% url 'products' %}" class="button is-danger">
+        <i class="fas fa-angle-left mr-1"></i>Keep Shopping
+    </a>
+    {% endif %}
+
+</div>
+
+{% endblock %}
