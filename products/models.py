@@ -23,6 +23,7 @@ class Product(models.Model):
     colour = models.CharField(max_length=254)
     description = models.TextField()
     has_sizes = models.BooleanField(null=True, blank=True, default=False)
+    has_weights = models.BooleanField(null=True, blank=True, default=False)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)

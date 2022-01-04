@@ -7,12 +7,14 @@
 
 {% block content %}
 <div class="hero-body">
+
     <div class="columns">
         <div class="column">
             <h1 class="title-heading has-text-centered ">Products</h1>
         </div>
     </div>
-    <div class="columns box  is-justify-content-center">
+
+    <div class="columns box is-justify-content-center">
         <div class="column box is-one-third">
             <div class="image">
                 {% if product.image %}
@@ -59,15 +61,269 @@
                 <tr>
                     <td>Description: {{ product.description }}</td>
                 </tr>
-                <tr><td>{% if product.category %}
-                <a href="{% url 'products' %}?category={{ product.category.name }}">
-                    <i class="fas fa-circle is-grey mx-1"></i>{{ product.category.friendly_name }}
-                </a>
-                {% endif %}</td></tr>
+                <tr>
+                    <td>{% if product.category %}
+                        <a href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-circle is-grey mx-1"></i>{{ product.category.friendly_name }}
+                        </a>
+                        {% endif %}</td>
+                </tr>
             </table>
+            <!-- form for quantity of items to add to bag  -->
+            <form action="{% url 'add_to_bag' product.id %}" method="POST">
+                {% csrf_token %}
+                {% with product.has_sizes as s %}
+                {% if s %}
+                <div class="column">Size:
+                    <div class="select is-success">
+                        <select>
+                            <option selected>Select size</option>
+                            <option value="2.0mm">2.0mm</option>
+                            <option value="2.5mm">2.5mm</option>
+                            <option value="3.0mm">3.0mm</option>
+                            <option value="3.5mm">3.5mm</option>
+                            <option value="4.0mm">4.0mm</option>
+                            <option value="4.5mm">4.5mm</option>
+                            <option value="5.0mm">5.0mm</option>
+                            <option value="5.5mm">5.5mm</option>
+                            <option value="6.0mm">6.0mm</option>
+                            <option value="6.5mm">6.5mm</option>
+                            <option value="7.0mm">7.0mm</option>
+                            <option value="7.5mm">7.5mm</option>
+                            <option value="8.0mm">8.0mm</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="column">
+                    <button type="button" class="button is-info is-light accordion">Knitting Needle Size Conversion
+                        Table</button>
+                    <div class="panel">
+                        <table class="table is-bordered is-striped">
+                            <thead>
+                                <tr>
+                                    <th>Metric (mm)</th>
+                                    <th>UK (old)</th>
+                                    <th>USA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2.0mm</td>
+                                    <td>14</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>2.5mm</td>
+                                    <td>N/A</td>
+                                    <td>1.5</td>
+                                </tr>
+                                <tr>
+                                    <td>3.0mm</td>
+                                    <td>11</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>3.5mm</td>
+                                    <td>N/A</td>
+                                    <td>4</td>
+                                </tr>
+                                <tr>
+                                    <td>4.0mm</td>
+                                    <td>8</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>4.5mm</td>
+                                    <td>7</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>5.0mm</td>
+                                    <td>6</td>
+                                    <td>8</td>
+                                </tr>
+                                <tr>
+                                    <td>5.5mm</td>
+                                    <td>5</td>
+                                    <td>9</td>
+                                </tr>
+                                <tr>
+                                    <td>6.0mm</td>
+                                    <td>4</td>
+                                    <td>10</td>
+                                </tr>
+                                <tr>
+                                    <td>6.5mm</td>
+                                    <td>3</td>
+                                    <td>10.5</td>
+                                </tr>
+                                <tr>
+                                    <td>7.0mm</td>
+                                    <td>2</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>7.5mm</td>
+                                    <td>1</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>8.0mm</td>
+                                    <td>0</td>
+                                    <td>11</td>
+                        </table>
+                    </div>
+                    <button type="button" class="button is-info is-light accordion">Crochet Hook Size Conversion
+                        Table</button>
+                    <div class="panel">
+                        <table class="table is-bordered is-striped">
+                            <thead>
+                                <tr>
+                                    <th>Metric (mm)</th>
+                                    <th>UK (old)</th>
+                                    <th>USA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2.0mm</td>
+                                    <td>14</td>
+                                    <td>B/1</td>
+                                </tr>
+                                <tr>
+                                    <td>2.5mm</td>
+                                    <td>12</td>
+                                    <td>C/2</td>
+                                </tr>
+                                <tr>
+                                    <td>3.0mm</td>
+                                    <td>11</td>
+                                    <td>N/A</td>
+                                </tr>
+                                <tr>
+                                    <td>3.5mm</td>
+                                    <td>9</td>
+                                    <td>E/4</td>
+                                </tr>
+                                <tr>
+                                    <td>4.0mm</td>
+                                    <td>8</td>
+                                    <td>G/6</td>
+                                </tr>
+                                <tr>
+                                    <td>4.5mm</td>
+                                    <td>7</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>5.0mm</td>
+                                    <td>6</td>
+                                    <td>H/8</td>
+                                </tr>
+                                <tr>
+                                    <td>5.5mm</td>
+                                    <td>5</td>
+                                    <td>I/9</td>
+                                </tr>
+                                <tr>
+                                    <td>6.0mm</td>
+                                    <td>4</td>
+                                    <td>J/10</td>
+                                </tr>
+                                <tr>
+                                    <td>6.5mm</td>
+                                    <td>3</td>
+                                    <td>K/10.5</td>
+                                </tr>
+                                <tr>
+                                    <td>7.0mm</td>
+                                    <td>2</td>
+                                    <td>N/A</td>
+                                </tr>
+
+                                <tr>
+                                    <td>8.0mm</td>
+                                    <td>0</td>
+                                    <td>N/A</td>
+                        </table>
+                    </div>
+                </div>
+                {% endif %}
+                {% endwith %}
+                {% with product.has_weights as w %}
+                {% if w %}
+                <div class="column">Weight:
+                    <div class="select is-success">
+                        <select>
+                            <option selected>Select weight</option>
+                            <option value="lace">Lace</option>
+                            <option value="sock fingering">Sock, Fingering</option>
+                            <option value="sport baby">Sport, Baby</option>
+                            <option value="dk light worsted">DK, Light Worsted</option>
+                            <option value="worsted">Worsted</option>
+                            <option value="chunky bulky">Chunky, Bulky</option>
+                            <option value="bulky">Bulky</option>
+                        </select>
+                    </div>
+                </div>
+                {% endif %}
+                {% endwith %}
+                <label class="label" for="quantity">Qty:</label>
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" type="number" name="quantity" value="1" min="1" max="99"
+                                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"
+                                    placeholder="Text input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns">
+                    <div class="field column">
+                        <div class="control">
+                            <input type="submit" class="button is-danger" value="Add to Bag">
+                        </div>
+                    </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </div>
+            </form>
+        </div>
+    </div> <!-- back to products  -->
+    <div class="columns">
+        <div class="column has-text-centered">
+            <a href="{% url 'products' %}" class="button is-danger is-outlined">
+                <i class="fas fa-angle-left mr-1"></i>Keep Shopping
+            </a>
         </div>
     </div>
+    <!-- end of back to products  -->
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            /* Toggle between adding and removing
+               the "active" class, to highlight the button that controls the panel */
+            this.classList.toggle("active");
+            /* Toggle
+               between hiding and showing the active panel */
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
 
 {% endblock %}
