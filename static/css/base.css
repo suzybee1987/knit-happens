@@ -240,3 +240,12 @@ img .home-button {
     overflow-y: hidden;
 }
 /* end of toast  */
+
+
+/* checkout  */
+
+.payment-column {
+    border-left: 2px solid grey;
+}
+
+/* end of checkout  */
