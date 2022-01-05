@@ -36,6 +36,12 @@
                     <div class="media">
                         <div class="media-content">
                             <p class="title is-6">{{ item.product.name }}</p>
+                            <p class="subtitle is-6">
+                                {% if item.product.has_sizes %}Size:{{ item.size|upper }}{% else %}N/A{% endif %}
+                            </p>
+                             <p class="subtitle is-6">
+                                 {% if item.product.has_weights %}Weight:{{ item.weight|upper }}{% else %}N/A{% endif %}
+                             </p>
                             <p class="subtitle is-6">SKU: {{ item.product.sku|upper }}</p>
                             <p class="subtitle is-6">Price: £{{ item.product.price }}</p>
                             <p class="subtitle is-6">Quantity: {{ item.quantity }}</p>
