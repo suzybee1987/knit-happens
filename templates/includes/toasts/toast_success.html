@@ -1,10 +1,53 @@
-<div class="toast" data-autohide="false">
+<div class="toast custom-toast" data-autohide="false">
     <div class="arrow-up arrow-success"></div>
     <div class="bg-success"></div>
     <div class="notification is-primary">
         <button class="delete" aria-label="close"></button>
         <h4>Success!</h4>
-        {{ message }}
+
+        <div class="columns">
+            <div class="column">
+                {{ message }}
+            </div>
+        </div>
+        {% if grand_total %}
+
+        <div class="bag-notification-wrapper">
+            {% for item in bag_items %}
+            <div class="columns">
+                <div class="column is-6">
+                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                </div>
+                <div class="column is-6">
+                    <p> {{ item.product.name }}</p>
+                    <p>{% if product.has_sizes %}Size:{{ item.size|upper }}{% endif %}</p>
+                    <p>Qty: {{ item.quantity }}</p>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+        <div class="columns">
+            <div class="column">
+                <strong>
+                    <p>
+                        Total{% if free_delivery_delta > 0 %} (Exc. delivery){% endif %}:
+                        <span class="float-right">${{ total|floatformat:2 }}</span>
+                    </p>
+                </strong>
+                {% if free_delivery_delta > 0 %}
+                <p>
+                    Spend <strong>£{{ free_delivery_delta }}</strong> more to get free next day delivery!
+                </p>
+                {% endif %}
+                <a href="{% url 'view_bag' %}">
+                    <span>Go To Secure Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
+            </div>
+            {% endif %}
+        </div>
     </div>
 </div>
-

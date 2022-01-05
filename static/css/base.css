@@ -227,9 +227,16 @@ img .home-button {
 
 .custom-toast {
     overflow: visible;
+    max-width: 50vw;
 }
 
 .toast-capper {
     height: 2px;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 /* end of toast  */
