@@ -242,14 +242,14 @@
         "pk": 16,
         "model": "products.product",
         "fields": {
-            "sku": "bam-pen-ros-11",
+            "sku": "alp-pen-ros-1",
             "name": "3 pack 'Penny' pastel, 3 x 100g",
             "colour": "rose, pink, pistachio",
-            "description": "100% bamboo, machine wash at 30°C",
+            "description": "100% alpaca, machine wash at 30°C",
             "has_sizes": false,
             "has_weights": true,
             "price": 22.99,
-            "category": 11,
+            "category": 1,
             "image_url": "https://images.pexels.com/photos/2399128/pexels-photo-2399128.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2399128.jpg"
         }
@@ -418,10 +418,10 @@
         "pk": 27,
         "model": "products.product",
         "fields": {
-            "sku": "bam-eco-red-11",
-            "name": "'Eco-Fusion' bamboo 50g",
+            "sku": "bam-eco-red-1",
+            "name": "'Eco-Fusion' alpaca 50g",
             "colour": "Red",
-            "description": "100% bamboo wool, machine washable at 30°C",
+            "description": "100% alpaca wool, machine washable at 30°C",
             "has_sizes": false,
             "has_weights": true,
             "price": 4.99,

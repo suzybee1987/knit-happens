@@ -37,14 +37,35 @@
                         <div class="media-content">
                             <p class="title is-6">{{ item.product.name }}</p>
                             <p class="subtitle is-6">
-                                {% if item.product.has_sizes %}Size:{{ item.size|upper }}{% else %}N/A{% endif %}
+                                {% if item.product.has_sizes %}Size:{{ item.size|upper }}{% endif %}
                             </p>
-                             <p class="subtitle is-6">
-                                 {% if item.product.has_weights %}Weight:{{ item.weight|upper }}{% else %}N/A{% endif %}
-                             </p>
+                            <p class="subtitle is-6">
+                                {% if item.product.has_weights %}Weight:{{ item.weight|upper }}{% endif %}
+                            </p>
                             <p class="subtitle is-6">SKU: {{ item.product.sku|upper }}</p>
                             <p class="subtitle is-6">Price: £{{ item.product.price }}</p>
-                            <p class="subtitle is-6">Quantity: {{ item.quantity }}</p>
+                            <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                                {% csrf_token %}
+                                <div class="columns is-justify-content-center">
+                                    <div class="column is-6">
+                                        <div class="field">
+                                            <div class="control">
+                                                <input class="input" type="number" name="quantity"
+                                                    value="{{ item.quantity }}" min="0" max="99"
+                                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}"
+                                                    placeholder="Quantity">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% if item.product.has_sizes %}
+                                <input type="hidden" name="product_size" value="{{ item.size }}">
+                                {% endif %}
+                                {% if item.product.has_weights %}
+                                <input type="hidden" name="product_weight" value="{{ item.weight }}">
+                                {% endif %}
+                                <button class="button is-danger" type="submit">Update</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -52,19 +73,24 @@
             <div class="column  total-column">
                 <div class="content has-text-right">
                     <p> Total: £{{ total|floatformat:2 }}</p>
-                    <p>Delivery cost: £{{ delivery|floatformat:2 }}</p>
-                    <p>Grand total: £{{ grand_total|floatformat:2 }}</p>
-                    {% if free_delivery_delta > 0 %}
-                    <p>You could get free delivery if you spend {{ free_delivery_delta }} more</p>
-                    {% endif %}
                 </div>
             </div>
         </div>
         <hr>
         {% endfor %}
+        <div class="column  total-column">
+            <div class="content has-text-right">
+                <p> Total: £{{ total|floatformat:2 }}</p>
+                <p>Delivery cost: £{{ delivery|floatformat:2 }}</p>
+                <p>Grand total: £{{ grand_total|floatformat:2 }}</p>
+                {% if free_delivery_delta > 0 %}
+                <p>You could get free delivery if you spend {{ free_delivery_delta }} more</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
-</div>
+
 
 <!-- back to products  -->
 <div class="columns">
