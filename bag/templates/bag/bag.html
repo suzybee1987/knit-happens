@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
 
@@ -66,6 +67,8 @@
                                 {% endif %}
                                 <button class="button is-danger" type="submit">Update</button>
                             </form>
+                            <a class="remove-item is-light is-danger button" id="remove_{{ item.item_id }}"
+                                data-product_size="{{ item.size }}">Remove</a>
                         </div>
                     </div>
                 </div>
@@ -121,6 +124,33 @@
 <!-- end of back to products  -->
 {% endif %}
 </div>
+{% endblock %}
 
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    // Update quantity on click
+    // $('.update-link').click(function (e) {
+    //     var form = $(this).prev('.update-form');
+    //     form.submit();
+    // })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/bag/remove/${itemId}/`;
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'product_size': size
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
 
 {% endblock %}
