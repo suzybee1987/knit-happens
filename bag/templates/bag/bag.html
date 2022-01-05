@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 {% block page_header %}
 
@@ -13,15 +14,16 @@
     </div>
 </div>
 <!-- end of heading  -->
+{% if bag_items %}
 <div class="columns is-justify-content-center">
     <div class="column is-10">
         <div class="columns">
             <div class="column title is-5 is-underlined">Items in your bag: </div>
             <div class="column"></div>
-            <div class="column title is-5 has-text-right is-underlined">Total:</div>
+            <div class="column title is-5 has-text-right is-underlined">Totals</div>
         </div>
         <hr>
-        {% if bag_items %}
+
         {% for item in bag_items %}
         <div class="columns is-multiline">
             <div class="column">
@@ -66,6 +68,8 @@
                                 {% endif %}
                                 <button class="button is-danger" type="submit">Update</button>
                             </form>
+                            <a class="remove-item is-light is-danger button" id="remove_{{ item.item_id }}"
+                                data-product_size="{{ item.size }}">Remove</a>
                         </div>
                     </div>
                 </div>
@@ -103,7 +107,7 @@
     <!-- checkout button  -->
 
     <div class="column has-text-centered">
-        <a href="{% url 'products' %}" class="button is-danger">
+        <a href="{% url 'checkout' %}" class="button is-danger">
             <i class="fas fa-lock mr-1"></i>Secure Checkout
         </a>
     </div>
@@ -111,16 +115,43 @@
 <!-- end of back to products  -->
 {% else %}
 <!-- back to products  -->
-<div class="columns">
-    <div class="column has-text-centered">
-        <a href="" class="button is-danger is-outlined">
-            <i class="fas fa-angle-left mr-1"></i>Keep Shopping
-        </a>
+<div class="hero is-halfheight container">
+    <div class="hero-body">
+        <div class="columns is-multiline has-text-centered">
+            <div class="column">
+                <h4>You haven't got anything in your bag!</h4>
+                <h3>See the blog for some inspiration or</h3>
+                <a href="{% url 'products' %}" class="button is-danger is-outlined">
+                    <i class="fas fa-angle-left mr-1"></i>Keep Shopping
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 <!-- end of back to products  -->
 {% endif %}
 </div>
+{% endblock %}
 
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    // Remove item and reload on click
+    $('.remove-item').click(function (e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/bag/remove/${itemId}/`;
+        var data = {
+            'csrfmiddlewaretoken': csrfToken,
+            'product_size': size
+        };
+
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
+</script>
 
 {% endblock %}

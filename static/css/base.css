@@ -215,3 +215,37 @@ img .home-button {
 }
 
 /* end of bag  */
+
+
+/* toast  */
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+    max-width: 50vw;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
+.bag-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+/* end of toast  */
+
+
+/* checkout  */
+
+.payment-column {
+    border-left: 2px solid grey;
+}
+
+/* end of checkout  */

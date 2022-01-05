@@ -21,6 +21,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <!-- uni-form css for crispy fields -->
+    <link rel="stylesheet" href="{% static 'css/uni-form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.uni-form.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
@@ -31,6 +34,8 @@
     <script src="https://kit.fontawesome.com/3f6b0a0556.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- uni-form jquery  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
@@ -217,12 +222,26 @@
                     </div>
                 </div>
             </section>
-            
+
         </header>
 
 
         {% if messages %}
-      
+        <div class="message-container">
+            {% for message in messages %}
+            {% with message.level as level %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+        </div>
         {% endif %}
 
         {% block page_header %}
@@ -273,7 +292,15 @@
 
     {% block postloadjs %}
     <script>
-        // $('.toast').toast('show');
+        document.addEventListener('DOMContentLoaded', () => {
+            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+                const $notification = $delete.parentNode;
+
+                $delete.addEventListener('click', () => {
+                    $notification.parentNode.removeChild($notification);
+                });
+            });
+        });
 
         // code from Bulma GitHub to fix the navbar menu always open on mobile 
         // https://github.com/jgthms/bulma/issues/2361
@@ -295,6 +322,15 @@
                     const elem = dropdown.querySelector(".navbar-dropdown");
                     elem.classList.toggle("is-active");
                 });
+            });
+        });
+    </script>
+    <script type="text/javascript" src="path/to/file/uni-form-validation.jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Initialize Uni-Form
+            $(function () {
+                $('form.uniForm').uniform();
             });
         });
     </script>
