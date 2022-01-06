@@ -1,1 +1,1 @@
-web: gunicorn suzybee-knit-happens.wsgi:application
+web: gunicorn knit-happens.wsgi:application
