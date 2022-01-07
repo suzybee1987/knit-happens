@@ -84,17 +84,17 @@
                     <!-- right side of navbar hidden mobile  -->
                     <div class="navbar-end is-hidden-touch">
                         <a class="navbar-item" href="#">
-                            <img src="../media/blog.png" alt="blog">
+                            <img src="{{ MEDIA_URL }}blog.png" alt="blog">
                         </a>
                         {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                         <a class="navbar-item" href="">
-                            <img src="../media/admin.png" alt="admin">
+                            <img src="{{ MEDIA_URL }}admin.png" alt="admin">
                         </a>
                         {% endif %}
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link">
-                                <img src="../media/profile-icon.png" alt="profile-icon">
+                                <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                             </a>
                             <div class="navbar-dropdown is-right">
                                 <a class="navbar-item" href="">
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                         <a class="navbar-item" href="{% url 'view_bag' %}">
-                            <img src="../media/bag.png" alt="bag-icon">
+                            <img src="{{ MEDIA_URL }}bag.png" alt="bag-icon">
                             <p>{% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
                                 {% else %}
@@ -146,20 +146,21 @@
                         </div>
 
                         <div class="navbar-mobile">
+                            <!-- blog -->
                             <a class="navbar-item" href="#">
-                                <img src="../media/blog.png" alt="blog" class="mobile-icon">
-                                <!-- blog -->
+                                <img src="{{ MEDIA_URL }}blog.png" alt="blog" class="mobile-icon">
+
                             </a>
                             {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
+                            <!-- admin -->
                             <a class="navbar-item" href="">
-                                <img src="../media/admin.png" alt="admin" class="mobile-icon">
-                                <!-- admin -->
+                                <img src="{{ MEDIA_URL }}admin.png" alt="admin" class="mobile-icon">
                             </a>
                             {% endif %}
                             <div class="navbar-item has-dropdown is-hoverable">
                                 <a class="navbar-link">
-                                    <img src="../media/profile-icon.png" alt="profile-icon" class="mobile-icon">
+                                    <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon" class="mobile-icon">
                                     <!-- profile -->
                                 </a>
                                 <div class="navbar-dropdown">
@@ -193,15 +194,16 @@
                                         {% endif %}
                                     </ul>
                                 </div>
+
+                                <a class="navbar-item" href="{% url 'view_bag' %}">
+                                    <img src="{{ MEDIA_URL }}bag.png" alt="bag-icon" class="mobile-icon">
+                                    {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    £0.00
+                                    {% endif %}
+                                </a>
                             </div>
-                            <a class="navbar-item" href="{% url 'view_bag' %}">
-                                <img src="../media/bag.png" alt="bag-icon" class="mobile-icon">
-                                {% if grand_total %}
-                                £{{ grand_total|floatformat:2 }}
-                                {% else %}
-                                £0.00
-                                {% endif %}
-                            </a>
                         </div>
                         <!-- end of hidden on desktop  -->
                     </div>
@@ -222,7 +224,6 @@
                     </div>
                 </div>
             </section>
-
         </header>
 
 
