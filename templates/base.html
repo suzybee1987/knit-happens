@@ -32,10 +32,10 @@
 
     {% block corejs %}
     <script src="https://kit.fontawesome.com/3f6b0a0556.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <!-- uni-form jquery  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script> -->
     <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
@@ -325,7 +325,7 @@
             });
         });
     </script>
-    <script type="text/javascript" src="path/to/file/uni-form-validation.jquery.js"></script>
+    <script type="text/javascript" src="{% static 'js/uni-form-validation.jquery.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             // Initialize Uni-Form
