@@ -22,15 +22,144 @@
         <!-- end of heading  -->
 
         <div class="columns">
-            <div class="column"></div>
+            <div class="column">
+                <div class="order-confirmation-wrapper">
+                    <div class="columns">
+                        <div class="column">Order info:</div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p>Order number:</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.order_number }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">Order date:</div>
+                        <div class="column">
+                            <p>{{ order.date }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">Order details:</div>
+                    </div>
+
+                    {% for i in order.lineitems.all %}
+                    <div class="columns">
+                        <div class="column">
+                            <p>{{ item.product.name}}{% if item.product_size %} - Size:
+                                {{ item.product_size|upper }}{% endif %}</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ item.quantity }} at £{{ item.price }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <div class="columns">
+                        <div class="column">Shipping to:</div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <div class="column">
+                                <p>Full name</p>
+                            </div>
+                            <p>{{ order.full_name }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p> Street address 1</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.street_address1 }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p> Street address 2</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.street_address2 }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p> Town/City</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.town_or_city }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p>County</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.county }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p>Postcode</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.postcode }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p>Country</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.country }}</p>
+
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">Phone number</div>
+                        <div class="column">
+                            <p>{{ order.phone_number }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">Email address</div>
+                        <div class="column">
+                            <p>{{ order.email }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">Billing info:</div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">
+                            <p>Subtotal</p>
+                        </div>
+                        <div class="column">
+                            <p>{{ order.order_total }}</p>
+                        </div>
+                    </div>
+                    <div class="columns">
+                        <div class="column">Delivery Charges</div>
+                    </div>
+                    <div class="column">
+                        <p>{{ order.delivery_cost }}</p>
+                    </div>
+                    <div class="columns">
+                        <div class="column">Grand Total</div>
+                    </div>
+                    <div class="column">
+                        <p>{{ order.grand_total }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="column">
             <div class="column">
                 <!-- blog url here  -->
-                Please show us what you made with your goodies! You can share on our 
-                <a href="">blog</a><i
-                    class="far fa-kiss-wink-heart"></i>
+                Please show us what you made with your goodies! You can share on our
+                <a href="">blog</a><i class="far fa-kiss-wink-heart"></i>
             </div>
         </div>
         {% endblock %}
