@@ -1,1 +1,1 @@
-web: gunicorn knit-happens.wsgi:application
+web: gunicorn knit_happens.wsgi:application

@@ -114,7 +114,7 @@ LOGIN_URL = '/accounts/login/'  # log in page
 LOGIN_REDIRECT_URL = '/'
 
 
-WSGI_APPLICATION = 'knit-happens.wsgi.application'
+WSGI_APPLICATION = 'knit_happens.wsgi.application'
 
 
 # Database
