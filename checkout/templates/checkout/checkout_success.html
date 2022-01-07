@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-body">
+        <!-- heading  -->
+        <div class="columns">
+            <div class="column">
+                <h2 class="title-heading">Thank you!</h2>
+                <p>Your order information is below, a confirmation email will be sent o {{ order.email }}</p>
+            </div>
+        </div>
+        <!-- end of heading  -->
+
+        <div class="columns">
+            <div class="column"></div>
+        </div>
+
+        <div class="column">
+            <div class="column">
+                <!-- blog url here  -->
+                Please show us what you made with your goodies! You can share on our 
+                <a href="">blog</a><i
+                    class="far fa-kiss-wink-heart"></i>
+            </div>
+        </div>
+        {% endblock %}
