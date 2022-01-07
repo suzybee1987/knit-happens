@@ -13,19 +13,30 @@
 <div class="hero">
     <div class="hero-body">
         <!-- heading  -->
-        <div class="columns">
-            <div class="column">
-                <h2 class="title-heading">Thank you!</h2>
-                <p>Your order information is below, a confirmation email will be sent o {{ order.email }}</p>
+        <div class="columns is-justify-content-center">
+            <div class="column is-8-fullhd is-12-mobile has-text-centered">
+                <h2 class="title-heading">Thank you for shopping small business!</h2>
+                <p>Your order information is below, a confirmation email will be sent to you at {{ order.email }}</p>
             </div>
         </div>
         <!-- end of heading  -->
 
-        <div class="columns">
-            <div class="column">
-                <div class="order-confirmation-wrapper">
+        <div class="columns is-justify-content-center">
+            <div class="column is-8-fullhd is-12-mobile">
+                <!-- blog url here  -->
+                <h3 class="notification is-danger">Please show us what you made with your goodies!</h3>
+                <h4 class="notification has-text-centered">You can share your makes on our
+                    <a href="" class="is-light block is-danger">blog</a></h4>
+            </div>
+        </div>
+
+        <div class="columns is-justify-content-center">
+            <div class="column is-8-fullhd is-12-mobile">
+                <div class="box">
                     <div class="columns">
-                        <div class="column">Order info:</div>
+                        <h3 class="column has-text-centered is-underlined">
+                            Order info:
+                        </h3>
                     </div>
                     <div class="columns">
                         <div class="column">
@@ -36,130 +47,144 @@
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column">Order date:</div>
+                        <div class="column">
+                            <p>Order date:</p>
+                        </div>
                         <div class="column">
                             <p>{{ order.date }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column">Order details:</div>
+                        <div class="column">
+                            <p>Order details:</p>
+                        </div>
                     </div>
 
-                    {% for i in order.lineitems.all %}
+                    {% for item in order.lineitems.all %}
                     <div class="columns">
                         <div class="column">
                             <p>{{ item.product.name}}{% if item.product_size %} - Size:
                                 {{ item.product_size|upper }}{% endif %}</p>
                         </div>
                         <div class="column">
-                            <p>{{ item.quantity }} at £{{ item.price }}</p>
+                            <p>{{ item.quantity }} at £{{ item.product.price }}</p>
                         </div>
                     </div>
                     {% endfor %}
                     <div class="columns">
-                        <div class="column">Shipping to:</div>
+                        <div class="column has-text-centered is-underlined">Shipping to:</div>
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <div class="column">
-                                <p>Full name</p>
-                            </div>
+                            <p>Full name:</p>
+                        </div>
+                        <div class="column">
                             <p>{{ order.full_name }}</p>
                         </div>
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <p> Street address 1</p>
+                            <p> Street address 1:</p>
                         </div>
                         <div class="column">
                             <p>{{ order.street_address1 }}</p>
                         </div>
                     </div>
+                    {% if order.street_address2 %}
                     <div class="columns">
                         <div class="column">
-                            <p> Street address 2</p>
+                            <p> Street address 2:</p>
                         </div>
                         <div class="column">
                             <p>{{ order.street_address2 }}</p>
                         </div>
                     </div>
+                    {% endif %}
                     <div class="columns">
                         <div class="column">
-                            <p> Town/City</p>
+                            <p> Town/City:</p>
                         </div>
                         <div class="column">
                             <p>{{ order.town_or_city }}</p>
                         </div>
                     </div>
+
+                    {% if order.county %}
                     <div class="columns">
                         <div class="column">
-                            <p>County</p>
+                            <p>County:</p>
                         </div>
                         <div class="column">
                             <p>{{ order.county }}</p>
                         </div>
                     </div>
+                    {% endif %}
+                    {% if order.postcode %}
+
                     <div class="columns">
                         <div class="column">
-                            <p>Postcode</p>
+                            <p>Postcode:</p>
                         </div>
                         <div class="column">
                             <p>{{ order.postcode }}</p>
                         </div>
                     </div>
+                    {% endif %}
                     <div class="columns">
                         <div class="column">
-                            <p>Country</p>
+                            <p>Country:</p>
                         </div>
                         <div class="column">
                             <p>{{ order.country }}</p>
-
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column">Phone number</div>
+                        <div class="column">
+                            <p>Phone number:</p>
+                        </div>
                         <div class="column">
                             <p>{{ order.phone_number }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column">Email address</div>
+                        <div class="column">
+                            <p>Email address:</p>
+                        </div>
                         <div class="column">
                             <p>{{ order.email }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column">Billing info:</div>
+                        <div class="column has-text-centered is-underlined">Billing info:</div>
                     </div>
                     <div class="columns">
                         <div class="column">
-                            <p>Subtotal</p>
+                            <p>Subtotal:</p>
                         </div>
                         <div class="column">
-                            <p>{{ order.order_total }}</p>
+                            <p>£{{ order.order_total }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column">Delivery Charges</div>
-                    </div>
-                    <div class="column">
-                        <p>{{ order.delivery_cost }}</p>
+                        <div class="column">
+                            <p>Delivery Charges:</p>
+                        </div>
+                        <div class="column">
+                            <p>£{{ order.delivery_cost }}</p>
+                        </div>
                     </div>
                     <div class="columns">
-                        <div class="column">Grand Total</div>
-                    </div>
-                    <div class="column">
-                        <p>{{ order.grand_total }}</p>
+                        <div class="column">
+                            <p>Grand Total:</p>
+                        </div>
+                        <div class="column">
+                            <p>£{{ order.grand_total }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="column">
-            <div class="column">
-                <!-- blog url here  -->
-                Please show us what you made with your goodies! You can share on our
-                <a href="">blog</a><i class="far fa-kiss-wink-heart"></i>
-            </div>
-        </div>
-        {% endblock %}
+{% endblock %}
