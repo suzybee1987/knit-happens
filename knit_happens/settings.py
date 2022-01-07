@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites', # works with the social media accounts
+    'django.contrib.sites',  # works with the social media accounts
     'allauth',
     'allauth.account',
-    'allauth.socialaccount', # allows users to log in with facebook/google etc
+    'allauth.socialaccount',  # allows users to log in with facebook/google etc
 
     'home',
     'products',
@@ -78,7 +78,8 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request', # required by allauth - Allows allauth and django to access HTTP request objects
+                'django.template.context_processors.request',
+                    # required by allauth - Allows allauth and django to access HTTP request objects
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -106,12 +107,13 @@ SITE_ID = 1
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # tells allauth we want to authenticate with username or email
-ACCOUNT_EMAIL_REQUIRED = True  # confirm email required for site
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # verify the email is valid
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True  # email required twice to check for typos
-ACCOUNT_USERNAME_MIN_LENGTH = 4  # username min length
-LOGIN_URL = '/accounts/login/'  # log in page
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+    # tells allauth we want to authenticate with username or email
+ACCOUNT_EMAIL_REQUIRED = True   # confirm email required for site
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'   # verify the email is valid
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True   # email required twice to check for typos
+ACCOUNT_USERNAME_MIN_LENGTH = 4   # username min length
+LOGIN_URL = '/accounts/login/'   # log in page
 LOGIN_REDIRECT_URL = '/'
 
 
@@ -198,7 +200,7 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-# stripe 
+# stripe
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'gbp'
