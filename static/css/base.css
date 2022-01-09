@@ -105,6 +105,10 @@ img .home-button {
     padding: 12px;
 }
 
+nav.navbar.is-justify-content-space-evenly {
+    z-index: 1;
+}
+
 /* home  */
 
 .hero-body {

@@ -101,7 +101,7 @@
                             <a class="navbar-link">
                                 <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                             </a>
-                            <div class="navbar-dropdown is-right">
+                            <div class="navbar-dropdown">
                                 <a class="navbar-item" href="">
                                     see profile
                                 </a>
@@ -115,8 +115,9 @@
                         </div>
                         {% else %}
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">
-                                <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
+                            <a class="navbar-link is-arrowless">
+                                <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon"><i
+                                    class="fas fa-angle-down"></i>
                             </a>
                             <div class="navbar-dropdown is-right">
                                 <a class="navbar-item is-hidden-touch" href="{% url 'account_login' %}">
@@ -141,6 +142,7 @@
                     <!-- end of hidden mobile  -->
                     <!-- navbar end hidden desktop  -->
                     <div class="navbar-end is-hidden-desktop">
+                        {% include 'includes/main-nav.html' %}
                         <div class="column is-vcentered">
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
@@ -155,7 +157,7 @@
                                 </div>
                             </form>
                         </div>
-{% include 'includes/main-nav.html' %}
+
                         <div class="navbar-mobile">
                             <!-- blog -->
                             <a class="navbar-item" href="#">
@@ -168,7 +170,7 @@
                             </a>
                             {% endif %}
                             {% if request.user.is_authenticated %}
-                            <div class="navbar-item has-dropdown is-hoverable">
+                            <div class="navbar-item has-dropdown is-hoverable mobile">
                                 <a class="navbar-link">
                                     <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                                 </a>

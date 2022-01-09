@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const allDropdowns = document.querySelectorAll(
-        ".navbar-item.has-dropdown"
+        ".navbar-item.has-dropdown.is-hoverable.mobile"
     );
 
     allDropdowns.forEach((dropdown) => {
