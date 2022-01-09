@@ -25,7 +25,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="manifest" crossorigin="use-credentials" href="{% static 'favicon/site.webmanifest' %}">
     <!-- uni-form css for crispy fields -->
     <link rel="stylesheet" href="{% static 'css/uni-form.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.uni-form.css' %}">
@@ -229,63 +229,59 @@
                     </div>
                 </div>
             </section>
-        </header>
 
-
-        {% if messages %}
-        <div class="message-container">
-            {% for message in messages %}
-            {% with message.level as level %}
-            {% if level == 40 %}
-            {% include 'includes/toasts/toast_error.html' %}
-            {% elif level == 30 %}
-            {% include 'includes/toasts/toast_warning.html' %}
-            {% elif level == 25 %}
-            {% include 'includes/toasts/toast_success.html' %}
-            {% else %}
-            {% include 'includes/toasts/toast_info.html' %}
+            {% if messages %}
+            <div class="message-container">
+                {% for message in messages %}
+                {% with message.level as level %}
+                {% if level == 40 %}
+                {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+                {% endwith %}
+                {% endfor %}
+            </div>
             {% endif %}
-            {% endwith %}
-            {% endfor %}
-        </div>
-        {% endif %}
-
-        {% block page_header %}
-        {% endblock %}
+        </header>
 
         {% block content %}
 
         {% endblock %}
 
         <!-- Hero footer: will stick at the bottom -->
-        <div class="hero-foot">
+        <footer class="hero-foot">
             <nav class="tabs">
                 <div class="container">
                     <div class="columns">
-                        <ul class="column is-justify-content-flex-start">
-                            <li><a>Overview</a></li>
-                            <li><a>T&Cs</a></li>
-                            <li><a>Privacy Policy</a></li>
-                            <li><a>FAQs</a></li>
+                        <ul class="column is-justify-content-center">
+                            <li><a class="nav-item">Overview</a></li>
+                            <li><a class="nav-item">T&Cs</a></li>
+                            <li><a class="nav-item">Privacy Policy</a></li>
+                            <li><a class="nav-item">FAQs</a></li>
                         </ul>
-                        <ul class="column is-justify-content-flex-end">
+                        <ul class="column is-justify-content-center is-12-mobile">
                             <li>
-                                <a href="https://www.facebook.com" target="_blank">
+                                <a href="https://www.facebook.com" target="_blank" class="nav-item">
                                     <i class="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/" target="_blank">
+                                <a href="https://www.instagram.com/" target="_blank" class="nav-item">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/suzybee1987" target="_blank">
+                                <a href="https://github.com/suzybee1987" target="_blank" class="nav-item">
                                     <i class="fab fa-github"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.pinterest.co.uk/" target="_blank">
+                                <a href="https://www.pinterest.co.uk/" target="_blank" class="nav-item">
                                     <i class="fab fa-pinterest"></i>
                                 </a>
                             </li>
@@ -293,53 +289,13 @@
                     </div>
                 </div>
             </nav>
-        </div>
+        </footer>
     </section>
 
     {% block postloadjs %}
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
-                const $notification = $delete.parentNode;
-
-                $delete.addEventListener('click', () => {
-                    $notification.parentNode.removeChild($notification);
-                });
-            });
-        });
-
-        // code from Bulma GitHub to fix the navbar menu always open on mobile 
-        // https://github.com/jgthms/bulma/issues/2361
-        document.addEventListener("DOMContentLoaded", () => {
-            const hamburgerButton = document.querySelector(".navbar-burger");
-            const navMenu = document.querySelector(".navbar-menu");
-
-            hamburgerButton.addEventListener("click", () => {
-                hamburgerButton.classList.toggle("is-active");
-                navMenu.classList.toggle("is-active");
-            });
-
-            const allDropdowns = document.querySelectorAll(
-                ".navbar-item.has-dropdown"
-            );
-
-            allDropdowns.forEach((dropdown) => {
-                dropdown.addEventListener("click", () => {
-                    const elem = dropdown.querySelector(".navbar-dropdown");
-                    elem.classList.toggle("is-active");
-                });
-            });
-        });
-    </script>
-    <script type="text/javascript" src="{% static 'js/uni-form-validation.jquery.js' %}"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            // Initialize Uni-Form
-            $(function () {
-                $('form.uniForm').uniform();
-            });
-        });
-    </script>
+    {{ block.super }}
+    <script src="{% static 'js/uni-form-validation.jquery.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
     {% endblock %}
 
 </body>

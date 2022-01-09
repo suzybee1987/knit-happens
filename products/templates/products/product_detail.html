@@ -9,13 +9,13 @@
 <div class="hero-body">
 
     <div class="columns">
-        <div class="column">
+        <div class="column is-mobile">
             <h1 class="title-heading has-text-centered ">Products</h1>
         </div>
     </div>
 
     <div class="columns box is-justify-content-center">
-        <div class="column box is-one-third">
+        <div class="column is-mobile box is-one-third">
             <div class="image">
                 {% if product.image %}
                 <a href="{{ product.image.url }}" target="_blank">
@@ -37,7 +37,7 @@
                 {% endif %}
             </div>
         </div>
-        <div class="column is-one-third">
+        <div class="column is-mobile is-one-third">
             <table>
                 <tr>
                     <td>Name: {{ product.name }}</td>
@@ -74,7 +74,7 @@
                 {% csrf_token %}
                 {% with product.has_sizes as s %}
                 {% if s %}
-                <div class="column">Size:
+                <div class="column is-mobile">Size:
                     <div class="select is-success">
                         <select name="product_size" id='id_product_size'>
                             <option value="2.0mm">2.0mm</option>
@@ -93,7 +93,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="column">
+                <div class="column is-mobile">
                     <button type="button" class="button is-info is-light accordion">Knitting Needle Size Conversion
                         Table</button>
                     <div class="panel">
@@ -251,7 +251,7 @@
                 {% endwith %}
                 {% with product.has_weights as w %}
                 {% if w %}
-                <div class="column">Weight:
+                <div class="column is-mobile">Weight:
                     <div class="select is-success">
                         <select name="product_weight" id='id_product_weight'>
                             <option value="lace">Lace</option>
@@ -268,7 +268,7 @@
                 {% endwith %}
                 <label class="label" for="quantity">Qty:</label>
                 <div class="columns">
-                    <div class="column is-6">
+                    <div class="column is-mobile is-6">
                         <div class="field">
                             <div class="control">
                                 <input class="input" type="number" name="quantity" value="1" min="1" max="99"
@@ -279,7 +279,7 @@
                     </div>
                 </div>
                 <div class="columns">
-                    <div class="field column">
+                    <div class="field column is-mobile">
                         <div class="control">
                             <input type="submit" class="button is-danger" value="Add to Bag">
                         </div>
@@ -290,7 +290,7 @@
         </div>
     </div> <!-- back to products  -->
     <div class="columns">
-        <div class="column has-text-centered">
+        <div class="column is-mobile has-text-centered">
             <a href="{% url 'products' %}" class="button is-danger is-outlined">
                 <i class="fas fa-angle-left mr-1"></i>Keep Shopping
             </a>
