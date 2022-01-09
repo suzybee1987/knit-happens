@@ -1,33 +1,34 @@
 <nav class="navbar is-justify-content-space-evenly" role="navigation" aria-label="main navigation">
 
     <div class="navbar-item has-dropdown is-hoverable">
-        <a href="{% url 'products' %}" class="navbar-link">
+        <a href="{% url 'products' %}" class="navbar-link nav-item">
             All Products
         </a>
         <div class="navbar-dropdown">
-            <a href="{% url 'products' %}?sort=price&direction=asc" class="navbar-item">
+            <a href="{% url 'products' %}?sort=price&direction=asc" class="nav-item navbar-item">
                 By Price
             </a>
-            <a href="{% url 'products' %}?sort=category&direction=asc" class="navbar-item">
+            <a href="{% url 'products' %}?sort=category&direction=asc" class="nav-item navbar-item">
                 By Category
             </a>
-            <a href="{% url 'products' %}?sort=rating&direction=desc" class="navbar-item">
+            <a href="{% url 'products' %}?sort=rating&direction=desc" class="nav-item navbar-item">
                 By Rating
             </a>
         </div>
     </div>
     <div class="navbar-item">
-        <a href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton,bamboo">
+        <a class="nav-item"
+            href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton,bamboo">
             Wool
         </a>
     </div>
     <div class="navbar-item">
-        <a href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre">
+        <a class="nav-item" href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre">
             Needles
         </a>
     </div>
     <div class="navbar-item">
-        <a href="{% url 'products' %}?category=knitting_pattern">
+        <a class="nav-item" href="{% url 'products' %}?category=knitting_pattern">
             Patterns
         </a>
     </div>

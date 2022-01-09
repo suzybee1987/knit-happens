@@ -1,11 +1,35 @@
 /* https://coolors.co/a100ff  */
 /* google fonts  */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600&family=Lobster&display=swap');
+/* font-family: 'Libre Franklin', sans-serif;
+font-family: 'Lobster', cursive; */
 
 /* https: //www.w3schools.com/howto/howto_css_smooth_scroll.asp#section2  */
 /* for scrolling down from homepage to product-card-image section  */
 html {
     scroll-behavior: smooth;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+    .columns {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .shopping-links {
+        min-height: 70vh;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .shopping-links {
+        min-height: 80vh;
+    }
 }
 
 /* navbar */
@@ -14,13 +38,26 @@ html {
     max-height: 3.75rem !important;
 }
 
+.nav-item {
+    color: #485fc7 !important;
+    font-family: 'Libre Franklin', sans-serif;
+    font-weight: 600;
+}
+
 img .home-button {
     padding: 0.25rem 0 0 1rem;
 }
 
 .title-heading {
     font-family: 'Lobster', cursive;
-    font-size: 3rem;
+    font-size: 2.5rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+.title-heading-small {
+    font-family: 'Lobster', cursive;
+    font-size: 1.5rem;
     text-align: center;
 }
 
@@ -66,17 +103,19 @@ img .home-button {
 }
 
 /* home  */
+
+.hero-body {
+    padding: 0;
+    background-color: #F6F6F6;
+}
+
 .hero-bground {
     background: url("../../media/rainbow.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 150vh;
-}
-
-.product-card-columns {
-    margin-top: 10vh;
+    height: 90vh;
 }
 
 .product-card {
@@ -86,19 +125,27 @@ img .home-button {
     border-radius: 25px;
 }
 
+.product-card-columns {
+    margin-bottom: 50px !important;
+}
 
 .notification {
     padding: 1.5rem;
     background-color: unset;
 }
 
+.col-animation {
+    padding: 0;
+}
+
 .image-down {
-    padding-top: 60vh;
+    padding-top: 50vh;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-name: bounce-1;
     animation-timing-function: linear;
 }
+
 
 @keyframes bounce-1 {
     0% {
@@ -117,13 +164,24 @@ img .home-button {
 .scroll-down {
     width: 300px;
     margin: auto;
-    border-color: white;
+    border-color: #485fc7;
     border-style: solid;
-    border-width: 5px;
-    color: white;
+    border-width: 10px;
+    color: #485fc7;
     font-family: math;
     font-size: x-large;
     border-radius: 25px;
+    background-color: rgb(255 255 255 / 80%);
+}
+
+.divider {
+    height: 0px;
+    border-radius: 2px;
+    color: #485fc7;
+    border: 2px solid #485fc7;
+    width: 80%;
+    margin: 50px auto;
+
 }
 
 .button.is-primary.is-light {
@@ -131,12 +189,27 @@ img .home-button {
     font-weight: 700;
 }
 
+.inspo {
+    font-size: 1.5rem;
+    border-radius: 25px;
+    border: 10px solid darkcyan;
+}
+
+.inspo:hover {
+    border: 10px solid#485fc7;
+}
+
+/* .button.is-focused:not(:active),
+.button:focus:not(:active) {
+   
+} */
+
 /* end of home  */
 
 /* footer  */
 
 .hero-foot {
-    border-top: 3px grey solid;
+    border-top: 3px #008B8B solid;
     padding: 20px;
 }
 
@@ -239,6 +312,7 @@ img .home-button {
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
 /* end of toast  */
 
 

@@ -10,61 +10,73 @@
 {% endblock %}
 
 {% block content %}
-<div class="hero-body hero-bground is-fullheight">
-    <div class="container has-text-centered">
-        <div class="columns is-justify-content-center">
-            <div class="column">
+<div class="hero-body is-fullheight ">
+    <div class="hero-bground has-text-centered">
+        <div class="columns is-mobile is-justify-content-center">
+            <div class="column col-animation">
                 <div class="image-down">
                     <h2 class="notification scroll-down">
                         Check out our store
                         <a href="#product-card-columns">
-                            <img src="media/down.png" alt="scroll down">
+                            <img src="{{ MEDIA_URL }}down.png" alt="scroll down">
                         </a>
                     </h2>
-                    
                 </div>
             </div>
         </div>
-        <div class="columns product-card-columns">
+    </div>
+    <div class="container has-text-centered is-justify-content-center shopping-links">
+        <div class="columns is-mobile m-5">
             <div class="column">
+                <h3 class="title-heading">Check out these woolly goodies!</h3>
+            </div>
+        </div>
+        <hr class="divider">
+        </hr>
+        <div class="columns product-card-columns">
+            <div class="column is-12-mobile">
                 <div class="card product-card" id="product-card-columns">
                     <div class="card-image image is-5by4">
-                        <img src="../../../media/2070685.jpg" alt="knitting image">
-                        <a href="{% url 'products' %}" class="button is-primary is-light">Shop All</a>
+                        <img src="{{ MEDIA_URL }}2070685.jpg" alt="knitting image">
+                        <a href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre"
+                            class="button is-primary is-light">Shop Needles</a>
                     </div>
                 </div>
             </div>
-            <div class="column">
+            <div class="column is-12-mobile">
                 <div class="card product-card">
                     <div class="card-image image is-5by4">
-                        <img src="../../../media/7188997.jpg" alt="needles image">
-                        <a class="button is-primary is-light">Shop Wool</a>
+                        <img src="{{ MEDIA_URL }}7188997.jpg" alt="needles image">
+                        <a href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton"
+                            class="
+                            button is-primary is-light">Shop Wool</a>
                     </div>
                 </div>
             </div>
-            <div class="column">
+            <div class="column is-12-mobile">
                 <div class="card product-card">
-
                     <div class="card-image image is-5by4">
-                        <img src="../../../media/7244809.jpg" alt="patterns image">
-                        <a class="button is-primary is-light">Shop Patterns</a>
+                        <img src="{{ MEDIA_URL }}7244809.jpg" alt="patterns image">
+                        <a href="{% url 'products' %}?category=knitting_pattern" class="button is-primary is-light">Shop
+                            Patterns</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="columns is-justify-content-center">
-            <div class="column is-6">
-                <div class="card">
-                    <h2>Looking for inspiration?</h2>
-                    <h3>
-                        Check out the <a href="">blog</a>
+            <div class="card inspo column is-6">
+                <div class="">
+                    <h2 class="title-heading-small">Looking for inspiration?</h2>
+                </div>
+                <div class="">
+                    <h3 class="title-heading-small">
+                        Check out the <a href="">blog<i class="far fa-hand-point-up"></i>
                     </h3>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

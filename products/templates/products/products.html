@@ -9,7 +9,7 @@
 <div class="hero-body">
     <div class="">
         <div class="columns has-text-centered">
-            <div class="column">
+            <div class="column is-mobile">
                 <h1 class="title-heading has-text-centered is-justify-content-center">Products</h1>
                 {% for c in current_categories %}
                 <a class="button is-danger" href="{% url 'products' %}?category={{ c.name }}">
@@ -22,7 +22,7 @@
 
         <!-- sorting  -->
         <div class="columns">
-            <div class="column">
+            <div class="column is-mobile">
                 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
                     <ul>
                         <li>{% if search_term or current_categories or current_sorting != 'None_None' %}
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="columns is-justify-content-end">
-            <div class="column is-3">
+            <div class="column is-mobile is-3">
                 <div class="columns is-justify-content-end">
                     <div class="select my-3">
                         <select id="sort-selector">
@@ -69,7 +69,7 @@
 
         <!-- filter products  -->
         <div class="columns">
-            <div class="column filter is-one-fifth">
+            <div class="column is-mobile filter is-one-fifth">
                 <h2 class="filter-heading">Filter</h2>
                 <!-- form fibres  -->
                 <div class="filter-columns">
@@ -164,7 +164,7 @@
             <!-- products list -->
             <div class="columns is-multiline">
                 {% for product in products %}
-                <div class="column is-3-widescreen is-12-mobile is-6-tablet ">
+                <div class="column is-mobile is-3-widescreen is-12-mobile is-6-tablet ">
                     <div class="card">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
