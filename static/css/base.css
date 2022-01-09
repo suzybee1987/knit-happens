@@ -20,7 +20,10 @@ html {
     }
 }
 
-@media only screen and (min-width: 992px) {
+.container.has-text-centered.is-justify-content-center.shopping-links {
+    min-height: 100vh;
+}
+/* @media only screen and (min-width: 992px) {
     .shopping-links {
         min-height: 70vh;
     }
@@ -30,7 +33,7 @@ html {
     .shopping-links {
         min-height: 80vh;
     }
-}
+} */
 
 /* navbar */
 
@@ -100,6 +103,10 @@ img .home-button {
 
 .search-form {
     padding: 12px;
+}
+
+nav.navbar.is-justify-content-space-evenly {
+    z-index: 1;
 }
 
 /* home  */
