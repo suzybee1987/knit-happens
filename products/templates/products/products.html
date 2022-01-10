@@ -2,12 +2,31 @@
 {% load static %}
 
 {% block page_header %}
-
+ <div class="navbar-item has-dropdown is-hoverable is-hidden-desktop mobile">
+     <a class="navbar-link nav-item">
+         Products
+     </a>
+     <div class="navbar-dropdown">
+         <a href="{% url 'products' %}" class="nav-item navbar-item">
+             All Products
+         </a>
+         <a class="nav-item navbar-item"
+             href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton,bamboo">
+             Wool
+         </a>
+         <a class="nav-item navbar-item" href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre">
+             Needles
+         </a>
+         <a class="nav-item navbar-item" href="{% url 'products' %}?category=knitting_pattern">
+             Patterns
+         </a>
+     </div>
+ </div>
 {% endblock %}
 
 {% block content %}
 <div class="hero-body">
-    <div class="">
+    <div class="container">
         <div class="columns has-text-centered">
             <div class="column is-mobile">
                 <h1 class="title-heading has-text-centered is-justify-content-center">Products</h1>
@@ -21,8 +40,8 @@
 
 
         <!-- sorting  -->
-        <div class="columns">
-            <div class="column is-mobile">
+        <div class="columns is-vcentered is-mobile has-text-centered">
+            <div class="column is-4">
                 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
                     <ul>
                         <li>{% if search_term or current_categories or current_sorting != 'None_None' %}
@@ -35,9 +54,7 @@
                     </ul>
                 </nav>
             </div>
-        </div>
-        <div class="columns is-justify-content-end">
-            <div class="column is-mobile is-3">
+            <div class="column is-8 is-justify-content-flex-end">
                 <div class="columns is-justify-content-end">
                     <div class="select my-3">
                         <select id="sort-selector">
@@ -69,7 +86,7 @@
 
         <!-- filter products  -->
         <div class="columns">
-            <div class="column is-mobile filter is-one-fifth">
+            <div class="column is-hidden-mobile filter is-one-fifth">
                 <h2 class="filter-heading">Filter</h2>
                 <!-- form fibres  -->
                 <div class="filter-columns">
@@ -160,11 +177,10 @@
                 </div>
             </div>
             <!-- end of filter products  -->
-
             <!-- products list -->
             <div class="columns is-multiline">
                 {% for product in products %}
-                <div class="column is-mobile is-3-widescreen is-12-mobile is-6-tablet ">
+                <div class="column is-3-widescreen is-10-mobile is-offset-1-mobile is-5-tablet">
                     <div class="card">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
@@ -212,54 +228,55 @@
             <i class="fas fa-angle-up"></i>
         </a>
     </button>
-    </div>
-    {% endblock %}
+</div>
+{% endblock %}
 
-    {% block postloadjs %}
-    {{ block.super }}
-    <script>
-        // script from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
-        //Get the button
-        let mybutton = document.getElementById("btt-button")
-        // When the user scrolls down 20px from the top of the document, show the button
-        window.onscroll = function () {
-            scrollFunction()
-        };
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    // script from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
+    //Get the button
+    let mybutton = document.getElementById("btt-button")
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
         }
-        // When the user clicks on the button, scroll to the top of the document
-        function topFunction() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+    mybutton.addEventListener('click', topFunction);
+</script>
+
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        let selector = $(this);
+        let currentUrl = new URL(window.location);
+
+        let selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
         }
-        mybutton.addEventListener('click', topFunction);
-    </script>
-
-    <script type="text/javascript">
-        $('#sort-selector').change(function () {
-            let selector = $(this);
-            let currentUrl = new URL(window.location);
-
-            let selectedVal = selector.val();
-            if (selectedVal != "reset") {
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
-
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
-    {% endblock %}
+    })
+</script>
+{% endblock %}

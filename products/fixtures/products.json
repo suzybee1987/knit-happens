@@ -418,14 +418,14 @@
         "pk": 27,
         "model": "products.product",
         "fields": {
-            "sku": "bam-eco-red-1",
+            "sku": "alp-eco-red-1",
             "name": "'Eco-Fusion' alpaca 50g",
             "colour": "Red",
             "description": "100% alpaca wool, machine washable at 30°C",
             "has_sizes": false,
             "has_weights": true,
             "price": 4.99,
-            "category": 11,
+            "category": 1,
             "image_url": "https://images.pexels.com/photos/2767689/pexels-photo-2767689.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "image": "2767689.jpg"
         }

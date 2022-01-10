@@ -142,7 +142,7 @@
                     <!-- end of hidden mobile  -->
                     <!-- navbar end hidden desktop  -->
                     <div class="navbar-end is-hidden-desktop">
-                        {% include 'includes/main-nav.html' %}
+                        <!-- search bar mobile  -->
                         <div class="column is-vcentered">
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
@@ -157,7 +157,29 @@
                                 </div>
                             </form>
                         </div>
-
+                        <!-- end of search bar mobile  -->
+                        <!-- products filter mobile  -->
+                        <div class="navbar-item has-dropdown is-hoverable mobile">
+                            <a class="navbar-link nav-item">
+                                Products
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a href="{% url 'products' %}" class="nav-item navbar-item">
+                                    All Products
+                                </a>
+                                <a class="nav-item navbar-item"
+                                    href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton,bamboo">
+                                    Wool
+                                </a>
+                                <a class="nav-item navbar-item"
+                                    href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre">
+                                    Needles
+                                </a>
+                                <a class="nav-item navbar-item" href="{% url 'products' %}?category=knitting_pattern">
+                                    Patterns
+                                </a>
+                            </div>
+                        </div>
                         <div class="navbar-mobile">
                             <!-- blog -->
                             <a class="navbar-item" href="#">
@@ -176,10 +198,10 @@
                                 </a>
                                 <div class="navbar-dropdown is-right">
                                     <a class="navbar-item" href="">
-                                        see profile
+                                        profile
                                     </a>
                                     <a class="navbar-item" href="">
-                                        see orders
+                                        orders
                                     </a>
                                     <a class="navbar-item" href="{% url 'account_logout' %}">
                                         log out
@@ -187,7 +209,7 @@
                                 </div>
                             </div>
                             {% else %}
-                            <div class="navbar-item has-dropdown is-hoverable">
+                            <div class="navbar-item has-dropdown is-hoverable mobile">
                                 <a class="navbar-link">
                                     <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                                 </a>
@@ -213,10 +235,10 @@
                     </div>
                     <!-- end of hidden on desktop  -->
                 </div>
-                </div>
+               
             </nav>
-            <div class="is-hidden-touch">
-                {% include 'includes/main-nav.html' %}
+            <div class="">
+                 {% include 'includes/main-nav.html' %}
             </div>
 
             <section id="delivery-banner">
@@ -249,6 +271,8 @@
             </div>
             {% endif %}
         </header>
+        {% block page_header %}
+        {% endblock %}
 
         {% block content %}
 
@@ -260,7 +284,6 @@
                 <div class="container">
                     <div class="columns">
                         <ul class="column is-justify-content-center">
-                            <li><a class="nav-item">Overview</a></li>
                             <li><a class="nav-item">T&Cs</a></li>
                             <li><a class="nav-item">Privacy Policy</a></li>
                             <li><a class="nav-item">FAQs</a></li>
