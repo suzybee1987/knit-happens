@@ -206,10 +206,6 @@ nav.navbar.is-justify-content-space-evenly {
     border: 10px solid#485fc7;
 }
 
-/* .button.is-focused:not(:active),
-.button:focus:not(:active) {
-   
-} */
 
 /* end of home  */
 
@@ -242,6 +238,10 @@ nav.navbar.is-justify-content-space-evenly {
 
 .filter-columns {
     padding: 20px 0;
+}
+
+.no-decoration::before {
+    content: none;
 }
 
 /* from Boutique Ado  */
