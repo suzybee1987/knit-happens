@@ -307,6 +307,7 @@ To clone this project from GitHub follow the instructions taken from [GitHub Doc
 
 - [Background layout](https://css-tricks.com/perfect-full-page-background-image/) this was taught in one of the Code Institute lessons from css-tricks.com and I use it constantly for my background images. 
 - Code taken from Bulma GitHub [thread](https://github.com/jgthms/bulma/issues/2361) to fix the navbar menu always open on mobile.
+- Uni-form Crispy Form CSS and JS code taken from the uni-form GitHub [repo](https://github.com/draganbabic/uni-form)
 
 
 ### **Content**
