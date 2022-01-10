@@ -1,5 +1,22 @@
 /* add the style the checkout form css */
 
+.divider {
+    height: 0px;
+    border-radius: 2px;
+    color: #F14668;
+    border: 2px solid #F14668;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.divider--form {
+    height: 0px;
+    border-radius: 2px;
+    color: #777673;
+    border: 2px solid #777673;
+    width: 80%;
+    margin: 50px auto;
+}
 
 .StripeElement,
 .stripe-style-input {
@@ -12,6 +29,7 @@
     box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
+    width: 90%;
 }
 
 .StripeElement--focus,
@@ -37,6 +55,11 @@
 #card-element {
     color: #000;
     border: 1px solid #000;
+}
+
+.payment-form {
+    padding: 16px 15px;
+
 }
 
 select,
