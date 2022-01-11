@@ -104,14 +104,14 @@
                                 <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                             </a>
                             <div class="navbar-dropdown">
-                                <a class="navbar-item" href="">
-                                    see profile
+                                <a class="navbar-item" href="{% url 'profile' %}">
+                                Profile
                                 </a>
                                 <a class="navbar-item" href="">
-                                    see orders
+                                    Orders
                                 </a>
                                 <a class="navbar-item" href="{% url 'account_logout' %}">
-                                    log out
+                                    Log out
                                 </a>
                             </div>
                         </div>
