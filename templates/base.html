@@ -94,7 +94,7 @@
                             <img src="{{ MEDIA_URL }}blog.png" alt="blog">
                         </a>
                         {% if request.user.is_superuser %}
-                        <a class="navbar-item" href="">
+                        <a class="navbar-item" href="{% url 'add_product' %}">
                             <img src="{{ MEDIA_URL }}admin.png" alt="admin">
                         </a>
                         {% endif %}
@@ -189,7 +189,7 @@
                             </a>
                             {% if request.user.is_superuser %}
                             <!-- admin -->
-                            <a class="navbar-item" href="">
+                            <a class="navbar-item" href="{% url 'add_product' %}">
                                 <img src="{{ MEDIA_URL }}admin.png" alt="admin" class="mobile-icon">
                             </a>
                             {% endif %}
