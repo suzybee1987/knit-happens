@@ -13,50 +13,47 @@
 {% block content %}
 <div class="hero">
     <div class="hero-body">
-        <!-- heading  -->
-        <div class="columns">
-            <div class="column is-mobile">
-                <h2 class="title-heading">Checkout</h2>
-            </div>
-        </div>
-        <!-- end of heading  -->
-        <!-- order heading  -->
-        <div class="columns">
-            <div class="column is-mobile">Order Summary:</div>
-        </div>
-
-        <div class="columns">
-
-            <div class="column is-mobile">
-
-                <div class="columns has-text-right">
-                    <div class="column is-mobile"></div>
-                    <div class="column is-mobile">
-                        <p class="is-underlined">Item</p>
-                    </div>
-                    <div class="column is-mobile">
-                        <p class="is-underlined">Subtotal</p>
-                    </div>
+        <div class="container">
+            <!-- heading  -->
+            <div class="columns">
+                <div class="column">
+                    <h2 class="title-heading">Checkout</h2>
                 </div>
-                {% for item in bag_items %}
-                <div class="columns is-multiline">
-                    <div class="column is-mobile is-one-third">
-                        <div class="card-image">
-                            <figure class="image is-4by3 bag-image">
-                                <a href="{% url 'product_detail' item.product.id %}">
-                                    {% if item.product.image %}
-                                    <img src="{{ item.product.image.url }}" alt="image for {{ item.product.name }}">
-                                    {% else %}
-                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                    {% endif %}
-                                </a>
-                            </figure>
+            </div>
+            <!-- end of heading  -->
+            <!-- order  -->
+            <section class="columns is-variable is-8-desktop is-justify-content-space-evenly">
+                <!-- items  -->
+                <div class="column is-5-desktop">
+                    <div class="column is-underlined title-heading-small">
+                        <h1> Order Summary:</h1>
+                    </div>
+                    <div class="columns is-mobile">
+                        <div class="column is-6-touch has-text-left">
+                            <p class="is-underlined">Items</p>
+                        </div>
+                        <div class="column is-6-touch has-text-right">
+                            <p class="is-underlined">Subtotal</p>
                         </div>
                     </div>
-                    <div class="column is-mobile ">
-                        <div class="has-text-right">
-                            <div class="media">
-                                <div class="media-content">
+                    <!-- <hr class="divider--form"> -->
+                    {% for item in bag_items %}
+                    <div class="columns is-justify-content-center is-mobile">
+                        <div class="column is-8">
+                            <div class="card">
+                                <div class="card-image">
+                                    <figure class="image is-4by3 bag-image">
+                                        <a href="{% url 'product_detail' item.product.id %}">
+                                            {% if item.product.image %}
+                                            <img src="{{ item.product.image.url }}"
+                                                alt="image for {{ item.product.name }}">
+                                            {% else %}
+                                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                            {% endif %}
+                                        </a>
+                                    </figure>
+                                </div>
+                                <div class="card-content">
                                     <p class="title is-6">{{ item.product.name }}</p>
                                     <p class="subtitle is-6">
                                         {% if item.product.has_sizes %}Size:{{ item.size|upper }}{% endif %}
@@ -64,106 +61,109 @@
                                     <p class="subtitle is-6">
                                         {% if item.product.has_weights %}Weight:{{ item.weight|upper }}{% endif %}
                                     </p>
-
+                                    <p class="subtitle is-6">Qty: {{ item.quantity }}</p>
+                                    <p class="subtitle is-6">Price: {{ item.product.price }}</p>
                                 </div>
                             </div>
                         </div>
+                        <div class="column is-4 total-column">
+                            <div class="content has-text-right">
+                                <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="column is-mobile total-column is-mobile is-one-third">
-                        <div class="content has-text-right">
-                            <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                    {% endfor %}
+
+                    <div class="columns has-text-right is-mobile has-text-weight-bold">
+                        <div class="column">
+                            <p class="my-1">Order Total:</p>
+                            <p class="my-1">Delivery:</p>
+                            <p class="my-1">Grand Total:</p>
+                        </div>
+                        <div class="column">
+                            <p class="my-1">£{{ total | floatformat:2 }}</p>
+                            <p class="my-1">£{{ delivery | floatformat:2 }}</p>
+                            <p class="my-1">£{{ grand_total | floatformat:2 }}</p>
                         </div>
                     </div>
                 </div>
-                <hr>
-                {% endfor %}
-
-                <div class="columns has-text-right">
-                    <div class="column is-mobile">
-                        <p class="my-0">Order Total:</p>
-                        <p class="my-0">Delivery:</p>
-                        <p class="my-0">Grand Total:</p>
-                    </div>
-                    <div class="column is-mobile">
-                        <p class="my-0">£{{ total | floatformat:2 }}</p>
-                        <p class="my-0">£{{ delivery | floatformat:2 }}</p>
-                        <p class="my-0">£{{ grand_total | floatformat:2 }}</p>
-                    </div>
+                <hr class="divider is-hidden-tablet">
+                <!-- end of items  -->
+                <!-- payment form  -->
+                <div class="column is-7-desktop">
+                    <h1 class="title-heading-small">
+                        Please fill out the order below to complete your order
+                        <i class="fas fa-pen"></i>
+                    </h1>
+                    <form action="{% url 'checkout' %}" method="POST" id="payment-form"
+                        class="ctrl-holder has-text-left payment-form">
+                        {% csrf_token %}
+                        <fieldset class="input-textarea m-3">
+                            <legend class="field fieldset-label m-3">Details:</legend>
+                            {{ order_form.full_name | as_crispy_field }}
+                            {{ order_form.email | as_crispy_field }}
+                            {{ order_form.phone_number | as_crispy_field }}
+                        </fieldset>
+                        <fieldset class="m-3">
+                            <legend class="fieldset-label m-3">Delivery:</legend>
+                            {{ order_form.street_address1 | as_crispy_field }}
+                            {{ order_form.street_address2 | as_crispy_field }}
+                            {{ order_form.town_or_city | as_crispy_field }}
+                            {{ order_form.county | as_crispy_field }}
+                            {{ order_form.country | as_crispy_field }}
+                            {{ order_form.postcode | as_crispy_field }}
+                            <div class="form-check m-3">
+                                {% if user.is_authenticated %}
+                                <label for="id-save-info" class="form-check-label">Save this delivery info to my
+                                    profile</label>
+                                <input type="checkbox" id="id-save-info" name="save-info" checked>
+                                {% else %}
+                                <label for="id-save-info" class="form-check-label m-3">
+                                    <a href="{% url 'account_signup' %}" class="text-info m-3">Create an account</a>
+                                    <a href="{% url 'account_login' %}" class="text-info m-3">Login</a> to save your
+                                    information
+                                </label>
+                                {% endif %}
+                            </div>
+                        </fieldset>
+                        <fieldset class="m-3">
+                            <legend class="fieldset-label m-3 title-heading-small is-underlined">Payment</legend>
+                            <!-- A Stripe card element will go here -->
+                            <div class="m-3" id="card-element"></div>
+                            <!-- Used to display form errors -->
+                            <div class="m-3" id="card-errors" role="alert"></div>
+                            <!-- Pass the client secret to the view so we can get the payment intent id -->
+                            <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                        </fieldset>
+                        <p class="m-3"><i class="fas fa-exclamation-circle"></i>
+                            Your card will be charged £{{ grand_total|floatformat:2 }}</p>
+                        <div class="columns is-flex is-flex-direction-row-reverse">
+                            <div class="column has-text-centered m-3">
+                                <button type="submit" class="button is-danger">
+                                    <i class="fas fa-lock mr-1"></i>Submit Order
+                                </button>
+                            </div>
+                            <div class="column has-text-centered m-3">
+                                <a href="{% url 'view_bag' %}" class="button is-danger is-outlined">
+                                    <i class="fas fa-angle-left mr-1"></i>Back to bag
+                                </a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-
-
-            <div class="column is-mobile has-text-right payment-column is-mobile">
-
-                <p>Please fill out the order below to complete your order<i class="fas fa-pen"></i></p>
-                <form action="{% url 'checkout' %}" method="POST" id="payment-form"
-                    class="ctrl-holder has-text-right payment-form">
-                    {% csrf_token %}
-                    <fieldset class="input-textarea">
-                        <legend class="field fieldset-label">Details:</legend>
-                        {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
-                    </fieldset>
-                    <fieldset>
-                        <legend class="fieldset-label">Delivery:</legend>
-                        {{ order_form.phone_number | as_crispy_field }}
-                        {{ order_form.country | as_crispy_field }}
-                        {{ order_form.postcode | as_crispy_field }}
-                        {{ order_form.town_or_city | as_crispy_field }}
-                        {{ order_form.street_address1 | as_crispy_field }}
-                        {{ order_form.street_address2 | as_crispy_field }}
-                        {{ order_form.county | as_crispy_field }}
-                        <div class="form-check">
-                            {% if user.is_authenticated %}
-                            <label for="id-save-info" class="form-check-label">Save this delivery info to my
-                                profile</label>
-                            <input type="checkbox" id="id-save-info" name="save-info" checked>
-                            {% else %}
-                            <label for="id-save-info" class="form-check-label">
-                                <a href="{% url 'account_signup' %}" class="text-info">Create an account</a>
-                                <a href="{% url 'account_login' %}" class="text-info">Login</a> to save your
-                                information
-                            </label>
-                            {% endif %}
-                        </div>
-                    </fieldset>
-                         <fieldset>
-                             <legend class="fieldset-label">Payment</legend>
-                             <!-- A Stripe card element will go here -->
-                             <div class="mb-3" id="card-element"></div>
-                             <!-- Used to display form errors -->
-                             <div class="mb-3" id="card-errors" role="alert"></div>
-                             <!-- Pass the client secret to the view so we can get the payment intent id -->
-                             <input type="hidden" value="{{ client_secret }}" name="client_secret">
-                         </fieldset>
-                    <p class="m-3"><i class="fa fas-exclaimation-circle"></i>
-                        Your card will be charged £{{ grand_total|floatformat:2 }}</p>
-                    <div class="columns">
-                        <div class="column is-mobile has-text-centered m-3">
-                            <a href="{% url 'view_bag' %}" class="button is-danger is-outlined">
-                                <i class="fas fa-angle-left mr-1"></i>Back to bag
-                            </a>
-                        </div>
-                        <div class="column is-mobile has-text-centered m-3">
-                            <button type="submit" class="button is-danger">
-                                <i class="fas fa-lock mr-1"></i>Submit Order
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                <!-- end of payment form  -->
+            </section>
         </div>
     </div>
-</div>
 
-<div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
-        <span class="icon">
-            <i class="fas fa-3x fa-sync-alt fa-spin"></i>
-        </span>
-    </h1>
+    <div id="loading-overlay">
+        <h1 class="text-light logo-font loading-spinner">
+            <span class="icon">
+                <i class="fas fa-3x fa-sync-alt fa-spin"></i>
+            </span>
+        </h1>
+    </div>
 </div>
-
 {% endblock %}
 
 {% block postloadjs %}
