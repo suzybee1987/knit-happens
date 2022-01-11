@@ -10,7 +10,7 @@
                 {{ message }}
             </div>
         </div>
-        {% if grand_total %}
+        {% if grand_total and not on_profile_page %}
 
         <div class="bag-notification-wrapper">
             {% for item in bag_items %}

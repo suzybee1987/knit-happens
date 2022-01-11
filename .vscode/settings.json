@@ -26,5 +26,8 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "[html]": {
       "editor.defaultFormatter": "HookyQR.beautify"
+   },
+   "[python]": {
+      "editor.defaultFormatter": "ms-python.python"
    }
 }

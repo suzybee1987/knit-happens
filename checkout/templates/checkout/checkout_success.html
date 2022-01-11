@@ -14,170 +14,149 @@
     <div class="hero-body">
         <!-- heading  -->
         <div class="columns is-justify-content-center">
-            <div class="column is-mobile is-8-fullhd is-12-mobile has-text-centered">
-                <h2 class="title-heading">Thank you for shopping small business!</h2>
-                <p>Your order information is below, a confirmation email will be sent to you at {{ order.email }}</p>
+            <div class="column  is-8-fullhd is-12-mobile has-text-centered">
+                <h1 class="title-heading">Thank you for shopping small business! You Rock!</h1>
             </div>
         </div>
+        <div class="columns is-justify-content-center">
+            <div class="column is-8-fullhd is-12-mobile has-text-centered">
+                <h2 class="title-heading-small">Your order information is below, a confirmation email will be sent to
+                    you at
+                    {{ order.email }}</h2>
+            </div>
+        </div>
+
         <!-- end of heading  -->
 
         <div class="columns is-justify-content-center">
-            <div class="column is-mobile is-8-fullhd is-12-mobile">
-                <!-- blog url here  -->
-                <h3 class="notification is-danger">Please show us what you made with your goodies!</h3>
-                <h4 class="notification has-text-centered">You can share your makes on our
-                    <a href="" class="is-light block is-danger">blog</a></h4>
+            <div class="column is-6 has-text-centered">
+                {% if from_profile %}
+                <a href="{% url 'profile' %}" class="button is-danger">
+                    <span>Back to Profile Page</span>
+                </a>
+                {% else %}
+                <h3 class="title-heading-small">Check out our
+                    <a href="" class="">blog</a>
+                    for more inspiration</h3>
+                {% endif %}
             </div>
         </div>
-
         <div class="columns is-justify-content-center">
-            <div class="column is-mobile is-8-fullhd is-12-mobile">
+            <div class="column is-8-desktop is-10-mobile is-offset-1-mobile">
                 <div class="box">
                     <div class="columns">
-                        <h3 class="column is-mobile has-text-centered is-underlined">
+                        <h3 class="column  has-text-centered is-underlined">
                             Order info:
                         </h3>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>Order number:</p>
                         </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.order_number }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>Order date:</p>
                         </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.date }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>Order details:</p>
                         </div>
-                    </div>
-
-                    {% for item in order.lineitems.all %}
-                    <div class="columns">
-                        <div class="column is-mobile">
+                        {% for item in order.lineitems.all %}
+                        <div class="column ">
                             <p>{{ item.product.name}}{% if item.product_size %} - Size:
                                 {{ item.product_size|upper }}{% endif %}</p>
-                        </div>
-                        <div class="column is-mobile">
                             <p>{{ item.quantity }} at £{{ item.product.price }}</p>
                         </div>
-                    </div>
-                    {% endfor %}
-                    <div class="columns">
-                        <div class="column is-mobile has-text-centered is-underlined">Shipping to:</div>
+                        {% endfor %}
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p>Full name:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column  has-text-centered is-underlined">Shipping to:</div>
+                    </div>
+                    <div class="columns">
+                       
+                        <div class="column ">
                             <p>{{ order.full_name }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p> Street address 1:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column">
                             <p>{{ order.street_address1 }}</p>
                         </div>
                     </div>
                     {% if order.street_address2 %}
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p> Street address 2:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.street_address2 }}</p>
                         </div>
                     </div>
                     {% endif %}
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p> Town/City:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.town_or_city }}</p>
                         </div>
                     </div>
 
                     {% if order.county %}
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p>County:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.county }}</p>
                         </div>
                     </div>
                     {% endif %}
                     {% if order.postcode %}
-
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p>Postcode:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.postcode }}</p>
                         </div>
                     </div>
                     {% endif %}
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p>Country:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.country }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p>Phone number:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.phone_number }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
-                            <p>Email address:</p>
-                        </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>{{ order.email }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile has-text-centered is-underlined">Billing info:</div>
+                        <div class="column  has-text-centered is-underlined">Billing info:</div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>Subtotal:</p>
                         </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>£{{ order.order_total }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>Delivery Charges:</p>
                         </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>£{{ order.delivery_cost }}</p>
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>Grand Total:</p>
                         </div>
-                        <div class="column is-mobile">
+                        <div class="column ">
                             <p>£{{ order.grand_total }}</p>
                         </div>
                     </div>

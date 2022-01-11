@@ -9,6 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Buy luxury wool, needles and patterns for your knitting and crochet projects and share your lovely makes on our blog">
+    <meta name="keywords" content="wool, yarn, knitting, crochet, luxury brand, needles, patterns, blog, knit happens">
     {% endblock %}
     <!-- end meta tags  -->
 
@@ -102,22 +104,22 @@
                                 <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                             </a>
                             <div class="navbar-dropdown">
-                                <a class="navbar-item" href="">
-                                    see profile
+                                <a class="navbar-item" href="{% url 'profile' %}">
+                                Profile
                                 </a>
                                 <a class="navbar-item" href="">
-                                    see orders
+                                    Orders
                                 </a>
                                 <a class="navbar-item" href="{% url 'account_logout' %}">
-                                    log out
+                                    Log out
                                 </a>
                             </div>
                         </div>
                         {% else %}
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link is-arrowless">
-                                <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon"><i
-                                    class="fas fa-angle-down"></i>
+                                <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
+                                <i class="fas fa-angle-down"></i>
                             </a>
                             <div class="navbar-dropdown is-right">
                                 <a class="navbar-item is-hidden-touch" href="{% url 'account_login' %}">
