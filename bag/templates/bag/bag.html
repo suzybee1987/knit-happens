@@ -27,9 +27,14 @@
         {% for item in bag_items %}
         <div class="columns is-multiline">
             <div class="column">
+                
                 <div class="card-image">
                     <figure class="image is-4by3 bag-image">
+                        {% if item.product.image %}
                         <img src="{{ item.product.image.url }}" alt="image for {{ item.product.name }}">
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ item.product.name }}">
+                        {% endif %}
                     </figure>
                 </div>
             </div>

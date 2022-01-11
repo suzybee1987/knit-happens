@@ -16,7 +16,11 @@
             {% for item in bag_items %}
             <div class="columns">
                 <div class="column is-6">
-                    <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                      {% if item.product.image %}
+                      <img src="{{ item.product.image.url }}" alt="image for {{ item.product.name }}">
+                      {% else %}
+                      <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ item.product.name }}">
+                      {% endif %}
                 </div>
                 <div class="column is-6">
                     <p> {{ item.product.name }}</p>
