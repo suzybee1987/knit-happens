@@ -287,8 +287,15 @@
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
             </form>
+            {% if request.user.is_superuser %}
+            <small>
+                <a class="has-text-info" href="{% url 'edit_product' product.id %}">Edit</a> |
+                <a class="has-text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+            </small>
+            {% endif %}
         </div>
-    </div> <!-- back to products  -->
+    </div> 
+    <!-- back to products  -->
     <div class="columns">
         <div class="column is-mobile has-text-centered">
             <a href="{% url 'products' %}" class="button is-danger is-outlined">

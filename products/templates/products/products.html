@@ -2,26 +2,26 @@
 {% load static %}
 
 {% block page_header %}
- <div class="navbar-item has-dropdown is-hoverable is-hidden-desktop mobile">
-     <a class="navbar-link nav-item">
-         Products
-     </a>
-     <div class="navbar-dropdown">
-         <a href="{% url 'products' %}" class="nav-item navbar-item">
-             All Products
-         </a>
-         <a class="nav-item navbar-item"
-             href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton,bamboo">
-             Wool
-         </a>
-         <a class="nav-item navbar-item" href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre">
-             Needles
-         </a>
-         <a class="nav-item navbar-item" href="{% url 'products' %}?category=knitting_pattern">
-             Patterns
-         </a>
-     </div>
- </div>
+<div class="navbar-item has-dropdown is-hoverable is-hidden-desktop mobile">
+    <a class="navbar-link nav-item">
+        Products
+    </a>
+    <div class="navbar-dropdown">
+        <a href="{% url 'products' %}" class="nav-item navbar-item">
+            All Products
+        </a>
+        <a class="nav-item navbar-item"
+            href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton,bamboo">
+            Wool
+        </a>
+        <a class="nav-item navbar-item" href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre">
+            Needles
+        </a>
+        <a class="nav-item navbar-item" href="{% url 'products' %}?category=knitting_pattern">
+            Patterns
+        </a>
+    </div>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -215,6 +215,12 @@
                             {% else %}
                             <p>No rating</p>
                             {% endif %}
+                             {% if request.user.is_superuser %}
+                             <small>
+                                 <a class="has-text-info" href="{% url 'edit_product' product.id %}">Edit</a> |
+                                 <a class="has-text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+                             </small>
+                             {% endif %}
                         </div>
                     </div>
                 </div>
