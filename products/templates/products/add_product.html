@@ -23,7 +23,7 @@
                     <form action="{% url 'add_product' %}" enctype="multipart/form-data" method="POST">
                         {% csrf_token %}
                         {{ form | crispy }}
-                        <div class="is-justify-content-right"> 
+                        <div class="is-justify-content-right">
                             <a href="{% url 'add_product' %}" class="button is-danger is-light">
                                 Cancel
                             </a>
@@ -32,5 +32,9 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            {% endblock %}
+
+{% endblock %}
