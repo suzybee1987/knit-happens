@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <!-- heading  -->
+            <div class="columns">
+                <div class="column">
+                    <h1 class="title-heading">Product Management</h1>
+                    <h2 class="title-heading-small">Edit A Product</h2>
+                </div>
+            </div>
+            <!-- end of heading  -->
+
+            <div class="columns">
+                <div class="column is-6-desktop is-10-mobile is-offset-1-mobile">
+                    <form action="{% url 'edit_product' product.id %}" enctype="multipart/form-data" method="POST">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div class="is-justify-content-right">
+                            <a href="{% url 'products' %}" class="button is-danger is-light">
+                                Cancel
+                            </a>
+                            <button class="button is-danger" type="submit">Update Product</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

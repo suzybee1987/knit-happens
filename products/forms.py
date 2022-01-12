@@ -15,4 +15,4 @@ class ProductForm(forms.ModelForm):
 
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'has-text-link-dark'
+            field.widget.attrs['class'] = 'border-black rounded-0'
