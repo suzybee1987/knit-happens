@@ -19,8 +19,8 @@
                     <h2 class="title-heading">Profile</h2>
                 </div>
             </div>
-            <div class="columns">
-                <div class="column">
+            <div class="columns is-justify-content-center">
+                <div class="column is-6 is-10-mobile">
                     <p class="">Default Delivery Information</p>
                     <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                         {% csrf_token %}
