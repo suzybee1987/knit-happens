@@ -106,10 +106,8 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-    # tells allauth we want to authenticate with username or email
+# tells allauth we want to authenticate with username or email
 ACCOUNT_EMAIL_REQUIRED = True   # confirm email required for site
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'   # verify the email is valid
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True   # email required twice to check for typos
@@ -131,10 +129,9 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
