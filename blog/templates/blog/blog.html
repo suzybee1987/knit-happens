@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero-body">
+    <div class="container">
+        <div class="columns is-justify-content-center has-text-centered">
+            <div class="column is-10">
+                <h1 class="title-heading">Welcome to the blog!</h1>
+            </div>
+        </div>
+        <div class="columns is-justify-content-center">
+            {% for post in posts %}
+            <div class="column has-text-centered">
+                <div class="card">
+                    <div class="card-title">
+                        <a href="{% url 'post_detail' post.slug  %}" class="title-heading-small">{{ post.title }}
+                            </h2></a>
+                    </div>
+                    <div class="card-content">
+                        <p> {{ post.content }}</p>
+                    </div>
+                    <small class="content">
+                        {{ post.author }}
+                    </small>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

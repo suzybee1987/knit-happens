@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="hero-body">
+    <div class="container">
+        <div class="columns">
+            <div class="column">
+                <div class="card">
+                    <h1 class="card-title">
+                        {{ post.title }}</h1>
+                    <div class="card-content">
+                        {{ post.content }}
+                    </div>
+                    <div class="content">
+                        {{ post.user_profile }}
+                        <small>Posted on {{ post.created_on }}</small>
+                    </div>
+                        <a href="{% url 'blog' %}" class="button is-info">Back to blog</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <div class="card comments">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
