@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
 
 {% block content %}
 <div class="hero-body">
     <div class="container">
         <div class="columns is-justify-content-left">
             <div class="column is-6-desktop is-10-mobile">
-                <a href="{% url 'blog' %}" class="button is-info">Back to blog</a>
+                <a href="{% url 'blog' %}" class="button is-danger">Back to blog homepage</a>
             </div>
         </div>
         <div class="columns is-justify-content-space-around">
@@ -67,7 +72,7 @@
                         	    No comments yet...
                         	</div>
                         	{% endfor %}
-                        <form method="post" action="{% url 'add_comment' post.slug %}">
+                        <form method="post" action="{% url 'add_comment' post.slug %}" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form|crispy }}
                             <div class="field">
