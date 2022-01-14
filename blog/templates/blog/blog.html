@@ -11,10 +11,29 @@
             {% for post in posts %}
             <div class="column has-text-centered">
                 <div class="card">
-                    <div class="card-title">
-                        <a href="{% url 'post_detail' post.slug  %}" class="title-heading-small">{{ post.title }}
-                            </h2></a>
+                    <div class="card-header">
+                        <div class="card-header-title">
+                            <a href="{% url 'add_comment' post.slug  %}" class="title-heading-small">{{ post.title }}
+                                </h2>
+                            </a>
+                        </div>
                     </div>
+                    {% if post.image %}
+                    <a href="{% url 'post_detail' post.image %}">
+                        <div class="card-image">
+                            <figure class="image is-5by4">
+                                <img src="{{ product.image.url }}" alt="image for {{ post.title }}"
+                                    class="product-image">
+                            </figure>
+                        </div>
+                    </a>
+                    {% else %}
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ post.title }}">
+                        </figure>
+                    </div>
+                    {% endif %}
                     <div class="card-content">
                         <p> {{ post.content }}</p>
                     </div>
