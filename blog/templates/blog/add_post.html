@@ -12,20 +12,46 @@
                 <h1 class="title-heading">Add A New Blog Post</h1>
             </div>
         </div>
-<div class="columns">
-    <div class="column is-6-desktop is-10-mobile is-offset-1-mobile">
-        <form action="{% url 'add_post' %}" enctype="multipart/form-data" method="POST">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <div class="is-justify-content-right">
-                <a href="{% url 'blog' %}" class="button is-danger is-light">
-                    Cancel
-                </a>
-                <button class="button is-danger" type="submit">Add Product</button>
+        <div class="columns">
+            <div class="column is-6-desktop is-10-mobile is-offset-1-mobile">
+                <form action="{% url 'add_post' %}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    <div class="field">
+                        <label class="title" for="title">Your Title</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Say something... " name="title"
+                                id="title"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="content" for="content">Your Content</label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Say something... " name="content"
+                                id="content"></textarea>
+                        </div>
+                    </div>
+                    <div class="file has-name is-boxed">
+                        <label class="file-label" for="image">
+                            <input class="file-input" type="file" name="image" id="image">
+                            <span class="file-cta">
+                                <span class="file-icon">
+                                    <i class="fas fa-upload"></i>
+                                </span>
+                                <span class="file-label">
+                                    Choose an image
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="is-justify-content-right">
+                        <a href="{% url 'blog' %}" class="button is-danger is-light">
+                            Cancel
+                        </a>
+                        <button class="button is-danger" type="submit">Add Product</button>
+                    </div>
+                </form>
             </div>
-        </form>
-    </div>
-</div>
+        </div>
     </div>
 </div>
 {% endblock %}

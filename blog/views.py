@@ -12,7 +12,6 @@ def blog(request):
 
 
 def post_detail(request, slug):
-
     """
     a view to show the post
     """
@@ -72,5 +71,5 @@ def add_comment(request, slug):
                 request, 'Failed to add comment. Please ensure the form is valid.')
     else:
         form = CommentForm()
-    
+
     return render(request, 'blog/add_comment.html', {'post': post, 'form': form})

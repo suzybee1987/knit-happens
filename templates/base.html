@@ -91,7 +91,7 @@
                     </div>
                     <!-- right side of navbar hidden on mobile  -->
                     <div class="navbar-end is-hidden-touch">
-                        <a class="navbar-item" href="#">
+                        <a class="navbar-item" href="{% url 'blog' %}">
                             <img src="{{ MEDIA_URL }}blog.png" alt="blog">
                         </a>
                         {% if request.user.is_superuser %}
@@ -185,7 +185,7 @@
                         </div>
                         <div class="navbar-mobile">
                             <!-- blog -->
-                            <a class="navbar-item" href="#">
+                            <a class="navbar-item" href="{% url 'blog' %}">
                                 <img src="{{ MEDIA_URL }}blog.png" alt="blog" class="mobile-icon">
                             </a>
                             {% if request.user.is_superuser %}
