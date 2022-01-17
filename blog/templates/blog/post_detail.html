@@ -25,8 +25,7 @@
                     <a href="{% url 'post_detail' post.image.url %}">
                         <div class="card-image">
                             <figure class="image is-96x96">
-                                <img src="{{ post.image.url }}" alt="image for {{ post.title }}"
-                                    class="product-image">
+                                <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="product-image">
                             </figure>
                         </div>
                     </a>
@@ -69,10 +68,10 @@
                             </div>
                         </article>
                         {% empty %}
-                        	<div class="notification">
-                        	    No comments yet...
-                        	</div>
-                        	{% endfor %}
+                        <div class="notification">
+                            No comments yet...
+                        </div>
+                        {% endfor %}
                         <form method="post" action=".">
                             {% csrf_token %}
                             {{ form|crispy }}

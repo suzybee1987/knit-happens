@@ -111,7 +111,8 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 # tells allauth we want to authenticate with username or email
 ACCOUNT_EMAIL_REQUIRED = True   # confirm email required for site
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'   # verify the email is valid
-ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True   # email required twice to check for typos
+# email required twice to check for typos
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4   # username min length
 LOGIN_URL = '/accounts/login/'   # log in page
 LOGIN_REDIRECT_URL = '/'
@@ -133,6 +134,8 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 

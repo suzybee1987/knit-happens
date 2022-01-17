@@ -40,11 +40,12 @@ def add_post(request):
         form = PostForm()
 
     template = 'blog/add_post.html'
-  
+
     return render(request, template, context)
 
+
 def post_detail(request, slug):
-    
+
     context = {}
     post = Post.objects.get(slug=slug)
 
