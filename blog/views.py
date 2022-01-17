@@ -24,12 +24,13 @@ def add_post(request):
     context['form'] = form
 
     if request.method == "POST":
-        form = PostForm(request.POST, request.FILES)
+        form = PostForm(request.POST or None, request.FILES or None)
         if form.is_valid:
             obj = form.save(commit=False)
             author = request.user
             obj.author = author
             obj.save()
+
             messages.success(request, "Successfully added your blog post")
             return redirect(reverse('blog'))
         else:

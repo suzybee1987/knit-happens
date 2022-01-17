@@ -22,10 +22,10 @@
                         </div>
                     </div>
                     {% if post.image %}
-                    <a href="{% url 'post_detail' post.image %}">
+                    <a href="{% url 'post_detail' post.image.url %}">
                         <div class="card-image">
                             <figure class="image is-96x96">
-                                <img src="{{ product.image.url }}" alt="image for {{ post.title }}"
+                                <img src="{{ post.image.url }}" alt="image for {{ post.title }}"
                                     class="product-image">
                             </figure>
                         </div>

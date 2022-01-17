@@ -13,12 +13,12 @@ def upload_location(instance, filename):
         title=str(instance.title), filename=filename)
     return file_path
 
+# posts model 
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    updated_on = models.DateTimeField(auto_now=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    updated_on = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='blogimages', null=True, blank=True)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
@@ -42,6 +42,8 @@ def pre_save_blog_post_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_blog_post_receiver, sender=Post)
+
+# comments model
 
 class Comment(models.Model):
     post = models.ForeignKey(
