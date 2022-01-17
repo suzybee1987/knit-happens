@@ -28,8 +28,7 @@
                     <a href="{% url 'post_detail' post.slug %}">
                         <div class="card-image">
                             <figure class="image is-5by4">
-                                <img src="{{ post.image.url }}" alt="image for {{ post.title }}"
-                                    class="product-image">
+                                <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="product-image">
                             </figure>
                         </div>
                     </a>
@@ -44,7 +43,7 @@
                         <p> {{ post.content }}</p>
                     </div>
                     <small class="content">
-                       Posted by:{{ post.author }} on {{ post.created_on }}
+                        Posted by:{{ post.author }} on {{ post.created_on }}
                     </small>
                 </div>
             </div>

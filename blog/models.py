@@ -13,7 +13,8 @@ def upload_location(instance, filename):
         title=str(instance.title), filename=filename)
     return file_path
 
-# posts model 
+# posts model
+
 
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
@@ -38,12 +39,14 @@ def submission_delete(sender, instance, **kwargs):
 
 def pre_save_blog_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = slugify(instance.author.username + "-" + instance.title) 
+        instance.slug = slugify(
+            instance.author.username + "-" + instance.title)
 
 
 pre_save.connect(pre_save_blog_post_receiver, sender=Post)
 
 # comments model
+
 
 class Comment(models.Model):
     post = models.ForeignKey(
