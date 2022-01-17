@@ -330,3 +330,28 @@ nav.navbar.is-justify-content-space-evenly {
 }
 
 /* end of checkout  */
+
+/* blog cards  */
+.card.blog-card {
+    border-radius: 1rem;
+}
+
+.blog-title {
+    color: #4a4a4a;
+}
+.blog-title:hover, .blog-title:focus {
+    color: #4a4a4a;
+    text-decoration: underline;
+}
+.blog-card-content {
+    font-size: 1.5em;
+}
+
+.blog-small {
+    font-weight: 900;
+    text-decoration: underline;
+
+}
+.blog-buttons {
+    margin: 20px 0;
+}

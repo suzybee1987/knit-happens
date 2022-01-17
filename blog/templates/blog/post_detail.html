@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block page_header %}
-
-{% endblock %}
-
 {% block content %}
 <div class="hero-body">
     <div class="container">
@@ -15,7 +11,7 @@
         </div>
         <div class="columns is-justify-content-space-around">
             <div class="column is-4">
-                <div class="card">
+                <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
                             <h1 class="title-heading-small">{{ post.title }}</h1>
@@ -24,7 +20,7 @@
                     {% if post.image %}
                     <a href="{% url 'post_detail' post.slug %}">
                         <div class="card-image">
-                            <figure class="image is-96x96">
+                            <figure class="image">
                                 <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="product-image">
                             </figure>
                         </div>
@@ -42,8 +38,10 @@
                     <div class="content">
                         {{ post.user_profile }}
                         <small>Posted on {{ post.created_on }}</small>
+                        {% if post.author == request.user %}
                         <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
-                        <a href="" class="button is-danger is-light">Delete Post</a>
+                        <a href="{% url 'delete_post' post.slug %}" class="button is-danger is-light">Delete Post</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>
