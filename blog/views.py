@@ -45,7 +45,7 @@ def add_post(request):
 
 
 def post_detail(request, slug):
-
+    """ a view to see the blog post with potential to add a comment """
     context = {}
     post = Post.objects.get(slug=slug)
 
