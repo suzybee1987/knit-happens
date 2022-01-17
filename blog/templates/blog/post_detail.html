@@ -60,7 +60,7 @@
                             <div class="media-content">
                                 <div class="content">
                                     <p>
-                                        {{ comment.body }}
+                                        {{ comment.comment }}
                                     </p>
                                     <small>{{ comment.date_added|timesince }}
                                         ago</small>
@@ -72,7 +72,7 @@
                         	    No comments yet...
                         	</div>
                         	{% endfor %}
-                        <form method="post" action="{% url 'add_comment' post.slug %}" enctype="multipart/form-data">
+                        <form method="post" action=".">
                             {% csrf_token %}
                             {{ form|crispy }}
                             <div class="field">
