@@ -71,33 +71,3 @@ def post_detail(request, slug):
     }
 
     return render(request, template, context)
-
-
-
-# @login_required
-# def add_comment(request, slug):
-#     """ a view to add a comment to the post """
-#     context = {}
-#     form = CommentForm()
-#     context['form'] = form
-
-#     if request.method == "POST":
-#         form = CommentForm(request.POST, request.FILES)
-#         if form.is_valid:
-#             obj = form.save(commit=False)
-#             author = request.user
-#             obj.author = author
-#             obj.save()
-#             messages.success(request, "Successfully added your comment")
-#             return redirect(reverse('blog'))
-#         else:
-#             messages.error(
-#                 request, "Failed to add comment, please check the form is valid")
-#     else:
-#         form = PostForm()
-
-#     template = 'blog/post_detail.html'
-#     context = {
-#         'form': form
-#     }
-#     return render(request, template, context)
