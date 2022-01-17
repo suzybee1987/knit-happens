@@ -72,3 +72,35 @@ def post_detail(request, slug):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def edit_post(request, slug):
+    """ edit post """
+    post = Post.objects.get(slug=slug)
+    user = request.user
+    if request.method == "POST":
+        if post.author != user:
+            return HttpResponse('You cannot edit this post.')
+            form = PostForm(request.POST or None, request.FILES or None,
+                            instance=post)
+            if form.is_valid:
+                obj = form.save(commit=False)
+                obj.save()
+                post = obj
+                messages.success(request, "Successfully edited your blog post")
+                return redirect('post_detail', slug=post.slug)
+            else:
+                messages.error(request, "Failed to update post.")
+    else:
+        form = PostForm(instance=post)
+        messages.info(request, f'You are editing {post.title}')
+
+
+    template = 'blog/edit_post.html'  
+    context = {
+        'post': post,
+        'form': form
+    }
+
+    return render(request, template, context)
