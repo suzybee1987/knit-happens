@@ -17,7 +17,7 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="is-justify-content-right">
-                        <a href="{% url 'blog' %}" class="button is-danger is-light">
+                        <a href="{% url 'post_detail' post.slug %}" class="button is-danger is-light">
                             Cancel
                         </a>
                         <button class="button is-danger" type="submit">Update Post</button>

@@ -25,14 +25,14 @@ def add_post(request):
 
     if request.method == "POST":
         form = PostForm(request.POST or None, request.FILES or None)
-        if form.is_valid:
+        if form.is_valid():
             obj = form.save(commit=False)
             author = request.user
             obj.author = author
             obj.save()
 
             messages.success(request, "Successfully added your blog post")
-            return redirect(reverse('blog'))
+            return redirect(reverse('post_detail', args=[obj.slug]))
         else:
             messages.error(
                 request, "Failed to add blog post, please check the form is valid")
@@ -79,28 +79,42 @@ def edit_post(request, slug):
     """ edit post """
     post = Post.objects.get(slug=slug)
     user = request.user
+
     if request.method == "POST":
-        if post.author != user:
-            return HttpResponse('You cannot edit this post.')
-            form = PostForm(request.POST or None, request.FILES or None,
-                            instance=post)
-            if form.is_valid:
-                obj = form.save(commit=False)
-                obj.save()
-                post = obj
-                messages.success(request, "Successfully edited your blog post")
-                return redirect('post_detail', slug=post.slug)
-            else:
-                messages.error(request, "Failed to update post.")
+        form = PostForm(request.POST or None,
+                        request.FILES or None, instance=post)
+        if form.is_valid():
+            obj = form.save(commit=False)
+            obj.save()
+            post = obj
+            messages.success(request, "Successfully edited your blog post")
+            return redirect(reverse('post_detail', args=[obj.slug]))
+        else:
+            messages.error(request, "Failed to update post.")
     else:
         form = PostForm(instance=post)
         messages.info(request, f'You are editing {post.title}')
 
-
-    template = 'blog/edit_post.html'  
+    template = 'blog/edit_post.html'
     context = {
         'post': post,
-        'form': form
+        'form': form,
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_post(request, slug):
+    """ allows the user to delete a post they have """
+    post = Post.objects.get(slug=slug)
+    user = request.user
+    if post.author == user:
+        post.delete()
+        messages.success(request, f'You have edited {post.title}')
+        return redirect(reverse('blog'))
+
+    else:
+        messages.error(request, "You are not allowed to do that.")
+
+    return render(request, context)
