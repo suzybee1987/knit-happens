@@ -17,10 +17,10 @@ def upload_location(instance, filename):
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=200, unique=True)
+    title = models.CharField(max_length=20, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     updated_on = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='blogimages', null=True, blank=True)
+    image = models.ImageField(upload_to='blogimages', null=True, blank=False)
     content = models.TextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     created_on = models.DateTimeField(auto_now_add=True)

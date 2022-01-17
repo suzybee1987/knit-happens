@@ -1,9 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-
-{% endblock %}
 {% block content %}
 <div class="hero-body">
     <div class="container">
@@ -16,10 +13,11 @@
         <div class="columns is-justify-content-center is-multiline">
             {% for post in posts %}
             <div class="column is-4-desktop is-10-mobile has-text-centered">
-                <div class="card">
+                <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
-                            <a href="{% url 'post_detail' post.slug %}" class="title-heading-small">{{ post.title }}
+                            <a href="{% url 'post_detail' post.slug %}"
+                                class="title-heading-small blog-title">{{ post.title | truncatechars:20 | capfirst }}
                                 </h2>
                             </a>
                         </div>
@@ -40,10 +38,11 @@
                     </div>
                     {% endif %}
                     <div class="card-content">
-                        <p> {{ post.content }}</p>
+                        <p class="blog-card-content"> {{ post.content | truncatechars:20 |capfirst }}</p>
                     </div>
-                    <small class="content">
-                        Posted by:{{ post.author }} on {{ post.created_on }}
+                    <small class="blog-content content">
+                       <p>Posted by: <span class="blog-small">{{ post.author }}</span></p>
+                       <p>{{ post.created_on|timesince }} ago</p>
                     </small>
                 </div>
             </div>

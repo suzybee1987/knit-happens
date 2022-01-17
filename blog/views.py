@@ -83,14 +83,17 @@ def edit_post(request, slug):
     if request.method == "POST":
         form = PostForm(request.POST or None,
                         request.FILES or None, instance=post)
-        if form.is_valid():
-            obj = form.save(commit=False)
-            obj.save()
-            post = obj
-            messages.success(request, "Successfully edited your blog post")
-            return redirect(reverse('post_detail', args=[obj.slug]))
+        if request.user == post.author:
+            if form.is_valid():
+                obj = form.save(commit=False)
+                obj.save()
+                post = obj
+                messages.success(request, "Successfully edited your blog post")
+                return redirect(reverse('post_detail', args=[obj.slug]))
+            else:
+                messages.error(request, "Failed to update post.")
         else:
-            messages.error(request, "Failed to update post.")
+            messages.info(request, 'You are not allowed to do that as you are not the post author!')
     else:
         form = PostForm(instance=post)
         messages.info(request, f'You are editing {post.title}')
