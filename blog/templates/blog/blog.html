@@ -1,41 +1,53 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-
-{% endblock %}
-
 {% block content %}
 <div class="hero-body">
     <div class="container">
-        <div class="columns has-text-centered">
-            <div class="column is-mobile">
-                <h1 class="title-heading has-text-centered is-justify-content-center">Blog</h1>
-                </a>
+        <div class="columns is-justify-content-center has-text-centered">
+            <div class="column is-10">
+                <h1 class="title-heading">Welcome to the blog!</h1>
+                <a class="button is-danger" href="{% url 'add_post' %}">New Post<i class="fas fa-plus-circle"></i></a>
             </div>
         </div>
-
-        <div class="columns">
-            <!-- Blog Entries Column -->
-            <div class="column is-8-desktop is-left">
-                {% for post in post_list %}
-                <div class="card m-3">
-                    <div class="card-body">
-                        <h2 class="card-title">{{ post.title }}</h2>
-                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
-                        <p class="card-text">{{post.content|slice:":200" }}</p>
-                        <a href="{% url 'post_detail' post.slug  %}" class="button is-primary">Read More &rarr;</a>
+        <div class="columns is-justify-content-center is-multiline">
+            {% for post in posts %}
+            <div class="column is-3 is-10-mobile has-text-centered">
+                <div class="card blog-card">
+                    <div class="card-header">
+                        <div class="card-header-title">
+                            <a href="{% url 'post_detail' post.slug %}"
+                                class="title-heading-small blog-title">{{ post.title | truncatechars:20 | capfirst }}
+                                </h2>
+                            </a>
+                        </div>
                     </div>
+                    {% if post.image.url %}
+                    <a href="{% url 'post_detail' post.slug %}">
+                        <div class="card-image">
+                            <figure class="image is-5by4">
+                                <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="product-image">
+                            </figure>
+                        </div>
+                    </a>
+                    {% else %}
+                    <div class="card-image">
+                        <figure class="image">
+                            <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ post.title }}">
+                        </figure>
+                    </div>
+                    {% endif %}
+                    <div class="card-content">
+                        <p class="blog-card-content"> {{ post.content | truncatechars:20 |capfirst }}</p>
+                    </div>
+                    <small class="blog-content content">
+                       <p>Posted by: <span class="blog-small">{{ post.author }}</span></p>
+                       <p>{{ post.created_on|timesince }} ago</p>
+                    </small>
                 </div>
-                {% endfor %}
             </div>
-            {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+            {% endfor %}
         </div>
     </div>
-
-    {% endblock %}
-
-    {% block postloadjs %}
-    {{ block.super }}
-
-    {% endblock %}
+</div>
+{% endblock %}

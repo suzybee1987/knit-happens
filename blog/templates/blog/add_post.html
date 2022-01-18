@@ -1,10 +1,8 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block page_header %}
-
-{% endblock %}
 {% block content %}
-<div class="hero-body">
+<div class="hero-body is-fullheight">
     <div class="container">
         <div class="columns is-justify-content-center has-text-centered">
             <div class="column is-10">
@@ -13,16 +11,20 @@
         </div>
         <div class="columns is-justify-content-center">
             <div class="column is-6-desktop is-10-tablet is-12-mobile">
-                 <form action="{% url 'add_post' %}" enctype="multipart/form-data" method="POST">
-                     {% csrf_token %}
-                     {{ form | crispy }}
-                     <div class="is-justify-content-right">
-                         <a href="{% url 'blog' %}" class="button is-danger is-light">
-                             Cancel
-                         </a>
-                         <button class="button is-danger" type="submit">Add Product</button>
-                     </div>
-                 </form>
+                <form action="{% url 'add_post' %}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="is-justify-content-space-between blog-buttons columns has-text-centered">
+                        <div class="column is-4-mobile">
+                            <button class="button is-danger" type="submit">Add Post</button>
+                        </div>
+                        <div class="column is-4-mobile">
+                            <a href="{% url 'blog' %}" class="button is-danger is-light">
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
