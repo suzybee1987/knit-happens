@@ -36,8 +36,8 @@
                         {{ post.content }}
                     </div>
                     <div class="content">
-                        {{ post.user_profile }}
-                        <small>Posted on {{ post.created_on }}</small>
+                         <p>Posted by: <span class="blog-small">{{ post.author }}</span></p>
+                         <p>{{ post.created_on|timesince }} ago</p>
                         {% if post.author == request.user %}
                         <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
                         <a href="{% url 'delete_post' post.slug %}" class="button is-danger is-light">Delete Post</a>
@@ -60,6 +60,7 @@
                                     <p>
                                         {{ comment.comment }}
                                     </p>
+                                    <p>comment by: {{ comment.comment_author }}</p>
                                     <small>{{ comment.date_added|timesince }}
                                         ago</small>
                                 </div>

@@ -22,7 +22,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='blogimages', null=True, blank=False)
     content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post",default=1)
     created_on = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -39,8 +39,7 @@ def submission_delete(sender, instance, **kwargs):
 
 def pre_save_blog_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
-        instance.slug = slugify(
-            instance.author.username + "-" + instance.title)
+        instance.slug = slugify(instance.author.username + "-" + instance.title)
 
 
 pre_save.connect(pre_save_blog_post_receiver, sender=Post)
@@ -51,6 +50,6 @@ pre_save.connect(pre_save_blog_post_receiver, sender=Post)
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, related_name='comments', on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    comment_author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comment", default=1)
     comment = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)

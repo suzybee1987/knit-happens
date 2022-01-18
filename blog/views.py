@@ -19,10 +19,6 @@ def blog(request):
 def add_post(request):
     """ a view to add a post to the blog """
 
-    context = {}
-    form = PostForm()
-    context['form'] = form
-
     if request.method == "POST":
         form = PostForm(request.POST or None, request.FILES or None)
         if form.is_valid():
@@ -40,6 +36,9 @@ def add_post(request):
         form = PostForm()
 
     template = 'blog/add_post.html'
+    context = {
+        'form': form,
+    }
 
     return render(request, template, context)
 
@@ -53,9 +52,11 @@ def post_detail(request, slug):
 
     if request.method == "POST":
         form = CommentForm(request.POST, request.FILES)
-        if form.is_valid:
+        if form.is_valid():
             comment = form.save(commit=False)
             comment.post = post
+            comment_author = request.user
+            comment.comment_author = comment_author
             comment.save()
             messages.success(request, "Successfully added your comment")
             return redirect('post_detail', slug=post.slug)
