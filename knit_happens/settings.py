@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',  # allows users to log in with facebook/google etc
-
+    "allauth.socialaccount.providers.github",  # new
+    "allauth.socialaccount.providers.twitter",
+    
+    # my apps 
     'home',
     'products',
     'bag',
@@ -116,6 +119,8 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4   # username min length
 LOGIN_URL = '/accounts/login/'   # log in page
 LOGIN_REDIRECT_URL = '/'
+# used with django social auth tutorial 
+ACCOUNT_LOGOUT_ON_GET = True
 
 
 WSGI_APPLICATION = 'knit_happens.wsgi.application'
