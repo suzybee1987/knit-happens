@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',  # allows users to log in with facebook/google etc
-    # "allauth.socialaccount.providers.github",  # new
+    "allauth.socialaccount.providers.google",  # new
     # "allauth.socialaccount.providers.twitter",
     
     # my apps 
