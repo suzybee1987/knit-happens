@@ -355,3 +355,14 @@ nav.navbar.is-justify-content-space-evenly {
 .blog-buttons {
     margin: 20px 0;
 }
+
+
+/* login page  */
+
+.google {
+    background-color: #4285F4;
+    color: white;
+    border-radius: 20px;
+    width:auto;
+    height: 70px;
+}
