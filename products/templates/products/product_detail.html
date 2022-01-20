@@ -299,26 +299,12 @@
     <!-- Reviews Section -->
 
 
-    <div class="columns">
-        <div class="column is-mobile">
+    <div class="columns is-justify-content-center has-text-centered">
+        <div class="column">
             <h1 class="title-heading has-text-centered ">Reviews of {{ product.name }}</h1>
         </div>
     </div>
-    <div class="columns">
-        <div class="column is-6-desktop is-10-mobile is-offset-1-mobile">
-            <form action="{% url 'add_review' product.id %}#reviews" method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="is-justify-content-right">
-                    <button type="reset" class="button is-danger is-light">
-                        Reset Form
-                    </button>
-                    <button class="button is-danger" name="review" type="submit">Add Review</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div class="columns">
+    <div class="columns is-justify-content-center has-text-centered">
         {% if review %}
         {% for review in product.reviews.all %}
         <div class="column">
@@ -333,9 +319,25 @@
         {% endfor %}
         {% else %}
         <div class="column">
-            <h1 class="title-heading-small">There are no reviews for {{ product.name }} yet</h1>
+            <h1 class="title-heading-small">There are no reviews for {{ product.name }} yet.</h1>
+            <h2 class="title-heading-small">Why don't you add one?</h2>
+           
         </div>
         {% endif %}
+    </div>
+    <div class="columns is-justify-content-center has-text-centered">
+        <div class="column is-6-desktop is-10-mobile is-offset-1-mobile">
+            <form action="{% url 'add_review' product.id %}#reviews" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="is-justify-content-right">
+                    <button type="reset" class="button is-danger is-light">
+                        Reset Form
+                    </button>
+                    <button class="button is-danger" name="review" type="submit">Add Review</button>
+                </div>
+            </form>
+        </div>
     </div>
 
 

@@ -61,14 +61,25 @@ def all_products(request):
 
 def product_detail(request, product_id):
     """ A view to show individual product details """
-
     product = get_object_or_404(Product, pk=product_id)
-    
-    context = {
-        'product': product,
-    }
+    form = ReviewForm
+    reviews = product.reviews.filter(active=True)
+    new_review = None
+    if request.method == 'POST':
+        form = ReviewForm(data=request.POST)
+        if form.is_valid():
+            new_review = review_form.save(commit=True)
+            new_review.product = product
+            new_review.save()
+        else:
+            form = ReviewForm()
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'products/product_detail.html',
+                  {'product': product,
+                   'form': form,
+                   'reviews': reviews,
+                   'new_review': new_review
+                   })
 
 
 @login_required
@@ -145,26 +156,23 @@ def delete_product(request, product_id):
 @login_required
 def add_review(request, product_id):
     """ Add a review of a product """
-
     product = get_object_or_404(Product, pk=product_id)
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = ReviewForm(request.POST)
             if form.is_valid():
                 review = form.save(commit=False)
-                review.review_author = request.user
                 review.product = product
+                review.user = request.user
                 review.save()
-                messages.success(request, 'Successfully added your review!')
+                messages.success(
+                    request, 'Successfully added your review!')
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(
-                    request, 'Failed to add review. Please ensure the form is valid.')
-    else:
-        form = ReviewForm()
-
+                    request, 'Failed to add review. Please ensure the form is valid')
     context = {
-        'form': form,
+        'form': form
     }
 
     return render(request, context)
@@ -173,32 +181,35 @@ def add_review(request, product_id):
 @login_required
 def edit_review(request, review_id):
     """ Edit a review of a product """
-
     review = get_object_or_404(Review, pk=review_id)
     product = review.product
-
     if request.user.is_superuser or review.review_author == request.user:
         if request.method == 'POST':
             form = ReviewForm(request.POST, instance=review)
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Successfully updated review')
+                messages.info(request, 'Successfully updated your review')
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(
-                    request, 'Failed to update review. Please ensure the form is valid.')
+                    request, 'Failed to update your review. Please ensure the form is valid.')
+
         else:
             form = ReviewForm(instance=review)
     else:
         messages.error(
             request, "You are not allowed to do that!")
-    
+
     messages.info(request, f'You are editing the review for {product.name}')
+
+    template = 'products/product_detail.html'
+
     context = {
         'form': form,
         'review': review,
+        'product': product,
+        'update': True,
     }
-    template = 'products/product_detail.html'
 
     return render(request, template, context)
 
@@ -207,7 +218,7 @@ def edit_review(request, review_id):
 def delete_review(request, review_id):
     """The view to delete a review from the site"""
     review = get_object_or_404(Review, pk=review_id)
-    if request.user.is_superuser or review.username == request.user:
+    if request.user.is_superuser or review.review_author == request.user:
         review.delete()
         messages.success(request, 'That review has been deleted!')
         return redirect(reverse('reviews'))
