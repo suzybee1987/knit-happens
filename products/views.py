@@ -3,11 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-
-from .models import Product, Category
-from .forms import ProductForm
-
-# Create your views here.
+from .models import Product, Category, Rating, Review
+from .forms import ProductForm, ReviewForm, RatingForm
 
 
 def all_products(request):
@@ -66,7 +63,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-
+    
     context = {
         'product': product,
     }
@@ -141,4 +138,79 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
+    return redirect(reverse('products'))
+
+
+# Reviews views 
+@login_required
+def add_review(request, product_id):
+    """ Add a review of a product """
+
+    product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                review = form.save(commit=False)
+                review.review_author = request.user
+                review.product = product
+                review.save()
+                messages.success(request, 'Successfully added your review!')
+                return redirect(reverse('product_detail', args=[product.id]))
+            else:
+                messages.error(
+                    request, 'Failed to add review. Please ensure the form is valid.')
+    else:
+        form = ReviewForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, context)
+
+
+@login_required
+def edit_review(request, review_id):
+    """ Edit a review of a product """
+
+    review = get_object_or_404(Review, pk=review_id)
+    product = review.product
+
+    if request.user.is_superuser or review.review_author == request.user:
+        if request.method == 'POST':
+            form = ReviewForm(request.POST, instance=review)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Successfully updated review')
+                return redirect(reverse('product_detail', args=[product.id]))
+            else:
+                messages.error(
+                    request, 'Failed to update review. Please ensure the form is valid.')
+        else:
+            form = ReviewForm(instance=review)
+    else:
+        messages.error(
+            request, "You are not allowed to do that!")
+    
+    messages.info(request, f'You are editing the review for {product.name}')
+    context = {
+        'form': form,
+        'review': review,
+    }
+    template = 'products/product_detail.html'
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_review(request, review_id):
+    """The view to delete a review from the site"""
+    review = get_object_or_404(Review, pk=review_id)
+    if request.user.is_superuser or review.username == request.user:
+        review.delete()
+        messages.success(request, 'That review has been deleted!')
+        return redirect(reverse('reviews'))
+
+    messages.error(request, 'Sorry, you can not do this.')
     return redirect(reverse('products'))
