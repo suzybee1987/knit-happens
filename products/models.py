@@ -37,17 +37,17 @@ class Product(models.Model):
 
 class Rating(models.Model):
     product = models.ForeignKey(
-        Product, default=None, on_delete=models.PROTECT, related_name="ratings")
+        Product, default=None, on_delete=models.PROTECT, related_name="rating")
     rating_author = models.ForeignKey(
-        User, on_delete=models.PROTECT, null=False, blank=False)
-    rating = models.FloatField(null=True, default=5, )
+        User, on_delete=models.PROTECT, null=True, blank=True)
+    rating = models.FloatField(null=True, default=5)
 
 
 class Review(models.Model):
     product = models.ForeignKey(
-        Product, default=None, on_delete=models.PROTECT, related_name="reviews")
+        Product, default=None, on_delete=models.PROTECT, related_name="review")
     review_author = models.ForeignKey(
-        User, on_delete=models.PROTECT, null=False, blank=False)
+        User, on_delete=models.PROTECT, null=True, blank=True)
     review = models.TextField()
     review_title = models.CharField(max_length=254)
     added_on = models.DateTimeField(auto_now_add=True)
