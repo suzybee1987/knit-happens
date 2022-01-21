@@ -206,6 +206,14 @@ nav.navbar.is-justify-content-space-evenly {
     width: 80%;
     margin: 50px auto;
 }
+.divider-products {
+    height: 0px;
+    border-radius: 2px;
+    color: #be3db0;
+    border: 2px solid #be3db0;
+    width: 80%;
+    margin: 60px auto 40px;
+}
 
 .button.is-primary.is-light {
     margin-bottom: 20px;
