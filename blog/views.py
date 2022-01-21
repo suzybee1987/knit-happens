@@ -115,7 +115,7 @@ def delete_post(request, slug):
     user = request.user
     if post.author == user:
         post.delete()
-        messages.success(request, f'You have edited {post.title}')
+        messages.success(request, f'You have deleted {post.title}')
         return redirect(reverse('blog'))
 
     else:
