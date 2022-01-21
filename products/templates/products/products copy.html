@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+<div class="navbar-item has-dropdown is-hoverable is-hidden-desktop mobile">
+    <a class="navbar-link nav-item">
+        Products
+    </a>
+    <div class="navbar-dropdown">
+        <a href="{% url 'products' %}" class="nav-item navbar-item">
+            All Products
+        </a>
+        <a class="nav-item navbar-item"
+            href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton,bamboo">
+            Wool
+        </a>
+        <a class="nav-item navbar-item" href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre">
+            Needles
+        </a>
+        <a class="nav-item navbar-item" href="{% url 'products' %}?category=knitting_pattern">
+            Patterns
+        </a>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="hero-body">
     <div class="container">
@@ -207,55 +230,54 @@
             </a>
         </button>
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
 
-{% block postloadjs %}
-{{ block.super }}
-<script>
-    // script from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
-    //Get the button
-    let mybutton = document.getElementById("btt-button")
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-        scrollFunction()
-    };
+    {% block postloadjs %}
+    {{ block.super }}
+    <script>
+        // script from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
+        //Get the button
+        let mybutton = document.getElementById("btt-button")
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () {
+            scrollFunction()
+        };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
         }
-    }
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-    mybutton.addEventListener('click', topFunction);
-</script>
-
-<script type="text/javascript">
-    $('#sort-selector').change(function () {
-        let selector = $(this);
-        let currentUrl = new URL(window.location);
-
-        let selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
-
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-
-            window.location.replace(currentUrl);
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }
-    })
-</script>
-{% endblock %}
+        mybutton.addEventListener('click', topFunction);
+    </script>
+
+    <script type="text/javascript">
+        $('#sort-selector').change(function () {
+            let selector = $(this);
+            let currentUrl = new URL(window.location);
+
+            let selectedVal = selector.val();
+            if (selectedVal != "reset") {
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
+    {% endblock %}
