@@ -102,14 +102,21 @@
                 </div>
                 {% endif %}
                 {% endwith %}
-                <label class="label" for="quantity">Qty:</label>
-                <div class="columns">
-                    <div class="column is-mobile is-6">
-                        <div class="field">
-                            <div class="control">
-                                <input class="input" type="number" name="quantity" value="1" min="1" max="99"
-                                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"
-                                    placeholder="Text input">
+
+                <div class="columns m-3">
+                    <div class="column">
+                        <div class="field is-horizontal">
+                            <div class="field-label is-normal">
+                                <label class="label" for="quantity">Qty:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <p class="control">
+                                        <input class="input" type="number" name="quantity" value="1" min="1" max="99"
+                                            data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"
+                                            placeholder="Text input">
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -321,10 +328,10 @@
                 </div>
             </div>
             <div class="card-content">
-                <p class="">Review: {{ review.review }}</p>
+                <p class="">{{ review.review }}</p>
             </div>
             <div class="card-footer"></div>
-            <p class="">Written by: {{ review.review_author }}</p>
+            <p class="">Reviewed by: {{ review.review_author }}</p>
             <p class="">Posted on: {{ review.added_on }}</p>
         </div>
         {% endfor %}
