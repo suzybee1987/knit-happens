@@ -163,7 +163,7 @@ def add_review(request, product_id):
             if form.is_valid():
                 review = form.save(commit=False)
                 review.product = product
-                review.user = request.user
+                review.review_author = request.user
                 review.save()
                 messages.success(
                     request, 'Successfully added your review!')
@@ -176,6 +176,8 @@ def add_review(request, product_id):
     }
 
     return render(request, context)
+
+
 
 
 @login_required
