@@ -12,12 +12,12 @@
         </div>
         <div class="columns is-justify-content-center is-multiline">
             {% for post in posts %}
-            <div class="column is-3 has-text-centered">
+            <div class="column is-3-desktop is-4-tablet has-text-centered">
                 <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
                             <a href="{% url 'post_detail' post.slug %}"
-                                class="title-heading-small blog-title">{{ post.title | truncatechars:20 | capfirst }}
+                                class="title-heading-small blog-title">{{ post.title | truncatechars:15 | capfirst }}
                                 </h2>
                             </a>
                         </div>
@@ -41,7 +41,7 @@
                         <p class="blog-card-content"> {{ post.content | truncatechars:20 |capfirst }}</p>
                     </div>
                     <small class="blog-content content">
-                       <p>Posted by: <span class="blog-small">{{ post.author }}</span></p>
+                       <p class=>Posted by: <span class="blog-small">{{ post.author }}</span></p>
                        <p>{{ post.created_on|timesince }} ago</p>
                     </small>
                 </div>
