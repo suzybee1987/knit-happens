@@ -12,7 +12,7 @@
         </div>
         <div class="columns is-justify-content-center is-multiline">
             {% for post in posts %}
-            <div class="column is-3 is-10-mobile has-text-centered">
+            <div class="column is-3 has-text-centered">
                 <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
@@ -25,7 +25,7 @@
                     {% if post.image.url %}
                     <a href="{% url 'post_detail' post.slug %}">
                         <div class="card-image">
-                            <figure class="image is-5by4">
+                            <figure class="image is-3by4">
                                 <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="product-image">
                             </figure>
                         </div>
