@@ -180,7 +180,7 @@
             <!-- products list -->
             <div class="columns is-multiline">
                 {% for product in products %}
-                <div class="column is-3-widescreen is-10-mobile is-offset-1-mobile is-5-tablet">
+                <div class="column is-3-widescreen is-10-mobile is-offset-1-mobile">
                     <div class="card">
                         {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
