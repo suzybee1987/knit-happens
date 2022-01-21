@@ -116,7 +116,7 @@ nav.navbar.is-justify-content-space-evenly {
 .hero-body {
     padding: 0;
     background-color: #F6F6F6;
-    min-height: 70vh;
+
 }
 
 .hero-bground {
@@ -125,7 +125,6 @@ nav.navbar.is-justify-content-space-evenly {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height: 90vh;
 }
 
 .product-card {
@@ -163,7 +162,8 @@ nav.navbar.is-justify-content-space-evenly {
 }
 
 .image-down {
-    padding-top: 50vh;
+    /* this needs to change  */
+    padding: 50vh 50vw;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-name: bounce-1;
