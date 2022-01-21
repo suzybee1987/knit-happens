@@ -139,6 +139,20 @@ nav.navbar.is-justify-content-space-evenly {
     margin-bottom: 50px !important;
 }
 
+.product-image {
+    border: 10px solid white;
+}
+
+.product-titles {
+    font-weight: 600;
+    font-size: 1.3em;
+    /* text-decoration: underline; */
+}
+
+.product-subtitles {
+    font-weight: 400;
+}
+
 .notification {
     padding: 1.5rem;
     background-color: unset;
@@ -191,6 +205,14 @@ nav.navbar.is-justify-content-space-evenly {
     border: 2px solid #485fc7;
     width: 80%;
     margin: 50px auto;
+}
+.divider-products {
+    height: 0px;
+    border-radius: 2px;
+    color: #be3db0;
+    border: 2px solid #be3db0;
+    width: 80%;
+    margin: 60px auto 40px;
 }
 
 .button.is-primary.is-light {
@@ -407,4 +429,30 @@ nav.navbar.is-justify-content-space-evenly {
         box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
         cursor: not-allowed;
     }
+}
+
+
+/* Forms  */
+
+.ctrlHolder {
+    margin: 1rem;
+    font-weight: 700;
+
+}
+
+.form-input {
+    border-radius: 5px;
+
+}
+
+.textarea {
+    border-radius: 10px;
+    margin-top: 1rem;
+    box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+    max-width: 100%;
+    width: 100%;
+}
+
+textarea#id_review_title {
+    height: 50px;
 }
