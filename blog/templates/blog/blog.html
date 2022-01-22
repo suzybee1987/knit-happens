@@ -6,8 +6,9 @@
     <div class="container">
         <div class="columns is-justify-content-center has-text-centered">
             <div class="column is-10">
-                <h1 class="title-heading">Welcome to the blog!</h1>
-                <a class="button is-danger" href="{% url 'add_post' %}">New Post<i class="fas fa-plus-circle"></i></a>
+                <h1 class="title-heading m-3">Welcome to the blog!</h1>
+                <a class="button is-danger m-3" href="{% url 'add_post' %}">New Post<i
+                        class="fas fa-plus-circle m-3"></i></a>
             </div>
         </div>
         <div class="columns is-justify-content-center is-multiline">
@@ -41,8 +42,8 @@
                         <p class="blog-card-content"> {{ post.content | truncatechars:20 |capfirst }}</p>
                     </div>
                     <small class="blog-content content">
-                       <p class=>Posted by: <span class="blog-small">{{ post.author }}</span></p>
-                       <p>{{ post.created_on|timesince }} ago</p>
+                       <p class=" m-3">Posted by: <span class="blog-small">{{ post.author }}</span></p>
+                       <p class=" p-3">{{ post.created_on|timesince }} ago</p>
                     </small>
                 </div>
             </div>

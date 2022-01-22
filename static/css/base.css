@@ -131,7 +131,6 @@ nav.navbar.is-justify-content-space-evenly {
     padding: 20px;
     border-color: darkcyan;
     background-color: darkcyan;
-    border-radius: 25px;
 }
 
 .product-card-columns {
@@ -158,18 +157,23 @@ nav.navbar.is-justify-content-space-evenly {
 }
 
 .col-animation {
-    padding: 0;
+    padding-bottom: 50px;
+    height: 80vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .image-down {
-    /* this needs to change  */
-    padding: 50vh 50vw;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
     animation-name: bounce-1;
     animation-timing-function: linear;
 }
 
+.columns {
+    width: 100%;
+}
 
 @keyframes bounce-1 {
     0% {
@@ -206,6 +210,7 @@ nav.navbar.is-justify-content-space-evenly {
     width: 80%;
     margin: 50px auto;
 }
+
 .divider-products {
     height: 0px;
     border-radius: 2px;
@@ -222,7 +227,7 @@ nav.navbar.is-justify-content-space-evenly {
 
 .inspo {
     font-size: 1.5rem;
-    border-radius: 25px;
+    /* border-radius: 25px; */
     border: 10px solid darkcyan;
 }
 
@@ -371,13 +376,18 @@ nav.navbar.is-justify-content-space-evenly {
 }
 
 .blog-card-content {
-    font-size: 1.5em;
+    font-size: 1.2em;
+    font-weight: 700;
 }
 
 .blog-small {
     font-weight: 900;
     text-decoration: underline;
 
+}
+
+.card-content {
+    padding: 1rem;
 }
 
 .blog-buttons {
