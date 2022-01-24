@@ -310,6 +310,8 @@ To clone this project from GitHub follow the instructions taken from [GitHub Doc
 - Uni-form Crispy Form CSS and JS code taken from the uni-form GitHub [repo](https://github.com/draganbabic/uni-form)
 - [Code with Stein](https://codewithstein.com/build-a-simple-blog-using-django-3-in-under-20-minutes/) tutorial followed to complete the blog model on the project and some extra information from [jennymalmoe](https://github.com/jennymalmoe/MSP4) fellow student.
 
+- Testing Tools docs [1](https://docs.djangoproject.com/en/4.0/topics/testing/tools/), [2](https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup), [3](https://pythoneatstail.com/en/overview-all-articles/testing-custom-user-model-djangos-testing-tools-and-coverage/)
+
 
 ### **Content**
 

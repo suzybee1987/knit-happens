@@ -25,18 +25,6 @@ html {
     min-height: 100vh;
 }
 
-/* @media only screen and (min-width: 992px) {
-    .shopping-links {
-        min-height: 70vh;
-    }
-}
-
-@media only screen and (min-width: 1200px) {
-    .shopping-links {
-        min-height: 80vh;
-    }
-} */
-
 /* navbar */
 
 .navbar-brand img {
