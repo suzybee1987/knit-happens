@@ -63,46 +63,46 @@
                 <!-- form for quantity of items to add to bag  -->
                 <form action="{% url 'add_to_bag' product.id %}" method="POST" class="m-2">
                     {% csrf_token %}
-                    {% with product.has_sizes as s %}
-                    {% if s %}
-                    Size:
-                    <div class="select is-success">
-                        <select name="product_size" id='id_product_size'>
-                            <option value="2.0mm">2.0mm</option>
-                            <option value="2.5mm">2.5mm</option>
-                            <option value="3.0mm">3.0mm</option>
-                            <option value="3.5mm">3.5mm</option>
-                            <option value="4.0mm">4.0mm</option>
-                            <option value="4.5mm">4.5mm</option>
-                            <option value="5.0mm">5.0mm</option>
-                            <option value="5.5mm">5.5mm</option>
-                            <option value="6.0mm">6.0mm</option>
-                            <option value="6.5mm">6.5mm</option>
-                            <option value="7.0mm">7.0mm</option>
-                            <option value="7.5mm">7.5mm</option>
-                            <option value="8.0mm">8.0mm</option>
-                        </select>
-                    </div>
-                    {% endif %}
-                    {% endwith %}
+                        {% with product.has_sizes as s %}
+                            {% if s %}
+                                Size:
+                                <div class="select is-success">
+                                    <select name="product_size" id='id_product_size'>
+                                        <option value="2.0mm">2.0mm</option>
+                                        <option value="2.5mm">2.5mm</option>
+                                        <option value="3.0mm">3.0mm</option>
+                                        <option value="3.5mm">3.5mm</option>
+                                        <option value="4.0mm">4.0mm</option>
+                                        <option value="4.5mm">4.5mm</option>
+                                        <option value="5.0mm">5.0mm</option>
+                                        <option value="5.5mm">5.5mm</option>
+                                        <option value="6.0mm">6.0mm</option>
+                                        <option value="6.5mm">6.5mm</option>
+                                        <option value="7.0mm">7.0mm</option>
+                                        <option value="7.5mm">7.5mm</option>
+                                        <option value="8.0mm">8.0mm</option>
+                                    </select>
+                                </div>
+                            {% endif %}
+                        {% endwith %}
 
-                    {% with product.has_weights as w %}
-                    {% if w %}
-                    <div class="column is-mobile">Weight:
-                        <div class="select is-success">
-                            <select name="product_weight" id='id_product_weight'>
-                                <option value="lace">Lace</option>
-                                <option value="sock fingering">Sock, Fingering</option>
-                                <option value="sport baby">Sport, Baby</option>
-                                <option value="dk light worsted">DK, Light Worsted</option>
-                                <option value="worsted">Worsted</option>
-                                <option value="chunky bulky">Chunky, Bulky</option>
-                                <option value="bulky">Bulky</option>
-                            </select>
-                        </div>
-                    </div>
-                    {% endif %}
-                    {% endwith %}
+                        {% with product.has_weights as w %}
+                            {% if w %}
+                                <div class="column is-mobile">Weight:
+                                    <div class="select is-success">
+                                        <select name="product_weight" id='id_product_weight'>
+                                            <option value="lace">Lace</option>
+                                            <option value="sock fingering">Sock, Fingering</option>
+                                            <option value="sport baby">Sport, Baby</option>
+                                            <option value="dk light worsted">DK, Light Worsted</option>
+                                            <option value="worsted">Worsted</option>
+                                            <option value="chunky bulky">Chunky, Bulky</option>
+                                            <option value="bulky">Bulky</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endwith %}
 
                     <div class="columns m-3">
                         <div class="column">
