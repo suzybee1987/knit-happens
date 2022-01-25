@@ -8,14 +8,14 @@
 {% block content %}
 <div class="hero-body">
     <div class="container">
-        <div class="columns">
-            <div class="column is-12 is-mobile">
-                <h1 class="title-heading has-text-centered m-3">Products</h1>
-            </div>
-        </div>
+        <div class="columns is-justify-content-space-around has-text-centered my-5">
+            <div class="column is-4 is-3-tablet">
+                <div class="columns">
+                    <div class="column is-12 is-mobile">
+                        <h1 class="title-heading-small has-text-centered m-3 is-hidden-desktop">{{ product.name }}</h1>
+                    </div>
+                </div>
 
-        <div class="columns is-justify-content-space-around has-text-centered">
-            <div class="column is-4 is-3-tablet is-mobile m-3">
                 <div class="card-image">
                     {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
@@ -47,68 +47,67 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="column is-mobile is-4">
+            <div class="column is-10-mobile is-offset-1-mobile is-4 product-details-card">
                 <p class="product-titles m-3">
                     {{ product.name }}</p>
                 <p class="product-subtitles m-3">{{ product.description }}</p>
-                <p class="product-subtitles m-3">{{ product.colour }}</p>
-                <p class="product-subtitles m-3">£{{ product.price }}</p>
-                <p>{% if product.category %}
-                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3">
-                        <i class="fas fa-circle mx-1"></i>{{ product.category.friendly_name }}
-                    </a>
-                    {% endif %}
-                </p>
-
+                <p class="product-subtitles m-3">Colour: {{ product.colour }}</p>
+               <p>{% if product.category %}
+                   <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3">
+                       <i class="fas fa-circle mx-1"></i>{{ product.category.friendly_name }}
+                   </a>
+                   {% endif %}
+               </p>
+                <p class="product-subtitles m-3">£ {{ product.price }}</p>
+                
                 <!-- form for quantity of items to add to bag  -->
                 <form action="{% url 'add_to_bag' product.id %}" method="POST" class="m-2">
                     {% csrf_token %}
-                        {% with product.has_sizes as s %}
-                            {% if s %}
-                                Size:
-                                <div class="select is-success">
-                                    <select name="product_size" id='id_product_size'>
-                                        <option value="2.0mm">2.0mm</option>
-                                        <option value="2.5mm">2.5mm</option>
-                                        <option value="3.0mm">3.0mm</option>
-                                        <option value="3.5mm">3.5mm</option>
-                                        <option value="4.0mm">4.0mm</option>
-                                        <option value="4.5mm">4.5mm</option>
-                                        <option value="5.0mm">5.0mm</option>
-                                        <option value="5.5mm">5.5mm</option>
-                                        <option value="6.0mm">6.0mm</option>
-                                        <option value="6.5mm">6.5mm</option>
-                                        <option value="7.0mm">7.0mm</option>
-                                        <option value="7.5mm">7.5mm</option>
-                                        <option value="8.0mm">8.0mm</option>
-                                    </select>
-                                </div>
-                            {% endif %}
-                        {% endwith %}
+                    {% with product.has_sizes as s %}
+                    {% if s %}
+                    Size:
+                    <div class="select is-success">
+                        <select name="product_size" id='id_product_size'>
+                            <option value="2.0mm">2.0mm</option>
+                            <option value="2.5mm">2.5mm</option>
+                            <option value="3.0mm">3.0mm</option>
+                            <option value="3.5mm">3.5mm</option>
+                            <option value="4.0mm">4.0mm</option>
+                            <option value="4.5mm">4.5mm</option>
+                            <option value="5.0mm">5.0mm</option>
+                            <option value="5.5mm">5.5mm</option>
+                            <option value="6.0mm">6.0mm</option>
+                            <option value="6.5mm">6.5mm</option>
+                            <option value="7.0mm">7.0mm</option>
+                            <option value="7.5mm">7.5mm</option>
+                            <option value="8.0mm">8.0mm</option>
+                        </select>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
 
-                        {% with product.has_weights as w %}
-                            {% if w %}
-                                <div class="column is-mobile">Weight:
-                                    <div class="select is-success">
-                                        <select name="product_weight" id='id_product_weight'>
-                                            <option value="lace">Lace</option>
-                                            <option value="sock fingering">Sock, Fingering</option>
-                                            <option value="sport baby">Sport, Baby</option>
-                                            <option value="dk light worsted">DK, Light Worsted</option>
-                                            <option value="worsted">Worsted</option>
-                                            <option value="chunky bulky">Chunky, Bulky</option>
-                                            <option value="bulky">Bulky</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endwith %}
-
-                    <div class="columns m-3">
+                    {% with product.has_weights as w %}
+                    {% if w %}
+                    <div class="column is-mobile">Weight:
+                        <div class="select is-success">
+                            <select name="product_weight" id='id_product_weight'>
+                                <option value="lace">Lace</option>
+                                <option value="sock fingering">Sock, Fingering</option>
+                                <option value="sport baby">Sport, Baby</option>
+                                <option value="dk light worsted">DK, Light Worsted</option>
+                                <option value="worsted">Worsted</option>
+                                <option value="chunky bulky">Chunky, Bulky</option>
+                                <option value="bulky">Bulky</option>
+                            </select>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                    <div class="columns my-3">
                         <div class="column">
-                            <div class="field is-horizontal">
+                            <div class="field is-justify-content-center is-grouped is-horizontal">
                                 <div class="field-label is-normal">
-                                    <label class="label" for="quantity">Qty:</label>
+                                    <label for="quantity">Qty:</label>
                                 </div>
                                 <div class="field-body">
                                     <div class="field">
@@ -123,7 +122,7 @@
                         </div>
                     </div>
                     <div class="columns">
-                        <div class="field column is-mobile">
+                        <div class="field column">
                             <div class="control">
                                 <input type="submit" class="button is-danger" name="bag" value="Add to Bag">
                             </div>
@@ -132,6 +131,8 @@
                     </div>
                 </form>
                 <!-- modals for conversions  -->
+                {% with product.has_sizes as s %}
+                {% if s %}
                 <div class="modal" id="modal-knitting">
                     <div class="modal-background"></div>
                     <div class="modal-content">
@@ -308,6 +309,9 @@
                     </div>
                 </div>
                 <!-- end of modals  -->
+                {% endif %}
+                {% endwith %}
+
             </div>
         </div>
     </div>
@@ -316,13 +320,13 @@
 <!-- Reviews Section -->
 <div class="columns is-justify-content-center has-text-centered">
     <div class="column">
-        <h1 class="title-heading has-text-centered ">Reviews of {{ product.name }}</h1>
+        <h1 class="title-heading has-text-centered ">Reviews</h1>
     </div>
 </div>
 <div class="columns is-justify-content-center is-multiline">
     {% if reviews %}
     {% for review in product.reviews.all %}
-    <div class="column is-10 is-offset-1 card m-3">
+    <div class="column is-10 is-offset-1 card ">
         <div class="card-header">
             <div class="card-header-title">
                 <h2 class="title-heading-small">{{ review.review_title }}
