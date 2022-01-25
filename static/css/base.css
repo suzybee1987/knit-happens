@@ -16,13 +16,13 @@ html {
 
 @media only screen and (max-width: 768px) {
     .columns {
-        padding: 0;
-        margin: 0;
+        margin-left: 0 !important;
     }
 }
 
-.container.has-text-centered.is-justify-content-center.shopping-links {
-    min-height: 100vh;
+.shopping-links {
+    min-height: 90vh;
+    background-color: #F6F6F6;
 }
 
 /* navbar */
@@ -121,12 +121,8 @@ nav.navbar.is-justify-content-space-evenly {
     background-color: darkcyan;
 }
 
-.product-card-columns {
-    margin-bottom: 50px !important;
-}
-
 .product-image {
-    border: 10px solid white;
+    border: 10px solid F6F6F6;
 }
 
 .product-titles {
@@ -193,6 +189,7 @@ nav.navbar.is-justify-content-space-evenly {
 .divider {
     height: 0px;
     border-radius: 2px;
+    background-color: #485fc7;
     color: #485fc7;
     border: 2px solid #485fc7;
     width: 80%;
@@ -281,25 +278,9 @@ nav.navbar.is-justify-content-space-evenly {
 /* end of Boutique  */
 
 /* Product detail  */
-/* help from w3schools to make the accordian https://www.w3schools.com/howto/howto_js_accordion.asp */
-.accordion {
-    cursor: pointer;
-    transition: 0.4s;
-}
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active,
-.accordion:hover {
-    background-color: #ccc;
-}
 
-/* Style the accordion panel. Note: hidden by default */
-.panel {
-    padding: 0 18px;
-    background-color: white;
-    display: none;
-    overflow: hidden;
-}
+
 
 /* end of product detail  */
 
@@ -325,7 +306,7 @@ nav.navbar.is-justify-content-space-evenly {
 .notification.is-primary{
     /* background-color:#347d39; */
     background-color:#2e8b57;
-    color: #fff;
+    color: #F6F6F6;
 }
 
 .custom-toast {
@@ -350,7 +331,7 @@ nav.navbar.is-justify-content-space-evenly {
     overflow-x: hidden;
     overflow-y: auto;
     color: #4a4a4a;
-    background: #fff;
+    background: #F6F6F6;
     padding: 3px;
     border-radius: 5px;
 }
@@ -419,7 +400,7 @@ nav.navbar.is-justify-content-space-evenly {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48cGF0aCBkPSJNMTcuNiA5LjJsLS4xLTEuOEg5djMuNGg0LjhDMTMuNiAxMiAxMyAxMyAxMiAxMy42djIuMmgzYTguOCA4LjggMCAwIDAgMi42LTYuNnoiIGZpbGw9IiM0Mjg1RjQiIGZpbGwtcnVsZT0ibm9uemVybyIvPjxwYXRoIGQ9Ik05IDE4YzIuNCAwIDQuNS0uOCA2LTIuMmwtMy0yLjJhNS40IDUuNCAwIDAgMS04LTIuOUgxVjEzYTkgOSAwIDAgMCA4IDV6IiBmaWxsPSIjMzRBODUzIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNNCAxMC43YTUuNCA1LjQgMCAwIDEgMC0zLjRWNUgxYTkgOSAwIDAgMCAwIDhsMy0yLjN6IiBmaWxsPSIjRkJCQzA1IiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48cGF0aCBkPSJNOSAzLjZjMS4zIDAgMi41LjQgMy40IDEuM0wxNSAyLjNBOSA5IDAgMCAwIDEgNWwzIDIuNGE1LjQgNS40IDAgMCAxIDUtMy43eiIgZmlsbD0iI0VBNDMzNSIgZmlsbC1ydWxlPSJub256ZXJvIi8+PHBhdGggZD0iTTAgMGgxOHYxOEgweiIvPjwvZz48L3N2Zz4=);
-    background-color: white;
+    background-color: F6F6F6;
     background-repeat: no-repeat;
     background-position: 12px 11px;
 
