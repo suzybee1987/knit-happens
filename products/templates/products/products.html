@@ -6,7 +6,7 @@
     <div class="container">
         <div class="columns has-text-centered">
             <div class="column is-mobile">
-                <h1 class="title-heading has-text-centered is-justify-content-center">Products</h1>
+                <h1 class="title-heading has-text-centered is-justify-content-center m-3">Products</h1>
                 {% for c in current_categories %}
                 <a class="button is-danger" href="{% url 'products' %}?category={{ c.name }}">
                     {{ c.friendly_name }}</a>
@@ -17,7 +17,7 @@
 
 
         <!-- sorting  -->
-        <div class="columns is-vcentered is-mobile has-text-centered">
+        <div class="columns is-vcentered is-mobile has-text-centered m-3">
             <div class="column is-4">
                 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
                     <ul>
@@ -82,19 +82,19 @@
                     </div>
                     {% endif %}
                     <div class="card-content">
-                        <p class="product-trunc"> {{ product.name }}
+                        <p class="product-trunc m-1"> {{ product.name }}
                         </p>
-                        <p class="product-trunc">
+                        <p class="product-trunc m-1">
                             {{ product.colour }}
                         </p>
-                        <p class="has-text-weight-bold"> £{{ product.price }}
+                        <p class="has-text-weight-bold m-1"> £{{ product.price }}
                         </p>
                         {% if product.category %}
                         <a href="{% url 'products' %}?category={{ product.category.name }}">
-                            <i class="fas fa-circle is-grey mx-1"></i>{{ product.category.friendly_name }}
+                            <i class="fas fa-circle is-grey m-1"></i>{{ product.category.friendly_name }}
                         </a>
                         {% endif %}
-
+<br>
                         {% if request.user.is_superuser %}
                         <small>
                             <a class="has-text-info" href="{% url 'edit_product' product.id %}">Edit</a> |
