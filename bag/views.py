@@ -25,6 +25,7 @@ def add_to_bag(request, item_id):
             size = request.POST.get('product_size', False)
         else:
             weight = request.POST.get('product_weight', False)
+
     bag = request.session.get('bag', {})
 
     if size or weight:
@@ -51,11 +52,11 @@ def add_to_bag(request, item_id):
                 else:
                     bag[item_id]['items_by_weight'][weight] = quantity
                     messages.success(
-                        request, f'Added weight {weight.capitalize()} {product.name} to your bag')
+                        request, f'Added {weight.capitalize()} {product.name} to your bag')
             else:
                 bag[item_id] = {'items_by_weight': {weight: quantity}}
                 messages.success(
-                    request, f'Added weight {weight.capitalize()} {product.name} to your bag')
+                    request, f'Added {weight.capitalize()} {product.name} to your bag')
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity
@@ -99,7 +100,7 @@ def adjust_bag(request, item_id):
             if quantity > 0:
                 bag[item_id]['items_by_weight'][weight] = quantity
                 messages.success(
-                    request, f'Updated {weight.capitalize()} {product.name} quantity to {bag[item_id]["items_by_size"][size]}')
+                    request, f'Updated {weight.capitalize()} {product.name} quantity to {bag[item_id]["items_by_weight"][weight]}')
             else:
                 del bag[item_id]['items_by_weight'][weight]
                 if not bag[item_id]['items_by_weight']:
