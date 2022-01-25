@@ -27,6 +27,10 @@ html {
 
 /* navbar */
 
+.column.is-vcentered.is-hidden-touch {
+    padding-top: 20px;
+}
+
 .navbar-brand img {
     max-height: 3.75rem !important;
 }
@@ -239,6 +243,7 @@ nav.navbar.is-justify-content-space-evenly {
     text-overflow: ellipsis;
 }
 
+
 .filter-heading {
     font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
@@ -279,7 +284,10 @@ nav.navbar.is-justify-content-space-evenly {
 
 /* Product detail  */
 
-
+.product-details-card {
+    border: 2px solid #4a4a4a;
+    border-radius: 21px;
+}
 
 
 /* end of product detail  */
