@@ -322,19 +322,37 @@ nav.navbar.is-justify-content-space-evenly {
     z-index: 99999999999;
 }
 
+.notification.is-primary{
+    /* background-color:#ABFAA9; */
+    background-color:#2e8b57;
+    color: #fff;
+}
+
 .custom-toast {
     overflow: visible;
-    max-width: 50vw;
+    max-width: 350px;
+}
+
+.notification {
+    padding: 1rem;
 }
 
 .toast-capper {
     height: 2px;
 }
 
+.small {
+    font-size: 0.9rem;
+}
+
 .bag-notification-wrapper {
     height: 100px;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: auto;
+    color: #4a4a4a;
+    background: #fff;
+    padding: 3px;
+    border-radius: 5px;
 }
 
 /* end of toast  */
