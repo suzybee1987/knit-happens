@@ -5,10 +5,6 @@
 <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
 {% endblock %}
 
-{% block page_header %}
-
-{% endblock %}
-
 {% block content %}
 <div class="hero">
     <div class="hero-body is-fullheight">
@@ -16,20 +12,20 @@
             <!-- heading  -->
             <div class="columns">
                 <div class="column">
-                    <h2 class="title-heading">Profile</h2>
+                    <h2 class="title-heading m-3">Profile</h2>
                 </div>
             </div>
             <div class="columns is-justify-content-center">
                 <div class="column is-6 is-10-mobile">
-                    <p class="">Default Delivery Information</p>
-                    <form class="mt-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    <p class="m-3 title-heading-small">Default Delivery Information</p>
+                    <form class="m-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                         {% csrf_token %}
                         {{ form|crispy }}
-                        <button class="button is-info">Update Information</button>
+                        <button class="button is-info m-3">Update Information</button>
                     </form>
                 </div>
                   <div class="column">
-                      <p class="text-muted">Order History</p>
+                      <p class="title-heading-small m-3">Order History</p>
                       <table>
                           <thead>
                               <tr>
