@@ -10,7 +10,7 @@ def bag_contents(request):
     product_count = 0
     bag = request.session.get('bag', {})
 
-    for item_id, item_data in bag.items():
+    for item_id, item_data in bag.items():  # pragma: no cover
         if isinstance(item_data, int):
             product = get_object_or_404(Product, pk=item_id)
             total += item_data * product.price
@@ -20,32 +20,31 @@ def bag_contents(request):
                 'quantity': item_data,
                 'product': product,
             })
+        elif 'items_by_size' in item_data:
+            product = get_object_or_404(Product, pk=item_id)
+            size = request.POST.get('product_size', False)
+
+            for size, quantity in item_data['items_by_size'].items():
+                total += quantity * product.price
+                product_count += quantity
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': quantity,
+                    'product': product,
+                    'size': size,
+                })
         else:
-            # size = request.POST.get('product_size', False)
-            # weight = request.POST.get('product_weight', False)
-            if 'product_size' in request.POST:
-                product = get_object_or_404(Product, pk=item_id)
-                for size, quantity in item_data['items_by_size'].items():
-                    total += quantity * product.price
-                    product_count += quantity
-                    bag_items.append({
-                        'item_id': item_id,
-                        'quantity': quantity,
-                        'product': product,
-                        'size': size,
-                    })
-            else:
-                if 'product_weight' in request.POST:
-                    product = get_object_or_404(Product, pk=item_id)
-                    for weight, quantity in item_data['items_by_weight'].items():
-                        total += quantity * product.price
-                        product_count += quantity
-                        bag_items.append({
-                            'item_id': item_id,
-                            'quantity': quantity,
-                            'product': product,
-                            'weight': weight,
-                        })
+            product = get_object_or_404(Product, pk=item_id)
+            weight = request.POST.get('product_weight', False)
+            for weight, quantity in item_data['items_by_weight'].items():
+                total += quantity * product.price
+                product_count += quantity
+                bag_items.append({
+                    'item_id': item_id,
+                    'quantity': quantity,
+                    'product': product,
+                    'weight': weight,
+                })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
