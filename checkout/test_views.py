@@ -13,7 +13,7 @@ class TestBagViews(TestCase):
     """
 
     def test_checkout_page_url_works(self):
-        """ 
+        """
         Test the url works when loading the page
         """
         response = self.client.get('/checkout/')

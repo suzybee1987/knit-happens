@@ -308,6 +308,7 @@ To clone this project from GitHub follow the instructions taken from [GitHub Doc
 - [Background layout](https://css-tricks.com/perfect-full-page-background-image/) this was taught in one of the Code Institute lessons from css-tricks.com and I use it constantly for my background images. 
 - Code taken from Bulma GitHub [thread](https://github.com/jgthms/bulma/issues/2361) to fix the navbar menu always open on mobile.
 - Uni-form Crispy Form CSS and JS code taken from the uni-form GitHub [repo](https://github.com/draganbabic/uni-form)
+- Code inspiration taken from [CI Student Kyle Lawrence](https://github.com/kylelawrencedev/lawrence-collections-ms4/blob/main/products/views.py) for help with the reviews section. 
 
 - Testing Tools docs [1](https://docs.djangoproject.com/en/4.0/topics/testing/tools/), [2](https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup), [3](https://pythoneatstail.com/en/overview-all-articles/testing-custom-user-model-djangos-testing-tools-and-coverage/)
 

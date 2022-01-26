@@ -69,9 +69,9 @@ class TestOrderForm(TestCase):
                       form.errors.keys())
         self.assertEqual(
             form.errors['country'][0], 'This field is required.')
-    
+
     def test_town_or_city_field_is_required(self):
-        """ 
+        """
         test to see if town_or_city field is required
         """
         form = OrderForm({
@@ -105,12 +105,12 @@ class TestOrderForm(TestCase):
             form.errors['street_address1'][0], 'This field is required.')
 
     def test_fields_are_explicit_in_bag_form_meta_class(self):
-        """ 
+        """
         check the field only displays certain fields
         """
         form = OrderForm()
         self.assertEqual(
             form.Meta.fields, ('full_name', 'email',
-                               'phone_number', 'street_address1', 
+                               'phone_number', 'street_address1',
                                'street_address2', 'town_or_city', 'postcode',
                                'country', 'county'))

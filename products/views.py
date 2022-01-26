@@ -68,7 +68,7 @@ def product_detail(request, product_id):
     if request.method == 'POST':
         form = ReviewForm(data=request.POST)
         if form.is_valid():
-            new_review = review_form.save(commit=True)
+            new_review = form.save(commit=True)
             new_review.product = product
             new_review.save()
         else:
@@ -97,7 +97,8 @@ def add_product(request):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to add product. Please ensure the form is valid.')
+                request, 'Failed to add product. Please ensure the form is \
+                    valid.')
     else:
         form = ProductForm()
 
@@ -125,7 +126,8 @@ def edit_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to update product. Please ensure the form is valid.')
+                request, 'Failed to update product. Please ensure the form is \
+                    valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -152,7 +154,7 @@ def delete_product(request, product_id):
     return redirect(reverse('products'))
 
 
-# Reviews views 
+# Reviews views
 @login_required
 def add_review(request, product_id):
     """ Add a review of a product """
@@ -170,14 +172,13 @@ def add_review(request, product_id):
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(
-                    request, 'Failed to add review. Please ensure the form is valid')
+                    request, 'Failed to add review. Please ensure the form is \
+                        valid')
     context = {
         'form': form
     }
 
     return render(request, context)
-
-
 
 
 @login_required
@@ -194,7 +195,8 @@ def edit_review(request, review_id):
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(
-                    request, 'Failed to update your review. Please ensure the form is valid.')
+                    request, 'Failed to update your review. Please ensure the \
+                    form is valid.')
 
         else:
             form = ReviewForm(instance=review)
