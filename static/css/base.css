@@ -139,6 +139,18 @@ nav.navbar.is-justify-content-space-evenly {
     font-weight: 400;
 }
 
+.product-subtitles-title {
+    font-weight: 600;
+}
+
+.field-body {
+    display: flex;
+    flex-basis: 0;
+    flex-grow: 5;
+    flex-shrink: 1;
+    max-width: 25%;
+}
+
 .notification {
     padding: 1.5rem;
     background-color: unset;
@@ -285,8 +297,10 @@ nav.navbar.is-justify-content-space-evenly {
 /* Product detail  */
 
 .product-details-card {
-    border: 2px solid #4a4a4a;
-    border-radius: 21px;
+    /* https: //getcssscan.com/css-box-shadow-examples no.7*/
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 
