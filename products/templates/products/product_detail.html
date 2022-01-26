@@ -34,23 +34,12 @@
                         </div>
                     </a>
                     {% endif %}
-                    {% if request.user.is_superuser %}
-                    <div class="justify-content-space-around m-3">
-                        <small>
-                            <a class="button is-info is-outlined" href="{% url 'edit_product' product.id %}">
-                                Edit <i class="fas fa-pen ml-2"></i></a>
-                            <a class=" button is-danger is-outlined" href="{% url 'delete_product' product.id %}">
-                                Delete <i class="fas fa-times ml-2"></i></a>
-                        </small>
-                    </div>
-                    {% endif %}
                 </div>
             </div>
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
-
-                <p class="product-subtitles m-3">{{ product.description }}</p>
-                <p class="product-subtitles-title m-3">Colour: <span
-                        class="product-subtitles">{{ product.colour }}</span></p>
+                <p class="product-subtitles-title m-3">{{ product.description }}</p>
+                <p class="product-subtitles-title m-3">Colour: <span class="product-subtitles">
+                        {{ product.colour }}</span></p>
                 <p>{% if product.category %}
                     <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3">
                         <i class="fas fa-circle mx-1"></i>{{ product.category.friendly_name }}
@@ -58,7 +47,6 @@
                     {% endif %}
                 </p>
                 <p class="product-subtitles m-3">£ {{ product.price }}</p>
-
                 <!-- form for quantity of items to add to bag  -->
                 <form action="{% url 'add_to_bag' product.id %}" method="POST" class="m-2">
                     {% csrf_token %}
@@ -103,8 +91,7 @@
                     </div>
                     {% endif %}
                     {% endwith %}
-                    <!-- <div class="columns is-justify-content-right my-3">
-                        <div class="column"> -->
+
                     <div class="field is-justify-content-right is-grouped is-horizontal my-4">
                         <div class="field-label is-normal">
                             <label class="product-subtitles-title" for=" quantity">Qty: </label>
@@ -118,8 +105,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- </div>
-                        </div> -->
                     </div>
                     <div class="field">
                         <div class="control">
@@ -128,6 +113,7 @@
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
+
                 <!-- modals for conversions  -->
                 {% with product.has_sizes as s %}
                 {% if s %}
@@ -293,18 +279,28 @@
                     </div>
                     <button class="modal-close is-large" aria-label="close"></button>
                 </div>
-                <!-- <div class="columns">
-                    <div class="column"> -->
+
                 <button class="js-modal-trigger button is-info is-light is-outlined my-4"
                     data-target="modal-crochet">Crochet Hook
                     Conversion
                 </button>
-                <!-- </div>
-                </div> -->
                 <!-- end of modals  -->
                 {% endif %}
                 {% endwith %}
-
+                {% if request.user.is_superuser %}
+                <div class="columns has-text-centered my-3">
+                        <div class="column">
+                            <a class="button is-info is-outlined" href="{% url 'edit_product' product.id %}">
+                                Edit <i class="fas fa-pen ml-2"></i>
+                            </a>
+                        </div>
+                        <div class="column">
+                            <a class=" button is-danger is-outlined" href="{% url 'delete_product' product.id %}">
+                                Delete <i class="fas fa-times ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -316,7 +312,7 @@
         <h1 class="title-heading has-text-centered my-3">Reviews</h1>
     </div>
 </div>
-<div class="columns is-justify-content-center is-multiline my-6">
+<div class="columns is-justify-content-center is-multiline">
     {% if reviews %}
     {% for review in product.reviews.all %}
     <div class="column is-7 is-10-mobile is-offset-1-mobile card review-card">
@@ -419,13 +415,13 @@
         // Add a click event on various child elements to close the parent modal
         (document.querySelectorAll(
             '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || [])
-        .forEach(($close) => {
-            const $target = $close.closest('.modal');
+            .forEach(($close) => {
+                const $target = $close.closest('.modal');
 
-            $close.addEventListener('click', () => {
-                closeModal($target);
+                $close.addEventListener('click', () => {
+                    closeModal($target);
+                });
             });
-        });
 
         // Add a keyboard event to close all modals
         document.addEventListener('keydown', (event) => {

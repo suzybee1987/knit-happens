@@ -32,9 +32,9 @@
                         </figure>
                     </div>
                     {% endif %}
-                    <div class="card-content">
-                        <p class="blog-card-content py-2">
-                            {{ post.content | capfirst | wordwrap:50 | linebreaks}}
+                    <div class="card-content blog-card-content">
+                        <p class="py-2">
+                            {{ post.content | capfirst }}
                         </p>
                     </div>
                     <div class="blog-content content m-2 p-3">
@@ -61,12 +61,12 @@
                             <h2 class="title-heading-small">Comments about {{ post.title }}</h2>
                         </div>
                     </div>
-                    <div class="card-content">
+                    <div class="card-content py-3">
                         {% for comment in post.comments.all %}
                         <article class="media">
                             <div class="media-content">
                                 <div class="content">
-                                    <p>
+                                    <p class="blog-content">
                                         {{ comment.comment }}
                                     </p>
                                     <p>comment by: <span class="blog-small">{{ comment.comment_author }}

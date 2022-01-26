@@ -386,6 +386,10 @@ nav.navbar.is-justify-content-space-evenly {
     color: #4a4a4a;
 }
 
+.blog-content {
+    font-size: 1.2em;
+}
+
 .blog-title:hover,
 .blog-title:focus {
     color: #4a4a4a;
