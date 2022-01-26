@@ -1,8 +1,8 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import Post, Comment
+from .models import Post
 from .forms import CommentForm, PostForm
 
 
@@ -31,7 +31,8 @@ def add_post(request):
             return redirect(reverse('post_detail', args=[obj.slug]))
         else:
             messages.error(
-                request, "Failed to add blog post, please check the form is valid")
+                request, "Failed to add blog post, please check the form is \
+                    valid")
     else:
         form = PostForm()
 
@@ -62,7 +63,8 @@ def post_detail(request, slug):
             return redirect('post_detail', slug=post.slug)
         else:
             messages.error(
-                request, "Failed to add comment, please check the form is valid")
+                request, "Failed to add comment, please check the form is \
+                    valid")
     else:
         form = CommentForm()
 
@@ -84,7 +86,7 @@ def edit_post(request, slug):
     if request.method == "POST":
         form = PostForm(request.POST or None,
                         request.FILES or None, instance=post)
-        if request.user == post.author:
+        if user == post.author:
             if form.is_valid():
                 obj = form.save(commit=False)
                 obj.save()
@@ -94,7 +96,8 @@ def edit_post(request, slug):
             else:
                 messages.error(request, "Failed to update post.")
         else:
-            messages.info(request, 'You are not allowed to do that as you are not the post author!')
+            messages.info(request, 'You are not allowed to do that as you are \
+                not the post author!')
     else:
         form = PostForm(instance=post)
         messages.info(request, f'You are editing {post.title}')
@@ -121,4 +124,4 @@ def delete_post(request, slug):
     else:
         messages.error(request, "You are not allowed to do that.")
 
-    return render(request, context)
+    return render(request)

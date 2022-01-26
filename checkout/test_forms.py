@@ -109,7 +109,8 @@ class TestOrderForm(TestCase):
         check the field only displays certain fields
         """
         form = OrderForm()
-        self.assertEqual(form.Meta.fields, ('full_name', 'email', 'phone_number',
-                                            'street_address1', 'street_address2',
-                                            'town_or_city', 'postcode', 'country',
-                                            'county'))
+        self.assertEqual(
+            form.Meta.fields, ('full_name', 'email',
+                               'phone_number', 'street_address1', 
+                               'street_address2', 'town_or_city', 'postcode',
+                               'country', 'county'))

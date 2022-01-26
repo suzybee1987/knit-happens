@@ -12,7 +12,7 @@ class TestBlogViews(TestCase):
     """
 
     def test_blog_page_url_works(self):
-        """ 
+        """
         Test the url works when loading the page
         """
         response = self.client.get('/blog/')

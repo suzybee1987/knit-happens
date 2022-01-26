@@ -11,9 +11,8 @@ class TestBagViews(TestCase):
     """
     Test the home page loads correctly
     """
-
     def test_bag_page_url_works(self):
-        """ 
+        """
         Test the url works when loading the page
         """
         response = self.client.get('/bag/')

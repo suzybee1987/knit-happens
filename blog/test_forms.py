@@ -33,7 +33,7 @@ class TestPostForm(TestCase):
             form.errors['image'][0], 'This field is required.')
 
     def test_fields_are_explicit_in_form_meta_class(self):
-        """ 
+        """
         check the field only displays certain fields
         """
         form = PostForm()
