@@ -8,7 +8,7 @@
 {% block content %}
 <div class="hero-body">
     <div class="container">
-        <div class="columns is-justify-content-space-around has-text-right my-5">
+        <div class="columns is-justify-content-space-around has-text-right my-6">
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
                 <div class="columns">
                     <div class="column is-12">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
-                
+
                 <p class="product-subtitles m-3">{{ product.description }}</p>
                 <p class="product-subtitles-title m-3">Colour: <span
                         class="product-subtitles">{{ product.colour }}</span></p>
@@ -313,25 +313,23 @@
 <!-- Reviews Section -->
 <div class="columns is-justify-content-center has-text-centered">
     <div class="column">
-        <h1 class="title-heading has-text-centered ">Reviews</h1>
+        <h1 class="title-heading has-text-centered my-3 ">Reviews</h1>
     </div>
 </div>
-<div class="columns is-justify-content-center is-multiline">
+<div class="columns is-justify-content-center is-multiline my-6">
     {% if reviews %}
     {% for review in product.reviews.all %}
-    <div class="column is-10 is-offset-1 card ">
-        <div class="card-header">
-            <div class="card-header-title">
-                <h2 class="title-heading-small">{{ review.review_title }}
-                </h2>
-            </div>
+    <div class="column is-7 is-10-mobile is-offset-1-mobile card review-card">
+        <div class="card-header-title">
+            <h2 class="title-heading-small">{{ review.review_title }}
+            </h2>
         </div>
         <div class="card-content">
             <p class="">{{ review.review }}</p>
         </div>
-        <div class="card-footer"></div>
-        <p class="">Reviewed by: {{ review.review_author }}</p>
-        <p class="">Posted on: {{ review.added_on }}</p>
+        <div class="card-footer is-justify-content-right">
+            <p class="subtitle-att">{{ review.review_author }}, {{ review.added_on|timesince }} ago</p>
+        </div>
     </div>
     {% endfor %}
     {% else %}
@@ -341,8 +339,9 @@
     </div>
     {% endif %}
 </div>
-<div class="columns is-justify-content-center m-3">
-    <div class="column is-6-desktop is-10-touch is-offset-1-touch">
+<div class="columns is-justify-content-center my-6">
+    <div class="column is-7 is-10-mobile is-offset-1-mobile card add-review-card">
+        <h3 class="title-heading-small">Add your review here</h3>
         <form action="{% url 'add_review' product.id %}#reviews" method="POST">
             {% csrf_token %}
             <div class="columns">
@@ -350,7 +349,7 @@
                     {{ form|crispy }}
                 </div>
             </div>
-            <div class="columns has-text-centered">
+            <div class="columns has-text-centered reverse-mobile">
                 <div class="column is-6 ">
                     <button type="reset" class="button is-danger is-light is-outlined">
                         Reset Form

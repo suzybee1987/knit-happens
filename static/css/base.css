@@ -325,9 +325,9 @@ nav.navbar.is-justify-content-space-evenly {
     z-index: 99999999999;
 }
 
-.notification.is-primary{
+.notification.is-primary {
     /* background-color:#347d39; */
-    background-color:#2e8b57;
+    background-color: #2e8b57;
     color: #F6F6F6;
 }
 
@@ -474,4 +474,29 @@ nav.navbar.is-justify-content-space-evenly {
 
 textarea#id_review_title {
     height: 50px;
+}
+
+.review-card {
+    border-top: 3px solid hsl(212, 86%, 64%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.add-review-card {
+    border-top: 3px solid hsl(180, 62%, 55%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    padding: 30px;
+}
+
+/* reverse add review and reset buttons on mobile  */
+@media only screen and (max-width: 768px) {
+    .reverse-mobile {
+        flex-direction: column-reverse;
+        display: flex;
+    }
+}
+
+.subtitle-att {
+    font-style: italic;
+    font-weight: 500;
+    color:hsl(212, 86%, 64%);
 }
