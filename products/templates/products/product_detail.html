@@ -12,7 +12,7 @@
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
                 <div class="columns">
                     <div class="column is-12">
-                        <h1 class="title-heading-small has-text-centered m-3">{{ product.name }}</h1>
+                        <h1 class="title-heading-small has-text-centered my-3">{{ product.name }}</h1>
                     </div>
                 </div>
                 <div class="card-image">
@@ -313,7 +313,7 @@
 <!-- Reviews Section -->
 <div class="columns is-justify-content-center has-text-centered">
     <div class="column">
-        <h1 class="title-heading has-text-centered my-3 ">Reviews</h1>
+        <h1 class="title-heading has-text-centered my-3">Reviews</h1>
     </div>
 </div>
 <div class="columns is-justify-content-center is-multiline my-6">
@@ -325,9 +325,9 @@
             </h2>
         </div>
         <div class="card-content">
-            <p class="">{{ review.review }}</p>
+            <p class="mb-3">{{ review.review }}</p>
         </div>
-        <div class="card-footer is-justify-content-right">
+        <div class="card-footer is-justify-content-right py-3">
             <p class="subtitle-att">{{ review.review_author }}, {{ review.added_on|timesince }} ago</p>
         </div>
     </div>

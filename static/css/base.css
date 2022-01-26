@@ -123,6 +123,8 @@ nav.navbar.is-justify-content-space-evenly {
     padding: 20px;
     border-color: darkcyan;
     background-color: darkcyan;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+
 }
 
 .product-image {
@@ -228,7 +230,7 @@ nav.navbar.is-justify-content-space-evenly {
 
 .inspo {
     font-size: 1.5rem;
-    /* border-radius: 25px; */
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     border: 10px solid darkcyan;
 }
 
@@ -370,8 +372,14 @@ nav.navbar.is-justify-content-space-evenly {
 /* end of checkout  */
 
 /* blog cards  */
+.card.comments {
+    border-top: 3px solid hsl(288, 62%, 35%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
 .card.blog-card {
-    border-radius: 1rem;
+    border-top: 3px solid hsl(212, 86%, 64%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 
 .blog-title {
@@ -385,18 +393,22 @@ nav.navbar.is-justify-content-space-evenly {
 }
 
 .blog-card-content {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: 700;
 }
 
 .blog-small {
-    font-weight: 900;
-    text-decoration: underline;
-
+    font-style: italic;
+    font-weight: 500;
+    color: #5f34b5;
 }
 
 .card-content {
-    padding: 1rem;
+    padding: 0 1rem;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 
 .blog-buttons {
@@ -498,5 +510,5 @@ textarea#id_review_title {
 .subtitle-att {
     font-style: italic;
     font-weight: 500;
-    color:hsl(212, 86%, 64%);
+    color: hsl(212, 86%, 64%);
 }

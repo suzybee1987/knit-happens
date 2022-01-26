@@ -6,7 +6,7 @@
     <div class="container">
         <div class="columns has-text-centered">
             <div class="column is-mobile">
-                <h1 class="title-heading has-text-centered is-justify-content-center mt-3">Products</h1>
+                <h1 class="title-heading has-text-centered is-justify-content-center my-5">Products</h1>
                 {% for c in current_categories %}
                 <a class="button is-danger" href="{% url 'products' %}?category={{ c.name }}">
                     {{ c.friendly_name }}</a>
@@ -14,8 +14,6 @@
                 </a>
             </div>
         </div>
-
-
         <!-- sorting  -->
         <div class="columns is-vcentered is-mobile has-text-centered my-3 is-justify-content-space-around">
             <div class="column is-4">
