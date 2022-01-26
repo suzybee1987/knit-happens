@@ -6,14 +6,14 @@
     <div class="container">
         <div class="columns is-justify-content-center has-text-centered">
             <div class="column is-10">
-                <h1 class="title-heading m-3">Welcome to the blog!</h1>
-                <a class="button is-danger m-3" href="{% url 'add_post' %}">New Post<i
-                        class="fas fa-plus-circle m-3"></i></a>
+                <h1 class="title-heading my-4">Welcome to the blog!</h1>
+                <a class="button is-danger my-4" href="{% url 'add_post' %}">New Post<i
+                        class="fas fa-plus-circle m-2"></i></a>
             </div>
         </div>
         <div class="columns is-justify-content-center is-multiline">
             {% for post in posts %}
-            <div class="column is-3-desktop is-4-tablet has-text-centered">
+            <div class="column is-3-desktop is-4-tablet has-text-left">
                 <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
@@ -33,7 +33,7 @@
                     </a>
                     {% else %}
                     <div class="card-image">
-                        <figure class="image">
+                        <figure class="image is-3by4">
                             <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ post.title }}">
                         </figure>
                     </div>
@@ -41,10 +41,22 @@
                     <div class="card-content">
                         <p class="blog-card-content"> {{ post.content | truncatechars:20 |capfirst }}</p>
                     </div>
-                    <small class="blog-content content">
-                       <p class=" m-3">Posted by: <span class="blog-small">{{ post.author }}</span></p>
-                       <p class=" p-3">{{ post.created_on|timesince }} ago</p>
-                    </small>
+                    <div class="blog-content content m-2 p-3">
+                        <p>By: <span class="blog-small">{{ post.author }}, {{ post.created_on|timesince }}
+                                ago </span>
+                        </p>
+                        {% if post.comments.all|length == 0 %}
+                         <p>Add 
+                             <a href="{% url 'post_detail' post.slug %}">
+                                comment <i class="far fa-comments"></i> </a>
+                         </p>
+                         {% else %}
+                        <p>See all
+                            <a href="{% url 'post_detail' post.slug %}">
+                                {{ post.comments.all|length }} comments <i class="far fa-comments"></i></a>
+                        </p>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
             {% endfor %}

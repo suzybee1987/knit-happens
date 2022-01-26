@@ -8,14 +8,13 @@
 {% block content %}
 <div class="hero-body">
     <div class="container">
-        <div class="columns is-justify-content-space-around has-text-centered my-5">
-            <div class="column is-4 is-3-tablet">
+        <div class="columns is-justify-content-space-around has-text-right my-6">
+            <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
                 <div class="columns">
-                    <div class="column is-12 is-mobile">
-                        <h1 class="title-heading-small has-text-centered m-3 is-hidden-desktop">{{ product.name }}</h1>
+                    <div class="column is-12">
+                        <h1 class="title-heading-small has-text-centered my-3">{{ product.name }}</h1>
                     </div>
                 </div>
-
                 <div class="card-image">
                     {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
@@ -47,27 +46,27 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="column is-10-mobile is-offset-1-mobile is-4 product-details-card">
-                <p class="product-titles m-3">
-                    {{ product.name }}</p>
+            <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
+
                 <p class="product-subtitles m-3">{{ product.description }}</p>
-                <p class="product-subtitles m-3">Colour: {{ product.colour }}</p>
-               <p>{% if product.category %}
-                   <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3">
-                       <i class="fas fa-circle mx-1"></i>{{ product.category.friendly_name }}
-                   </a>
-                   {% endif %}
-               </p>
+                <p class="product-subtitles-title m-3">Colour: <span
+                        class="product-subtitles">{{ product.colour }}</span></p>
+                <p>{% if product.category %}
+                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3">
+                        <i class="fas fa-circle mx-1"></i>{{ product.category.friendly_name }}
+                    </a>
+                    {% endif %}
+                </p>
                 <p class="product-subtitles m-3">£ {{ product.price }}</p>
-                
+
                 <!-- form for quantity of items to add to bag  -->
                 <form action="{% url 'add_to_bag' product.id %}" method="POST" class="m-2">
                     {% csrf_token %}
                     {% with product.has_sizes as s %}
                     {% if s %}
-                    Size:
-                    <div class="select is-success">
-                        <select name="product_size" id='id_product_size'>
+                    <div class="select">
+                        <select name="product_size" id='id_product_size' required>
+                            <option value="" disabled selected>Size</option>
                             <option value="2.0mm">2.0mm</option>
                             <option value="2.5mm">2.5mm</option>
                             <option value="3.0mm">3.0mm</option>
@@ -88,9 +87,10 @@
 
                     {% with product.has_weights as w %}
                     {% if w %}
-                    <div class="column is-mobile">Weight:
-                        <div class="select is-success">
-                            <select name="product_weight" id='id_product_weight'>
+                    <div class="column my-4">
+                        <div class="select">
+                            <select name="product_weight" id='id_product_weight' required>
+                                <option value="" disabled selected>Weight</option>
                                 <option value="lace">Lace</option>
                                 <option value="sock fingering">Sock, Fingering</option>
                                 <option value="sport baby">Sport, Baby</option>
@@ -103,32 +103,30 @@
                     </div>
                     {% endif %}
                     {% endwith %}
-                    <div class="columns my-3">
-                        <div class="column">
-                            <div class="field is-justify-content-center is-grouped is-horizontal">
-                                <div class="field-label is-normal">
-                                    <label for="quantity">Qty:</label>
-                                </div>
-                                <div class="field-body">
-                                    <div class="field">
-                                        <p class="control">
-                                            <input class="input" type="number" name="quantity" value="1" min="1"
-                                                max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"
-                                                placeholder="Text input">
-                                        </p>
-                                    </div>
-                                </div>
+                    <!-- <div class="columns is-justify-content-right my-3">
+                        <div class="column"> -->
+                    <div class="field is-justify-content-right is-grouped is-horizontal my-4">
+                        <div class="field-label is-normal">
+                            <label class="product-subtitles-title" for=" quantity">Qty: </label>
+                        </div>
+                        <div class="field-body">
+                            <div class="field">
+                                <p class="control">
+                                    <input class="input" type="number" name="quantity" value="1" min="1" max="99"
+                                        data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}"
+                                        placeholder="Text input">
+                                </p>
                             </div>
                         </div>
+                        <!-- </div>
+                        </div> -->
                     </div>
-                    <div class="columns">
-                        <div class="field column">
-                            <div class="control">
-                                <input type="submit" class="button is-danger" name="bag" value="Add to Bag">
-                            </div>
+                    <div class="field">
+                        <div class="control">
+                            <input type="submit" class="button is-danger" name="bag" value="Add to Bag">
                         </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
                 <!-- modals for conversions  -->
                 {% with product.has_sizes as s %}
@@ -215,14 +213,9 @@
                     </div>
                     <button class="modal-close is-large" aria-label="close"></button>
                 </div>
-                <div class="columns">
-                    <div class="column">
-                        <button class="js-modal-trigger button is-info is-light is-outlined"
-                            data-target="modal-knitting">
-                            Knitting Needle Conversion
-                        </button>
-                    </div>
-                </div>
+                <button class="js-modal-trigger button is-info is-light is-outlined my-4" data-target="modal-knitting">
+                    Knitting Needle Conversion
+                </button>
                 <div class="modal" id="modal-crochet">
                     <div class="modal-background"></div>
                     <div class="modal-content">
@@ -300,14 +293,14 @@
                     </div>
                     <button class="modal-close is-large" aria-label="close"></button>
                 </div>
-                <div class="columns">
-                    <div class="column">
-                        <button class="js-modal-trigger button is-info is-light is-outlined"
-                            data-target="modal-crochet">Crochet Hook
-                            Conversion
-                        </button>
-                    </div>
-                </div>
+                <!-- <div class="columns">
+                    <div class="column"> -->
+                <button class="js-modal-trigger button is-info is-light is-outlined my-4"
+                    data-target="modal-crochet">Crochet Hook
+                    Conversion
+                </button>
+                <!-- </div>
+                </div> -->
                 <!-- end of modals  -->
                 {% endif %}
                 {% endwith %}
@@ -320,25 +313,23 @@
 <!-- Reviews Section -->
 <div class="columns is-justify-content-center has-text-centered">
     <div class="column">
-        <h1 class="title-heading has-text-centered ">Reviews</h1>
+        <h1 class="title-heading has-text-centered my-3">Reviews</h1>
     </div>
 </div>
-<div class="columns is-justify-content-center is-multiline">
+<div class="columns is-justify-content-center is-multiline my-6">
     {% if reviews %}
     {% for review in product.reviews.all %}
-    <div class="column is-10 is-offset-1 card ">
-        <div class="card-header">
-            <div class="card-header-title">
-                <h2 class="title-heading-small">{{ review.review_title }}
-                </h2>
-            </div>
+    <div class="column is-7 is-10-mobile is-offset-1-mobile card review-card">
+        <div class="card-header-title">
+            <h2 class="title-heading-small">{{ review.review_title }}
+            </h2>
         </div>
         <div class="card-content">
-            <p class="">{{ review.review }}</p>
+            <p class="mb-3">{{ review.review }}</p>
         </div>
-        <div class="card-footer"></div>
-        <p class="">Reviewed by: {{ review.review_author }}</p>
-        <p class="">Posted on: {{ review.added_on }}</p>
+        <div class="card-footer is-justify-content-right py-3">
+            <p class="subtitle-att">{{ review.review_author }}, {{ review.added_on|timesince }} ago</p>
+        </div>
     </div>
     {% endfor %}
     {% else %}
@@ -348,8 +339,9 @@
     </div>
     {% endif %}
 </div>
-<div class="columns is-justify-content-center m-3">
-    <div class="column is-6-desktop is-10-touch is-offset-1-touch">
+<div class="columns is-justify-content-center my-6">
+    <div class="column is-7 is-10-mobile is-offset-1-mobile card add-review-card">
+        <h3 class="title-heading-small">Add your review here</h3>
         <form action="{% url 'add_review' product.id %}#reviews" method="POST">
             {% csrf_token %}
             <div class="columns">
@@ -357,7 +349,7 @@
                     {{ form|crispy }}
                 </div>
             </div>
-            <div class="columns has-text-centered">
+            <div class="columns has-text-centered reverse-mobile">
                 <div class="column is-6 ">
                     <button type="reset" class="button is-danger is-light is-outlined">
                         Reset Form

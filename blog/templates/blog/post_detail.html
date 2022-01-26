@@ -4,17 +4,17 @@
 {% block content %}
 <div class="hero-body">
     <div class="container">
-        <div class="columns is-justify-content-left">
+        <div class="columns is-justify-content-left my-4">
             <div class="column is-6-desktop is-10-mobile">
                 <a href="{% url 'blog' %}" class="button is-danger">Back to blog homepage</a>
             </div>
         </div>
         <div class="columns is-justify-content-space-around">
-            <div class="column is-4">
+            <div class="column is-4-tablet is-10-mobile is-offset-1-mobile ">
                 <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
-                            <h1 class="title-heading-small">{{ post.title }}</h1>
+                            <h1 class="title-heading-small blog-title">{{ post.title }}</h1>
                         </div>
                     </div>
                     {% if post.image %}
@@ -27,29 +27,38 @@
                     </a>
                     {% else %}
                     <div class="card-image">
-                        <figure class="image">
+                        <figure class="image is-3by4">
                             <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ post.title }}">
                         </figure>
                     </div>
                     {% endif %}
                     <div class="card-content">
-                        {{ post.content }}
+                        <p class="blog-card-content py-2">
+                            {{ post.content | capfirst | wordwrap:50 | linebreaks}}
+                        </p>
                     </div>
-                    <div class="content">
-                         <p>Posted by: <span class="blog-small">{{ post.author }}</span></p>
-                         <p>{{ post.created_on|timesince }} ago</p>
+                    <div class="blog-content content m-2 p-3">
+                        <p>By: <span class="blog-small">{{ post.author }}, {{ post.created_on|timesince }}
+                                ago </span></p>
                         {% if post.author == request.user %}
-                        <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
-                        <a href="{% url 'delete_post' post.slug %}" class="button is-danger is-light">Delete Post</a>
+                        <div class="columns is-justify-content-space-evenly">
+                            <div class="column">
+                                <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
+                            </div>
+                            <div class="column">
+                                <a href="{% url 'delete_post' post.slug %}" class="button is-danger is-light">Delete
+                                    Post</a>
+                            </div>
+                        </div>
                         {% endif %}
                     </div>
                 </div>
             </div>
-            <div class="column is-6-desktop is-10-mobile">
+            <div class="column is-6-tablet is-10-mobile is-offset-1-mobile mb-6">
                 <div class="card comments">
                     <div class="card-header">
                         <div class="card-header-title">
-                            <h2>Comments on {{ post.title }}</h2>
+                            <h2 class="title-heading-small">Comments about {{ post.title }}</h2>
                         </div>
                     </div>
                     <div class="card-content">
@@ -60,14 +69,14 @@
                                     <p>
                                         {{ comment.comment }}
                                     </p>
-                                    <p>comment by: {{ comment.comment_author }}</p>
-                                    <small>{{ comment.date_added|timesince }}
-                                        ago</small>
+                                    <p>comment by: <span class="blog-small">{{ comment.comment_author }}
+                                            {{ comment.date_added|timesince }} ago</span>
+                                    </p>
                                 </div>
                             </div>
                         </article>
                         {% empty %}
-                        <div class="notification">
+                        <div class="my-4">
                             No comments yet...
                         </div>
                         {% endfor %}
@@ -76,8 +85,13 @@
                             {{ form|crispy }}
                             <div class="field">
                                 <div class="control">
-                                    <button class="button is-info">Submit</button>
-                                    <button type="reset" class="button is-info is-light">Reset</button>
+                                    <div class="columns has-text-centered is-justify-content-space-evenly">
+                                        <div class="column">
+                                            <button class="button is-info">Submit</button></div>
+                                        <div class="column">
+                                            <button type="reset" class="button is-info is-light">Reset</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
