@@ -306,7 +306,15 @@ nav.navbar.is-justify-content-space-evenly {
     background-color: #fff;
 }
 
+/* star ratings */
+.checked {
+    color: gold;
+}
 
+.my-btn {
+    background-color: inherit !important;
+    border:0 !important;
+}
 /* end of product detail  */
 
 /* bag  */

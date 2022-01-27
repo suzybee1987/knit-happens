@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
+{% block extra_js %}
 
-{% endblock %}
+    {% endblock %}
 
 {% block content %}
 <div class="hero-body">
@@ -51,6 +51,20 @@
                     </a>
                     {% endif %}
                 </p>
+            <!-- rating section  -->
+                <form class="rate-form" action="{% url 'rate_product' product.id %}#ratings" method="POST" id="{{ product.id }}">
+                    {% csrf_token %}
+                    <button value="1" type="submit" class="fa fa-star my-btn" id="first"></button>
+                    <button value="2" type="submit" class="fa fa-star my-btn" id="second"></button>
+                    <button value="3"  type="submit" class="fa fa-star my-btn" id="third"></button>
+                    <button value="4"  type="submit" class="fa fa-star my-btn" id="fourth"></button>
+                    <button value="5"  type="submit" class="fa fa-star my-btn" id="fifth"></button>
+                </form>
+                
+                <div id="confirm-box"></div>
+
+
+                <!-- end of rating section  -->
                 <p class="product-subtitles m-3">£ {{ product.price }}</p>
                 <!-- form for quantity of items to add to bag  -->
                 <form action="{% url 'add_to_bag' product.id %}" method="POST" class="m-2">
@@ -369,27 +383,6 @@
 {% block postloadjs %}
 {{ block.super }}
 <script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            /* Toggle between adding and removing
-               the "active" class, to highlight the button that controls the panel */
-            this.classList.toggle("active");
-            /* Toggle
-               between hiding and showing the active panel */
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-</script>
-
-<script>
     document.addEventListener('DOMContentLoaded', () => {
         // Functions to open and close a modal
         function openModal($el) {
@@ -438,5 +431,7 @@
         });
     });
 </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+ <script src="{% static 'js/star-ratings.js' defer %}"></script>
 
-{% endblock %}
+    {% endblock %}

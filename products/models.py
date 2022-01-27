@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Category(models.Model):
@@ -40,10 +41,19 @@ class Product(models.Model):
 
 class Rating(models.Model):
     product = models.ForeignKey(
-        Product, default=None, on_delete=models.PROTECT, related_name="rating")
+        Product, default=None, on_delete=models.PROTECT, related_name="ratings")
+    score = models.IntegerField(default=0,
+        validators=[
+            MaxValueValidator(5),
+            MinValueValidator(0),
+        ]
+    )
     rating_author = models.ForeignKey(
         User, on_delete=models.PROTECT, null=True, blank=True)
-    rating = models.FloatField(null=True, default=5)
+    
+
+    def __str__(self):
+        return str(self.pk)
 
 
 class Review(models.Model):

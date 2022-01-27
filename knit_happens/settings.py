@@ -45,8 +45,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',  # allows users to log in with facebook/google etc
     "allauth.socialaccount.providers.google",  # new
-    
-    # my apps 
+
     'home',
     'products',
     'bag',
@@ -54,6 +53,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
     'profiles',
+
+    # my apps
     'blog',
 ]
 
@@ -118,7 +119,7 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4   # username min length
 LOGIN_URL = '/accounts/login/'   # log in page
 LOGIN_REDIRECT_URL = '/'
-# used with django social auth tutorial 
+# used with django social auth tutorial
 ACCOUNT_LOGOUT_ON_GET = True
 
 

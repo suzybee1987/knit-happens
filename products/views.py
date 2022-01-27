@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Product, Category, Rating, Review
 from .forms import ProductForm, ReviewForm, RatingForm
+from django.http import JsonResponse
 
 
 def all_products(request):
@@ -64,6 +65,8 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     form = ReviewForm
     reviews = product.reviews.filter(active=True)
+    ratings = Rating.objects.filter(score=0).order_by("?").first()
+
     new_review = None
     if request.method == 'POST':
         form = ReviewForm(data=request.POST)
@@ -78,7 +81,8 @@ def product_detail(request, product_id):
                   {'product': product,
                    'form': form,
                    'reviews': reviews,
-                   'new_review': new_review
+                   'new_review': new_review,
+                   'ratings': ratings,
                    })
 
 
@@ -177,7 +181,6 @@ def add_review(request, product_id):
     context = {
         'form': form
     }
-
     return render(request, context)
 
 
@@ -229,3 +232,32 @@ def delete_review(request, review_id):
 
     messages.error(request, 'Sorry, you can not do this.')
     return redirect(reverse('products'))
+
+# ratings
+@login_required
+def rate_product(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = RatingsForm(request.POST)
+            print(form)
+            rating = request.POST.get('value')
+            print(rating)
+            val = request.POST.get('val')
+            rating.product = product
+            rating.rating_author = request.user
+            rating.save()
+            messages.success(
+                    request, 'Successfully added your rating!')
+            return JsonResponse({'success':'true', 'score': val}, safe=False)
+            
+        else:
+            messages.error(
+                request, 'Failed to add rating.')
+            return JsonResponse({'success':'false'})
+    context = {
+        'form': form
+    }
+    return redirect(reverse('product_detail', args=[product.id]))
+        
+    

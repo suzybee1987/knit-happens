@@ -33,7 +33,7 @@ class ReviewAdmin(admin.ModelAdmin):
 
 
 class RatingAdmin(admin.ModelAdmin):
-    list_display = ('rating', 'rating_author', 'product')
+    list_display = ('score', 'rating_author', 'product')
 
 
 admin.site.register(Rating, RatingAdmin)
