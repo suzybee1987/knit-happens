@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-
-{% endblock %}
-
 {% block content %}
 <div class="hero">
     <div class="hero-body">
@@ -12,22 +8,27 @@
             <!-- heading  -->
             <div class="columns">
                 <div class="column">
-                    <h1 class="title-heading">Product Management</h1>
-                    <h2 class="title-heading-small">Add A Product</h2>
+                    <h1 class="title-heading my-2">Product Management</h1>
+                    <h2 class="title-heading-small my-2">Add A Product</h2>
                 </div>
             </div>
             <!-- end of heading  -->
 
-            <div class="columns is-justify-content-left">
-                <div class="column is-6-desktop is-10-mobile is-offset-1-mobile">
+            <div class="columns has-text-centered">
+                <div class="column card is-6-desktop is-10-mobile is-offset-1-mobile">
                     <form action="{% url 'add_product' %}" enctype="multipart/form-data" method="POST">
                         {% csrf_token %}
                         {{ form | crispy }}
                         <div class="is-justify-content-right">
+                        <div class="columns my-2">
+                        <div class="column">
                             <a href="{% url 'products' %}" class="button is-danger is-light">
                                 Cancel
                             </a>
+                            </div>
+                            <div class="column">
                             <button class="button is-danger" type="submit">Add Product</button>
+                        </div></div>
                         </div>
                     </form>
                 </div>
@@ -35,6 +36,4 @@
         </div>
     </div>
 </div>
-
-
 {% endblock %}

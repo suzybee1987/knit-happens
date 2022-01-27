@@ -219,6 +219,7 @@ nav.navbar.is-justify-content-space-evenly {
     border-radius: 2px;
     color: #be3db0;
     border: 2px solid #be3db0;
+    background-color: #be3db0;
     width: 80%;
     margin: 60px auto 40px;
 }
@@ -470,7 +471,7 @@ nav.navbar.is-justify-content-space-evenly {
 /* Forms  */
 
 .ctrlHolder {
-    margin: 1rem;
+    margin: 0.8rem;
     font-weight: 700;
 
 }
@@ -480,13 +481,18 @@ nav.navbar.is-justify-content-space-evenly {
 
 }
 
-.textarea {
+.textarea{
     border-radius: 10px;
     margin-top: 1rem;
     box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
     max-width: 100%;
     width: 100%;
 }
+ .control {
+     border-radius: 4px;
+     margin-top: 1rem;
+     box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+ }
 
 textarea#id_review_title {
     height: 50px;
@@ -503,6 +509,12 @@ textarea#id_review_title {
     padding: 30px;
 }
 
+@media only screen and (max-width: 768px) {
+    .add-review-card {
+        padding: 0;
+    }
+}
+
 /* reverse add review and reset buttons on mobile  */
 @media only screen and (max-width: 768px) {
     .reverse-mobile {
@@ -515,4 +527,8 @@ textarea#id_review_title {
     font-style: italic;
     font-weight: 500;
     color: hsl(212, 86%, 64%);
+}
+
+.table {
+    margin: auto;
 }

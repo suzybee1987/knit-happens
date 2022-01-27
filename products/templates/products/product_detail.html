@@ -8,7 +8,12 @@
 {% block content %}
 <div class="hero-body">
     <div class="container">
-        <div class="columns is-justify-content-space-around has-text-right my-6">
+    <div class="columns is-justify-content-left my-4">
+            <div class="column is-6-desktop is-10-mobile">
+                <a href="{% url 'products' %}" class="button is-danger">Back to products</a>
+            </div>
+        </div>
+        <div class="columns is-justify-content-space-around has-text-right my-2">
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
                 <div class="columns">
                     <div class="column is-12">
@@ -119,7 +124,7 @@
                 {% if s %}
                 <div class="modal" id="modal-knitting">
                     <div class="modal-background"></div>
-                    <div class="modal-content">
+                    <div class="modal-content has-text-centered">
                         <table class="table is-bordered is-striped">
                             <thead>
                                 <tr>
@@ -337,7 +342,7 @@
 </div>
 <div class="columns is-justify-content-center my-6">
     <div class="column is-7 is-10-mobile is-offset-1-mobile card add-review-card">
-        <h3 class="title-heading-small">Add your review here</h3>
+        <h3 class="title-heading-small mt-5">Add your review here</h3>
         <form action="{% url 'add_review' product.id %}#reviews" method="POST">
             {% csrf_token %}
             <div class="columns">
