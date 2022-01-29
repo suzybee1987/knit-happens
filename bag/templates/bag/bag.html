@@ -14,14 +14,14 @@
         <!-- end of heading  -->
         {% if bag_items %}
         <div class="columns is-justify-content-center">
-            <div class="column is-5 is-underlined">Items in your bag: </div>
-            <div class="column is-5"></div>
-            <div class="column is-2 has-text-right is-underlined">Totals</div>
+            <div class="column is-5 is-underlined bag-title">Items in your bag: </div>
+            <div class="column is-5 is-hidden-touch"></div>
+            <div class="column is-2 has-text-right is-underlined bag-title is-hidden-touch">Totals</div>
         </div>
-        <hr>
-        <div class="columns is-multiline">
-            {% for item in bag_items %}
-            <div class="column is-5">
+
+        {% for item in bag_items %}
+        <div class="columns is-multiline my-3">
+            <div class="column is-4">
                 <div class="card-image">
                     <figure class="image is-4by3 bag-image">
                         {% if item.product.image %}
@@ -32,74 +32,78 @@
                     </figure>
                 </div>
             </div>
-            <div class="column is-5">
-                <div class="card-content has-text-centered">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-6">{{ item.product.name }}</p>
-                            <p class="subtitle is-6">
-                                {% if item.product.has_sizes %}Size: {{ item.size|upper }}{% endif %}
-                            </p>
-                            <p class="subtitle is-6">
-                                {% if item.product.has_weights %}Weight: {{ item.weight|capfirst }}{% endif %}
-                            </p>
-                            <p class="subtitle is-6">SKU: {{ item.product.sku|upper }}</p>
-                            <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="columns is-justify-content-center">
-                                    <div class="column is-6">
-                                        <div class="field">
-                                            <div class="control">
-                                                <input class="input" type="number" name="quantity"
-                                                    value="{{ item.quantity }}" min="0" max="99"
-                                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}"
-                                                    placeholder="Quantity">
-                                            </div>
-                                        </div>
+            <div class="column is-6">
+                <div class="card-content  has-text-right">
+                    <p class="product-title is-6">{{ item.product.name }}</p>
+                    <p class="small is-6">
+                        {% if item.product.has_sizes %}Size: {{ item.size|upper }}{% endif %}
+                    </p>
+                    <p class="small is-6">
+                        {% if item.product.has_weights %}Weight: {{ item.weight|capfirst }}{% endif %}
+                    </p>
+                    <p class="small is-6">SKU: {{ item.product.sku|upper }}</p>
+                    <p class="product-title is-6 m-3 is-hidden-desktop">£ {{item.product.price}}</p>
+                    <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="columns is-justify-content-right is-mobile">
+                            <div class="column is-6">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="number" name="quantity" value="{{ item.quantity }}"
+                                            min="0" max="99" data-item_id="{{ item.item_id }}"
+                                            id="id_qty_{{ item.item_id }}" placeholder="Quantity">
                                     </div>
                                 </div>
-                                {% if item.product.has_sizes %}
-                                <input type="hidden" name="product_size" value="{{ item.size }}">
-                                {% endif %}
-                                {% if item.product.has_weights %}
-                                <input type="hidden" name="product_weight" value="{{ item.weight }}">
-                                {% endif %}
-                                <button class="button is-danger my-2" type="submit">Update</button>
-                            </form>
-                            <a class="remove-item is-light is-danger is-outlined button my-2"
-                                id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">Remove</a>
+                            </div>
                         </div>
-                    </div>
+                        {% if item.product.has_sizes %}
+                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                        {% endif %}
+                        {% if item.product.has_weights %}
+                        <input type="hidden" name="product_weight" value="{{ item.weight }}">
+                        {% endif %}
+                        <div class="columns is-mobile is-justify-content-space-evenly">
+                            <div class="column is-6-mobile">
+                                <button class="button is-danger" type="submit">Update</button>
+                            </div>
+                            <div class="column is-6-mobile">
+                                <a class="remove-item is-light is-danger is-outlined button"
+                                    id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">Remove</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="column is-2 has-text-right">
-                <p class="subtitle is-6">£{{ item.product.price }}</p>
+            <div class="column is-2">
+                <p class="product-title has-text-right is-6 m-3 is-hidden-mobile">£ {{item.product.price}}</p>
             </div>
-
-            {% endfor %}
         </div>
+        <hr class="divider-bag my-5">
+        {% endfor %}
+
         <div class="columns is-justify-content-flex-end">
-            <div class="column is-2 total-column">
+            <div class="column is-4 total-column">
                 <div class="content has-text-right">
-                    <p>Total: £{{ total|floatformat:2 }}</p>
-                    <p>Delivery cost: £{{ delivery|floatformat:2 }}</p>
-                    <p>Grand total: £{{ grand_total|floatformat:2 }}</p>
+                    <p class="bag-title">Total: £{{ total|floatformat:2 }}</p>
+                    <p class="small">Delivery cost: £{{ delivery|floatformat:2 }}</p>
+                    <p class=" bag-title is-size-5 is-underlined">Grand total: £{{ grand_total|floatformat:2 }}</p>
                     {% if free_delivery_delta > 0 %}
-                    <p>You could get free delivery if you spend £{{ free_delivery_delta }} more</p>
+                    <p class="title-heading-small">You could get free delivery if you spend £{{ free_delivery_delta }}
+                        more</p>
                     {% endif %}
                 </div>
             </div>
         </div>
         <!-- back to products  -->
-        <div class="columns">
-            <div class="column has-text-centered">
+        <div class="columns is-mobile is-justify-content-space-evenly">
+            <div class="column has-text-centered my-5 is-6-mobile">
                 <a href="{% url 'products' %}" class="button is-danger is-outlined">
                     <i class="fas fa-angle-left mr-1"></i>Keep Shopping
                 </a>
             </div>
             <!-- end of back to products  -->
             <!-- checkout button  -->
-            <div class="column has-text-centered">
+            <div class="column has-text-centered my-5 is-6-mobile">
                 <a href="{% url 'checkout' %}" class="button is-danger">
                     <i class="fas fa-lock mr-1"></i>Secure Checkout
                 </a>
@@ -107,14 +111,14 @@
         </div>
         <!-- end of back to products  -->
         {% else %}
-        <div class="columns is-multiline has-text-centered">
+        <div class="columns is-multiline has-text-centered my-3">
             <div class="column">
                 <h4 class="my-3">You haven't got anything in your bag!</h4>
                 <h3 class="my-3">See the
                     <a href="{% url 'blog' %}"> blog</a>
                     for some inspiration or
                 </h3>
-                <a href="{% url 'products' %}" class="button is-danger is-outlined my-3">
+                <a href="{% url 'products' %}" class="button is-danger is-outlined">
                     <i class="fas fa-angle-left m-1"></i> Keep Shopping
                 </a>
             </div>
