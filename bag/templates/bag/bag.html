@@ -8,7 +8,7 @@
         <!-- heading  -->
         <div class="columns">
             <div class="column">
-                <h2 class="title-heading my-3">Shopping Bag</h2>
+                <h2 class="title-heading my-5">Shopping Bag</h2>
             </div>
         </div>
         <!-- end of heading  -->
@@ -18,7 +18,6 @@
             <div class="column is-5 is-hidden-touch"></div>
             <div class="column is-2 has-text-right is-underlined bag-title is-hidden-touch">Totals</div>
         </div>
-
         {% for item in bag_items %}
         <div class="columns is-multiline my-3">
             <div class="column is-4">
@@ -34,7 +33,7 @@
             </div>
             <div class="column is-6">
                 <div class="card-content  has-text-right">
-                    <p class="product-title is-6">{{ item.product.name }}</p>
+                    <p class="product-title is-6 my-2">{{ item.product.name }}</p>
                     <p class="small is-6">
                         {% if item.product.has_sizes %}Size: {{ item.size|upper }}{% endif %}
                     </p>
@@ -62,11 +61,9 @@
                         {% if item.product.has_weights %}
                         <input type="hidden" name="product_weight" value="{{ item.weight }}">
                         {% endif %}
-                        <div class="columns is-mobile is-justify-content-space-evenly">
-                            <div class="column is-6-mobile">
+                        <div class="columns is-mobile">
+                            <div class="column">
                                 <button class="button is-danger" type="submit">Update</button>
-                            </div>
-                            <div class="column is-6-mobile">
                                 <a class="remove-item is-light is-danger is-outlined button"
                                     id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">Remove</a>
                             </div>
@@ -74,8 +71,8 @@
                     </form>
                 </div>
             </div>
-            <div class="column is-2">
-                <p class="product-title has-text-right is-6 m-3 is-hidden-mobile">£ {{item.product.price}}</p>
+            <div class="column is-2 is-hidden-mobile">
+                <p class="product-title has-text-right is-6 ">£ {{item.product.price}}</p>
             </div>
         </div>
         <hr class="divider-bag my-5">
