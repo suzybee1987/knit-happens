@@ -2,31 +2,26 @@
 {% load static %}
 {% load bag_tools %}
 
-{% block page_header %}
-
-{% endblock %}
-
 {% block content %}
-<!-- heading  -->
-<div class="columns">
-    <div class="column">
-        <h2 class="title-heading">Shopping Bag</h2>
-    </div>
-</div>
-<!-- end of heading  -->
-{% if bag_items %}
-<div class="columns is-justify-content-center">
-    <div class="column is-10">
+<div class="hero-body">
+    <div class="container">
+        <!-- heading  -->
         <div class="columns">
-            <div class="column title is-5 is-underlined">Items in your bag: </div>
-            <div class="column"></div>
-            <div class="column title is-5 has-text-right is-underlined">Totals</div>
+            <div class="column">
+                <h2 class="title-heading my-3">Shopping Bag</h2>
+            </div>
+        </div>
+        <!-- end of heading  -->
+        {% if bag_items %}
+        <div class="columns is-justify-content-center">
+            <div class="column is-5 is-underlined">Items in your bag: </div>
+            <div class="column is-5"></div>
+            <div class="column is-2 has-text-right is-underlined">Totals</div>
         </div>
         <hr>
-
-        {% for item in bag_items %}
         <div class="columns is-multiline">
-            <div class="column">
+            {% for item in bag_items %}
+            <div class="column is-5">
                 <div class="card-image">
                     <figure class="image is-4by3 bag-image">
                         {% if item.product.image %}
@@ -37,7 +32,7 @@
                     </figure>
                 </div>
             </div>
-            <div class="column">
+            <div class="column is-5">
                 <div class="card-content has-text-centered">
                     <div class="media">
                         <div class="media-content">
@@ -49,7 +44,6 @@
                                 {% if item.product.has_weights %}Weight: {{ item.weight|capfirst }}{% endif %}
                             </p>
                             <p class="subtitle is-6">SKU: {{ item.product.sku|upper }}</p>
-                            <p class="subtitle is-6">Price: £{{ item.product.price }}</p>
                             <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="columns is-justify-content-center">
@@ -70,77 +64,71 @@
                                 {% if item.product.has_weights %}
                                 <input type="hidden" name="product_weight" value="{{ item.weight }}">
                                 {% endif %}
-                                <button class="button is-danger" type="submit">Update</button>
+                                <button class="button is-danger my-2" type="submit">Update</button>
                             </form>
-                            <a class="remove-item is-light is-danger button" id="remove_{{ item.item_id }}"
-                                data-product_size="{{ item.size }}">Remove</a>
+                            <a class="remove-item is-light is-danger is-outlined button my-2"
+                                id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">Remove</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="column  total-column">
+            <div class="column is-2 has-text-right">
+                <p class="subtitle is-6">£{{ item.product.price }}</p>
+            </div>
+
+            {% endfor %}
+        </div>
+        <div class="columns is-justify-content-flex-end">
+            <div class="column is-2 total-column">
                 <div class="content has-text-right">
-                    <p> Total: £{{ total|floatformat:2 }}</p>
+                    <p>Total: £{{ total|floatformat:2 }}</p>
+                    <p>Delivery cost: £{{ delivery|floatformat:2 }}</p>
+                    <p>Grand total: £{{ grand_total|floatformat:2 }}</p>
+                    {% if free_delivery_delta > 0 %}
+                    <p>You could get free delivery if you spend £{{ free_delivery_delta }} more</p>
+                    {% endif %}
                 </div>
             </div>
         </div>
-        <hr>
-        {% endfor %}
-        <div class="column  total-column">
-            <div class="content has-text-right">
-                <p> Total: £{{ total|floatformat:2 }}</p>
-                <p>Delivery cost: £{{ delivery|floatformat:2 }}</p>
-                <p>Grand total: £{{ grand_total|floatformat:2 }}</p>
-                {% if free_delivery_delta > 0 %}
-                <p>You could get free delivery if you spend £{{ free_delivery_delta }} more</p>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- back to products  -->
-<div class="columns">
-    <div class="column has-text-centered">
-        <a href="{% url 'products' %}" class="button is-danger is-outlined">
-            <i class="fas fa-angle-left mr-1"></i>Keep Shopping
-        </a>
-    </div>
-    <!-- end of back to products  -->
-    <!-- checkout button  -->
-
-    <div class="column has-text-centered">
-        <a href="{% url 'checkout' %}" class="button is-danger">
-            <i class="fas fa-lock mr-1"></i>Secure Checkout
-        </a>
-    </div>
-</div>
-<!-- end of back to products  -->
-{% else %}
-<!-- back to products  -->
-<div class="hero is-halfheight container">
-    <div class="hero-body">
-        <div class="columns is-multiline has-text-centered">
-            <div class="column">
-                <h4>You haven't got anything in your bag!</h4>
-                <h3>See the blog for some inspiration or</h3>
+        <!-- back to products  -->
+        <div class="columns">
+            <div class="column has-text-centered">
                 <a href="{% url 'products' %}" class="button is-danger is-outlined">
                     <i class="fas fa-angle-left mr-1"></i>Keep Shopping
                 </a>
             </div>
+            <!-- end of back to products  -->
+            <!-- checkout button  -->
+            <div class="column has-text-centered">
+                <a href="{% url 'checkout' %}" class="button is-danger">
+                    <i class="fas fa-lock mr-1"></i>Secure Checkout
+                </a>
+            </div>
         </div>
+        <!-- end of back to products  -->
+        {% else %}
+        <div class="columns is-multiline has-text-centered">
+            <div class="column">
+                <h4 class="my-3">You haven't got anything in your bag!</h4>
+                <h3 class="my-3">See the
+                    <a href="{% url 'blog' %}"> blog</a>
+                    for some inspiration or
+                </h3>
+                <a href="{% url 'products' %}" class="button is-danger is-outlined my-3">
+                    <i class="fas fa-angle-left m-1"></i> Keep Shopping
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
-<!-- end of back to products  -->
-{% endif %}
-</div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-    // Remove item and reload on click
+
+<script>    // Remove item and reload on click
     $('.remove-item').click(function (e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
@@ -155,7 +143,6 @@
             .done(function () {
                 location.reload();
             });
-    })
-</script>
+    })</script>
 
 {% endblock %}

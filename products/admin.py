@@ -14,7 +14,6 @@ class ProductAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
-
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
@@ -25,15 +24,14 @@ class CategoryAdmin(admin.ModelAdmin):
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)
 
-# Reviews and ratings
-
+# Reviews and ratings 
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ('review_title', 'review', 'review_author', 'product')
 
 
 class RatingAdmin(admin.ModelAdmin):
-    list_display = ('score', 'rating_author', 'product')
+    list_display = ('rating', 'rating_author', 'product')
 
 
 admin.site.register(Rating, RatingAdmin)
