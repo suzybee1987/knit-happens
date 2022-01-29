@@ -17,7 +17,7 @@
             <!-- heading  -->
             <div class="columns">
                 <div class="column">
-                    <h2 class="title-heading">Checkout</h2>
+                    <h2 class="title-heading my-3">Checkout</h2>
                 </div>
             </div>
             <!-- end of heading  -->
@@ -25,65 +25,52 @@
             <section class="columns is-variable is-8-desktop is-justify-content-space-evenly">
                 <!-- items  -->
                 <div class="column is-5-desktop">
-                    <div class="column is-underlined title-heading-small">
-                        <h1> Order Summary:</h1>
-                    </div>
-                    <div class="columns is-mobile">
-                        <div class="column is-6-touch has-text-left">
-                            <p class="is-underlined">Items</p>
-                        </div>
-                        <div class="column is-6-touch has-text-right">
-                            <p class="is-underlined">Subtotal</p>
-                        </div>
-                    </div>
-                    <!-- <hr class="divider--form"> -->
-                    {% for item in bag_items %}
-                    <div class="columns is-justify-content-center is-mobile">
-                        <div class="column is-8">
-                            <div class="card">
-                                <div class="card-image">
-                                    <figure class="image is-4by3 bag-image">
-                                        <a href="{% url 'product_detail' item.product.id %}">
-                                            {% if item.product.image %}
-                                            <img src="{{ item.product.image.url }}"
-                                                alt="image for {{ item.product.name }}">
-                                            {% else %}
-                                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                                            {% endif %}
-                                        </a>
-                                    </figure>
+                    <div class="card">
+                        <div class="card-content">
+                            <h1 class="is-underlined title-heading-small"> Order Summary:</h1>
+                            <div class="columns is-mobile">
+                                <div class="column is-6-touch has-text-left">
+                                    <p class="is-underlined">Items</p>
                                 </div>
-                                <div class="card-content">
-                                    <p class="title is-6">{{ item.product.name }}</p>
-                                    <p class="subtitle is-6">
-                                        {% if item.product.has_sizes %}Size:{{ item.size|upper }}{% endif %}
-                                    </p>
-                                    <p class="subtitle is-6">
-                                        {% if item.product.has_weights %}Weight:{{ item.weight|upper }}{% endif %}
-                                    </p>
-                                    <p class="subtitle is-6">Qty: {{ item.quantity }}</p>
-                                    <p class="subtitle is-6">Price: {{ item.product.price }}</p>
+                                <div class="column is-6-touch has-text-right">
+                                    <p class="is-underlined">Subtotal</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="column is-4 total-column">
-                            <div class="content has-text-right">
-                                <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+                            <!-- <hr class="divider--form"> -->
+                            {% for item in bag_items %}
+                            <div class="columns is-justify-content-center is-mobile">
+                                <div class="column is-8">
+                                    <p class="product-title is-6">{{ item.product.name }}</p>
+                                    <p class="small is-6">
+                                        {% if item.product.has_sizes %}Size: {{ item.size|upper }}{% endif %}
+                                    </p>
+                                    <p class="small is-6">
+                                        {% if item.product.has_weights %}Weight: {{ item.weight|capfirst }}{% endif %}
+                                    </p>
+                                    <p class="small is-6">Qty: {{ item.quantity }}</p>
+                                    <p class="small is-6">Price:£ {{ item.product.price }}</p>
+                                </div>
 
-                    <div class="columns has-text-right is-mobile has-text-weight-bold">
-                        <div class="column">
-                            <p class="my-1">Order Total:</p>
-                            <p class="my-1">Delivery:</p>
-                            <p class="my-1">Grand Total:</p>
-                        </div>
-                        <div class="column">
-                            <p class="my-1">£{{ total | floatformat:2 }}</p>
-                            <p class="my-1">£{{ delivery | floatformat:2 }}</p>
-                            <p class="my-1">£{{ grand_total | floatformat:2 }}</p>
+                                <div class="column is-4 total-column">
+                                    <div class="content has-text-right">
+                                        <p>£{{ item.product.price | calc_subtotal:item.quantity }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="divider-bag">
+                            {% endfor %}
+                            <div class="columns has-text-right is-mobile has-text-weight-bold">
+                                <div class="column">
+                                    <p class="my-1">Order Total:</p>
+                                    <p class="my-1">Delivery:</p>
+                                    <p class="my-1">Grand Total:</p>
+                                </div>
+                                <div class="column">
+                                    <p class="my-1">£{{ total | floatformat:2 }}</p>
+                                    <p class="my-1">£{{ delivery | floatformat:2 }}</p>
+                                    <p class="my-1">£{{ grand_total | floatformat:2 }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -92,7 +79,7 @@
                 <!-- payment form  -->
                 <div class="column is-7-desktop">
                     <h1 class="title-heading-small">
-                        Please fill out the order below to complete your order
+                        Please fill out the form below to complete your order
                         <i class="fas fa-pen"></i>
                     </h1>
                     <form action="{% url 'checkout' %}" method="POST" id="payment-form"

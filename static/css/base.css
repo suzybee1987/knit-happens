@@ -231,7 +231,7 @@ nav.navbar.is-justify-content-space-evenly {
     border: 1px solid #bcb8b8;
     background-color: #bcb8b8;
     width: 80%;
-    margin: 60px auto 40px;
+    margin: auto;
 }
 
 .button.is-primary.is-light {
@@ -419,8 +419,6 @@ nav.navbar.is-justify-content-space-evenly {
     font-weight: 500;
     color: #5f34b5;
 }
-
-
 
 .card {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
