@@ -144,14 +144,14 @@ nav.navbar.is-justify-content-space-evenly {
 .product-subtitles-title {
     font-weight: 600;
 }
-
+@media screen and (min-width: 768px) {
 .field-body {
     display: flex;
     flex-basis: 0;
     flex-grow: 5;
     flex-shrink: 1;
     max-width: 25%;
-}
+}}
 
 .notification {
     padding: 1.5rem;
@@ -301,6 +301,24 @@ nav.navbar.is-justify-content-space-evenly {
 /* end of Boutique  */
 
 /* Product detail  */
+/* mobile only  */
+.product-details-card-image {
+    /* https: //getcssscan.com/css-box-shadow-examples no.7*/
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+@media screen and (min-width: 768px) {
+    .product-details-card-image {
+        /* https: //getcssscan.com/css-box-shadow-examples no.7*/
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        border-radius: 5px;
+        background-color: #fff;
+        max-width: 300px;
+    }
+  }
+
 
 .product-details-card {
     /* https: //getcssscan.com/css-box-shadow-examples no.7*/
@@ -498,7 +516,8 @@ nav.navbar.is-justify-content-space-evenly {
 .control {
     border-radius: 4px;
     margin-top: 1rem;
-    box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+    /* box shadow removed as it looks off in product detail  */
+    /* box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%); */
 }
 
 textarea#id_review_title {
