@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product.css' %}">
 {% endblock %}
 
 {% block content %}
+<!-- product info  -->
 <div class="hero-body">
     <div class="container">
         <div class="columns is-justify-content-space-around has-text-right my-6">
@@ -49,8 +50,9 @@
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
 
                 <p class="product-subtitles m-3">{{ product.description }}</p>
-                <p class="product-subtitles-title m-3">Colour: <span
-                        class="product-subtitles">{{ product.colour }}</span></p>
+                <p class="product-subtitles-title m-3">Colour:
+                    <span class="product-subtitles">{{ product.colour }}</span>
+                </p>
                 <p>{% if product.category %}
                     <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3">
                         <i class="fas fa-circle mx-1"></i>{{ product.category.friendly_name }}
@@ -309,6 +311,7 @@
         </div>
     </div>
 </div>
+<!-- end of product info  -->
 <div class="divider-products"></div>
 <!-- Reviews Section -->
 <div class="columns is-justify-content-center has-text-centered">
@@ -367,75 +370,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            /* Toggle between adding and removing
-               the "active" class, to highlight the button that controls the panel */
-            this.classList.toggle("active");
-            /* Toggle
-               between hiding and showing the active panel */
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-</script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Functions to open and close a modal
-        function openModal($el) {
-            $el.classList.add('is-active');
-        }
-
-        function closeModal($el) {
-            $el.classList.remove('is-active');
-        }
-
-        function closeAllModals() {
-            (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-                closeModal($modal);
-            });
-        }
-
-        // Add a click event on buttons to open a specific modal
-        (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
-            const modal = $trigger.dataset.target;
-            const $target = document.getElementById(modal);
-            console.log($target);
-
-            $trigger.addEventListener('click', () => {
-                openModal($target);
-            });
-        });
-
-        // Add a click event on various child elements to close the parent modal
-        (document.querySelectorAll(
-            '.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || [])
-        .forEach(($close) => {
-            const $target = $close.closest('.modal');
-
-            $close.addEventListener('click', () => {
-                closeModal($target);
-            });
-        });
-
-        // Add a keyboard event to close all modals
-        document.addEventListener('keydown', (event) => {
-            const e = event || window.event;
-
-            if (e.keyCode === 27) { // Escape key
-                closeAllModals();
-            }
-        });
-    });
-</script>
-
+<script src="{% static 'products/js/modal.js' %}"></script>
 {% endblock %}

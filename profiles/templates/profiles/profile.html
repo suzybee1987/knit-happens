@@ -6,67 +6,71 @@
 {% endblock %}
 
 {% block content %}
-<div class="hero">
-    <div class="hero-body is-fullheight">
-        <div class="container">
-            <!-- heading  -->
-            <div class="columns">
-                <div class="column">
-                    <h2 class="title-heading m-3">Profile</h2>
+<div class="hero-body">
+    <div class="container">
+        <!-- heading  -->
+
+        <h2 class="title-heading my-3">Profile</h2>
+
+        <div class="columns is-justify-content-space-between">
+            <div class="column is-4 is-12-mobile">
+                <div class="card">
+                    <div class="card-content has-text-right">
+                        <p class="mb-3 title-heading-small">Default Delivery Information</p>
+                        <form class="my-3 column is-6" action="{% url 'profile' %}" method="POST"
+                            id="profile-update-form">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button class="button is-info my-3">Update Information</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-            <div class="columns is-justify-content-center">
-                <div class="column is-6 is-10-mobile">
-                    <p class="m-3 title-heading-small">Default Delivery Information</p>
-                    <form class="m-3" action="{% url 'profile' %}" method="POST" id="profile-update-form">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                        <button class="button is-info m-3">Update Information</button>
-                    </form>
+            <div class="column is-7 is-12-mobile mb-6">
+                <div class="card">
+                    <div class="card-content">
+                        <h2 class="title-heading-small mb-5">Order History</h2>
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th>Order Number</th>
+                                    <th>Date</th>
+                                    <th class="is-hidden-mobile">Items</th>
+                                    <th>Order Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'order_history' order.order_number %}"
+                                            title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {{ order.date|date:"d/m/y" }}
+                                    </td>
+                                    <td class="is-hidden-mobile">
+                                        <ul>
+                                            {% for item in order.lineitems.all %}
+                                            <li>
+                                                {% if item.has_sizes %}Size: {{ item.product.size|upper}}{% endif %}
+                                                {{ item.product.name |truncatechars:20 }} x {{ item.quantity }}
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        £{{ order.grand_total }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                  <div class="column">
-                      <p class="title-heading-small m-3">Order History</p>
-                      <table>
-                          <thead>
-                              <tr>
-                                  <th>Order Number</th>
-                                  <th>Date</th>
-                                  <th>Items</th>
-                                  <th>Order Total</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              {% for order in orders %}
-                              <tr>
-                                  <td>
-                                      <a href="{% url 'order_history' order.order_number %}"
-                                          title="{{ order.order_number }}">
-                                          {{ order.order_number|truncatechars:6 }}
-                                      </a>
-                                  </td>
-                                  <td>
-                                      {{ order.date }}
-                                  </td>
-                                  <td>
-                                      <ul>
-                                          {% for item in order.lineitems.all %}
-                                          <li>
-                                              {% if item.has_sizes %}Size: {{ item.product.size|upper}}{% endif %}
-                                              {{ item.product.name }} x{{ item.quantity }}
-                                          </li>
-                                          {% endfor %}
-                                      </ul>
-                                  </td>
-                                  <td>
-                                      £{{ order.grand_total }}
-                                  </td>
-                              </tr>
-                              {% endfor %}
-                          </tbody>
-                      </table>
-                  </div>
             </div>
-            
         </div>
     </div>
 </div>

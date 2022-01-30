@@ -2,12 +2,13 @@ from django.test import TestCase
 from .models import Order
 from products.models import Product
 
+
 class TestOrderModel(TestCase):
     """
     test the order model
     """
     def test_order_string_method_returns_order_number(self):
-        """ 
+        """
         test order model string method
         """
         order = Order.objects.create(order_number="123456789")
@@ -15,7 +16,7 @@ class TestOrderModel(TestCase):
 
 
 class TestOrderLineModel(TestCase):
-    """ 
+    """
     test order line model string method
     """
     def test_order_line_string_method_returns_order_number_and_sku(self):

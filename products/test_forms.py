@@ -24,7 +24,7 @@ class TestReviewForm(TestCase):
             form.errors['review'][0], 'This field is required.')
 
     def test_fields_are_explicit_in_form_meta_class(self):
-        """ 
+        """
         check the field only displays certain fields
         """
         form = ReviewForm()
@@ -37,5 +37,6 @@ class TestProductForm(TestCase):
     def test_fields_are_explicit_in_product_form_meta_class(self):
         """ test to see if review title field is required"""
         form = ProductForm({'review_title': ''})
-        self.assertEqual(form.Meta.fields, ['category', 'sku', 'name', 'colour',
-                         'description', 'has_sizes', 'has_weights', 'price', 'image_url', 'image'])
+        self.assertEqual(form.Meta.fields, [
+            'category', 'sku', 'name', 'colour', 'description', 'has_sizes',
+            'has_weights', 'price', 'image_url', 'image'])

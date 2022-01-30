@@ -2,7 +2,7 @@
 # from .models import Post, Comment
 
 # class TestPostModel(TestCase):
-#     """ 
+#     """
 #     test the blog post model
 #     """
 #     def test_post_string_method_returns_title(self):

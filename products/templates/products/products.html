@@ -76,7 +76,7 @@
                     </div>
                     {% endif %}
                     <div class="card-content">
-                        <p class="product-trunc m-1"> {{ product.name }}
+                        <p class="product-trunc m-1 blog-card-content"> {{ product.name }}
                         </p>
                         <p class="product-trunc m-1">
                             {{ product.colour }}
@@ -90,7 +90,7 @@
                         {% endif %}
                         <br>
                         {% if request.user.is_superuser %}
-                        <div class="mt-2">
+                        <div class="mt-2 py-3">
                             <a class="has-text-info button" href="{% url 'edit_product' product.id %}">Edit</a>
                             <a class="has-text-danger button" href="{% url 'delete_product' product.id %}">Delete</a>
                         </div>

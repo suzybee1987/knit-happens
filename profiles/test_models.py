@@ -9,7 +9,7 @@ class TestUserProfileModel(TestCase):
     """
     @classmethod
     def setUpTestData(self):
-        self.client= Client()
+        self.client = Client()
         self.user = User.objects.create_user(
             username="testuserprofile", password="abc123def"
         )

@@ -18,11 +18,12 @@ class TestProfileViews(TestCase):
     def setUp(self):
         self.client = Client()
         User.objects.create_user(
-            username="profiletester", email="test@profile.com", password="123abcde4")
-
+            username="profiletester", email="test@profile.com",
+            password="123abcde4"
+            )
 
     def test_profile_page_url_works(self):
-        """ 
+        """
         Test the url works when loading the page
         """
         self.client.login(username="profiletester",
@@ -49,7 +50,7 @@ class TestProfileViews(TestCase):
                           email="test@profile.com", password="123abcde4")
         response = self.client.get(reverse('profile'))
         self.assertEqual(response.status_code, 200)
-    
+
     def test_profile_for_valid_form(self):
         """
         Test the profile form works if form is valid
@@ -89,4 +90,5 @@ class TestProfileViews(TestCase):
         order_number = 'ABC123'
         response = self.client.get(
             f'/profile/order_history/{order_number}/')
-
+        self.assertTemplateUsed(
+            response, template_name="checkout/checkout_success.html")

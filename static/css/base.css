@@ -219,8 +219,19 @@ nav.navbar.is-justify-content-space-evenly {
     border-radius: 2px;
     color: #be3db0;
     border: 2px solid #be3db0;
+    background-color: #be3db0;
     width: 80%;
     margin: 60px auto 40px;
+}
+
+.divider-bag {
+    height: 0px;
+    border-radius: 2px;
+    color: #bcb8b8;
+    border: 1px solid #bcb8b8;
+    background-color: #bcb8b8;
+    width: 80%;
+    margin: auto;
 }
 
 .button.is-primary.is-light {
@@ -255,13 +266,6 @@ nav.navbar.is-justify-content-space-evenly {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
-
-
-.filter-heading {
-    font-family: Verdana, Geneva, Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
-    text-decoration: underline;
 }
 
 .small-heading {
@@ -305,6 +309,15 @@ nav.navbar.is-justify-content-space-evenly {
     background-color: #fff;
 }
 
+/* star ratings */
+.checked {
+    color: gold;
+}
+
+.my-btn {
+    background-color: inherit !important;
+    border: 0 !important;
+}
 
 /* end of product detail  */
 
@@ -382,8 +395,8 @@ nav.navbar.is-justify-content-space-evenly {
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
 
-.blog-title {
-    color: #4a4a4a;
+.blog-content {
+    font-size: 1.2em;
 }
 
 .blog-title:hover,
@@ -392,19 +405,19 @@ nav.navbar.is-justify-content-space-evenly {
     text-decoration: underline;
 }
 
-.blog-card-content {
+.blog-card-content,
+.product-title,
+.bag-title,
+.blog-title {
     font-size: 1em;
     font-weight: 700;
+    color: #4a4a4a;
 }
 
 .blog-small {
     font-style: italic;
     font-weight: 500;
     color: #5f34b5;
-}
-
-.card-content {
-    padding: 0 1rem;
 }
 
 .card {
@@ -466,14 +479,12 @@ nav.navbar.is-justify-content-space-evenly {
 /* Forms  */
 
 .ctrlHolder {
-    margin: 1rem;
+    margin: 0.8rem 0;
     font-weight: 700;
-
 }
 
 .form-input {
     border-radius: 5px;
-
 }
 
 .textarea {
@@ -484,10 +495,68 @@ nav.navbar.is-justify-content-space-evenly {
     width: 100%;
 }
 
+.control {
+    border-radius: 4px;
+    margin-top: 1rem;
+    box-shadow: inset 0 0.0625em 0.125em rgb(10 10 10 / 5%);
+}
+
 textarea#id_review_title {
     height: 50px;
 }
 
+/* from Bulma input class  */
+.textinput {
+    background-color: #fff;
+    border-radius: 0.375em;
+    color: #363636;
+    height: auto;
+    -webkit-appearance: none;
+    align-items: center;
+    border-color: #dbdbdb;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.5em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding-bottom: calc(0.5em - 1px);
+    padding-left: calc(0.75em - 1px);
+    padding-right: calc(0.75em - 1px);
+    padding-top: calc(0.5em - 1px);
+    position: relative;
+    vertical-align: top;
+}
+
+/* from Bulma select class  */
+#id_default_country {
+    padding-right: 2.5em;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    max-width: 100%;
+    outline: 0;
+    background-color: #fff;
+    border-color: #dbdbdb;
+    border-radius: 0.375em;
+    color: #363636;
+    align-items: center;
+    border-radius: 0.375em;
+    box-shadow: none;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.5em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding-bottom: calc(0.5em - 1px);
+    padding-left: calc(0.75em - 1px);
+    padding-right: calc(0.75em - 1px);
+    padding-top: calc(0.5em - 1px);
+    position: relative;
+}
+
+
+/* end of forms  */
 .review-card {
     border-top: 3px solid hsl(212, 86%, 64%);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
@@ -497,6 +566,12 @@ textarea#id_review_title {
     border-top: 3px solid hsl(180, 62%, 55%);
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
     padding: 30px;
+}
+
+@media only screen and (max-width: 768px) {
+    .add-review-card {
+        padding: 0;
+    }
 }
 
 /* reverse add review and reset buttons on mobile  */
@@ -511,4 +586,8 @@ textarea#id_review_title {
     font-style: italic;
     font-weight: 500;
     color: hsl(212, 86%, 64%);
+}
+
+.table {
+    margin: auto;
 }

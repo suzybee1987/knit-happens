@@ -1,5 +1,5 @@
 {
-   "python.linting.pylintEnabled": true,
+   "python.linting.pylintEnabled": false,
    "python.linting.enabled": true,
    "python.linting.pycodestyleEnabled": false,
    "python.linting.flake8Enabled": true,
@@ -21,11 +21,11 @@
       "**/CVS": true
    },
    "files.autoSave": "off",
-   "workbench.colorTheme": "Visual Studio Dark",
+   "workbench.colorTheme": "Gitpod Dark",
    "terminal.integrated.gpuAcceleration": "canvas",
    "editor.defaultFormatter": "HookyQR.beautify",
    "[html]": {
-      "editor.defaultFormatter": "HookyQR.beautify"
+      "editor.defaultFormatter": "vscode.html-language-features"
    },
    "[python]": {
       "editor.defaultFormatter": "ms-python.python"

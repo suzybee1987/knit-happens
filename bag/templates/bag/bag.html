@@ -2,31 +2,25 @@
 {% load static %}
 {% load bag_tools %}
 
-{% block page_header %}
-
-{% endblock %}
-
 {% block content %}
-<!-- heading  -->
-<div class="columns">
-    <div class="column">
-        <h2 class="title-heading">Shopping Bag</h2>
-    </div>
-</div>
-<!-- end of heading  -->
-{% if bag_items %}
-<div class="columns is-justify-content-center">
-    <div class="column is-10">
+<div class="hero-body">
+    <div class="container">
+        <!-- heading  -->
         <div class="columns">
-            <div class="column title is-5 is-underlined">Items in your bag: </div>
-            <div class="column"></div>
-            <div class="column title is-5 has-text-right is-underlined">Totals</div>
-        </div>
-        <hr>
-
-        {% for item in bag_items %}
-        <div class="columns is-multiline">
             <div class="column">
+                <h2 class="title-heading my-5">Shopping Bag</h2>
+            </div>
+        </div>
+        <!-- end of heading  -->
+        {% if bag_items %}
+        <div class="columns is-justify-content-center">
+            <div class="column is-5 is-underlined bag-title">Items in your bag: </div>
+            <div class="column is-5 is-hidden-touch"></div>
+            <div class="column is-2 has-text-right is-underlined bag-title is-hidden-touch">Totals</div>
+        </div>
+        {% for item in bag_items %}
+        <div class="columns is-multiline my-3">
+            <div class="column is-4">
                 <div class="card-image">
                     <figure class="image is-4by3 bag-image">
                         {% if item.product.image %}
@@ -37,125 +31,129 @@
                     </figure>
                 </div>
             </div>
-            <div class="column">
-                <div class="card-content has-text-centered">
-                    <div class="media">
-                        <div class="media-content">
-                            <p class="title is-6">{{ item.product.name }}</p>
-                            <p class="subtitle is-6">
-                                {% if item.product.has_sizes %}Size: {{ item.size|upper }}{% endif %}
-                            </p>
-                            <p class="subtitle is-6">
-                                {% if item.product.has_weights %}Weight: {{ item.weight|capfirst }}{% endif %}
-                            </p>
-                            <p class="subtitle is-6">SKU: {{ item.product.sku|upper }}</p>
-                            <p class="subtitle is-6">Price: £{{ item.product.price }}</p>
-                            <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="columns is-justify-content-center">
-                                    <div class="column is-6">
-                                        <div class="field">
-                                            <div class="control">
-                                                <input class="input" type="number" name="quantity"
-                                                    value="{{ item.quantity }}" min="0" max="99"
-                                                    data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}"
-                                                    placeholder="Quantity">
-                                            </div>
-                                        </div>
+            <div class="column is-6">
+                <div class="card-content  has-text-right">
+                    <p class="product-title is-6 my-2">{{ item.product.name }}</p>
+                    <p class="small is-6">
+                        {% if item.product.has_sizes %}Size: {{ item.size|upper }}{% endif %}
+                    </p>
+                    <p class="small is-6">
+                        {% if item.product.has_weights %}Weight: {{ item.weight|capfirst }}{% endif %}
+                    </p>
+                    <p class="small is-6">SKU: {{ item.product.sku|upper }}</p>
+                    <p class="product-title is-6 m-3 is-hidden-desktop">£ {{item.product.price}}</p>
+                    <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="columns is-justify-content-right is-mobile">
+                            <div class="column is-6">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input" type="number" name="quantity" value="{{ item.quantity }}"
+                                            min="0" max="99" data-item_id="{{ item.item_id }}"
+                                            id="id_qty_{{ item.item_id }}" placeholder="Quantity">
                                     </div>
                                 </div>
-                                {% if item.product.has_sizes %}
-                                <input type="hidden" name="product_size" value="{{ item.size }}">
-                                {% endif %}
-                                {% if item.product.has_weights %}
-                                <input type="hidden" name="product_weight" value="{{ item.weight }}">
-                                {% endif %}
-                                <button class="button is-danger" type="submit">Update</button>
-                            </form>
-                            <a class="remove-item is-light is-danger button" id="remove_{{ item.item_id }}"
-                                data-product_size="{{ item.size }}">Remove</a>
+                            </div>
                         </div>
-                    </div>
+                        {% if item.product.has_sizes %}
+                        <input type="hidden" name="product_size" value="{{ item.size }}">
+                        <div class="columns is-mobile">
+                            <div class="column">
+                                <button class="button is-danger" type="submit">Update</button>
+                                <a class="remove-item is-light is-danger is-outlined button"
+                                    id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}">Remove</a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% if item.product.has_weights %}
+                        <input type="hidden" name="product_weight" value="{{ item.weight }}">
+                        <div class="columns is-mobile">
+                            <div class="column">
+                                <button class="button is-danger" type="submit">Update</button>
+                                <a class="remove-item is-light is-danger is-outlined button"
+                                    id="remove_{{ item.item_id }}" data-product_weight="{{ item.weight }}">Remove</a>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                    </form>
                 </div>
             </div>
-            <div class="column  total-column">
-                <div class="content has-text-right">
-                    <p> Total: £{{ total|floatformat:2 }}</p>
-                </div>
+            <div class="column is-2 is-hidden-mobile">
+                <p class="product-title has-text-right is-6 ">£ {{item.product.price}}</p>
             </div>
         </div>
-        <hr>
+        <hr class="divider-bag my-5">
         {% endfor %}
-        <div class="column  total-column">
-            <div class="content has-text-right">
-                <p> Total: £{{ total|floatformat:2 }}</p>
-                <p>Delivery cost: £{{ delivery|floatformat:2 }}</p>
-                <p>Grand total: £{{ grand_total|floatformat:2 }}</p>
-                {% if free_delivery_delta > 0 %}
-                <p>You could get free delivery if you spend £{{ free_delivery_delta }} more</p>
-                {% endif %}
+
+        <div class="columns is-justify-content-flex-end">
+            <div class="column is-4 total-column">
+                <div class="content has-text-right">
+                    <p class="bag-title">Total: £{{ total|floatformat:2 }}</p>
+                    <p class="small">Delivery cost: £{{ delivery|floatformat:2 }}</p>
+                    <p class=" bag-title is-size-5 is-underlined">Grand total: £{{ grand_total|floatformat:2 }}</p>
+                    {% if free_delivery_delta > 0 %}
+                    <p class="title-heading-small">You could get free delivery if you spend £{{ free_delivery_delta }}
+                        more</p>
+                    {% endif %}
+                </div>
             </div>
         </div>
-    </div>
-</div>
-
-
-<!-- back to products  -->
-<div class="columns">
-    <div class="column has-text-centered">
-        <a href="{% url 'products' %}" class="button is-danger is-outlined">
-            <i class="fas fa-angle-left mr-1"></i>Keep Shopping
-        </a>
-    </div>
-    <!-- end of back to products  -->
-    <!-- checkout button  -->
-
-    <div class="column has-text-centered">
-        <a href="{% url 'checkout' %}" class="button is-danger">
-            <i class="fas fa-lock mr-1"></i>Secure Checkout
-        </a>
-    </div>
-</div>
-<!-- end of back to products  -->
-{% else %}
-<!-- back to products  -->
-<div class="hero is-halfheight container">
-    <div class="hero-body">
-        <div class="columns is-multiline has-text-centered">
-            <div class="column">
-                <h4>You haven't got anything in your bag!</h4>
-                <h3>See the blog for some inspiration or</h3>
+        <!-- back to products  -->
+        <div class="columns is-mobile is-justify-content-space-evenly">
+            <div class="column has-text-centered my-5 is-6-mobile">
                 <a href="{% url 'products' %}" class="button is-danger is-outlined">
                     <i class="fas fa-angle-left mr-1"></i>Keep Shopping
                 </a>
             </div>
+            <!-- end of back to products  -->
+            <!-- checkout button  -->
+            <div class="column has-text-centered my-5 is-6-mobile">
+                <a href="{% url 'checkout' %}" class="button is-danger">
+                    <i class="fas fa-lock mr-1"></i>Secure Checkout
+                </a>
+            </div>
         </div>
+        <!-- end of back to products  -->
+        {% else %}
+        <div class="columns is-multiline has-text-centered my-3">
+            <div class="column">
+                <h4 class="my-3">You haven't got anything in your bag!</h4>
+                <h3 class="my-3">See the
+                    <a href="{% url 'blog' %}"> blog</a>
+                    for some inspiration or
+                </h3>
+                <a href="{% url 'products' %}" class="button is-danger is-outlined">
+                    <i class="fas fa-angle-left m-1"></i> Keep Shopping
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
-<!-- end of back to products  -->
-{% endif %}
-</div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<script type="text/javascript">
-    // Remove item and reload on click
+
+<script>    // Remove item and reload on click
     $('.remove-item').click(function (e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
         let size = $(this).data('product_size');
+        let weight = $(this).data('product_weight');
         let url = `/bag/remove/${itemId}/`;
         let data = {
             'csrfmiddlewaretoken': csrfToken,
-            'product_size': size
+            'product_size': size,
+            'product_weight': product_weight
         };
 
         $.post(url, data)
             .done(function () {
                 location.reload();
             });
-    })
-</script>
+    })</script>
 
 {% endblock %}

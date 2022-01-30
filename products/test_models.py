@@ -1,6 +1,5 @@
 from django.test import TestCase
 from .models import Category, Product
-from products.models import Product
 
 
 class TestCategoryModel(TestCase):
@@ -9,7 +8,7 @@ class TestCategoryModel(TestCase):
     """
 
     def test_category_string_method_returns_name(self):
-        """ 
+        """
         test category model string method
         """
         category = Category.objects.create(name="category_name")
@@ -17,7 +16,7 @@ class TestCategoryModel(TestCase):
 
 
 class TestProductModel(TestCase):
-    """ 
+    """
     test product model
     """
     def test_product_string_method_returns_name(self):
