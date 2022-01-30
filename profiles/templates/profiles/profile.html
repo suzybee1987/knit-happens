@@ -12,9 +12,9 @@
 
         <h2 class="title-heading my-3">Profile</h2>
 
-        <div class="columns is-justify-content-space-between">
+        <div class="columns is-justify-content-space-between ">
             <div class="column is-4 is-12-mobile">
-                <div class="card">
+                <div class="card my-3">
                     <div class="card-content has-text-right">
                         <p class="mb-3 title-heading-small">Default Delivery Information</p>
                         <form class="my-3 column is-6" action="{% url 'profile' %}" method="POST"
@@ -26,11 +26,12 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-7 is-12-mobile mb-6">
-                <div class="card">
+            <div class="column is-7 is-12-mobile">
+                <div class="card my-3">
                     <div class="card-content">
                         <h2 class="title-heading-small mb-5">Order History</h2>
-                        <table class="table ">
+                        {% if orders %}
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>Order Number</th>
@@ -68,6 +69,13 @@
                                 {% endfor %}
                             </tbody>
                         </table>
+                        {% else %}
+                        <h3 class="product-title has-text-centered">
+                            You don't have any orders yet!
+                            Click <a href="{% url 'home' %}">here </a>to find
+                            some nice goodies to buy. </h3>
+                        {% endif %}
+                        
                     </div>
                 </div>
             </div>
