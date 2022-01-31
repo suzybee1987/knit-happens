@@ -1,14 +1,17 @@
 from django.test import TestCase
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
+from django.contrib.messages import get_messages
 
 from .models import Category, Product
 
 
 class TestProductViews(TestCase):
-    """
-    Test the home page loads correctly
-    """
+
+    fixtures = [
+        'categories.json',
+        'products.json'
+    ]
 
     def test_product_page_url_works(self):
         """
@@ -55,14 +58,14 @@ class TestProductViews(TestCase):
         self.assertContains(response, product.category)
 
     def test_product_detail_page_url_exists(self):
-        response = self.client.get('/products/25/')
+        response = self.client.get('/products/1/')
         self.assertEqual(response.status_code, 200)
 
     def test_the_product_detail_url_is_accessible_by_name(self):
-        response = self.client.get(reverse('product_detail', args="25"))
+        response = self.client.get(reverse('product_detail', args="1"))
         self.assertEqual(response.status_code, 200)
 
     def test_product_detail_page_template(self):
-        response = self.client.get('/products/25/')
+        response = self.client.get('/products/1/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/product_detail.html')
