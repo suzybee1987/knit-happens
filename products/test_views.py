@@ -95,14 +95,23 @@ class TestProductViews(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_product_detail_page_url_exists(self):
+        """
+        test product detail page loads via url
+        """
         response = self.client.get('/products/1/')
         self.assertEqual(response.status_code, 200)
 
     def test_the_product_detail_url_is_accessible_by_name(self):
+        """
+        test product detail page loads via name
+        """
         response = self.client.get(reverse('product_detail', args="1"))
         self.assertEqual(response.status_code, 200)
 
     def test_product_detail_page_template(self):
+        """
+        test product detail page loads via template
+        """
         response = self.client.get('/products/1/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'products/product_detail.html')
