@@ -14,9 +14,16 @@ html {
     font-family: 'Libre Franklin', sans-serif;
 }
 
+body{
+    overflow-x: hidden;
+}
+.container{
+    max-width:100%;
+}
+
 @media only screen and (max-width: 768px) {
     .columns {
-        margin-left: 0 !important;
+        margin: 0 !important;
     }
 }
 

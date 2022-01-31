@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product.css' %}">
+{% endblock %}
 
 {% block content %}
 <div class="hero-body">
     <div class="container">
         <div class="columns has-text-centered">
-            <div class="column is-mobile">
+            <div class="column is-10-touch is-offset-1-touch">
                 <h1 class="title-heading has-text-centered is-justify-content-center my-5">Products</h1>
                 {% for c in current_categories %}
                 <a class="button is-danger" href="{% url 'products' %}?category={{ c.name }}">
@@ -15,8 +18,8 @@
             </div>
         </div>
         <!-- sorting  -->
-        <div class="columns is-vcentered is-mobile has-text-centered my-3 is-justify-content-space-around">
-            <div class="column is-4">
+        <div class="columns is-vcentered has-text-centered my-3 is-justify-content-space-around">
+            <div class="column is-4 is-6-touch">
                 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
                     <ul>
                         <li>
@@ -28,7 +31,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="column is-8 is-flex is-justify-content-end">
+            <div class="column is-8 is-6-touch is-flex is-justify-content-end">
                 <div class="select my-3">
                     <select id="sort-selector">
                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
@@ -58,7 +61,7 @@
         <!-- filter products  -->
         <div class="columns is-multiline">
             {% for product in products %}
-            <div class="column is-4-desktop is-3-widescreen is-10-mobile is-offset-1-mobile">
+            <div class="column is-4-desktop is-3-widescreen">
                 <div class="card">
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
@@ -76,16 +79,16 @@
                     </div>
                     {% endif %}
                     <div class="card-content">
-                        <p class="product-trunc m-1 blog-card-content"> {{ product.name }}
+                        <p class="product-trunc my-1 blog-card-content"> {{ product.name }}
                         </p>
-                        <p class="product-trunc m-1">
+                        <p class="product-trunc my-1">
                             {{ product.colour }}
                         </p>
-                        <p class="has-text-weight-bold m-1"> £{{ product.price }}
+                        <p class="has-text-weight-bold my-1"> £{{ product.price }}
                         </p>
                         {% if product.category %}
                         <a href="{% url 'products' %}?category={{ product.category.name }}">
-                            <i class="fas fa-circle is-grey m-1"></i>{{ product.category.friendly_name }}
+                            <i class="fas fa-circle is-grey my-1"></i>{{ product.category.friendly_name }}
                         </a>
                         {% endif %}
                         <br>
