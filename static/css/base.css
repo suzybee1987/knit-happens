@@ -165,7 +165,9 @@ nav.navbar.is-justify-content-space-evenly {
     align-items: flex-end;
     justify-content: center;
 }
-
+.cols-animation {
+    width: 100%;
+}
 .image-down {
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -173,9 +175,9 @@ nav.navbar.is-justify-content-space-evenly {
     animation-timing-function: linear;
 }
 
-.columns {
+/* .columns {
     width: 100%;
-}
+} */
 
 @keyframes bounce-1 {
     0% {
@@ -525,7 +527,7 @@ textarea#id_review_title {
 }
 
 /* from Bulma input class  */
-.textinput {
+.textinput, input#id_email, input#id_email2, input#id_username, input#id_password1, input#id_password2  {
     background-color: #fff;
     border-radius: 0.375em;
     color: #363636;
@@ -545,6 +547,7 @@ textarea#id_review_title {
     padding-top: calc(0.5em - 1px);
     position: relative;
     vertical-align: top;
+    margin: 0.5rem;
 }
 
 /* from Bulma select class  */

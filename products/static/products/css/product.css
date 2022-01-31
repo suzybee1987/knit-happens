@@ -18,3 +18,7 @@
 .qty-label {
     padding-top: 16px;
 }
+
+label {
+    margin: 1rem;
+}

@@ -6,35 +6,36 @@
 {% endblock %}
 
 {% block content %}
-<div class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <!-- heading  -->
-            <div class="columns">
-                <div class="column">
-                    <h1 class="title-heading">Product Management</h1>
-                    <h2 class="title-heading-small">Edit A Product</h2>
-                </div>
+<div class="hero-body">
+    <div class="container">
+        <!-- heading  -->
+        <div class="columns">
+            <div class="column">
+                <h1 class="title-heading my-2">Product Management</h1>
+                <h2 class="title-heading-small my-2">Edit A Product</h2>
             </div>
-            <!-- end of heading  -->
-
-            <div class="columns">
-                <div class="column is-6-desktop is-10-mobile is-offset-1-mobile">
-                    <form action="{% url 'edit_product' product.id %}" enctype="multipart/form-data" method="POST">
-                        {% csrf_token %}
-                        {{ form | crispy }}
-                        <div class="is-justify-content-right">
-                            <a href="{% url 'products' %}" class="button is-danger is-light">
-                                Cancel
-                            </a>
-                            <button class="button is-danger" type="submit">Update Product</button>
+        </div>
+        <!-- end of heading  -->
+        <div class="columns has-text-left is-justify-content-center">
+            <div class="column card is-8-desktop is-10-touch is-offset-1-touch my-3">
+                <form action="{% url 'edit_product' product.id %}" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="is-justify-content-right">
+                        <div class="columns my-2 has-text-centered">
+                            <div class="column">
+                                <a href="{% url 'products' %}" class="button is-danger is-light is-outlined">
+                                    Cancel
+                                </a>
+                            </div>
+                            <div class="column">
+                                <button class="button is-danger" type="submit">Update Product</button>
+                            </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-
 {% endblock %}
