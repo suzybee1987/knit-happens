@@ -1,16 +1,20 @@
-"""
-Testing bag page views using Django
-"""
-
 from django.test import TestCase
-from django.shortcuts import reverse
-# Create your tests here.
+
+from django.urls import reverse, resolve
+from django.shortcuts import get_object_or_404
+
+from products.models import Product, Category
+from .views import view_bag, add_to_bag, adjust_bag, remove_from_bag
 
 
 class TestBagViews(TestCase):
     """
-    Test the home page loads correctly
+    Test the bag views work correctly
     """
+    fixtures = [
+        'categories.json',
+        'products.json',
+    ]
     def test_bag_page_url_works(self):
         """
         Test the url works when loading the page
@@ -33,3 +37,14 @@ class TestBagViews(TestCase):
         """
         response = self.client.get(reverse('view_bag'))
         self.assertEqual(response.status_code, 200)
+
+    def test_view_bag_url(self):
+        """
+        Test that the view_bag view works correctly
+        """
+        url = reverse('view_bag')
+        self.assertEqual(resolve(url).func, view_bag)
+        response = self.client.get(reverse('view_bag'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(
+            response, template_name="bag/bag.html")

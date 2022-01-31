@@ -57,6 +57,43 @@ class TestProductViews(TestCase):
         self.assertEqual(product.category, category)
         self.assertContains(response, product.category)
 
+    def test_sort_functionality(self):
+        """
+        Test that the sort functionality works
+        """
+        category_name = 'bamboo'
+        sort_array = ['name', 'category']
+        for sort in sort_array:
+            direction = 'desc'
+            current_sorting = f'{sort}_{direction}'
+            response = self.client.get(
+                f'/products/?category={category_name}'
+                f'&sort={sort}&direction={direction}')
+            self.assertEqual(current_sorting, f'{sort}_desc')
+            self.assertEqual(response.status_code, 200)
+
+    def test_search_functionality(self):
+        """
+        Test that the search functionality works as expected
+        """
+        response = self.client.get(
+            '/products/?', {'q': 'alpaca'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['search_term'], 'alpaca')
+
+    def test_search_error_messages_output(self):
+        """
+        Test that the search error message display correctly
+        """
+        response = self.client.get(
+            '/products/?', {'q': ''})
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(len(messages), 1)
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(
+            str(messages[0]), "You didn't enter any search criteria!")
+        self.assertEqual(response.status_code, 302)
+
     def test_product_detail_page_url_exists(self):
         response = self.client.get('/products/1/')
         self.assertEqual(response.status_code, 200)
