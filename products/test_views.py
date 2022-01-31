@@ -47,24 +47,22 @@ class TestProductViews(TestCase):
         """
         test categories sort functionality
         """
-        product = Product.objects.get(id=25)
-        category = Category.objects.get(pk=8)
+        product = Product.objects.get(id=1)
+        category = Category.objects.get(pk=5)
         response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(product.category, category)
         self.assertContains(response, product.category)
 
-    # def test_product_details_page_shows_details(self):
-    #     """
-    #     test products display on individual product detail page
-    #     """
-    #     product = Product.objects.get(id=25)
-    #     response = self.client.get(reverse('products'))
-    #     self.assertContains(response, product.name)
+    def test_product_detail_page_url_exists(self):
+        response = self.client.get('/products/25/')
+        self.assertEqual(response.status_code, 200)
 
-    # def test_product_details_page_url(self):
-    #     """
-    #     test products urls on individual product detail pages
-    #     """
-    #     response = self.client.get('/products/25/')
-    #     self.assertEqual(response.status_code, 200)
+    def test_the_product_detail_url_is_accessible_by_name(self):
+        response = self.client.get(reverse('product_detail', args="25"))
+        self.assertEqual(response.status_code, 200)
+
+    def test_product_detail_page_template(self):
+        response = self.client.get('/products/25/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'products/product_detail.html')

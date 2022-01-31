@@ -13,3 +13,12 @@
     width: 80%;
     margin: 60px auto 40px;
 }
+
+
+.qty-label {
+    padding-top: 16px;
+}
+
+label {
+    margin: 1rem;
+}

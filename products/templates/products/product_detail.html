@@ -9,8 +9,8 @@
 <!-- product info  -->
 <div class="hero-body">
     <div class="container">
-        <div class="columns is-justify-content-space-around has-text-right my-6">
-            <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
+        <div class="columns is-justify-content-space-around has-text-right my-6 ">
+            <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card-image">
                 <div class="columns">
                     <div class="column is-12">
                         <h1 class="title-heading-small has-text-centered my-3">{{ product.name }}</h1>
@@ -20,7 +20,7 @@
                     {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
                         <div class="product-image">
-                            <figure class="image is-rounded is-vcentered">
+                            <figure class="image is-rounded product-details-card is-vcentered">
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image"
                                     target="_blank">
                             </figure>
@@ -47,9 +47,8 @@
                     {% endif %}
                 </div>
             </div>
-            <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card">
-
-                <p class="product-subtitles m-3">{{ product.description }}</p>
+            <div class="column is-10-mobile is-offset-1-mobile is-5 is-3-tablet product-details-card">
+                <p class="product-subtitles-title m-3">{{ product.description }}</p>
                 <p class="product-subtitles-title m-3">Colour:
                     <span class="product-subtitles">{{ product.colour }}</span>
                 </p>
@@ -105,11 +104,10 @@
                     </div>
                     {% endif %}
                     {% endwith %}
-                    <!-- <div class="columns is-justify-content-right my-3">
-                        <div class="column"> -->
-                    <div class="field is-justify-content-right is-grouped is-horizontal my-4">
+
+                    <div class="field is-horizontal is-horizontal-mobile is-justify-content-flex-end my-4">
                         <div class="field-label is-normal">
-                            <label class="product-subtitles-title" for=" quantity">Qty: </label>
+                            <label class="label qty-label" for="quantity">Qty: </label>
                         </div>
                         <div class="field-body">
                             <div class="field">
@@ -120,8 +118,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!-- </div>
-                        </div> -->
                     </div>
                     <div class="field">
                         <div class="control">

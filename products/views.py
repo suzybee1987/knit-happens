@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Rating, Review
-from .forms import ProductForm, ReviewForm, RatingForm
+from .models import Product, Category, Review
+from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):

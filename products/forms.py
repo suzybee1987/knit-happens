@@ -1,11 +1,14 @@
 from django import forms
-from .models import Product, Category, Review, Rating
+from .models import Product, Category, Review
+
 
 class ProductForm(forms.ModelForm):
-
     class Meta:
         model = Product
-        fields = ['category', 'sku', 'name', 'colour', 'description', 'has_sizes', 'has_weights', 'price', 'image_url', 'image']
+        fields = [
+            'category', 'sku', 'name', 'colour', 'description',
+            'has_sizes', 'has_weights', 'price', 'image_url', 'image'
+            ]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -21,9 +24,3 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
         fields = ['review_title', 'review']
-
-
-class RatingForm(forms.ModelForm):
-    class Meta:
-        model = Rating
-        fields = '__all__'

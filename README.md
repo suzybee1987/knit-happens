@@ -11,7 +11,7 @@
 
 **Knit Happens** is an eCommerce site aimed at lovers of knitting looking to find wool, needles and patterns to purchase and allows them to leave blog posts of their creations and find inspiration for their next project. The site is designed to be responsive and easy to navigate on a range of devices to make it easily accessible for all users. 
 
-Link to [live site]()
+Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
 
 ## **Contents**
 
@@ -252,50 +252,8 @@ See below for how this was managed:
 
 ## **Deployment**
 
-The project was developed using [GitPod](https://gitpod.io/) and pushed to [GitHub](https://github.com/) then deployed on Heroku using these instructions:
+Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
 
-1. Create a requirements.txt file using command *pip3 freeze --local > requirements.txt*
-2. Create a Procfile with the terminal command *echo web: python app.py > Procfile* and at this point checking the Procfile to make sure there is no stray line as this can cause issues when deploying to Heroku.
-3. The new requirements file and Procfile committed to GitHub.
-4. New app created in Heroku by clicking "New" and "Create New App" and giving it an original name and setting the region to closest to location.
-5. From Heroku dashboard click "Deploy" -> "Deployment Method" and select "GitHub"
-6. Search for GitHub repo and connect.
-7. In the dashboard click "Settings" -> "Reveal Config Vars"
-8. Set config vars:
-
-Table:
-
-| Key                 | Value                  |
-| ------------------- |----------------------- |
-| PORT                |  8000                  |
-| IP                  |  0.0.0.0               |
-| SECRET_KEY          | YOUR_SECRET_KEY        |
-| STRIPE_PUBLIC_KEY   | STRIPE_PUBLIC_KEY      |
-| STRIPE_SECRET_KEY   | YOUR_STRIPE_SECRET_KEY |
-| STRIPE_WH_SECRET    | STRIPE_WEBHOOKS_KEY    |
-
-
-### How to contribute to the site
-
-1. Navigate to [GitHub](https://github.com/) and log in
-2. Locate my [repo](https://github.com/suzybee1987/knit-happens)
-3. On the right side of the screen click Fork
-4. This creates a copy in your own repository to make changes in [GitPod](https://gitpod.io/)
-5. Once finished with changes add, commit and push to your own [GitHub](https://github.com/)
-6. Click Pull Requests and select "New Pull Request" button.
-
-
-### How to run the project locally
-
-To clone this project from GitHub follow the instructions taken from [GitHub Docs](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository) explained here:
-1. Navigate to the [GitHub Repository](https://github.com/suzybee1987/knit-happens)
-3. To clone using HTTPS click the clipboard symbol under "Clone with HTTPS". To clone using SSH key click Use SSH then click the clipboard symbol. To clone using GitHub CLI select Use GitHub CLI and click the clipboard symbol. 
-4. Open Git Bash
-5. Change the working directory to the location you want the cloned directory to be.
-6. Type 'git clone' and paste the url copied from step 3. 
-7. Press 'enter' to create your clone.
-
-[Back to contents](#contents)
 
 
 ## **Credits**
