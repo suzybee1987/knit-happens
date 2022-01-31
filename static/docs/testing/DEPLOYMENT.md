@@ -73,19 +73,31 @@ If the git remote isn't initialised you may have to do that first by running *he
 7. Create Group for the bucket through IAM. Create policy by importing AWS S3 Full Access policy and add ARN from bucket to the policy resources. Attach policy to group. 
 8. Create user, give programmatic access and add user to the group. Download CSV file when prompted to save access key ID an secret access key to save to environment and config [variables](#config-vars).
 9. Add AWS_STORAGE_BUCKET_NAME, AWS_S3_REGION_NAME = 'eu-west-2' to settings.py.
-10. Add, commit and push to GitHub then navigate to Heroku to confirm static files collected successfully on the Build Log.
+10. Add, commit and push to GitHub then navigate to Heroku to confirm static files collected successfully on the Build Log. The DISABLE_COLLECTSTATIC variable can now be deleted. 
 
-#### **Email Client**
+#### **GMail Client**
 
+In `settings.py` change the `DEFAULT_FROM_EMAIL` to your own email address.
+
+### Gmail
+
+1. Go to your Gmail account and navigate to the 'Settings' tab.
+2. Go to 'Accounts and Imports', 'Other Google Account Settings'.
+3. Go to the 'Security' tab, and scroll down to 'Signing in to Google'.
+4. If required, click to turn on '2-step Verification**', then 'Get Started', and enter your password.
+5. Verify using your preferred method, and turn on 2-step verification.
+6. Go back to 'Security', 'Signing in to Google', then go to 'App Passwords'.
+7. Enter your password again if prompted, then set 'App' to `Mail`, 'Device' to `Other`, and type in `Django`.
+8. Copy and paste the passcode that shows up, this is your '**EMAIL_HOST_PASS**' variable to add to your environment/config variables. '**EMAIL_HOST_USER**' is the Gmail email address.
 
 #### **Config Vars**
 
-Table:
+The config/environment variables should be set up as follows:
 
 | Key                    | Value                      |
 | ---------------------- |--------------------------- |
-| PORT                   | 8000                      |
-| IP                     | 0.0.0.0                   |
+| PORT                   | 8000                       |
+| IP                     | 0.0.0.0                    |
 | SECRET_KEY             | YOUR_SECRET_KEY            |
 | STRIPE_PUBLIC_KEY      | STRIPE_PUBLIC_KEY          |
 | STRIPE_SECRET_KEY      | YOUR_STRIPE_SECRET_KEY     |
