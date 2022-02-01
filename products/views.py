@@ -40,7 +40,7 @@ def all_products(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
+            products = products_list.order_by(sortkey)
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
@@ -56,7 +56,7 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(
                 description__icontains=query)
-            products = products.filter(queries)
+            products = products_list.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
 

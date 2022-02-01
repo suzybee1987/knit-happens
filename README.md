@@ -282,6 +282,10 @@ Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
 
 ### **Media**
 
+All product images sourced from Pexels
+Homepage [image by K8 on Unsplash](https://unsplash.com/photos/uYf_C34PAao)
+  
+
 
 ### **Inspiration**
 
