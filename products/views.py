@@ -3,9 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Product, Category, Review
+from .models import Product, Category
 from .forms import ProductForm, ReviewForm
 
 
@@ -79,7 +79,7 @@ def product_detail(request, product_id):
     if request.method == 'POST':
         form = ReviewForm(data=request.POST)
         if form.is_valid():
-            new_review = review_form.save(commit=True)
+            new_review = form.save(commit=True)
             new_review.product = product
             new_review.save()
         else:
@@ -108,7 +108,8 @@ def add_product(request):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to add product. Please ensure the form is valid.')
+                request, 'Failed to add product. Please ensure the form \
+                    is valid.')
     else:
         form = ProductForm()
 
@@ -136,7 +137,8 @@ def edit_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to update product. Please ensure the form is valid.')
+                request, 'Failed to update product. Please ensure the form \
+                    is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -181,7 +183,8 @@ def add_review(request, product_id):
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(
-                    request, 'Failed to add review. Please ensure the form is valid')
+                    request, 'Failed to add review. Please ensure the form \
+                        is valid')
     context = {
         'form': form
     }

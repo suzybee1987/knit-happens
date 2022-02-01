@@ -14,11 +14,12 @@ html {
     font-family: 'Libre Franklin', sans-serif;
 }
 
-body{
+body {
     overflow-x: hidden;
 }
-.container{
-    max-width:100%;
+
+.container {
+    max-width: 100%;
 }
 
 @media only screen and (max-width: 768px) {
@@ -33,6 +34,15 @@ body{
 }
 
 /* navbar */
+.bag-icon {
+    padding-left: 7px;
+}
+.admin-icon{
+    padding-left: 10px;
+}
+.profile-icon{
+    padding-left: 10px;
+}
 
 .column.is-vcentered.is-hidden-touch {
     padding-top: 20px;
@@ -50,6 +60,14 @@ body{
 
 img .home-button {
     padding: 0.25rem 0 0 1rem;
+}
+
+a.button.is-primary.is-light:hover {
+    border: 2px solid #00947e;
+    color: #ebfffc;
+    text-decoration: underline;
+    background: #00947e;
+
 }
 
 .title-heading {
@@ -128,8 +146,8 @@ nav.navbar.is-justify-content-space-evenly {
 
 .product-card {
     padding: 20px;
-    border-color: darkcyan;
-    background-color: darkcyan;
+    border-color: #00947e;
+    background-color: #00947e;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 
 }
@@ -151,14 +169,16 @@ nav.navbar.is-justify-content-space-evenly {
 .product-subtitles-title {
     font-weight: 600;
 }
+
 @media screen and (min-width: 768px) {
-.field-body {
-    display: flex;
-    flex-basis: 0;
-    flex-grow: 5;
-    flex-shrink: 1;
-    max-width: 25%;
-}}
+    .field-body {
+        display: flex;
+        flex-basis: 0;
+        flex-grow: 5;
+        flex-shrink: 1;
+        max-width: 25%;
+    }
+}
 
 .notification {
     padding: 1.5rem;
@@ -172,9 +192,11 @@ nav.navbar.is-justify-content-space-evenly {
     align-items: flex-end;
     justify-content: center;
 }
+
 .cols-animation {
     width: 100%;
 }
+
 .image-down {
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
@@ -251,7 +273,7 @@ nav.navbar.is-justify-content-space-evenly {
 .inspo {
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-    border: 10px solid darkcyan;
+    border: 10px solid #00947e;
 }
 
 .inspo:hover {
@@ -326,7 +348,7 @@ nav.navbar.is-justify-content-space-evenly {
         background-color: #fff;
         max-width: 300px;
     }
-  }
+}
 
 
 .product-details-card {
@@ -477,30 +499,31 @@ nav.navbar.is-justify-content-space-evenly {
     background-color: F6F6F6;
     background-repeat: no-repeat;
     background-position: 12px 11px;
-
-    &:hover {
-        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
-    }
-
-    .google:active {
-        background-color: #eeeeee;
-    }
-
-    .google:focus {
-        outline: none;
-        box-shadow:
-            0 -1px 0 rgba(0, 0, 0, .04),
-            0 2px 4px rgba(0, 0, 0, .25),
-            0 0 0 3px #c8dafc;
-    }
-
-    .google:disabled {
-        filter: grayscale(100%);
-        background-color: #ebebeb;
-        box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
-        cursor: not-allowed;
-    }
 }
+
+.google:hover {
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 2px 4px rgba(0, 0, 0, .25);
+}
+
+.google:active {
+    background-color: #eeeeee;
+}
+
+.google:focus {
+    outline: none;
+    box-shadow:
+        0 -1px 0 rgba(0, 0, 0, .04),
+        0 2px 4px rgba(0, 0, 0, .25),
+        0 0 0 3px #c8dafc;
+}
+
+.google:disabled {
+    filter: grayscale(100%);
+    background-color: #ebebeb;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .04), 0 1px 1px rgba(0, 0, 0, .25);
+    cursor: not-allowed;
+}
+
 
 
 /* Forms  */
@@ -534,7 +557,12 @@ textarea#id_review_title {
 }
 
 /* from Bulma input class  */
-.textinput, input#id_email, input#id_email2, input#id_username, input#id_password1, input#id_password2  {
+.textinput,
+input#id_email,
+input#id_email2,
+input#id_username,
+input#id_password1,
+input#id_password2 {
     background-color: #fff;
     border-radius: 0.375em;
     color: #363636;
