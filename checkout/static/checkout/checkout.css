@@ -91,3 +91,8 @@ select option[value=""] {
     margin: 0;
     height: 100%;
 }
+
+.payment-column {
+    border-left: 2px solid grey;
+}
+

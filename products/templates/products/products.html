@@ -26,7 +26,7 @@
                             <a href="{% url 'products' %}">Products Home</a>
                         </li>
                         <li class="is-active">
-                            <a href="#" aria-current="page">{{ products|length }} Products</a>
+                            <a href="#" aria-current="page">{{ products|length }} products</a>
                         </li>
                     </ul>
                 </nav>
@@ -40,11 +40,7 @@
                             (low to high)</option>
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
                             (high to low)</option>
-                        <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
-                            Rating (low to high)</option>
-                        <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
-                            Rating (high to low)</option>
-                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                                               <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
                             (A-Z)</option>
                         <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
                             (Z-A)</option>
@@ -57,8 +53,7 @@
             </div>
         </div>
         <!-- end of sorting  -->
-
-        <!-- filter products  -->
+<!-- products  -->
         <div class="columns is-multiline">
             {% for product in products %}
             <div class="column is-4-desktop is-3-widescreen">
@@ -103,6 +98,31 @@
             </div>
             {% endfor %}
             <!-- end of products list  -->
+        </div>
+        <div class="columns is-justify-content-center">
+            <div class="column is-6">
+                {% if products.has_other_pages %}
+                <ul class="pagination">
+                    {% if products.has_previous %}
+                      <li><a href="?page={{ products.previous_page_number }}"class="button is-text pag-link">Previous</a></li>
+                    {% else %}
+                      <li class="disabled is-text" disabled><span>Previous</span></li>
+                    {% endif %}
+                    {% for i in products.paginator.page_range %}
+                      {% if products.number == i %}
+                        <li class="active button btn-round" disabled><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                      {% else %}
+                        <li><a href="?page={{ i }}" class="button btn-round">{{ i }}</a></li>
+                      {% endif %}
+                    {% endfor %}
+                    {% if products.has_next %}
+                      <li><a href="?page={{ products.next_page_number }}" class="button is-text pag-link">Next</a></li>
+                    {% else %}
+                      <li class="disabled"><span>&raquo;</span></li>
+                    {% endif %}
+                  </ul>
+                {% endif %}
+            </div>
         </div>
         <button class="btt-button button" id="btt-button" onclick="topFunction()">
             <a class="btt-link d-flex h-100">

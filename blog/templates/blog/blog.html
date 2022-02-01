@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="hero-body">
     <div class="container">
@@ -17,8 +21,8 @@
                 <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
-                            <a href="{% url 'post_detail' post.slug %}"
-                                class="title-heading-small blog-title">{{ post.title | truncatechars:15 | capfirst }}
+                            <a href="{% url 'post_detail' post.slug %}" class="title-heading-small blog-title">
+                                {{ post.title | truncatechars:15 | capfirst }}
                                 </h2>
                             </a>
                         </div>
@@ -39,23 +43,24 @@
                     </div>
                     {% endif %}
                     <div class="card-content">
-                        <p class="blog-card-content my-2 product-trunc"> {{ post.content |capfirst }}</p>
-                    </div>
-                    <div class="blog-content content m-2 p-3">
-                        <p>By: <span class="blog-small">{{ post.author }}, {{ post.created_on|timesince }}
-                                ago </span>
-                        </p>
-                        {% if post.comments.all|length == 0 %}
-                         <p>Add 
-                             <a href="{% url 'post_detail' post.slug %}">
-                                comment <i class="far fa-comments"></i> </a>
-                         </p>
-                         {% else %}
-                        <p>See all
-                            <a href="{% url 'post_detail' post.slug %}">
-                                {{ post.comments.all|length }} comments <i class="far fa-comments"></i></a>
-                        </p>
-                        {% endif %}
+                        <p class="blog-card-content product-trunc"> {{ post.content |capfirst }}</p>
+                        <div class="blog-content content">
+                            <p class="blog-p">By: <span class="blog-small">{{ post.author }},
+                                {{ post.created_on|timesince }}
+                                    ago </span>
+                            </p>
+                            {% if post.comments.all|length == 0 %}
+                            <p class="blog-p">Add
+                                <a href="{% url 'post_detail' post.slug %}">
+                                    comment <i class="far fa-comments"></i> </a>
+                            </p>
+                            {% else %}
+                            <p class="blog-p">See all
+                                <a href="{% url 'post_detail' post.slug %}">
+                                    {{ post.comments.all|length }} comments <i class="far fa-comments"></i></a>
+                            </p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/home.css/' %}">
+{% endblock %}
+
+
 {% block content %}
 <div class="hero-body hero-bground">
     <div class="columns cols-animation has-text-centered is-mobile is-justify-content-center">
@@ -27,7 +32,7 @@
                 <div class="card-image image is-5by4">
                     <img src="{{ MEDIA_URL }}2070685.jpg" alt="knitting image">
                     <a href="{% url 'products' %}?category=bamboo,metal,oak,wooden,carbon_fibre"
-                        class="button is-primary is-light">Shop Needles</a>
+                        class="button is-primary is-light shop-buttons">Shop Needles</a>
                 </div>
             </div>
         </div>
@@ -37,7 +42,7 @@
                     <img src="{{ MEDIA_URL }}7188997.jpg" alt="needles image">
                     <a href="{% url 'products' %}?category=alpaca,angora,camel_hair,cashmere,lambswool,melton,merino,mohair,shetland,cotton"
                         class="
-                            button is-primary is-light">Shop Wool</a>
+                            button is-primary is-light shop-buttons">Shop Wool</a>
                 </div>
             </div>
         </div>
@@ -45,7 +50,8 @@
             <div class="card product-card">
                 <div class="card-image image is-5by4">
                     <img src="{{ MEDIA_URL }}7244809.jpg" alt="patterns image">
-                    <a href="{% url 'products' %}?category=knitting_pattern" class="button is-primary is-light">Shop
+                    <a href="{% url 'products' %}?category=knitting_pattern"
+                        class="button is-primary is-light shop-buttons">Shop
                         Patterns</a>
                 </div>
             </div>

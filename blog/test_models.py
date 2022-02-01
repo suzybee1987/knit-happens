@@ -1,10 +1,22 @@
-# from django.test import TestCase
+# from django.test import TestCase, Client
 # from .models import Post, Comment
+# from profiles.models import UserProfile
+# from django.contrib.auth.models import User
 
 # class TestPostModel(TestCase):
 #     """
 #     test the blog post model
 #     """
-#     def test_post_string_method_returns_title(self):
-#         post = Post.objects.create(title="Test Post")
-#         self.assertEqual(str(post), "Test Post")
+#     @classmethod
+#     def setUpTestData(self):
+#         """
+#         Set up data to run the tests
+#         """
+#         self.client = Client()
+#         self.user = User.objects.create_user(
+#             username="testuserprofile", password="abc123def"
+#         )
+#         self.client.login(username="testuserprofile", password="abc123def")
+
+
+

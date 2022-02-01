@@ -1,0 +1,46 @@
+/* blog cards  */
+.card.comments {
+    border-top: 3px solid hsl(288, 62%, 35%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.card.blog-card {
+    border-top: 3px solid hsl(212, 86%, 64%);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.blog-content {
+    font-size: 1.2em;
+}
+
+.blog-title:hover,
+.blog-title:focus {
+    color: #4a4a4a;
+    text-decoration: underline;
+}
+
+.blog-card-content,
+.product-title,
+.bag-title,
+.blog-title {
+    font-weight: 700;
+    color: #4a4a4a;
+}
+
+.blog-small {
+    font-style: italic;
+    font-weight: 500;
+    color: #5f34b5;
+}
+
+.blog-p {
+    font-size:0.9rem;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+}
+
+.blog-buttons {
+    margin: 20px 0;
+}

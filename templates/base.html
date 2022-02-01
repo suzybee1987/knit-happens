@@ -73,7 +73,7 @@
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start ">
                         <!-- search form desktop -->
-                        <div class="column is-vcentered is-hidden-touch">
+                        <div class="column is-vcentered is-hidden-touch search-bar">
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
                                     <div class="control">
@@ -92,24 +92,36 @@
                     <!-- right side of navbar hidden on mobile  -->
                     <div class="navbar-end is-hidden-touch">
                         <a class="navbar-item" href="{% url 'blog' %}">
-                            <img src="{{ MEDIA_URL }}blog.png" alt="blog">
+                            <figure>
+                                <img src="{{ MEDIA_URL }}blog.png" alt="image for blog link">
+                                <figcaption>blog</figcaption>
+                            </figure>
                         </a>
                         {% if request.user.is_superuser %}
                         <a class="navbar-item" href="{% url 'add_product' %}">
-                            <img src="{{ MEDIA_URL }}admin.png" alt="admin">
+                            <figure>
+                                <img src="{{ MEDIA_URL }}admin.png" alt="logo for admin users" class="admin-icon">
+                                <figcaption>admin</figcaption>
+                            </figure>
                         </a>
                         {% endif %}
                         {% if request.user.is_authenticated %}
                         <div class="navbar-item has-dropdown is-hoverable">
                             <a class="navbar-link">
-                                <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
+                                <figure>
+                                    <img src="{{ MEDIA_URL }}profile-icon.png"
+                                        alt="icon for profile page and log in/out dropdown" class="profile-icon">
+                                    <figcaption>
+                                        profile
+                                    </figcaption>
+                                </figure>
                             </a>
                             <div class="navbar-dropdown">
                                 <a class="navbar-item" href="{% url 'profile' %}">
-                                    Profile
+                                    profile
                                 </a>
                                 <a class="navbar-item" href="{% url 'account_logout' %}">
-                                    Log out
+                                    log out
                                 </a>
                             </div>
                         </div>
@@ -130,13 +142,18 @@
                         </div>
                         {% endif %}
                         <a class="navbar-item" href="{% url 'view_bag' %}">
-                            <img src="{{ MEDIA_URL }}bag.png" alt="bag-icon">
-                            <p>{% if grand_total %}
-                                £{{ grand_total|floatformat:2 }}
-                                {% else %}
-                                £0.00
-                                {% endif %}
-                            </p>
+                            <figure>
+                                <img src="{{ MEDIA_URL }}bag.png" alt="icon for the shopping bag here" class="bag-icon">
+                                <figcaption>
+                                    <p>{% if grand_total %}
+                                        £{{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                        £0.00
+                                        {% endif %}
+                                    </p>
+                                </figcaption>
+                            </figure>
+
                         </a>
                     </div>
                     <!-- end of hidden mobile  -->
@@ -275,7 +292,7 @@
         {% block content %}
         <!-- hero-body in here  -->
         {% endblock %}
-        
+
         <!-- Hero footer: will stick at the bottom -->
         <footer class="hero-foot">
             <nav class="tabs">

@@ -3,14 +3,17 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Review
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from .models import Product, Category
 from .forms import ProductForm, ReviewForm
 
 
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
-    products = Product.objects.all()
+    products_list = Product.objects.all()
+    
     query = None
     categories = None
     sort = None
@@ -22,18 +25,18 @@ def all_products(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+                products_list = products_list.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
+            products_list = products_list.order_by(sortkey)
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
+            products_list = products_list.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
@@ -45,7 +48,16 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(
                 description__icontains=query)
-            products = products.filter(queries)
+            products_list = products_list.filter(queries)
+
+    page = request.GET.get('page', 1)
+    paginator = Paginator(products_list, 12)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
 
     current_sorting = f'{sort}_{direction}'
 
@@ -54,6 +66,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'products_list': products_list,
     }
 
     return render(request, 'products/products.html', context)
@@ -68,7 +81,7 @@ def product_detail(request, product_id):
     if request.method == 'POST':
         form = ReviewForm(data=request.POST)
         if form.is_valid():
-            new_review = review_form.save(commit=True)
+            new_review = form.save(commit=True)
             new_review.product = product
             new_review.save()
         else:
@@ -97,7 +110,8 @@ def add_product(request):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to add product. Please ensure the form is valid.')
+                request, 'Failed to add product. Please ensure the form \
+                    is valid.')
     else:
         form = ProductForm()
 
@@ -125,7 +139,8 @@ def edit_product(request, product_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.error(
-                request, 'Failed to update product. Please ensure the form is valid.')
+                request, 'Failed to update product. Please ensure the form \
+                    is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
@@ -134,7 +149,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
-    }
+        }
 
     return render(request, template, context)
 
@@ -170,7 +185,8 @@ def add_review(request, product_id):
                 return redirect(reverse('product_detail', args=[product.id]))
             else:
                 messages.error(
-                    request, 'Failed to add review. Please ensure the form is valid')
+                    request, 'Failed to add review. Please ensure the form \
+                        is valid')
     context = {
         'form': form
     }

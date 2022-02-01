@@ -1,0 +1,31 @@
+.divider-bag {
+    height: 0px;
+    border-radius: 2px;
+    color: #bcb8b8;
+    border: 1px solid #bcb8b8;
+    background-color: #bcb8b8;
+    width: 80%;
+    margin: auto;
+}
+
+.button.is-primary.is-light {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.inspo {
+    font-size: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    border: 10px solid #00947e;
+}
+
+.inspo:hover {
+    border: 10px solid#485fc7;
+}
+
+.total-column {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+}
+
