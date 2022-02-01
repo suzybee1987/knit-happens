@@ -13,15 +13,7 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products_list = Product.objects.all()
-    page = request.GET.get('page', 1)
-    paginator = Paginator(products_list, 12)
-    try:
-        products = paginator.page(page)
-    except PageNotAnInteger:
-        products = paginator.page(1)
-    except EmptyPage:
-        products = paginator.page(paginator.num_pages)
-
+    
     query = None
     categories = None
     sort = None
@@ -33,7 +25,7 @@ def all_products(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
+                products = products_list.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:
@@ -58,6 +50,15 @@ def all_products(request):
                 description__icontains=query)
             products = products_list.filter(queries)
 
+    page = request.GET.get('page', 1)
+    paginator = Paginator(products_list, 12)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
     current_sorting = f'{sort}_{direction}'
 
     context = {
@@ -65,6 +66,7 @@ def all_products(request):
         'search_term': query,
         'current_categories': categories,
         'current_sorting': current_sorting,
+        'products_list': products_list,
     }
 
     return render(request, 'products/products.html', context)

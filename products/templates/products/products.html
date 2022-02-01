@@ -26,7 +26,7 @@
                             <a href="{% url 'products' %}">Products Home</a>
                         </li>
                         <li class="is-active">
-                            <a href="#" aria-current="page">{{ products|length }} Products on this page</a>
+                            <a href="#" aria-current="page">{{ products_list|length }} products</a>
                         </li>
                     </ul>
                 </nav>
@@ -106,7 +106,7 @@
                     {% if products.has_previous %}
                       <li><a href="?page={{ products.previous_page_number }}"class="button is-text pag-link">Previous</a></li>
                     {% else %}
-                      <li class="disabled button is-text pag-link" disabled><span>Previous</span></li>
+                      <li class="disabled is-text" disabled><span>Previous</span></li>
                     {% endif %}
                     {% for i in products.paginator.page_range %}
                       {% if products.number == i %}
