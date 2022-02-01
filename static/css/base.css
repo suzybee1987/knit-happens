@@ -45,7 +45,7 @@ body {
 }
 
 .column.is-vcentered.is-hidden-touch {
-    padding-top: 20px;
+    padding-top: 4px;
 }
 
 .navbar-brand img {
@@ -458,7 +458,6 @@ nav.navbar.is-justify-content-space-evenly {
 .product-title,
 .bag-title,
 .blog-title {
-    font-size: 1em;
     font-weight: 700;
     color: #4a4a4a;
 }
@@ -467,6 +466,10 @@ nav.navbar.is-justify-content-space-evenly {
     font-style: italic;
     font-weight: 500;
     color: #5f34b5;
+}
+
+.blog-p {
+    font-size:0.9rem;
 }
 
 .card {
