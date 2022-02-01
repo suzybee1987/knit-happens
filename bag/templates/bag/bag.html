@@ -2,6 +2,10 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'bag/bag.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="hero-body">
     <div class="container">

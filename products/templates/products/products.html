@@ -26,7 +26,7 @@
                             <a href="{% url 'products' %}">Products Home</a>
                         </li>
                         <li class="is-active">
-                            <a href="#" aria-current="page">{{ products|length }} Products</a>
+                            <a href="#" aria-current="page">{{ products|length }} Products on this page</a>
                         </li>
                     </ul>
                 </nav>
@@ -40,11 +40,7 @@
                             (low to high)</option>
                         <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
                             (high to low)</option>
-                        <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
-                            Rating (low to high)</option>
-                        <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
-                            Rating (high to low)</option>
-                        <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
+                                               <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name
                             (A-Z)</option>
                         <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
                             (Z-A)</option>
@@ -57,8 +53,7 @@
             </div>
         </div>
         <!-- end of sorting  -->
-
-        <!-- filter products  -->
+<!-- products  -->
         <div class="columns is-multiline">
             {% for product in products %}
             <div class="column is-4-desktop is-3-widescreen">
