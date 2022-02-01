@@ -9,7 +9,7 @@
 <!-- product info  -->
 <div class="hero-body">
     <div class="container">
-        <div class="columns is-justify-content-space-around has-text-right my-6 ">
+        <div class="columns is-justify-content-space-around has-text-right my-6">
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card-image">
                 <div class="columns">
                     <div class="column is-12">
@@ -312,10 +312,10 @@
 <!-- Reviews Section -->
 <div class="columns is-justify-content-center has-text-centered">
     <div class="column">
-        <h1 class="title-heading has-text-centered my-3">Reviews</h1>
+        <h1 class="title-heading has-text-centered">Reviews</h1>
     </div>
 </div>
-<div class="columns is-justify-content-center is-multiline my-6">
+<div class="columns is-justify-content-center is-multiline my-3">
     {% if reviews %}
     {% for review in product.reviews.all %}
     <div class="column is-7 is-10-mobile is-offset-1-mobile card review-card">
@@ -338,7 +338,7 @@
     </div>
     {% endif %}
 </div>
-<div class="columns is-justify-content-center my-6">
+<div class="columns is-justify-content-center my-4">
     <div class="column is-7 is-10-mobile is-offset-1-mobile card add-review-card">
         <h3 class="title-heading-small">Add your review here</h3>
         <form action="{% url 'add_review' product.id %}#reviews" method="POST">
