@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.core.paginator import Paginator
 
 from .models import Product, Category, Review
 from .forms import ProductForm, ReviewForm
@@ -11,7 +12,16 @@ from .forms import ProductForm, ReviewForm
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
-    products = Product.objects.all()
+    products_list = Product.objects.all()
+    page = request.GET.get('page', 1)
+    paginator = Paginator(products_list, 12)
+    try:
+        products = paginator.page(page)
+    except PageNotAnInteger:
+        products = paginator.page(1)
+    except EmptyPage:
+        products = paginator.page(paginator.num_pages)
+
     query = None
     categories = None
     sort = None
@@ -34,7 +44,7 @@ def all_products(request):
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
+            products = products_list.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
@@ -135,7 +145,7 @@ def edit_product(request, product_id):
     context = {
         'form': form,
         'product': product,
-    }
+        }
 
     return render(request, template, context)
 

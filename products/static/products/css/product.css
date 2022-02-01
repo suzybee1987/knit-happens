@@ -22,3 +22,47 @@
 label {
     margin: 1rem;
 }
+
+.pagination {
+    justify-content: space-between;
+}
+
+.button.is-danger:hover {
+    color: #f14668;
+    border: 1px solid #f14668;
+
+    background: #fff;
+
+}
+
+/* .button.is-text.pag-link:hover {
+    color: white;
+    background: #4a4a4a;
+    border-radius: 40px;
+    font-weight: 1.2rem;
+
+} */
+
+.btn-round {
+    border-radius: 40px;
+    background: #f14668;
+    color:white;
+    font-weight: 1.2rem;
+}
+
+.btn-round:hover {
+    background: white;
+    color: #f14668;
+}
+
+.active.button.btn-round {
+    border-radius: 40px;
+    background: white;
+    color:#f14668;
+    font-weight: 1.2rem;
+    border: 1px solid #f14668;
+}
+
+.button[disabled] {
+    opacity: 1;
+}

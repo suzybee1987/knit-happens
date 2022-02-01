@@ -620,3 +620,8 @@ textarea#id_review_title {
 .table {
     margin: auto;
 }
+
+.button.is-danger {
+    border: 1px solid white;
+    font-weight: 600;
+}
