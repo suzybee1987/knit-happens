@@ -25,18 +25,18 @@ def all_products(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products = products_list.annotate(lower_name=Lower('name'))
+                products_list = products_list.annotate(lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            products = products_list.order_by(sortkey)
+            products_list = products_list.order_by(sortkey)
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products = products_list.filter(category__name__in=categories)
+            products_list = products_list.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
@@ -48,7 +48,7 @@ def all_products(request):
 
             queries = Q(name__icontains=query) | Q(
                 description__icontains=query)
-            products = products_list.filter(queries)
+            products_list = products_list.filter(queries)
 
     page = request.GET.get('page', 1)
     paginator = Paginator(products_list, 12)
