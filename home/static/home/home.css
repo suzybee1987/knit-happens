@@ -47,9 +47,15 @@ a.button.is-primary.is-light:hover {
     animation-timing-function: linear;
 }
 
-/* .columns {
-    width: 100%;
-} */
+.inspo {
+    font-size: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+    border: 10px solid #00947e;
+}
+
+.inspo:hover {
+    border: 10px solid#485fc7;
+}
 
 @keyframes bounce-1 {
     0% {

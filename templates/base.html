@@ -91,14 +91,14 @@
                     </div>
                     <!-- right side of navbar hidden on mobile  -->
                     <div class="navbar-end is-hidden-touch">
-                        <a class="navbar-item" href="{% url 'blog' %}">
+                        <a class="navbar-item m-3" href="{% url 'blog' %}">
                             <figure>
                                 <img src="{{ MEDIA_URL }}blog.png" alt="image for blog link">
                                 <figcaption>blog</figcaption>
                             </figure>
                         </a>
                         {% if request.user.is_superuser %}
-                        <a class="navbar-item" href="{% url 'add_product' %}">
+                        <a class="navbar-item m-3" href="{% url 'add_product' %}">
                             <figure>
                                 <img src="{{ MEDIA_URL }}admin.png" alt="logo for admin users" class="admin-icon">
                                 <figcaption>admin</figcaption>
@@ -107,7 +107,7 @@
                         {% endif %}
                         {% if request.user.is_authenticated %}
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link">
+                            <a class="navbar-link m-3 ">
                                 <figure>
                                     <img src="{{ MEDIA_URL }}profile-icon.png"
                                         alt="icon for profile page and log in/out dropdown" class="profile-icon">
@@ -127,7 +127,7 @@
                         </div>
                         {% else %}
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link is-arrowless">
+                            <a class="navbar-link is-arrowless m-3 ">
                                 <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                                 <i class="fas fa-angle-down"></i>
                             </a>
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         {% endif %}
-                        <a class="navbar-item" href="{% url 'view_bag' %}">
+                        <a class="navbar-item m-3" href="{% url 'view_bag' %}">
                             <figure>
                                 <img src="{{ MEDIA_URL }}bag.png" alt="icon for the shopping bag here" class="bag-icon">
                                 <figcaption>
