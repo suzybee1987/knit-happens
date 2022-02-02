@@ -35,24 +35,26 @@ label {
 
 }
 
-/* .button.is-text.pag-link:hover {
-    color: white;
-    background: #4a4a4a;
+.button.is-text.pag-link:hover {
+    background: white;
+    color: #4a4a4a;
+    border: 1px solid #4a4a4a;
     border-radius: 40px;
     font-weight: 1.2rem;
-
-} */
+}
 
 .btn-round {
     border-radius: 40px;
     background: #f14668;
     color:white;
     font-weight: 1.2rem;
+    border: 1px solid #f14668;
 }
 
 .btn-round:hover {
     background: white;
     color: #f14668;
+    border: 1px solid #f14668;
 }
 
 .active.button.btn-round {

@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/product.css' %}">
+{% endblock %}
 
-{% block page_header %}
-
+{% block extra_js %}
+<!-- uni-form jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -17,7 +21,7 @@
         </div>
         <!-- end of heading  -->
         <div class="columns has-text-left is-justify-content-center">
-            <div class="column card is-8-desktop is-10-touch is-offset-1-touch my-3">
+            <div class="column card is-8-desktop is-10-touch is-offset-1-touch mt-4 mb-6">
                 <form action="{% url 'edit_product' product.id %}" enctype="multipart/form-data" method="POST">
                     {% csrf_token %}
                     {{ form | crispy }}
