@@ -13,20 +13,6 @@
     font-size: 1.2em;
 }
 
-.blog-title:hover,
-.blog-title:focus {
-    color: #4a4a4a;
-    text-decoration: underline;
-}
-
-.blog-card-content,
-.product-title,
-.bag-title,
-.blog-title {
-    font-weight: 700;
-    color: #4a4a4a;
-}
-
 .blog-small {
     font-style: italic;
     font-weight: 500;
@@ -43,4 +29,16 @@
 
 .blog-buttons {
     margin: 20px 0;
+}
+
+/* https://stackoverflow.com/questions/54467992/bulma-scale-image-to-container */
+.is-height-300 {
+    height: 300px;
+}
+
+.image img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
 }

@@ -188,6 +188,22 @@ nav.navbar.is-justify-content-space-evenly {
 
 /* end of toast  */
 
+/* bag and blog css  */
+
+.blog-title:hover,
+.blog-title:focus {
+    color: #4a4a4a;
+    text-decoration: underline;
+}
+
+.blog-card-content,
+.product-title,
+.bag-title,
+.blog-title,
+.fieldset-label {
+    font-weight: 700;
+    color: #4a4a4a;
+}
 
 /* footer  */
 
@@ -273,34 +289,6 @@ nav.navbar.is-justify-content-space-evenly {
 
 /* end of Boutique  */
 
-/* Product detail  */
-/* mobile only  */
-.product-details-card-image {
-    /* https: //getcssscan.com/css-box-shadow-examples no.7*/
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-@media screen and (min-width: 768px) {
-    .product-details-card-image {
-        /* https: //getcssscan.com/css-box-shadow-examples no.7*/
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        border-radius: 5px;
-        background-color: #fff;
-        max-width: 300px;
-    }
-}
-
-
-.product-details-card {
-    /* https: //getcssscan.com/css-box-shadow-examples no.7*/
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    border-radius: 5px;
-    background-color: #fff;
-}
-
-/* end of products  */
 
 /* login page  */
 
@@ -384,15 +372,17 @@ input#id_email,
 input#id_email2,
 input#id_username,
 input#id_password1,
-input#id_password2 {
+input#id_password2,
+input#id_full_name,
+select#id_country
+ {
     background-color: #fff;
     border-radius: 0.375em;
     color: #363636;
-    height: auto;
     -webkit-appearance: none;
     align-items: center;
     border-color: #dbdbdb;
-    box-shadow: none;
+
     display: inline-flex;
     font-size: 1rem;
     height: 2.5em;

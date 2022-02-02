@@ -6,18 +6,22 @@
 
 {% block inner_content %}
 <h1 class="title-heading my-3">{% trans "Sign Up" %}</h1>
-
-<p class="title-heading-small my-3">{% blocktrans %}Already have an account? Please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
 <div class="card my-3">
   <div class="card-content">
-<form class="signup my-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit" class="button is-danger">{% trans "Sign Up" %} &raquo;</button>
-</form>
-</div></div>
+    <div class="columns is-justify-content-center has-text-centered">
+      <div class="column is-4">
+        <form class="signup my-3" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          {% csrf_token %}
+          {{ form|crispy }}
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <button type="submit" class="button is-danger">{% trans "Sign Up" %} &raquo;</button>
+        </form></div>
+      </div>
+        <p class="title-heading-small my-3">{% blocktrans %}Already have an account? Please <a
+            href="{{ login_url }}">sign
+            in</a>.{% endblocktrans %}</p>
+  </div>
+</div>
 {% endblock %}

@@ -2,7 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+<link rel="stylesheet" href="{% static 'checkout/checkout.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<!-- uni-form jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -39,88 +44,91 @@
             </div>
         </div>
         <div class="columns is-justify-content-center">
-            <div class="column is-10-desktop is-10-mobile is-offset-1-mobile">
-                <div class="box">
-                    <div class="columns">
-                        <h3 class="column product-title has-text-centered is-underlined">
-                            Order info:
-                        </h3>
-                    </div>
-                    <div class="columns">
-                        <div class="column ">
-                            <p class="product-title">Order number:</p>
+            <div class="column is-8-desktop ">
+                <div class="card my-3">
+                    <div class="card-content my-3">
+                        <div class="columns">
+                            <h3 class="column product-title has-text-centered is-underlined">
+                                Order info:
+                            </h3>
                         </div>
-                        <div class="column">
-                            <p class="has-text-right product-trunc">{{ order.order_number}}</p>
+                        <div class="columns is-justify-content-center">
+                            <div class="column is-6 ">
+                                <p class="product-title">Order number:</p>
+                            </div>
+                            <div class="column is-6 ">
+                                <p class="has-text-right">{{ order.order_number|wordwrap:5 }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column ">
-                            <p class="product-title">Order date:</p>
+                        <div class="columns is-justify-content-center">
+                            <div class="column is-6  ">
+                                <p class="product-title">Order date:</p>
+                            </div>
+                            <div class="column  is-6 ">
+                                <p class=" has-text-right">{{ order.date }}</p>
+                            </div>
                         </div>
-                        <div class="column ">
-                            <p class=" has-text-right">{{ order.date }}</p>
+                        <div class="columns is-justify-content-center">
+                            <div class="column  is-6 ">
+                                <p class="product-title">Order details:</p>
+                            </div>
+                            <div class="column has-text-right is-6 ">
+                                {% for item in order.lineitems.all %}
+                                <p class="product-title">{{ item.product.name}}{% if item.product_size %} - Size:</p>
+                                <p>{{ item.product_size|upper }}{% endif %}</p>
+                                <p>{{ item.quantity }} at £{{ item.product.price }}</p>
+                                {% endfor %}
+                            </div>
                         </div>
-                    </div>
-                    <div class="columns">
-                        <div class="column ">
-                            <p class="product-title">Order details:</p>
-                        </div>
-                        <div class="column has-text-right">
-                            {% for item in order.lineitems.all %}
-                            <p class="product-title">{{ item.product.name}}{% if item.product_size %} - Size:</p>
-                            <p>{{ item.product_size|upper }}{% endif %}</p>
-                            <p>{{ item.quantity }} at £{{ item.product.price }}</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <div class="columns is-justify-content-space-evenly">
-                        <div class="column is-4 card">
-                            <h2 class="has-text-centered is-underlined product-title">Shipping to:</h2>
-                            <div class="columns  has-text-left-desktop">
-                                <div class="column is-12 ">
-                                    <div class="card-content">
-                                        <p>{{ order.full_name }}</p>
-                                        <p>{{ order.street_address1 }}</p>
-                                        {% if order.street_address2 %}
-                                        <p>{{ order.street_address2 }}</p>
-                                        {% endif %}
-                                        <p>{{ order.town_or_city }}</p>
-                                        {% if order.county %}
+                        <div class="columns is-justify-content-space-evenly">
+                            <div class="column is-4 card">
+                                <h2 class="has-text-centered is-underlined product-title">Shipping to:</h2>
+                                <div class="columns  has-text-left-desktop">
+                                    <div class="column is-12 ">
+                                        <div class="card-content">
+                                            <p>{{ order.full_name }}</p>
+                                            <p>{{ order.street_address1 }}</p>
+                                            {% if order.street_address2 %}
+                                            <p>{{ order.street_address2 }}</p>
+                                            {% endif %}
+                                            <p>{{ order.town_or_city }}</p>
+                                            {% if order.county %}
 
-                                        <p>{{ order.county }}</p>
-                                        {% endif %}
-                                        {% if order.postcode %}
-                                        <p>{{ order.postcode }}</p>
-                                        {% endif %}
-                                        <p>{{ order.country }}</p>
-                                        <p>{{ order.phone_number }}</p>
-                                        <p>{{ order.email }}</p>
+                                            <p>{{ order.county }}</p>
+                                            {% endif %}
+                                            {% if order.postcode %}
+                                            <p>{{ order.postcode }}</p>
+                                            {% endif %}
+                                            <p>{{ order.country }}</p>
+                                            <p>{{ order.phone_number }}</p>
+                                            <p>{{ order.email }}</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column is-4 card">
+                                <h2 class="has-text-centered is-underlined product-title">Billing info:</h2>
+                                <div class="columns has-text-right">
+
+                                    <div class="card-content column">
+                                        <p class="mt-3">
+                                            <span class="product-title">Subtotal:</span>
+                                            £{{ order.order_total }}
+                                        </p>
+                                        <p class="mt-3"><span class="product-title">Delivery:</span>
+                                            £{{ order.delivery_cost }}</p>
+                                        <p class="mt-3"><span class="product-title">Grand Total:</span>
+                                            £{{ order.grand_total }}</p>
                                     </div>
 
                                 </div>
-                            </div>
-                        </div>
-                        <div class="column is-4 card">
-                            <h2 class="has-text-centered is-underlined product-title">Billing info:</h2>
-                            <div class="columns has-text-right">
-
-                                <div class="card-content column">
-                                    <p class="mt-3">
-                                        <span class="product-title">Subtotal:</span>
-                                        £{{ order.order_total }}
-                                    </p>
-                                    <p class="mt-3"><span class="product-title">Delivery:</span>
-                                        £{{ order.delivery_cost }}</p>
-                                    <p class="mt-3"><span class="product-title">Grand Total:</span>
-                                        £{{ order.grand_total }}</p>
-                                </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        {% endblock %}
+    </div>
+</div>
+{% endblock %}

@@ -2,7 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+<link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<!-- uni-form jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -30,15 +35,15 @@
                     {% if post.image.url %}
                     <a href="{% url 'post_detail' post.slug %}">
                         <div class="card-image">
-                            <figure class="image is-3by4">
+                            <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
                                 <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="product-image">
                             </figure>
                         </div>
                     </a>
                     {% else %}
                     <div class="card-image">
-                        <figure class="image is-3by4">
-                            <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ post.title }}">
+                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ post.title }}">
                         </figure>
                     </div>
                     {% endif %}
@@ -46,7 +51,7 @@
                         <p class="blog-card-content product-trunc"> {{ post.content |capfirst }}</p>
                         <div class="blog-content content">
                             <p class="blog-p">By: <span class="blog-small">{{ post.author }},
-                                {{ post.created_on|timesince }}
+                                    {{ post.created_on|timesince }}
                                     ago </span>
                             </p>
                             {% if post.comments.all|length == 0 %}
