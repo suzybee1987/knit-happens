@@ -279,6 +279,8 @@ Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
 
 ### **Content**
 
+- Terms and conditions, privacy page sources from https://www.termsfeed.com/
+
 
 ### **Media**
 
