@@ -35,15 +35,15 @@
                     {% if post.image.url %}
                     <a href="{% url 'post_detail' post.slug %}">
                         <div class="card-image">
-                            <figure class="image is-3by4">
+                            <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
                                 <img src="{{ post.image.url }}" alt="image for {{ post.title }}" class="product-image">
                             </figure>
                         </div>
                     </a>
                     {% else %}
                     <div class="card-image">
-                        <figure class="image is-3by4">
-                            <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ post.title }}">
+                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ post.title }}">
                         </figure>
                     </div>
                     {% endif %}
