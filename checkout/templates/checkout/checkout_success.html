@@ -75,7 +75,10 @@
                             <div class="column has-text-right is-6 ">
                                 {% for item in order.lineitems.all %}
                                 <p class="product-title">{{ item.product.name}}{% if item.product_size %} - Size:</p>
-                                <p>{{ item.product_size|upper }}{% endif %}</p>
+                                <p>{{ item.product_size|upper }}{% endif %}
+                                    {% if item.product_weight %} - Weight:</p>
+                                <p>{{ item.product_weight|capfirst }}{% endif %}
+                                </p>
                                 <p>{{ item.quantity }} at £{{ item.product.price }}</p>
                                 {% endfor %}
                             </div>
