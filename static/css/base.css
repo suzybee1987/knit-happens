@@ -46,6 +46,10 @@ body {
 
 /* navbar */
 
+.delivery {
+    font-weight: 600;
+}
+
 .bag-icon {
     padding-left: 7px;
 }
@@ -208,13 +212,32 @@ nav.navbar.is-justify-content-space-evenly {
 /* footer  */
 
 .hero-foot {
-    border-top: 3px #008B8B solid;
+    background: #448383;
+    border-top: 3px #448383 solid;
     padding: 20px;
+}
+.footer-nav {
+    color: #fff !important;
+}
+
+.tabs a {
+    align-items: center;
+    border: none;
+    color: #4a4a4a;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -1px;
+    padding: .5em 1em;
+    vertical-align: top;
+}
+
+.tabs a:hover {
+    border-bottom: 2px solid #fff;
 }
 
 /* products  */
 .product-image {
-    border: 10px solid F6F6F6;
+    border: 10px solid #F6F6F6;
 }
 
 .product-titles {
@@ -338,7 +361,7 @@ nav.navbar.is-justify-content-space-evenly {
 
 /* Uni Forms  */
 
-.ctrlHolder {
+.ctrlHolder, .requiredField {
     margin: 0.8rem 0;
     font-weight: 700;
 }
