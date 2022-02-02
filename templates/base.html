@@ -44,7 +44,7 @@
     {% endblock %}
 
     {% block extra_js %}
-        <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
     <!-- uni-form jquery  -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script> -->
@@ -304,34 +304,41 @@
                 <div class="container">
                     <div class="columns">
                         <ul class="column is-justify-content-center">
-                            <li><a class="nav-item">T&Cs</a></li>
-                            <li><a class="nav-item">Privacy Policy</a></li>
-                            <li><a class="nav-item">FAQs</a></li>
+                            <li>
+                                <a class="nav-item footer-nav" href="{% url 'terms' %}">T&Cs</a>
+                            </li>
+                            <li>
+                                <a class="nav-item footer-nav" href="{% url 'privacy' %}">Privacy Policy</a>
+                            </li>
                         </ul>
                         <ul class="column is-justify-content-center is-12-mobile">
                             <li>
                                 <a href="https://www.facebook.com" target="_blank" class="nav-item">
-                                    <i class="fab fa-facebook"></i>
+                                    <i class="fab fa-lg fa-facebook footer-nav icon "></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.instagram.com/" target="_blank" class="nav-item">
-                                    <i class="fab fa-instagram"></i>
+                                    <i class="fab fa-lg fa-instagram footer-nav icon "></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://github.com/suzybee1987" target="_blank" class="nav-item">
-                                    <i class="fab fa-github"></i>
+                                    <i class="fab fa-lg fa-github footer-nav icon "></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="https://www.pinterest.co.uk/" target="_blank" class="nav-item">
-                                    <i class="fab fa-pinterest"></i>
+                                    <i class="fab fa-lg fa-pinterest footer-nav icon "></i>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                </div>
+                    <div class="columns">
+                        <p class="column product-title has-text-centered has-text-white small is-italic">
+                        This site was made for educational purposes by Suzy Bennett and no orders will be fulfilled!
+                        </p>
+                </div></div>
             </nav>
         </footer>
     </section>
@@ -340,4 +347,5 @@
     <script src="{% static 'js/base.js' %}"></script>
     {% endblock %}
 </body>
+
 </html>

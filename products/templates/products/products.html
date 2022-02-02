@@ -14,7 +14,7 @@
     <div class="container">
         <div class="columns has-text-centered">
             <div class="column is-10-touch is-offset-1-touch">
-                <h1 class="title-heading has-text-centered is-justify-content-center my-5">Products</h1>
+                <h1 class="title-heading has-text-centered is-justify-content-center my-4">Products</h1>
                 {% for c in current_categories %}
                 <a class="button is-danger" href="{% url 'products' %}?category={{ c.name }}">
                     {{ c.friendly_name }}</a>
