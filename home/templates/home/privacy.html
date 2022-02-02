@@ -5,11 +5,17 @@
 <link rel="stylesheet" href="{% static 'home/css/home.css/' %}">
 {% endblock %}
 
+{% block extra_js %}
+
+<!-- uni-form jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="hero-body">
     <div class="container mt-3 mb-6">
         <h1 class="title-heading">Privacy Policy</h1>
-        <p class="small">Last updated: February 02, 2022</p>
+        <p class="small m-3">Last updated: February 02, 2022</p>
         <div class="columns">
             <div class="column">
                 <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of
@@ -495,14 +501,26 @@
                 <p>If you have any questions about this Privacy Policy, You can contact us:</p>
                 <div class="content">
                     <ul>
-                        <li>By visiting this page on our website: <a
-                                href="https://suzybee-knit-happens.herokuapp.com/privacy/"
+                        <li>By visiting this page on our website:
+                            <a href="https://suzybee-knit-happens.herokuapp.com/privacy/"
                                 rel="external nofollow noopener"
-                                target="_blank">https://suzybee-knit-happens.herokuapp.com/privacy/</a></li>
+                                target="_blank">https://suzybee-knit-happens.herokuapp.com/privacy/
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
+        <button class="btt-button button" id="btt-button" onclick="topFunction()">
+            <a class="btt-link d-flex h-100">
+                <i class="fas fa-angle-up"></i>
+            </a>
+        </button>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'products/js/back-to-top.js' %}"></script>
 {% endblock %}
