@@ -2,7 +2,12 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+<link rel="stylesheet" href="{% static 'blog/blog.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<!-- uni-form jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -46,7 +51,7 @@
                         <p class="blog-card-content product-trunc"> {{ post.content |capfirst }}</p>
                         <div class="blog-content content">
                             <p class="blog-p">By: <span class="blog-small">{{ post.author }},
-                                {{ post.created_on|timesince }}
+                                    {{ post.created_on|timesince }}
                                     ago </span>
                             </p>
                             {% if post.comments.all|length == 0 %}

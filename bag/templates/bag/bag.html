@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="{% static 'bag/bag.css' %}">
 {% endblock %}
 
+{% block extra_js %}
+<!-- uni-form jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="hero-body">
     <div class="container">
@@ -17,13 +22,13 @@
         </div>
         <!-- end of heading  -->
         {% if bag_items %}
-        <div class="columns is-justify-content-center">
+        <div class="columns is-justify-content-center m-3">
             <div class="column is-5 is-underlined bag-title">Items in your bag: </div>
             <div class="column is-5 is-hidden-touch"></div>
             <div class="column is-2 has-text-right is-underlined bag-title is-hidden-touch">Totals</div>
         </div>
         {% for item in bag_items %}
-        <div class="columns is-multiline my-3">
+        <div class="columns is-multiline m-3">
             <div class="column is-4">
                 <div class="card-image">
                     <figure class="image is-4by3 bag-image">
@@ -140,8 +145,10 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script src="{% static 'js/uni-form-validation.jquery.js' %}"></script>
 
-<script>    // Remove item and reload on click
+<script>
+    // Remove item and reload on click
     $('.remove-item').click(function (e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1];
@@ -151,13 +158,14 @@
         let data = {
             'csrfmiddlewaretoken': csrfToken,
             'product_size': size,
-            'product_weight': product_weight
+            'product_weight': weight,
         };
-
+  
         $.post(url, data)
             .done(function () {
                 location.reload();
             });
-    })</script>
+    })
+</script>
 
 {% endblock %}

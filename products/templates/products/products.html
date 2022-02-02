@@ -4,6 +4,13 @@
 <link rel="stylesheet" href="{% static 'products/css/product.css' %}">
 {% endblock %}
 
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<!-- uni-form jquery  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
+{% endblock %}
+
 {% block content %}
 <div class="hero-body">
     <div class="container">
@@ -23,7 +30,7 @@
                 <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
                     <ul>
                         <li>
-                            <a href="{% url 'products' %}">Products Home</a>
+                            <a href="{% url 'products' %}" class="product-title">Products Home</a>
                         </li>
                         <li class="is-active">
                             <a href="#" aria-current="page">{{ products|length }} products</a>
@@ -62,14 +69,14 @@
                     <a href="{% url 'product_detail' product.id %}">
                         <div class="card-image">
                             <figure class="image is-5by4">
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+                                <img src="{{ product.image.url }}" alt="image for {{ product.name }}" class="product-image" width="243px" height="245px">
                             </figure>
                         </div>
                     </a>
                     {% else %}
                     <div class="card-image">
                         <figure class="image">
-                            <img src="{{ MEDIA_URL }}knitting.png" alt="{{ product.name }}">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ product.name }}">
                         </figure>
                     </div>
                     {% endif %}
@@ -135,50 +142,6 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script>
-    // script from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
-    //Get the button
-    let mybutton = document.getElementById("btt-button")
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () {
-        scrollFunction()
-    };
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    }
-    mybutton.addEventListener('click', topFunction);
-</script>
-
-<script type="text/javascript">
-    $('#sort-selector').change(function () {
-        let selector = $(this);
-        let currentUrl = new URL(window.location);
-
-        let selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
-
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-
-            window.location.replace(currentUrl);
-        }
-    })
-</script>
+<script src="{% static 'products/js/back-to-top.js' %}"></script>
+<script src="{% static 'products/js/sort-selector.js' %}"></script>
 {% endblock %}
