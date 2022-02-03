@@ -6,4 +6,6 @@
 
 ## Known Bugs
 - AllAuth automatically logs user out before displaying Sign Out page
+- Sorting products works on first page but when clicking next page it stops working.
+
 

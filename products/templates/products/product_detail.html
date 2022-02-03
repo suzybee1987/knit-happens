@@ -18,7 +18,7 @@
             <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card-image">
                 <div class="columns">
                     <div class="column is-12">
-                        <h1 class="title-heading-small has-text-centered my-3">{{ product.name }}</h1>
+                        <h2 class="title-heading-small has-text-centered my-3">{{ product.name }}</h2>
                     </div>
                 </div>
                 <div class="card-image">
@@ -27,7 +27,7 @@
                         <div class="product-image">
                             <figure class="image is-rounded product-details-card is-vcentered">
                                 <img src="{{ product.image.url }}" alt="image for {{ product.name }}"
-                                    class="product-image" target="_blank">
+                                    class="product-image">
                             </figure>
                         </div>
                     </a>
@@ -35,8 +35,7 @@
                     <a href="{{ product.image.url }}" target="_blank">
                         <div class="product-image">
                             <figure class="image is-rounded is-vcentered product-details-card">
-                                <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ product.name }}"
-                                    target="_blank">
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ product.name }}">
                             </figure>
                         </div>
                     </a>
@@ -65,7 +64,6 @@
                     {% endif %}
                 </p>
                 <p class="product-subtitles m-3">£ {{ product.price }}</p>
-
                 <!-- form for quantity of items to add to bag  -->
                 <form action="{% url 'add_to_bag' product.id %}" method="POST" class="m-2">
                     {% csrf_token %}
@@ -113,7 +111,7 @@
 
                     <div class="field is-horizontal is-horizontal-mobile is-justify-content-flex-end my-4">
                         <div class="field-label is-normal">
-                            <label class="label qty-label" for="quantity">Qty: </label>
+                            <label class="label qty-label" for="id_qty_{{ product.id }}">Qty: </label>
                         </div>
                         <div class="field-body">
                             <div class="field">

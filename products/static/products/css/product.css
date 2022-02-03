@@ -97,4 +97,8 @@ label {
     background-color: #fff;
 }
 
+.no-results {
+    min-height:35vh;
+}
+
 /* end of products  */

@@ -12,8 +12,6 @@ def upload_location(instance, filename):
         title=str(instance.title), filename=filename)
     return file_path
 
-# posts model
-
 
 class Post(models.Model):
     title = models.CharField(max_length=20, unique=True)
@@ -46,7 +44,6 @@ def pre_save_blog_post_receiver(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_blog_post_receiver, sender=Post)
 
 
-# comments model
 class Comment(models.Model):
     post = models.ForeignKey(
         Post, related_name='comments', on_delete=models.CASCADE)

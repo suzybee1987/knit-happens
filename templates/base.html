@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <!-- meta tags  -->
@@ -54,10 +54,10 @@
 </head>
 
 <body>
-    <section class="hero is-fullheight">
+    <div class="hero is-fullheight">
         <!-- navigation  -->
         <header class="hero-head">
-            <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+            <nav class="navbar has-shadow" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{% url 'home' %}">
                         <h1 class="title-heading ml-2">Knit Happens</h1>
@@ -76,13 +76,11 @@
                         <div class="column is-vcentered is-hidden-touch search-bar">
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
+                                    <input class="input control" type="text" name="q" placeholder="Find something nice">
                                     <div class="control">
-                                        <input class="input" type="text" name="q" placeholder="Find something">
-                                    </div>
-                                    <div class="control">
-                                        <a class="button is-danger" type="submit">
+                                        <button class="button is-danger" type="submit">
                                             <i class="fas fa-search"></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -138,10 +136,10 @@
                             </a>
                             <div class="navbar-dropdown is-right">
                                 <a class="navbar-item is-hidden-touch" href="{% url 'account_login' %}">
-                                    Log in
+                                    log in
                                 </a>
                                 <a class="navbar-item is-hidden-touch" href="{% url 'account_signup' %}">
-                                    Register
+                                    register
                                 </a>
                             </div>
                         </div>
@@ -172,9 +170,9 @@
                                         <input class="input" type="text" name="q" placeholder="Find something">
                                     </div>
                                     <div class="control">
-                                        <a class="button is-danger" type="submit">
+                                        <button class="button is-danger" type="submit">
                                             <i class="fas fa-search"></i>
-                                        </a>
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -234,10 +232,10 @@
                                 </a>
                                 <div class="navbar-dropdown is-right">
                                     <a class="navbar-item" href="{% url 'account_login' %}">
-                                        Log in
+                                        log in
                                     </a>
                                     <a class="navbar-item" href="{% url 'account_signup' %}">
-                                        Register
+                                        register
                                     </a>
                                 </div>
                             </div>
@@ -336,12 +334,13 @@
                     </div>
                     <div class="columns">
                         <p class="column product-title has-text-centered has-text-white small is-italic">
-                        This site was made for educational purposes by Suzy Bennett and no orders will be fulfilled!
+                            This site was made for educational purposes by Suzy Bennett and no orders will be fulfilled!
                         </p>
-                </div></div>
+                    </div>
+                </div>
             </nav>
         </footer>
-    </section>
+    </div>
 
     {% block postloadjs %}
     <script src="{% static 'js/base.js' %}"></script>
