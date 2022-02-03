@@ -143,6 +143,7 @@ The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/x
 
 ### **Future Features**
 
+- When user logs out their bag is emptied so that when they log bag in the existing items would be in their bag from the previous log in. I would implement a feature where this was saved to the profile. 
 
 
 ### **Responsive Design**
