@@ -230,6 +230,9 @@ nav.navbar.is-justify-content-space-evenly {
     padding: .5em 1em;
     vertical-align: top;
 }
+.tabs {
+    white-space: normal;
+}
 
 .tabs a:hover {
     border-bottom: 2px solid #fff;
