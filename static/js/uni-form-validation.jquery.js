@@ -36,7 +36,7 @@
     // Get the value for a validator that takes parameters.
     // These are in the format of `val-{value}`
     $.uniform.get_val = function (name, classes, defaultValue) {
-        var i, value = defaultValue;
+        let i, value = defaultValue;
         classes = classes.split(' ');
         for (i = 0; i < classes.length; i += 1) {
             if (classes[i] === name) {
@@ -51,7 +51,7 @@
 
     // Get the text of the label that belongs to the field
     $.uniform.get_label_text = function ($field, options) {
-        var text = $field.closest('label').text();
+        let text = $field.closest('label').text();
         options = options || $.uniform.defaultOptions;
         if (text === '') {
             text = $field.closest('div.' + options.holder_class).find('label').text();
@@ -65,7 +65,7 @@
         options = $.extend($.uniform.defaultOptions, options);
 
         return this.each(function () {
-            var $form, errors, get_label_text, get_val, validate, initial_values;
+            let $form, errors, get_label_text, get_val, validate, initial_values;
 
             $form = $(this);
             errors = [];
@@ -75,7 +75,7 @@
 
             // Select form fields and attach the highlighter functionality
             $form.find(options.field_selector).each(function () {
-                var $input = $(this),
+                let $input = $(this),
                     value = $input.val();
 
                 $input.data('default-color', $input.css('color'));
@@ -119,7 +119,7 @@
             //
             // TODO: Use prevent_submit to disable the submit in the blur handler
             $form.submit(function () {
-                var return_val, callback_result = true;
+                let return_val, callback_result = true;
 
                 // In the case of a previously failed submit, we'll remove our marker
                 $form.removeClass('failedSubmit');
@@ -180,7 +180,7 @@
             // Set the form focus class and remove any classes other than the focus
             // class and then hide the default label text
             $form.find(options.field_selector).on('focus', function () {
-                var $input = $(this);
+                let $input = $(this);
 
                 $form // Remove any other focus highlighting
                     .find('.' + options.focused_class)
@@ -205,7 +205,7 @@
             //
             // If the validators fail, we trigger either 'success' or 'error' events
             $form.find(options.field_selector).on('blur', function () {
-                var $input = $(this),
+                let $input = $(this),
                     has_validation = false,
                     validator,
                     validation_result,
@@ -270,7 +270,7 @@
 
     // Display a Uni-Form form validation error
     $.uniform.showFormError = function ($form, errorTitle, errorMessages) {
-        var m, $message;
+        let m, $message;
 
         if ($('#errorMsg').length) {
             $('#errorMsg').remove();
@@ -314,7 +314,7 @@
 
     // Set the results of form validation on the form element
     $.uniform.showValidation = function ($input, isValid, errorMessage, errors, options) {
-        var $p, name;
+        let $p, name;
         options = options || $.uniform.defaultOptions;
         $p = $input
             .closest('div.' + options.holder_class)
@@ -348,7 +348,7 @@
     // Simple replacement for i18n + sprintf
     // `$.uniform.i18n("string_key", sprintf style arguments)`
     $.uniform.i18n = function (lang_key) {
-        var lang_string = $.uniform.language[lang_key],
+        let lang_string = $.uniform.language[lang_key],
             bits = lang_string.split('%'),
             out = bits[0],
             re = /^([ds])(.*)$/,
@@ -415,7 +415,7 @@
 
 (function ($) {
 
-    var escapeStr;
+    let escapeStr;
 
     $.uniform = $.uniform || {};
 
@@ -428,7 +428,7 @@
 
     // Value of field is not empty, whitespace will be counted as empty
     $.uniform.validators.required = function ($field, caption) {
-        var name;
+        let name;
         if ($field.is(':radio')) {
             name = escapeStr($field.attr('name'));
             if ($("input[name=" + name + "]:checked").length) {
@@ -450,7 +450,7 @@
 
     // Value is shorter than allowed
     $.uniform.validators.validateMinLength = function ($field, caption) {
-        var min_length = $.uniform.get_val('validateMinLength', $field.attr('class'), 0);
+        let min_length = $.uniform.get_val('validateMinLength', $field.attr('class'), 0);
         if ((min_length > 0) && ($field.val().length < min_length)) {
             return $.uniform.i18n('minlength', caption, min_length);
         }
@@ -459,7 +459,7 @@
 
     // Value is less than min
     $.uniform.validators.validateMin = function ($field, caption) {
-        var min_val = $.uniform.get_val('validateMin', $field.attr('class'), 0);
+        let min_val = $.uniform.get_val('validateMin', $field.attr('class'), 0);
         if ((parseInt($field.val(), 10) < min_val)) {
             return $.uniform.i18n('min', caption, min_val);
         }
@@ -468,7 +468,7 @@
 
     // Value is longer than allowed
     $.uniform.validators.validateMaxLength = function ($field, caption) {
-        var max_length = $.uniform.get_val('validateMaxLength', $field.attr('class'), 0);
+        let max_length = $.uniform.get_val('validateMaxLength', $field.attr('class'), 0);
         if ((max_length > 0) && ($field.val().length > max_length)) {
             return $.uniform.i18n('maxlength', caption, max_length);
         }
@@ -477,7 +477,7 @@
 
     // Value is greater than max
     $.uniform.validators.validateMax = function ($field, caption) {
-        var max_val = $.uniform.get_val('validateMax', $field.attr('class'), 0);
+        let max_val = $.uniform.get_val('validateMax', $field.attr('class'), 0);
         if ((parseInt($field.val(), 10) > max_val)) {
             return $.uniform.i18n('max', caption, max_val);
         }
@@ -491,7 +491,7 @@
     //
     // `class="validateSameAs field_id"`
     $.uniform.validators.validateSameAs = function ($field, caption, options) {
-        var classes = $field.attr('class').split(' '),
+        let classes = $field.attr('class').split(' '),
             target_field_name = '',
             target_field_caption = '',
             $form = $field.closest('form'),
@@ -576,7 +576,7 @@
 
     // Phone number
     $.uniform.validators.validatePhone = function ($field, caption) {
-        var phoneNumber = /^\(?(\d{3})\)?[\- ]?(\d{3})[\- ]?(\d{4})$/;
+        let phoneNumber = /^\(?(\d{3})\)?[\- ]?(\d{3})[\- ]?(\d{4})$/;
         if (phoneNumber.test($field.val())) {
             return true;
         }
@@ -609,7 +609,7 @@
     //     }
     //
     $.uniform.validators.validateCallback = function ($field, caption) {
-        var classes = $field.attr('class').split(' '),
+        let classes = $field.attr('class').split(' '),
             callback_function = '',
             i;
 
