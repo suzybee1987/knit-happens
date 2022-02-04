@@ -1,59 +1,53 @@
 {% extends "account/base.html" %}
-{% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
-<div class="hero-body">
-  {% block inner_content %}
-  <div class="columns">
-    <div class="column">
-      <h1 class="title-heading">{% trans "Sign In" %}</h1>
-    </div>
-  </div>
-  <div class="columns">
-    <div class="card card-margin column is-8 is-offset-2 is-10-touch is-offset-1-touch mt-3">
-      <div class="card-content">
-        {% get_providers as socialaccount_providers %}
-        {% if socialaccount_providers %}
-        <div class="columns">
-          <div class="column">
-            <a class="google" href="{% provider_login_url 'google' %}">
-              <span>Log in with Google</span>
-            </a>
-          </div>
+{% block inner_content %}
+
+<h1 class="title-heading">{% trans "Sign In" %}</h1>
+<div class="columns">
+  <div class="card card-margin column is-8 is-offset-2 is-10-touch is-offset-1-touch my-5">
+    <div class="card-content">
+      {% get_providers as socialaccount_providers %}
+      {% if socialaccount_providers %}
+      <div class="columns">
+        <div class="column">
+          <a class="google" href="{% provider_login_url 'google' %}">
+            <span>Log in with Google</span>
+          </a>
         </div>
-        <p class="my-3">or</p>
-        {% include "socialaccount/snippets/login_extra.html" %}
-        {% else %}
-        <p class="mt-4">{% blocktrans %}If you have not created an account yet, then please
-          <a href="{{ signup_url }}" class="text-tag-dark">sign up</a> first.{% endblocktrans %}
-        </p>
-        {% endif %}
-        <div class="columns is-justify-content-center">
-          <div class="column is-6">
-            <form class="login" method="POST" action="{% url 'account_login' %}">
-              {% csrf_token %}
-              {{ form|crispy }}
-              {% if redirect_field_value %}
-              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-              {% endif %}
-              <div class="columns">
-                <div class="column">
-                  <a class="button is-link is-light is-outlined" href="{% url 'account_reset_password' %}">
-                    {% trans "Forgot Password?" %}</a>
-                </div>
-                <div class="column">
-                  <button class="is-danger button" type="submit">{% trans "Sign In" %}</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <p class="mt-4">{% blocktrans %}If you have not created an account yet, then please
-          <a href="{{ signup_url }}" class="text-tag-dark">sign up</a> first.{% endblocktrans %}
-        </p>
       </div>
+      <p class="my-3">or</p>
+      {% include "socialaccount/snippets/login_extra.html" %}
+      {% else %}
+      <p class="mt-4">{% blocktrans %}If you have not created an account yet, then please
+        <a href="{{ signup_url }}" class="text-tag-dark">sign up</a> first.{% endblocktrans %}
+      </p>
+      {% endif %}
+      <div class="columns is-justify-content-center">
+        <div class="column is-6">
+          <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %}
+            <div class="columns">
+              <div class="column">
+                <a class="button is-link is-light is-outlined" href="{% url 'account_reset_password' %}">
+                  {% trans "Forgot Password?" %}</a>
+              </div>
+              <div class="column">
+                <button class="is-danger button" type="submit">{% trans "Sign In" %}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <p class="mt-4">{% blocktrans %}If you have not created an account yet, then please
+        <a href="{{ signup_url }}" class="text-tag-dark">sign up</a> first.{% endblocktrans %}
+      </p>
     </div>
   </div>
 </div>
