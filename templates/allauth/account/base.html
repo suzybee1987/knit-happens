@@ -5,18 +5,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
 {% endblock %}
 {% block content %}
-<div class="hero-body">
-    <div class="container">
-            <div class="columns has-text-centered is-justify-content-center">
-                <div class="column is-10 is-offset-1">
-                    <div class="allauth-form-inner-content">
-                        {% block inner_content %}
-                        {% endblock %}
-                    </div>
-                </div>
-            </div>
+<div class="columns has-text-centered is-justify-content-center">
+    <div class="column is-10 is-offset-1">
+        <div class="allauth-form-inner-content">
+            {% block inner_content %}
+            {% endblock %}
         </div>
     </div>
 </div>
+
 
 {% endblock %}
