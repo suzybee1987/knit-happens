@@ -277,6 +277,8 @@ Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
 
 - [Pagination Tutorial](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html)
 
+- [Stack Overflow](https://stackoverflow.com/questions/54467992/bulma-scale-image-to-container) to help position the images within the cards and ensure any new uploaded products or blog posts had images to fit the columns. 
+
 
 ### **Content**
 

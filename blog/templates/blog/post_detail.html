@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="column is-6-tablet is-10-mobile is-offset-1-mobile mb-6">
-                <div class="card comments">
+                <div class="card comments my-4">
                     <div class="card-header">
                         <div class="card-header-title">
                             <h2 class="title-heading-small">Comments about {{ post.title }}</h2>
@@ -91,6 +91,8 @@
                             No comments yet...
                         </div>
                         {% endfor %}
+
+                        {% if user.is_authenticated %}
                         <form method="post" action=".">
                             {% csrf_token %}
                             {{ form|crispy }}
@@ -107,7 +109,10 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                        {% else %}
+                        <h2 class="title-heading-small">Please <a href="{% url 'account_login' %}">log in</a> to add a comment </h2>
+{% endif %}
+                                        </div>
                 </div>
             </div>
         </div>

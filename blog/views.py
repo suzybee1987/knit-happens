@@ -7,6 +7,9 @@ from .forms import CommentForm, PostForm
 
 
 def blog(request):
+    """ 
+    View all blog posts
+    """
     posts = Post.objects.all()
     template = 'blog/blog.html'
     context = {
