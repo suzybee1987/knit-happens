@@ -68,7 +68,7 @@
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
                         <div class="card-image">
-                            <figure class="image is-5by4">
+                            <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
                                 <img src="{{ product.image.url }}" alt="image for {{ product.name }}" class="product-image"
                                     width="243" height="245">
                             </figure>
@@ -76,7 +76,7 @@
                     </a>
                     {% else %}
                     <div class="card-image">
-                        <figure class="image is-5by4">
+                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
                             <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ product.name }}">
                         </figure>
                     </div>
