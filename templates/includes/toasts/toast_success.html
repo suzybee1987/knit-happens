@@ -2,7 +2,6 @@
     <div class="notification is-primary">
         <button class="delete" aria-label="close"></button>
         <h4 class="title-heading-small">Success!</h4>
-
         <div class="columns">
             <div class="column notification-column">
                 {{ message }}
@@ -13,11 +12,11 @@
             {% for item in bag_items %}
             <div class="columns">
                 <div class="column is-4">
-                      {% if item.product.image %}
-                      <img src="{{ item.product.image.url }}" alt="image for {{ item.product.name }}">
-                      {% else %}
-                      <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ item.product.name }}">
-                      {% endif %}
+                    {% if item.product.image %}
+                    <img src="{{ item.product.image.url }}" alt="image for {{ item.product.name }}">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}knitting.png" alt="image for {{ item.product.name }}">
+                    {% endif %}
                 </div>
                 <div class="column is-8">
                     <p class="small"> {{ item.product.name }}</p>

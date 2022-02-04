@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <!-- meta tags  -->
@@ -12,15 +12,6 @@
     <meta name="description"
         content="Buy luxury wool, needles and patterns for your knitting and crochet projects and share your lovely makes on our blog">
     <meta name="keywords" content="wool, yarn, knitting, crochet, luxury brand, needles, patterns, blog, knit happens">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Suzy Bennett">
-    <!-- Socials  -->
-    <meta property="og:type" content="article" />
-    <meta property="og:site_name" content="Knit Happens" />
-    <meta property="og:url" content="https://suzybee-knit-happens.herokuapp.com/" />
-    <meta property="og:image" name="image" content="{{ MEDIA_URL }}amiresponsive.png" />
-    <meta property="og:image:alt" content="The site on a variety of devices">
-    <link rel="canonical" href="https://suzybee-knit-happens.herokuapp.com/">
     {% endblock %}
     <!-- end meta tags  -->
 
@@ -37,6 +28,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" crossorigin="use-credentials" href="{% static 'favicon/site.webmanifest' %}">
     <!-- uni-form css for crispy fields -->
     <link rel="stylesheet" href="{% static 'css/uni-form.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.uni-form.css' %}">
@@ -62,10 +54,10 @@
 </head>
 
 <body>
-    <div class="hero is-fullheight">
+    <section class="hero is-fullheight">
         <!-- navigation  -->
         <header class="hero-head">
-            <nav class="navbar has-shadow" aria-label="main navigation">
+            <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="{% url 'home' %}">
                         <h1 class="title-heading ml-2">Knit Happens</h1>
@@ -84,7 +76,9 @@
                         <div class="column is-vcentered is-hidden-touch search-bar">
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
-                                    <input class="input control" type="text" name="q" placeholder="Find something nice">
+                                    <div class="control">
+                                        <input class="input" type="text" name="q" placeholder="Find something">
+                                    </div>
                                     <div class="control">
                                         <button class="button is-danger" type="submit">
                                             <i class="fas fa-search"></i>
@@ -144,10 +138,10 @@
                             </a>
                             <div class="navbar-dropdown is-right">
                                 <a class="navbar-item is-hidden-touch" href="{% url 'account_login' %}">
-                                    log in
+                                    Log in
                                 </a>
                                 <a class="navbar-item is-hidden-touch" href="{% url 'account_signup' %}">
-                                    register
+                                    Register
                                 </a>
                             </div>
                         </div>
@@ -178,9 +172,9 @@
                                         <input class="input" type="text" name="q" placeholder="Find something">
                                     </div>
                                     <div class="control">
-                                        <button class="button is-danger" type="submit">
+                                        <a class="button is-danger" type="submit">
                                             <i class="fas fa-search"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </div>
                             </form>
@@ -240,10 +234,10 @@
                                 </a>
                                 <div class="navbar-dropdown is-right">
                                     <a class="navbar-item" href="{% url 'account_login' %}">
-                                        log in
+                                        Log in
                                     </a>
                                     <a class="navbar-item" href="{% url 'account_signup' %}">
-                                        register
+                                        Register
                                     </a>
                                 </div>
                             </div>
@@ -305,7 +299,7 @@
         {% endblock %}
 
         <!-- Hero footer: will stick at the bottom -->
-        <footer class="hero-foot mt-3">
+        <footer class="hero-foot">
             <nav class="tabs">
                 <div class="container">
                     <div class="columns">
@@ -340,15 +334,14 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="columns is-mobile">
-                        <span class="column product-title has-text-centered has-text-white small is-italic">
-                            This site was made for educational purposes by Suzy Bennett and no orders will be fulfilled!
-                        </span>
-                    </div>
-                </div>
+                    <div class="columns">
+                        <p class="column product-title has-text-centered has-text-white small is-italic">
+                        This site was made for educational purposes by Suzy Bennett and no orders will be fulfilled!
+                        </p>
+                </div></div>
             </nav>
         </footer>
-    </div>
+    </section>
 
     {% block postloadjs %}
     <script src="{% static 'js/base.js' %}"></script>
