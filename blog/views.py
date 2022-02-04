@@ -43,7 +43,7 @@ def add_post(request):
 
     return render(request, template, context)
 
-
+@login_required
 def post_detail(request, slug):
     """ a view to see the blog post with potential to add a comment """
     context = {}
