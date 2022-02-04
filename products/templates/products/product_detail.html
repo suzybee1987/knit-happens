@@ -342,6 +342,7 @@
     </div>
     {% endif %}
 </div>
+{% if user.is_authenticated %}
 <div class="columns is-justify-content-center my-4">
     <div class="column is-7 is-10-mobile is-offset-1-mobile card add-review-card my-4">
         <h3 class="title-heading-small">Add your review here</h3>
@@ -365,7 +366,14 @@
         </form>
     </div>
 </div>
-
+{% else %}
+<div class="columns">
+    <div class="column">
+        <h4 class="title-heading-small">
+            Please <a href="{% url 'account_login' %}">log in</a> to add a review of a product.</h4>
+    </div>
+</div>
+{% endif %}
 {% endblock %}
 
 {% block postloadjs %}
