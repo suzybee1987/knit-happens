@@ -3,7 +3,7 @@
 {% load bag_tools %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'bag/bag.css' %}">
+<link rel="stylesheet" href="{% static 'bag/bag.css' %}">
 {% endblock %}
 
 {% block extra_js %}
@@ -50,6 +50,8 @@
                         {% if item.product.has_weights %}Weight: {{ item.weight|capfirst }}{% endif %}
                     </p>
                     <p class="small is-6">SKU: {{ item.product.sku|upper }}</p>
+                    <p class="product-title my-2 is-6">Price Each: £{{ item.product.price }}</p>
+
                     <p class="product-title is-6 m-3 is-hidden-desktop">£ {{item.product.price}}</p>
                     <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                         {% csrf_token %}
@@ -64,6 +66,7 @@
                                 </div>
                             </div>
                         </div>
+
                         {% if item.product.has_sizes %}
                         <input type="hidden" name="product_size" value="{{ item.size }}">
                         <div class="columns is-mobile">
@@ -73,23 +76,37 @@
                                     id="remove_size_{{ item.item_id }}" data-product_size="{{ item.size }}">Remove</a>
                             </div>
                         </div>
-                        {% endif %}
-                        {% if item.product.has_weights %}
+                        {% elif item.product.has_weights %}
                         <input type="hidden" name="product_weight" value="{{ item.weight }}">
                         <div class="columns is-mobile">
                             <div class="column">
                                 <button class="button is-danger" type="submit">Update</button>
                                 <a class="remove-weight is-light is-danger is-outlined button"
-                                    id="remove_weight_{{ item.item_id }}" data-product_weight="{{ item.weight }}">Remove</a>
+                                    id="remove_weight_{{ item.item_id }}"
+                                    data-product_weight="{{ item.weight }}">Remove</a>
                             </div>
                         </div>
-                        {% endif %}
-
+                        {% else %}
+                        <div class="columns is-mobile">
+                            <div class="column">
+                                <button class="button is-danger" type="submit">Update</button>
+                                <a class="remove-weight is-light is-danger is-outlined button"
+                                    id="remove_{{ item.item_id }}">Remove</a>
+                            </div>
+                        </div>
+                        {% endif%}
                     </form>
                 </div>
             </div>
             <div class="column is-2 is-hidden-mobile">
-                <p class="product-title has-text-right is-6 ">£ {{item.product.price}}</p>
+                <!-- <p class="product-title has-text-right is-6 is-align-content-end">£ {{ item.product.price | calc_subtotal:item.quantity }}</p> -->
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column is-2">
+                <p class="product-title has-text-right is-6 is-align-content-end">Subtotal: £ {{ item.product.price | calc_subtotal:item.quantity }}</p>
             </div>
         </div>
         <hr class="divider-bag my-5">
@@ -158,7 +175,7 @@
             'csrfmiddlewaretoken': csrfToken,
             'product_size': size,
         };
-  
+
         $.post(url, data)
             .done(function () {
                 location.reload();
@@ -174,7 +191,7 @@
             'csrfmiddlewaretoken': csrfToken,
             'product_weight': weight,
         };
-  
+
         $.post(url, data)
             .done(function () {
                 location.reload();
