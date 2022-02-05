@@ -19,7 +19,8 @@
 }
 
 .StripeElement,
-.stripe-style-input, select {
+.stripe-style-input,
+select {
     box-sizing: border-box;
     padding: 10px 12px;
     box-shadow: 0 1px 3px 0 #e6ebf1;
@@ -91,3 +92,8 @@ select option[value=""] {
     border-left: 2px solid grey;
 }
 
+@media only screen and (max-width: 600px) {
+    div#card-element {
+        width: 100%;
+    }
+}

@@ -85,55 +85,55 @@
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form"
                     class="ctrl-holder has-text-left payment-form">
                     {% csrf_token %}
-                    <fieldset class="input-textarea m-3">
-                        <legend class="field fieldset-label m-3">Details:</legend>
+                    <fieldset class="input-textarea my-3">
+                        <legend class="field fieldset-label my-3">Details:</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.phone_number | as_crispy_field }}
                     </fieldset>
-                    <fieldset class="m-3">
-                        <legend class="fieldset-label m-3">Delivery:</legend>
+                    <fieldset class="my-3">
+                        <legend class="fieldset-label my-3">Delivery:</legend>
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
                         {{ order_form.town_or_city | as_crispy_field }}
                         {{ order_form.county | as_crispy_field }}
                         {{ order_form.postcode | as_crispy_field }}
                         {{ order_form.country | as_crispy_field }}
-                        <div class="form-check m-3">
+                        <div class="form-check my-3">
                             {% if user.is_authenticated %}
                             <label for="id-save-info" class="form-check-label">Save this delivery info to my
                                 profile</label>
                             <input type="checkbox" id="id-save-info" name="save-info" checked>
                             {% else %}
-                            <label for="id-save-info" class="form-check-label m-3">
+                            <label for="id-save-info" class="form-check-label my-3">
                                 <p>You can
-                                    <a href="{% url 'account_signup' %}" class="has-text-weight-semibold is-underlined m-3">Create an account</a>
+                                    <a href="{% url 'account_signup' %}" class="has-text-weight-semibold is-underlined my-3">Create an account</a>
                                     or
-                                    <a href="{% url 'account_login' %}" class="has-text-weight-semibold is-underlined m-3">Login</a>
+                                    <a href="{% url 'account_login' %}" class="has-text-weight-semibold is-underlined my-3">Login</a>
                                     to save your information
                                 </p>
                             </label>
                             {% endif %}
                         </div>
                     </fieldset>
-                    <fieldset class="m-3">
-                        <legend class="fieldset-label m-3 title-heading-small is-underlined">Payment</legend>
+                    <fieldset class="my-3">
+                        <legend class="fieldset-label my-3 title-heading-small is-underlined">Payment</legend>
                         <!-- A Stripe card element will go here -->
-                        <div class="m-3" id="card-element"></div>
+                        <div class="my-3" id="card-element"></div>
                         <!-- Used to display form errors -->
-                        <div class="m-3" id="card-errors" role="alert"></div>
+                        <div class="my-3" id="card-errors" role="alert"></div>
                         <!-- Pass the client secret to the view so we can get the payment intent id -->
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
-                    <p class="m-3"><i class="fas fa-exclamation-circle"></i>
+                    <p class="my-3"><i class="fas fa-exclamation-circle"></i>
                         Your card will be charged £{{ grand_total|floatformat:2 }}</p>
                     <div class="columns is-flex is-flex-direction-row-reverse">
-                        <div class="column has-text-centered m-3">
+                        <div class="column has-text-centered my-3">
                             <button type="submit" class="button is-danger">
                                 <i class="fas fa-lock mr-1"></i>Submit Order
                             </button>
                         </div>
-                        <div class="column has-text-centered m-3">
+                        <div class="column has-text-centered my-3">
                             <a href="{% url 'view_bag' %}" class="button is-danger is-outlined">
                                 <i class="fas fa-angle-left mr-1"></i>Back to bag
                             </a>
