@@ -61,9 +61,13 @@ body {
 .profile-icon {
     padding-left: 10px;
 }
-
+@media screen and (min-width: 600px) {
 .search-bar {
-    padding-top: 4px;
+    padding-top: 12px;
+}
+}
+.search-input {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .navbar-brand img {
