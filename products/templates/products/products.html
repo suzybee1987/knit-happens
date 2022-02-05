@@ -63,7 +63,7 @@
         <div class="columns is-multiline">
             {% if products%}
             {% for product in products %}
-            <div class="column is-4-desktop is-3-widescreen">
+            <div class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen is-2-fullhd">
                 <div class="card">
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
