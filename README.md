@@ -92,11 +92,21 @@ Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
 
 ### **Fonts**
 
+The fonts were chosen to complement one another and also give the aesthetic of a fun, knitting store with ['Lobster', cursive](static/docs/testing/images/lobster.png) and ['Libre Franklin', sans-serif](static/docs/testing/images/libre.png) as a contrasting font to help the cursive stand out and allow for extra readability when more information given.
+
+
 
 ### **Colours**
 
+- ![](static/docs/testing/images/knit-happens-coolors.png) This Coolors palette was used to put together a colour scheme to reflect the different colours of the balls of wool to keep in with the theme of the knitting shop. 
+
 
 ### **Imagery**
+
+The images used were taken from Pexels, majority from the same user.
+- Home page wallpaper by [Nynne Schrøder](https://unsplash.com/photos/nMdC42MrwN8)
+- The images of the different kinds and colours of wool were from [Surene Palvie](https://www.pexels.com/@surene-palvie-1075224) 
+- The images of knitted garments from [Miriam Alonso](https://www.pexels.com/@miriam-alonso), [Anna Khomutova](https://www.pexels.com/@anna-khomutova-3562984), [Karolina Grabowska](https://www.pexels.com/@karolina-grabowska), [Arina Krasnikova](https://www.pexels.com/@arina-krasnikova) and [Daria Shevtsova](https://www.pexels.com/@daria)
 
 
 ### **Wireframes**
@@ -106,11 +116,36 @@ Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
 The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/xd.html) and can be found in pdf form in [wireframes](wireframes).
 
 
-- Desktop view
+#### **Desktop view**
+- [Home](static/docs/testing/images/wireframes/desktop-home.png)
+- [Register](static/docs/testing/images/wireframes/desktop-register.png)
+- [Login](static/docs/testing/images/wireframes/desktop-login.png)
+- [Profile-Orders](static/docs/testing/images/wireframes/desktop-profile-orders.png)
+- [Products](static/docs/testing/images/wireframes/desktop-products.png)
+- [Product-Detail](static/docs/testing/images/wireframes/desktop-product-detail.png)
+- [Add-Product-To-Bag](static/docs/testing/images/wireframes/desktop-add.png)
+- [Processing-Payment](static/docs/testing/images/wireframes/desktop-processing.png)
+- [Checkout](static/docs/testing/images/wireframes/desktop-checkout.png)
+- [Cart](static/docs/testing/images/wireframes/desktop-cart.png)
+- [Confirmed-Order](static/docs/testing/images/wireframes/desktop-confirmed.png)
+- [Admin](static/docs/testing/images/wireframes/desktop-admin.png)
 
 
+#### **Mobile view**
 
-- Mobile view
+- [Home](static/docs/testing/images/wireframes/mobile-home.png)
+- [Register](static/docs/testing/images/wireframes/mobile-register.png)
+- [Login](static/docs/testing/images/wireframes/mobile-login.png)
+- [Profile](static/docs/testing/images/wireframes/mobile-profile.png)
+- [Orders](static/docs/testing/images/wireframes/mobile-orders.png)
+- [Edit-Profile](static/docs/testing/images/wireframes/mobile-edit-profile.png)
+- [Products](static/docs/testing/images/wireframes/mobile-products.png)
+- [Product-Detail](static/docs/testing/images/wireframes/mobile-product-details.png)
+- [Add-Product-To-Bag](static/docs/testing/images/wireframes/mobile-add-product.png)
+- [Processing-Payment](static/docs/testing/images/wireframes/mobile-payment-processing.png)
+- [Checkout](static/docs/testing/images/wireframes/mobile-checkout.png)
+- [Cart](static/docs/testing/images/wireframes/mobile-cart.png)
+- [Blog](static/docs/testing/images/wireframes/mobile-blog.png)
 
 
 
@@ -121,8 +156,68 @@ The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/x
 
 ### **Site Navigation**
 
+The navigation bar displays different links depending on whether the user is logged in, logged out or a super user.
+
+| Link | Not logged in  | Logged in | Logged in as super user |
+|---------------|---------------|---------------|-------------|
+| Home | &#10003;| &#10003; | &#10003; |
+| Log In  | &#10003;  | &#10007;  | &#10007;  |
+| Register | &#10003;  | &#10007;  | &#10007;  |
+| Profile  | &#10007;  | &#10003;  | &#10003;  |
+| Log Out  | &#10007;  | &#10003;  | &#10003;  |
+| Search  | &#10003;  | &#10003;  | &#10003;  |
+| Blog  | &#10003;  | &#10003;  | &#10003;  |
+| Product Management | &#10007; |&#10007;  |  &#10003; |
+
 
 ### **Features Implemented**
+
+##### Home
+
+
+#### Create Profile
+- Users are able to:
+  - Create a profile to save their orders and personal information
+  - Confirm their details are correct via email verification
+  - Store details for faster checkout
+
+#### Products Features
+
+##### Products Page
+- Users are able to:
+  - See the products for sale on the site
+  - Sort products by A-Z, Name, Category, Price.
+  - See only 12 products at a time to save site loading times
+  - Price of product
+
+##### Product Details Page
+- Click the products to find out more information including
+  - Name, Size (if has size), Weight (if has weight), colour, price, SKU, category
+  - Add products to bag to buy
+  - Find out the needle size of their required product and convert to local using the sizing guide
+  - See reviews of products and also review the products if logged in
+
+##### Products Management
+If the user is a super user they can:
+  - Add a product (inc adding image)
+  - Edit a product
+  - Delete a Product
+
+##### Bag
+- Users are able to:
+  - Adjust number of products in bag if they require
+  - Find out delivery costs
+  - Find out how much more they need to spend to get free delivery
+  - Clearly see the total of their items by quantity and grand total
+
+##### Checkout
+
+##### Blog
+
+
+
+
+
 
 
 #### **Features relevant to all pages** (extended via *base.html*):
