@@ -15,7 +15,7 @@
 <div class="hero-body">
     <div class="container">
         <div class="columns is-justify-content-space-around has-text-right my-6">
-            <div class="column is-10-mobile is-offset-1-mobile is-4 is-3-tablet product-details-card-image">
+            <div class="column is-10-mobile is-offset-1-mobile is-5 is-3-tablet product-details-card-image">
                 <div class="columns">
                     <div class="column is-12">
                         <h2 class="title-heading-small has-text-centered my-3">{{ product.name }}</h2>
@@ -24,20 +24,15 @@
                 <div class="card-image">
                     {% if product.image %}
                     <a href="{{ product.image.url }}" target="_blank">
-                        <div class="product-image">
-                            <figure class="image is-rounded product-details-card is-vcentered">
-                                <img src="{{ product.image.url }}" alt="image for {{ product.name }}"
-                                    class="product-image">
-                            </figure>
-                        </div>
+                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
+                            <img src="{{ product.image.url }}" alt="image for {{ product.name }}">
+                        </figure>
                     </a>
                     {% else %}
                     <a href="{{ product.image.url }}" target="_blank">
-                        <div class="product-image">
-                            <figure class="image is-rounded is-vcentered product-details-card">
-                                <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ product.name }}">
-                            </figure>
-                        </div>
+                        <figure class="image is-rounded is-vcentered product-details-card">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ product.name }}">
+                        </figure>
                     </a>
                     {% endif %}
                     {% if request.user.is_superuser %}

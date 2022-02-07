@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_meta %}
+<meta name="description" content="404 page on the Knit Happens site.">
+<meta name="keywords"
+    content="knit, wool, crochet, pattern, bamboo, merino, cashmere, lambswool, alpaca, angora, camel hair, melton, mohair, shetland, cotton, shopping, bag, 404">
+<link rel="canonical" href="">
+<!-- Facebook, LinkedIn, Google -->
+<meta property="og:title" name="title" content="Knit Happens" />
+<meta property="og:description"
+    content="403 page on Knit Happens shopping site" />
+<meta property="og:url" content="https://suzybee-knit-happens.herokuapp.com/" />
+{% endblock %}
+
+{% block extra_title %} 404 {% endblock %}
+
+{% block content %}
+<div class="hero-body">
+    <div class="container">
+        <div class="columns has-text-centered">
+            <div class="column">
+                <h2 class="title-heading has-text-centered is-justify-content-center my-4">404 ERROR!</h2>
+                <p>Looks like you're lost</p>
+                <h3>Click <a href="{% url 'products' %}">here</a> to go back to the shop</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <!-- meta tags  -->
@@ -30,9 +30,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <link rel="manifest" crossorigin="use-credentials" href="{% static 'favicon/site.webmanifest' %}">
     <!-- uni-form css for crispy fields -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/uni-form.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.uni-form.css' %}">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    
     {% endblock %}
 
     {% block extra_css %}
@@ -44,10 +45,6 @@
     {% endblock %}
 
     {% block extra_js %}
-    <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script> -->
-    <!-- uni-form jquery  -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script> -->
     {% endblock %}
 
     <title>Knit Happens {% block extra_title %} {% endblock %}</title>
