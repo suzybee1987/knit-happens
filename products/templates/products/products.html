@@ -14,7 +14,6 @@
     <div class="container">
         <div class="columns has-text-centered">
             <div class="column is-10-touch is-offset-1-touch">
-                
                 <h2 class="title-heading has-text-centered is-justify-content-center my-4">Products</h2>
                 {% for c in current_categories %}
                 <a class="button is-danger" href="{% url 'products' %}?category={{ c.name }}">
@@ -32,7 +31,7 @@
                             <a href="{% url 'products' %}" class="product-title">Products Home</a>
                         </li>
                         <li class="is-active">
-                            <a href="#" aria-current="page">{{ products|length }} products</a>
+                            <a href="#" aria-current="page">{{ products_list|length }} products</a>
                         </li>
                     </ul>
                 </nav>
@@ -61,16 +60,15 @@
         <!-- end of sorting  -->
 <!-- products  -->
         <div class="columns is-multiline">
-            {% if products%}
+            {% if products %}
             {% for product in products %}
-            <div class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen is-2-fullhd">
+            <div class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen is-3-fullhd">
                 <div class="card">
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
                         <div class="card-image">
                             <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
-                                <img src="{{ product.image.url }}" alt="image for {{ product.name }}" class="product-image"
-                                    width="243" height="245">
+                                <img src="{{ product.image.url }}" alt="image for {{ product.name }}" height="300">
                             </figure>
                         </div>
                     </a>
