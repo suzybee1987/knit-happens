@@ -9,7 +9,9 @@
 <!-- uni-form jquery  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Uniform.js/4.3.0/js/jquery.uniform.bundled.js"></script>
 {% endblock %}
-
+{% if user %}
+{% block extra_title %} - {{user}}'s Profile {% endblock %}
+{% endif %}
 {% block content %}
 <div class="hero-body">
     <div class="container">
