@@ -73,11 +73,11 @@
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
                                     <div class="control">
-                                        <label for="search-desktop-view"></label>
+                                        <label for="search-desktop-view" hidden>Search bar</label>
                                         <input class="input search-input" type="text" name="q" id="search-desktop-view" value="Find something">
                                     </div>
                                     <div class="control">
-                                        <button class="button is-danger" type="submit">
+                                        <button class="button is-danger" type="submit" aria-label="submit search">
                                             <i class="fas fa-search"></i>
                                         </button>
                                     </div>
@@ -166,11 +166,11 @@
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
                                     <div class="control">
-                                        <label for="search-mobile-view"></label>
+                                        <label for="search-mobile-view" hidden>Search bar</label>
                                         <input class="input search-input" type="text" name="q" id="search-mobile-view" value="Find something">
                                     </div>
                                     <div class="control">
-                                        <button class="button is-danger" type="submit">
+                                        <button class="button is-danger" type="submit" aria-label="submit search">
                                             <i class="fas fa-search"></i>
                                         </button>
                                     </div>
