@@ -20,7 +20,7 @@
             <div class="column is-10-mobile is-offset-1-mobile is-5 is-3-tablet product-details-card-image">
                 <div class="columns">
                     <div class="column is-12">
-                        <h2 class="title-heading-small has-text-centered my-3">{{ product.name }}</h2>
+                        <h3 class="title-heading-small has-text-centered my-3">{{ product.name }}</h3>
                     </div>
                 </div>
                 <div class="card-image">
@@ -44,7 +44,7 @@
                                 Edit <i class="fas fa-pen ml-2"></i></a>
                             <a class=" button is-danger is-outlined" href="{% url 'delete_product' product.id %}">
                                 Delete <i class="fas fa-times ml-2"></i></a>
-                        </small>
+                        </mall>
                     </div>
                     {% endif %}
                 </div>
@@ -313,7 +313,7 @@
 <!-- Reviews Section -->
 <div class="columns is-justify-content-center has-text-centered">
     <div class="column">
-        <h1 class="title-heading has-text-centered">Reviews</h1>
+        <h3 class="title-heading has-text-centered">Reviews</h3>
     </div>
 </div>
 <div class="columns is-justify-content-center is-multiline my-3">
@@ -321,8 +321,8 @@
     {% for review in product.reviews.all %}
     <div class="column is-7 is-10-mobile is-offset-1-mobile card review-card">
         <div class="card-header-title">
-            <h2 class="title-heading-small">{{ review.review_title }}
-            </h2>
+            <h4 class="title-heading-small">{{ review.review_title }}
+            </h4>
         </div>
         <div class="card-content">
             <p class="mb-3">{{ review.review }}</p>
@@ -334,15 +334,15 @@
     {% endfor %}
     {% else %}
     <div class="column">
-        <h1 class="title-heading-small">There are no reviews for {{ product.name }} yet.</h1>
-        <h2 class="title-heading-small">Why don't you add one?</h2>
+        <h4 class="title-heading-small">There are no reviews for {{ product.name }} yet.</h4>
+        <h5 class="title-heading-small">Why don't you add one?</h5>
     </div>
     {% endif %}
 </div>
 {% if user.is_authenticated %}
 <div class="columns is-justify-content-center my-4">
     <div class="column is-7 is-10-mobile is-offset-1-mobile card add-review-card my-4">
-        <h3 class="title-heading-small">Add your review here</h3>
+        <h5 class="title-heading-small">Add your review here</h5>
         <form action="{% url 'add_review' product.id %}#reviews" method="POST">
             {% csrf_token %}
             <div class="columns">
@@ -366,8 +366,8 @@
 {% else %}
 <div class="columns">
     <div class="column">
-        <h4 class="title-heading-small">
-            Please <a href="{% url 'account_login' %}">log in</a> to add a review of a product.</h4>
+        <h6 class="title-heading-small">
+            Please <a href="{% url 'account_login' %}">log in</a> to add a review of a product.</h6>
     </div>
 </div>
 {% endif %}

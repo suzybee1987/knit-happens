@@ -28,11 +28,9 @@ label {
 }
 
 .button.is-danger:hover {
-    color: #f14668;
-    border: 1px solid #f14668;
-
+    color: #E8113C;
+    border: 1px solid #E8113C;
     background: #fff;
-
 }
 
 .button.is-text.pag-link:hover {
@@ -45,24 +43,24 @@ label {
 
 .btn-round {
     border-radius: 40px;
-    background: #f14668;
+    background: #E8113C;
     color:white;
     font-weight: 1.2rem;
-    border: 1px solid #f14668;
+    border: 1px solid #E8113C;
 }
 
 .btn-round:hover {
     background: white;
-    color: #f14668;
-    border: 1px solid #f14668;
+    color: #E8113C;
+    border: 1px solid #E8113C;
 }
 
 .active.button.btn-round {
     border-radius: 40px;
     background: white;
-    color:#f14668;
+    color:#E8113C;
     font-weight: 1.2rem;
-    border: 1px solid #f14668;
+    border: 1px solid #E8113C;
 }
 
 .button[disabled] {
