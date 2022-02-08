@@ -38,13 +38,15 @@
                     </a>
                     {% endif %}
                     {% if request.user.is_superuser %}
-                    <div class="justify-content-space-around m-3">
-                        <small>
+                    <div class="columns justify-content-space-around my-3">
+                    <div class="column">
                             <a class="button is-info is-outlined" href="{% url 'edit_product' product.id %}">
-                                Edit <i class="fas fa-pen ml-2"></i></a>
-                            <a class=" button is-danger is-outlined" href="{% url 'delete_product' product.id %}">
-                                Delete <i class="fas fa-times ml-2"></i></a>
-                        </mall>
+                                Edit <i class="fas fa-pen ml-2"></i></a></div>
+                                <div class="column">
+                            <a class="button is-danger is-outlined" href="{% url 'delete_product' product.id %}">
+                                Delete <i class="fas fa-times ml-2"></i>
+                            </a></div>
+                       
                     </div>
                     {% endif %}
                 </div>

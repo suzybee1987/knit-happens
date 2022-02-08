@@ -58,7 +58,7 @@ body {
 }
 
 .admin-icon {
-    padding-left: 10px;
+    padding-left: 30px;
 }
 
 .profile-icon {
@@ -169,7 +169,7 @@ nav.navbar.is-justify-content-space-evenly {
 }
 
 .notification.is-primary {
-    background-color: #315E5E;
+    background-color: #428080;
     color: #F6F6F6;
 }
 
@@ -588,3 +588,8 @@ a.button.is-primary.is-light:hover {
 }
 
 /* end of home  */
+
+
+.notification.is-info {
+    background-color:#2D7AB9;
+}

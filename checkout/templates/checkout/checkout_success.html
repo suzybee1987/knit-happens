@@ -55,23 +55,23 @@
                             </h3>
                         </div>
                         <div class="columns is-justify-content-center">
-                            <div class="column is-6 ">
+                            <div class="column is-6">
                                 <p class="product-title">Order number:</p>
                             </div>
-                            <div class="column is-6 ">
+                            <div class="column is-6">
                                 <p class="has-text-right">{{ order.order_number|wordwrap:5 }}</p>
                             </div>
                         </div>
                         <div class="columns is-justify-content-center">
-                            <div class="column is-6  ">
+                            <div class="column is-6">
                                 <p class="product-title">Order date:</p>
                             </div>
-                            <div class="column  is-6 ">
+                            <div class="column is-6 ">
                                 <p class=" has-text-right">{{ order.date }}</p>
                             </div>
                         </div>
                         <div class="columns is-justify-content-center">
-                            <div class="column  is-6 ">
+                            <div class="column is-6 ">
                                 <p class="product-title">Order details:</p>
                             </div>
                             <div class="column has-text-right is-6 ">
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="columns is-justify-content-space-evenly">
-                            <div class="column is-4 card">
+                            <div class="column is-4 my-3 card">
                                 <h2 class="has-text-centered is-underlined product-title">Shipping to:</h2>
                                 <div class="columns  has-text-left-desktop">
                                     <div class="column is-12 ">
@@ -106,13 +106,11 @@
                                             {% endif %}
                                             <p>{{ order.country }}</p>
                                             <p>{{ order.phone_number }}</p>
-                                            <p>{{ order.email }}</p>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
-                            <div class="column is-4 card">
+                            <div class="column is-4 card my-3">
                                 <h2 class="has-text-centered is-underlined product-title">Billing info:</h2>
                                 <div class="columns has-text-right">
 
