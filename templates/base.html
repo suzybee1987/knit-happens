@@ -55,7 +55,7 @@
         <header class="hero-head">
             <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
-                    <a class="navbar-item" href="{% url 'home' %}">
+                    <a class="navbar-item" href="{% url 'home' %}" title="Click to visit home page">
                         <h1 class="title-heading ml-2">Knit Happens</h1>
                     </a>
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -73,7 +73,8 @@
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
                                     <div class="control">
-                                        <input class="input search-input" type="text" name="q" placeholder="Find something">
+                                        <label for="search-desktop-view"></label>
+                                        <input class="input search-input" type="text" name="q" id="search-desktop-view" value="Find something">
                                     </div>
                                     <div class="control">
                                         <button class="button is-danger" type="submit">
@@ -87,62 +88,62 @@
                     </div>
                     <!-- right side of navbar hidden on mobile  -->
                     <div class="navbar-end is-hidden-touch">
-                        <a class="navbar-item m-3" href="{% url 'blog' %}">
+                        <a class="navbar-item m-3" href="{% url 'blog' %}" title="click here to visit the blog page">
                             <figure>
-                                <img src="{{ MEDIA_URL }}blog.png" alt="image for blog link">
+                                <img src="{{ MEDIA_URL }}blog.png" alt="Click here to visit the blog page">
                                 <figcaption>blog</figcaption>
                             </figure>
                         </a>
                         {% if request.user.is_superuser %}
-                        <a class="navbar-item m-3" href="{% url 'add_product' %}">
+                        <a class="navbar-item m-3" href="{% url 'add_product' %}" title="Click here to visit the add a product page">
                             <figure>
-                                <img src="{{ MEDIA_URL }}admin.png" alt="logo for admin users" class="admin-icon">
-                                <figcaption>admin</figcaption>
+                                <img src="{{ MEDIA_URL }}admin.png" alt="Click here to visit the add a product admin page" class="admin-icon">
+                                <figcaption>Add Product</figcaption>
                             </figure>
                         </a>
                         {% endif %}
                         {% if request.user.is_authenticated %}
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link m-3 ">
+                            <a class="navbar-link m-3 " title="Profile/Logout Dropdown">
                                 <figure>
                                     <img src="{{ MEDIA_URL }}profile-icon.png"
-                                        alt="icon for profile page and log in/out dropdown" class="profile-icon">
+                                    alt="Dropdown menu here to visit the profile page or to log out" class="profile-icon">
                                     <figcaption>
                                         profile
                                     </figcaption>
                                 </figure>
                             </a>
                             <div class="navbar-dropdown">
-                                <a class="navbar-item" href="{% url 'profile' %}">
+                                <a class="navbar-item" href="{% url 'profile' %}" title="Profile page">
                                     profile
                                 </a>
-                                <a class="navbar-item" href="{% url 'account_logout' %}">
+                                <a class="navbar-item" href="{% url 'account_logout' %}" title="Log out link">
                                     log out
                                 </a>
                             </div>
                         </div>
                         {% else %}
                         <div class="navbar-item has-dropdown is-hoverable">
-                            <a class="navbar-link m-3 ">
+                            <a class="navbar-link m-3 " title="Register/Log in dropdown link">
                                 <figure>
                                     <img src="{{ MEDIA_URL }}profile-icon.png"
-                                        alt="icon for profile page and log in/out dropdown" class="profile-icon">
+                                    alt="Dropdown menu here to visit the log in page or to register" class="profile-icon">
                                     <figcaption>
                                         profile
                                     </figcaption>
                                 </figure>
                             </a>
                             <div class="navbar-dropdown is-right">
-                                <a class="navbar-item is-hidden-touch" href="{% url 'account_login' %}">
+                                <a class="navbar-item is-hidden-touch" href="{% url 'account_login' %}" title="Log in">
                                     log in
                                 </a>
-                                <a class="navbar-item is-hidden-touch" href="{% url 'account_signup' %}">
+                                <a class="navbar-item is-hidden-touch" href="{% url 'account_signup' %}" title="register">
                                     register
                                 </a>
                             </div>
                         </div>
                         {% endif %}
-                        <a class="navbar-item m-3" href="{% url 'view_bag' %}">
+                        <a class="navbar-item m-3" href="{% url 'view_bag' %}" title="view shopping bag">
                             <figure>
                                 <img src="{{ MEDIA_URL }}bag.png" alt="icon for the shopping bag here" class="bag-icon">
                                 <figcaption>
@@ -165,7 +166,8 @@
                             <form method="GET" action="{% url 'products' %}">
                                 <div class="field has-addons">
                                     <div class="control">
-                                        <input class="input search-input" type="text" name="q" placeholder="Find something">
+                                        <label for="search-mobile-view"></label>
+                                        <input class="input search-input" type="text" name="q" id="search-mobile-view" value="Find something">
                                     </div>
                                     <div class="control">
                                         <button class="button is-danger" type="submit">
@@ -200,32 +202,32 @@
                         </div>
                         <div class="navbar-mobile">
                             <!-- blog -->
-                            <a class="navbar-item" href="{% url 'blog' %}">
-                                <img src="{{ MEDIA_URL }}blog.png" alt="blog" class="mobile-icon">
+                            <a class="navbar-item" href="{% url 'blog' %}" title="Click here to visit the blog page">
+                                <img src="{{ MEDIA_URL }}blog.png" alt="Click here to visit the blog page" class="mobile-icon">
                             </a>
                             {% if request.user.is_superuser %}
                             <!-- admin -->
-                            <a class="navbar-item" href="{% url 'add_product' %}">
-                                <img src="{{ MEDIA_URL }}admin.png" alt="admin" class="mobile-icon">
+                            <a class="navbar-item" href="{% url 'add_product' %}" title="Click here to visit the add a product admin page">
+                                <img src="{{ MEDIA_URL }}admin.png" alt="Click here to visit the add a product admin page" class="mobile-icon">
                             </a>
                             {% endif %}
                             {% if request.user.is_authenticated %}
                             <div class="navbar-item has-dropdown is-hoverable mobile">
-                                <a class="navbar-link">
+                                <a class="navbar-link" alt="Dropdown here to visit the profile and log out page">
                                     <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                                 </a>
                                 <div class="navbar-dropdown is-right">
-                                    <a class="navbar-item" href="{% url 'profile' %}">
+                                    <a class="navbar-item" href="{% url 'profile' %}" title="Profile page link">
                                         Profile
                                     </a>
-                                    <a class="navbar-item" href="{% url 'account_logout' %}">
+                                    <a class="navbar-item" href="{% url 'account_logout' %}" title="Log out page">
                                         Log out
                                     </a>
                                 </div>
                             </div>
                             {% else %}
                             <div class="navbar-item has-dropdown is-hoverable mobile">
-                                <a class="navbar-link">
+                                <a class="navbar-link" title="Dropdown to log in or register for account">
                                     <img src="{{ MEDIA_URL }}profile-icon.png" alt="profile-icon">
                                 </a>
                                 <div class="navbar-dropdown is-right">
@@ -238,7 +240,7 @@
                                 </div>
                             </div>
                             {% endif %}
-                            <a class="navbar-item" href="{% url 'view_bag' %}">
+                            <a class="navbar-item" href="{% url 'view_bag' %}" title="Link to shopping bag">
                                 <img src="{{ MEDIA_URL }}bag.png" alt="bag-icon" class="mobile-icon">
                                 {% if grand_total %}
                                 £{{ grand_total|floatformat:2 }}
@@ -260,9 +262,9 @@
                 <div class="notification is-danger">
                     <div class="columns">
                         <div class="column is-text-centered">
-                            <h5 class="delivery">
+                            <h2 class="delivery">
                                 Free delivery on orders over £{{ free_delivery_threshold }}
-                            </h5>
+                            </h2>
                         </div>
                     </div>
                 </div>
@@ -301,7 +303,7 @@
                     <div class="columns">
                         <ul class="column is-justify-content-center">
                             <li>
-                                <a class="nav-item footer-nav" href="{% url 'terms' %}">T&Cs</a>
+                                <a class="nav-item footer-nav" href="{% url 'terms' %}" title="Terms and Conditions">T&Cs</a>
                             </li>
                             <li>
                                 <a class="nav-item footer-nav" href="{% url 'privacy' %}">Privacy Policy</a>
@@ -309,22 +311,22 @@
                         </ul>
                         <ul class="column is-justify-content-center is-12-mobile">
                             <li>
-                                <a href="https://www.facebook.com" target="_blank" class="nav-item">
+                                <a href="https://www.facebook.com" target="_blank" class="nav-item" title="Facebook">
                                     <i class="fab fa-lg fa-facebook footer-nav icon "></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/" target="_blank" class="nav-item">
+                                <a href="https://www.instagram.com/" target="_blank" class="nav-item" title="Instagram">
                                     <i class="fab fa-lg fa-instagram footer-nav icon "></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://github.com/suzybee1987" target="_blank" class="nav-item">
+                                <a href="https://github.com/suzybee1987" target="_blank" class="nav-item" title="GitHub">
                                     <i class="fab fa-lg fa-github footer-nav icon "></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.pinterest.co.uk/" target="_blank" class="nav-item">
+                                <a href="https://www.pinterest.co.uk/" target="_blank" class="nav-item" title="Pinterest">
                                     <i class="fab fa-lg fa-pinterest footer-nav icon "></i>
                                 </a>
                             </li>

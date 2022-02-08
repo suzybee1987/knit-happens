@@ -36,7 +36,7 @@ class Product(models.Model):
 
 class Review(models.Model):
     product = models.ForeignKey(
-        Product, default=None, on_delete=models.PROTECT,
+        Product, default=None, on_delete=models.CASCADE,
         related_name="reviews"
         )
     review_author = models.ForeignKey(
