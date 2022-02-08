@@ -32,24 +32,24 @@
         {% for item in bag_items %}
         <div class="columns is-multiline m-3">
             <div class="column is-4">
-                <div class="card">
-                {% if item.product.image %}
-                <a href="{% url 'product_detail' item.product.id %}">
-                    <div class="card-image">
-                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300"">
-                            <img src="{{ item.product.image.url }}" alt="image for {{ item.product.name }}"
+                    {% if item.product.image %}
+                    <a href="{% url 'product_detail' item.product.id %}">
+                        <div class="card-image">
+                            <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300"">
+                            <img src=" {{ item.product.image.url }}" alt="image for {{ item.product.name }}"
                                 class="product-image" height="300">
+                            </figure>
+                        </div>
+                    </a>
+                    {% else %}
+                    <div class="card-image">
+                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ item.product.name }}">
                         </figure>
                     </div>
-                </a>
-                {% else %}
-                <div class="card-image">
-                    <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
-                        <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ item.product.name }}">
-                    </figure>
-                </div>
-                {% endif %}
-            </div></div>
+                    {% endif %}
+                
+            </div>
             <div class="column is-6">
                 <div class="card-content  has-text-right">
                     <p class="product-title is-6 my-2">{{ item.product.name }}</p>
@@ -84,6 +84,8 @@
                         <div class="columns is-mobile">
                             <div class="column">
                                 <button class="button is-danger" type="submit">Update</button>
+                            </div>
+                            <div class="column">
                                 <a class="remove-size is-light is-danger is-outlined button"
                                     id="remove_size_{{ item.item_id }}" data-product_size="{{ item.size }}">Remove</a>
                             </div>
@@ -93,6 +95,8 @@
                         <div class="columns is-mobile">
                             <div class="column">
                                 <button class="button is-danger" type="submit">Update</button>
+                            </div>
+                            <div class="column">
                                 <a class="remove-weight is-light is-danger is-outlined button"
                                     id="remove_weight_{{ item.item_id }}"
                                     data-product_weight="{{ item.weight }}">Remove</a>
@@ -102,6 +106,8 @@
                         <div class="columns is-mobile">
                             <div class="column">
                                 <button class="button is-danger" type="submit">Update</button>
+                            </div>
+                            <div class="column">
                                 <a class="remove- is-light is-danger is-outlined button"
                                     id="remove_{{ item.item_id }}">Remove</a>
                             </div>
@@ -118,7 +124,7 @@
             <div class="column"></div>
             <div class="column"></div>
             <div class="column is-2">
-                <p class="product-title has-text-right is-6 is-align-content-end">Subtotal: 
+                <p class="product-title has-text-right is-6 is-align-content-end">Subtotal:
                     £ {{ item.product.price | calc_subtotal:item.quantity }}</p>
             </div>
         </div>

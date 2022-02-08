@@ -15,8 +15,8 @@
         <!-- heading  -->
         <div class="columns">
             <div class="column">
-                <h1 class="title-heading my-2">Product Management</h1>
-                <h2 class="title-heading-small my-2">Edit A Product</h2>
+                <h3 class="title-heading my-2">Product Management</h3>
+                <h4 class="title-heading-small my-2">Edit A Product</h4>
             </div>
         </div>
         <!-- end of heading  -->
@@ -26,7 +26,7 @@
                     {% csrf_token %}
                     {{ form | crispy }}
                     <div class="is-justify-content-right">
-                        <div class="columns my-2 has-text-centered">
+                        <div class="columns is-mobile  my-2 has-text-centered">
                             <div class="column">
                                 <a href="{% url 'products' %}" class="button is-danger is-light is-outlined">
                                     Cancel

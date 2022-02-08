@@ -1,7 +1,7 @@
 a.button.is-primary.is-light:hover {
-    border: 2px solid #00947e;
+    border: 2px solid #428080;
     color: #ebfffc;
-    background: #00947e;
+    background: #428080;
 
 }
 
@@ -22,11 +22,10 @@ a.button.is-primary.is-light:hover {
 
 .product-card {
     padding: 20px;
-    border-color: #00947e;
-    background-color: #00947e;
+    border-color: #428080;
+    background-color: #428080;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 }
-
 
 .col-animation {
     padding-bottom: 50px;
@@ -50,7 +49,7 @@ a.button.is-primary.is-light:hover {
 .inspo {
     font-size: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
-    border: 10px solid #00947e;
+    border: 10px solid #428080;
 }
 
 .inspo:hover {

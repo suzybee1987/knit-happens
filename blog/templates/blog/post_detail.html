@@ -23,7 +23,7 @@
                 <div class="card blog-card">
                     <div class="card-header">
                         <div class="card-header-title">
-                            <h1 class="title-heading-small blog-title">{{ post.title }}</h1>
+                            <h3 class="title-heading-small blog-title">{{ post.title }}</h3>
                         </div>
                     </div>
                     {% if post.image %}
@@ -47,29 +47,29 @@
                         </p>
 
                         <div class="blog-content content">
-                            <p class="blog-p">By: <span class="blog-small">{{ post.author }}, 
-                                {{ post.created_on|timesince }}
+                            <p class="blog-p">By: <span class="blog-small">{{ post.author }},
+                                    {{ post.created_on|timesince }}
                                     ago </span></p>
                         </div>
                     </div>
                     {% if post.author == request.user %}
-                            <div class="columns is-mobile has-text-centered is-justify-content-center">
-                                <div class="column">
-                                    <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
-                                </div>
-                                <div class="column">
-                                    <a href="{% url 'delete_post' post.slug %}" class="button is-danger is-light">Delete
-                                        Post</a>
-                                </div>
-                            </div>
-                            {% endif %}
+                    <div class="columns is-mobile has-text-centered is-justify-content-center">
+                        <div class="column">
+                            <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
+                        </div>
+                        <div class="column">
+                            <a href="{% url 'delete_post' post.slug %}" class="button is-danger is-light">Delete
+                                Post</a>
+                        </div>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
             <div class="column is-6-tablet is-10-mobile is-offset-1-mobile mb-6">
                 <div class="card comments my-4">
                     <div class="card-header">
                         <div class="card-header-title">
-                            <h2 class="title-heading-small">Comments about {{ post.title }}</h2>
+                            <h4 class="title-heading-small">Comments about {{ post.title }}</h4>
                         </div>
                     </div>
                     <div class="card-content py-3">
@@ -110,9 +110,10 @@
                             </div>
                         </form>
                         {% else %}
-                        <h2 class="title-heading-small">Please <a href="{% url 'account_login' %}">log in</a> to add a comment </h2>
-{% endif %}
-                                        </div>
+                        <h5 class="title-heading-small">Please <a href="{% url 'account_login' %}">log in</a> to add a
+                            comment </h5>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
