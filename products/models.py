@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
+from decimal import Decimal
 
 
 class Category(models.Model):
@@ -26,7 +28,7 @@ class Product(models.Model):
     description = models.TextField()
     has_sizes = models.BooleanField(null=True, blank=True, default=False)
     has_weights = models.BooleanField(null=True, blank=True, default=False)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=6, decimal_places=2, validators=[MinValueValidator(Decimal('0.01'))])
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=False)
 
