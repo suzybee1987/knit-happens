@@ -77,17 +77,6 @@ label {
     background-color: #fff;
 }
 
-@media screen and (min-width: 768px) {
-    .product-details-card-image {
-        /* https: //getcssscan.com/css-box-shadow-examples no.7*/
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        border-radius: 5px;
-        background-color: #fff;
-        max-width: 300px;
-    }
-}
-
-
 .product-details-card {
     /* https: //getcssscan.com/css-box-shadow-examples no.7*/
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;

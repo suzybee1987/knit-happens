@@ -58,8 +58,34 @@
                             <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
                         </div>
                         <div class="column">
-                            <a href="{% url 'delete_post' post.slug %}" class="button is-danger is-light">Delete
-                                Post</a>
+                            <button class="js-modal-trigger button is-danger is-outlined" data-target="modal-delete">
+                                Delete
+                            </button>
+                            <div id="modal-delete" class="modal">
+                                <div class="modal-background"></div>
+                                <div class="modal-card">
+                                    <header class="modal-card-head is-justify-content-center has-text-centered">
+                                        <h4 class="modal-card-title is-uppercase product-subtitles-title">
+                                            Delete Blog Post</h4>
+                                        <button class="modal-close is-large" aria-label="close"></button>
+                                    </header>
+                                    <section class="modal-card-body is-justify-content-center has-text-centered">
+                                        <h4 class="is-uppercase product-subtitles-title">
+                                            Are you sure you want to delete
+                                            <span class="is-underlined is-italic"> {{ post.slug }}?</span>
+                                        </h4>
+                                        <p class="is-uppercase product-subtitles-title">
+                                            This action cannot be undone!
+                                        </p>
+                                    </section>
+                                    <footer class="modal-card-foot is-justify-content-space-around">
+                                        <a class="button is-danger" href="{% url 'delete_post' post.slug %}">
+                                            Delete <i class="fas fa-times ml-2"></i>
+                                        </a>
+                                        <button class="button is-danger is-outlined is-light">Cancel</button>
+                                    </footer>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {% endif %}
@@ -120,4 +146,9 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'products/js/modal.js' %}"></script>
 {% endblock %}
