@@ -61,13 +61,13 @@
                         </div>
                         <hr class="divider-bag">
                         {% endfor %}
-                        <div class="columns has-text-right is-mobile has-text-weight-bold">
+                        <div class="columns is-mobile has-text-weight-bold">
                             <div class="column">
                                 <p class="my-1">Order Total:</p>
                                 <p class="my-1">Delivery:</p>
                                 <p class="my-1">Grand Total:</p>
                             </div>
-                            <div class="column">
+                            <div class="column has-text-right">
                                 <p class="my-1">£{{ total | floatformat:2 }}</p>
                                 <p class="my-1">£{{ delivery | floatformat:2 }}</p>
                                 <p class="my-1">£{{ grand_total | floatformat:2 }}</p>
