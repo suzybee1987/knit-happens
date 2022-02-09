@@ -340,7 +340,9 @@
             </nav>
         </footer>
     </section>
-
+    {% block postloadjs %}
+    <script src="{% static 'js/base.js' %}"></script>
+    {% endblock %}
 </body>
 
 </html>

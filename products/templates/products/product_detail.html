@@ -47,31 +47,6 @@
                             <button class="js-modal-trigger button is-danger is-outlined" data-target="modal-delete">
                                 Delete
                             </button>
-                            <div id="modal-delete" class="modal">
-                                <div class="modal-background"></div>
-                                <div class="modal-card">
-                                    <header class="modal-card-head is-justify-content-center has-text-centered">
-                                        <h4 class="modal-card-title is-uppercase product-subtitles-title">
-                                            Delete Product</h4>
-                                        <button class="modal-close is-large" aria-label="close"></button>
-                                    </header>
-                                    <section class="modal-card-body is-justify-content-center has-text-centered">
-                                        <h4 class="is-uppercase product-subtitles-title">
-                                            Are you sure you want to delete
-                                            <span class="is-underlined is-italic"> {{ product.name }}?</span>
-                                        </h4>
-                                        <p class="is-uppercase product-subtitles-title">
-                                            This action cannot be undone!
-                                        </p>
-                                    </section>
-                                    <footer class="modal-card-foot is-justify-content-space-around">
-                                        <a class="button is-danger" href="{% url 'delete_product' product.id %}">
-                                            Delete <i class="fas fa-times ml-2"></i>
-                                        </a>
-                                        <button class="button is-danger is-outlined is-light">Cancel</button>
-                                    </footer>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     {% endif %}
@@ -320,14 +295,12 @@
                     </div>
                     <button class="modal-close is-large" aria-label="close"></button>
                 </div>
-                <!-- <div class="columns">
-                    <div class="column"> -->
+
                 <button class="js-modal-trigger button is-info is-light is-outlined my-4"
                     data-target="modal-crochet">Crochet Hook
                     Conversion
                 </button>
-                <!-- </div>
-                </div> -->
+
                 <!-- end of modals  -->
                 {% endif %}
                 {% endwith %}
@@ -398,10 +371,41 @@
             Please <a href="{% url 'account_login' %}">log in</a> to add a review of a product.</h6>
     </div>
 </div>
+
+
 {% endif %}
-{% endblock %}
+
+<!-- Delete Product Modal  -->
+<div id="modal-delete" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <header class="modal-card-head is-justify-content-center has-text-centered">
+            <h4 class="modal-card-title is-uppercase product-subtitles-title">
+                Delete Product</h4>
+            <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body is-justify-content-center has-text-centered">
+            <h4 class="is-uppercase product-subtitles-title">
+                Are you sure you want to delete
+                <span class="is-underlined is-italic"> {{ product.name }}?</span>
+            </h4>
+            <p class="is-uppercase product-subtitles-title">
+                This action cannot be undone!
+            </p>
+        </section>
+        <footer class="modal-card-foot is-justify-content-space-around">
+            <a class="button is-danger" href="{% url 'delete_product' product.id %}">
+                Delete <i class="fas fa-times ml-2"></i>
+            </a>
+            <button class="button is-danger is-outlined is-light">Cancel</button>
+        </footer>
+    </div>
+</div>
+<!-- end of delete product modal  -->
+
 
 {% block postloadjs %}
 {{ block.super }}
 <script src="{% static 'products/js/modal.js' %}"></script>
+{% endblock %}
 {% endblock %}
