@@ -98,20 +98,18 @@ The fonts were chosen to complement one another and also give the aesthetic of a
 
 ### **Colours**
 
-- ![](static/docs/testing/images/knit-happens-coolors.png) This Coolors palette was used to put together a colour scheme to reflect the different colours of the balls of wool to keep in with the theme of the knitting shop. 
-
+- ![](static/docs/testing/images/ms4-coolors.png) This Coolors palette was used to put together a colour scheme to reflect the different colours of the balls of wool to keep in with the theme of the knitting shop. 
+- The original colour scheme was slightly different but due to accessibility reasons this was changed near the end of building this project to improve contrast ratios. Previous colours [here]((static/docs/testing/images/knit-happens-coolors.png)) 
 
 ### **Imagery**
 
-The images used were taken from Pexels, majority from the same user.
+The images used were taken from these sources:
 - Home page wallpaper by [Nynne Schrøder](https://unsplash.com/photos/nMdC42MrwN8)
 - The images of the different kinds and colours of wool were from [Surene Palvie](https://www.pexels.com/@surene-palvie-1075224) 
 - The images of knitted garments from [Miriam Alonso](https://www.pexels.com/@miriam-alonso), [Anna Khomutova](https://www.pexels.com/@anna-khomutova-3562984), [Karolina Grabowska](https://www.pexels.com/@karolina-grabowska), [Arina Krasnikova](https://www.pexels.com/@arina-krasnikova) and [Daria Shevtsova](https://www.pexels.com/@daria)
 
 
 ### **Wireframes**
-
-
 
 The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/xd.html) and can be found in pdf form in [wireframes](wireframes).
 
@@ -147,8 +145,6 @@ The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/x
 - [Cart](static/docs/testing/images/wireframes/mobile-cart.png)
 - [Blog](static/docs/testing/images/wireframes/mobile-blog.png)
 
-
-
 [Back to contents](#contents)
 
 
@@ -167,60 +163,91 @@ The navigation bar displays different links depending on whether the user is log
 | Log Out  | &#10007;  | &#10003;  | &#10003;  |
 | Search  | &#10003;  | &#10003;  | &#10003;  |
 | Blog  | &#10003;  | &#10003;  | &#10003;  |
-| Product Management | &#10007; |&#10007;  |  &#10003; |
+| Add Product | &#10007; |&#10007;  |  &#10003; |
 
 
 ### **Features Implemented**
 
-##### Home
-
-
-#### Create Profile
+##### **Create Profile**
 - Users are able to:
   - Create a profile to save their orders and personal information
   - Confirm their details are correct via email verification
   - Store details for faster checkout
 
-#### Products Features
+##### **Log in to Profile**
+- Users are able to:
+  - Log in to profile to see their orders and personal information
+  - Edit personal information if required
 
-##### Products Page
+##### **Products Page**
 - Users are able to:
   - See the products for sale on the site
   - Sort products by A-Z, Name, Category, Price.
   - See only 12 products at a time to save site loading times
   - Price of product
 
-##### Product Details Page
-- Click the products to find out more information including
+##### **Product Details Page**
+- Users are able to:
+  - Click the products to find out more information including
   - Name, Size (if has size), Weight (if has weight), colour, price, SKU, category
   - Add products to bag to buy
   - Find out the needle size of their required product and convert to local using the sizing guide
   - See reviews of products and also review the products if logged in
 
-##### Products Management
+- Super users are able to:
+  - Add, edit and delete products
+
+##### **Products Management**
 If the user is a super user they can:
   - Add a product (inc adding image)
   - Edit a product
   - Delete a Product
 
-##### Bag
+##### **Bag**
 - Users are able to:
   - Adjust number of products in bag if they require
   - Find out delivery costs
   - Find out how much more they need to spend to get free delivery
   - Clearly see the total of their items by quantity and grand total
 
-##### Checkout
+##### **Checkout**
+- Users can:
+  - Save time as personal details pulled from profile page if user is logged in
+  - Save their delivery information to their profile
+  - Clearly see how much they will be charged for their items and delivery
 
-##### Blog
+##### **Blog**
+
+- Guest users can:
+  - View blog posts
+
+- Logged in users can:
+  - Add comments on blog posts
+  - Create new blog posts
+  - Edit their own blog posts
+  - Delete their own blog posts
+
+- Super users are able to:
+  - Add, edit and delete any blog posts
 
 
+##### **Navigation**
+
+**Header**
+
+- All users can:
+  - Navigate to home, blog, products, bag pages
+
+- Users logged in can access:
+  - Profile pages
+
+- Users not logged in can:
+  - Access log in and register pages
 
 
+**Footer**
 
-
-
-#### **Features relevant to all pages** (extended via *base.html*):
+- All users can access social media links, terms and conditions and privacy policy pages.
 
 
 
@@ -230,36 +257,59 @@ If the user is a super user they can:
 
 #### *404.html*
 
- -
+ - 404 page created to redirect users back to the main site in case of an error
+
+#### *403.html*
+
+ - 403 page created to redirect users back to the main site in case they try to access a page they are not authorised to
 
 #### *500.html*
 
- - 
+ - 500 error page created to redirect users to the main site after a server error
 
 ### **Future Features**
 
 - When user logs out their bag is emptied so that when they log bag in the existing items would be in their bag from the previous log in. I would implement a feature where this was saved to the profile. 
-
+- The ability for users to change their username
+- A star rating or upvote functionality for the products and blog posts.
 
 ### **Responsive Design**
 
+The site was designed to be mobile first as more users are using their handheld devices to shop online but this has been adapted to allow a great experience for desktop users also. 
 
 ### **Defensive Design**
 
+- **Form Validation**
+  - Form validation has been added to every form to ensure all required information is included before submitting.
+  - If incorrect data is input a warning text appears to advise the user how to continue
+
+- **Default Image if none added**
+  - In the event that a product or blog post is added without an image a default image will be added.
+- **Unauthorised Attempts**
+  - An [error](static/docs/testing/images/error.png) is launched if the user attempts to visit a part of the site where they are not authorised 
+- **@login_required**
+  - @login_required decorator added to restrict access to certain pages.
+      - If a logged-out user tries to access a restricted page, they will be redirected to the login page.
+      - Only authorised users may perform certain actions: Eg add, edit, delete product and edit, delete blog posts. [Example](static/docs/testing/images/not-post-author.png)
+- **Bag**
+  - Validation ensures a minimum of 0 product and maximum of 99 products is added to the bag. In the case that 0 is selected the item is removed from the bag.
+  - Error message appears if user tries to add negative numbers of items "Value must be greater than or equal to 0"
 
 
 [Back to contents](#contents)
-
-
 
 ## **Database**
 
 - [SQLite](https://www.sqlite.org/index.html)
     - Cloud based database to hold the product, user, order and blog fields.
-- [Postgres]
+- [Postgres](https://www.postgresql.org/)
 
-### **Database Schema**
+### **Database Design**
 
+The database uses SQL through PostgreSQL and were originally formed from fixtures [*categories.json*](products/fixtures/categories.json) and [*products.json*](products/fixtures/products.json)
+
+The Database schema is below
+![](static/docs/testing/images/database.png)
 
 
 ## **Technologies**
