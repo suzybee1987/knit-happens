@@ -23,6 +23,7 @@
             </div>
         </div>
         <div class="columns is-justify-content-center is-multiline">
+            {% if posts %}
             {% for post in posts %}
             <div class="column is-3-desktop is-4-tablet has-text-left my-3">
                 <div class="card blog-card">
@@ -72,6 +73,9 @@
                 </div>
             </div>
             {% endfor %}
+            {% else %}
+            <h4 class="title-heading-small">No posts yet! why not add one?</h4>
+            {% endif %}
         </div>
     </div>
 </div>
