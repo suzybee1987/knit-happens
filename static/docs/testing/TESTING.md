@@ -314,6 +314,38 @@ The site was tested on these devices:
 
 ### User Stories Testing
 
+| User Story ID  | As a/an  | I want to be able to...  | So that I can... | Testing | Pass/Fail |
+|-------------------|-------------------|-----------------|-------------------|-------------------|---------------|
+| Viewing Products & Navigation |
+| 1  | User/Shopper | view individual products | identify their qualities and compare. | View Products Page | Pass |
+| 2  |   | be able to add, edit quantity and remove items from my bag | buy them if after browsing. | Add product to bag, update item quantity, remove from bag | Pass |
+| 3  |   | see any special offers | take advantage of saving money on products I'd like to buy. | Navigation bar displays free shipping if shopper spends £50 or more | Pass |
+| 4  |   | gain inspiration from the blog | decide what to buy and make next. | Blog Page displays knitted goods with comments linking products to the store | Pass |
+| 5  |   | add posts to the blog | show other users what I have made and gain their opinions through comments. | Blog add to post function allows users to add posts to the blog | Pass |
+| Registration and Accounts |
+| 6  | User/Shopper | register for an account | keep track of my orders and check my personal details. | Users can register for an account and view their orders in the profile page | Pass |
+| 7  |   | receive email confirmation upon signing up | verify my set up was successful. | User receives email when they register for an account | Pass |
+| 8  |   | be able to reset my password in case I forget it | gain access to my account. | User can request email to reset their password | Pass |
+| 9  |   | have the ability to log in to the site with my details | view my orders and personal details | Users can log in using their registered details and view their orders and personal details | Pass |
+| 10  |   | update my personal details | keep them up to date. | Users can update their personal details in the profile section | Pass |
+| 11 |   | purchase from the site without having to create an account | check out quickly and easily. | Users can use the checkout without registering for an account | Pass |
+| 12  |   | have the ability to register to the site if I choose | easily to access my account and orders. | Users can register to create an account to see orders |
+| Searching products |
+| 13  | User/Shopper | search for specific products | find products I am interested in buying. | Users can search on the site for products and if no product available message to confirm this | Pass |
+| 14  |   | easily understand the search results | quickly decide which product I want to buy. | Users can search for products and quickly see how many match their criteria | Pass |
+| 15  |   | sort by price, name, category | view a wide range and choose which to buy. | Users can sort by price, name and category on the products page | Pass |
+| Checkout  |
+| 16  | Shopper | have a running total of my bag | stay within my budget. | Users can see the total in the bag icon on the navbar | Pass |
+| 17  |   | view my bag contents | keep track of which products I have selected. | Users can view their bag to see which products and quantities have been added | Pass |
+| 18  |   | easily select the correct size | ensure I have ordered the right size for my project. | Users use the dropdown to select the required size/weight and this is confirmed in the bag| Pass |
+| 19  |   | adjust the quantity of products to buy | update the order without going back to the product page. | Users can update quantities in the shopping bag successfully | Pass |
+| 20  |   | easily enter my payment details | checkout as quickly and easily as possible. | Users can navigate the checkout form payment input easily | Pass |
+| 21  |   | view the full order before entering card details | check it before confirmation. | The Order can be viewed on the checkout page before entering card details | Pass |
+| 22  |   | receive email notifications when I make an order | confirm my order has been placed and refer back to. | Users receive an email when they make an order | Pass |
+| Admin/Management  |
+| 23  | Store owner/Admin | add a product | sell new items in my store  | Super users can add a product | Pass |
+| 24  |   | update a product | change descriptions, sizes, images in my store. | Super users can edit a product | Pass |
+| 25  |   | delete a product | remove items no longer on sale. | Super users can delete a product | Pass |
 
 ### **Wave**
 
