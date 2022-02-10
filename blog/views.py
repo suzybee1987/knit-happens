@@ -126,5 +126,10 @@ def delete_post(request, slug):
 
     else:
         messages.error(request, "You are not allowed to do that.")
+    
+    template = 'blog/edit_post.html'
+    context = {
+        'post': post,
+    }
 
-    return render(request)
+    return render(request, template, context)

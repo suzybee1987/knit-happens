@@ -51,7 +51,7 @@
                                     <td>
                                         <a href="{% url 'order_history' order.order_number %}"
                                             title="{{ order.order_number }}">
-                                            {{ order.order_number|truncatechars:6 }}
+                                            {{ order.order_number|truncatechars:10 }}
                                         </a>
                                     </td>
                                     <td>

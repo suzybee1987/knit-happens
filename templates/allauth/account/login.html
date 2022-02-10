@@ -6,8 +6,8 @@
 {% block inner_content %}
 
 <h3 class="title-heading">{% trans "Sign In" %}</h3>
-<div class="columns">
-  <div class="card card-margin column is-8 is-offset-2 is-10-tablet is-offset-1-tablet my-5">
+<div class="columns is-justify-content-center">
+  <div class="card card-margin column is-8 is-10-tablet my-5">
     <div class="card-content">
       {% get_providers as socialaccount_providers %}
       {% if socialaccount_providers %}
