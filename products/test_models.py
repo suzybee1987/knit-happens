@@ -83,16 +83,3 @@ class TestProductModel(TestCase):
         self.assertNotEqual(product_with_sizes.has_weights, True)
         self.assertEqual(product_no_sizes_or_weights.has_weights, False)
         self.assertNotEqual(product_no_sizes_or_weights.has_weights, True)
-
-
-# class TestReviewModel(TestCase):
-#     """
-#     test product review model
-#     """
-#     def test_review_string_method_returns_title(self):
-#         """
-#         test product review model string method
-#         """
-#         product = Product.objects.get(id=1)
-#         review = Review.objects.create(review_title="review_title", id=1)
-#         self.assertEqual(str(review), "review_title")

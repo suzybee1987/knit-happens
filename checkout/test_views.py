@@ -12,7 +12,7 @@ from products.models import Product, Category
 
 class TestBagViews(TestCase):
     """
-    Test the home page loads correctly
+    Test the checkout page loads correctly
     """
 
     fixtures = [

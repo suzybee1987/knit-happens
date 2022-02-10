@@ -35,13 +35,124 @@ Back to [README](README.md)
   - [**PEP8**](#pep8])
 
 ### **Automated Testing**
-#### **Bag**
-#### **Checkout**
-#### **Profile**
-#### **Products**
-#### **Blog**
-#### **Home**
 
+#### **Bag**
+Automated testing of views was completed to:
+- Test the calc_subtotal function works as expected
+- Test the bag views work correctly
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- Test the products page is accessible by name
+- Test that the view_bag view works correctly
+- Test that the add to bag view works as expected
+- Test that the add_to_bag function adds the item to the bag
+- Test that the add_to_bag view adds the product to the bag
+- Test that the add_to_bag view increases the quantity of an item if the item is already present in the shopping bag
+- Test that the adjust bag view works as expected to calculate total
+- Test that the add_to_bag view updates the quantity of an item if the item is already in the bag
+- Test remove from bag view removes the product from the bag
+- Test that the remove_from_bag view removes an item from the bag
+- Test that the remove from bag view returns an error if something goes wrong
+
+
+#### **Checkout**
+Automated testing of views was completed to:
+- Test the checkout page loads correctly
+- Test that the cache_checkout_data view works as expected
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- test the products page is accessible by name
+- Test get checkout view when items in the bag
+- Test error msg appears when bag empty
+- Test error msg appears when no stripe key
+- Check if user is authenticated then autofill the form with details
+
+Automated testing of models was completed to:
+- test the order model
+- test order line model string method
+
+Automated testing of forms was completed to:
+- test to see if full name field is required
+- test to see if email field is required
+- test to see if phone number field is required
+- test to see if country field is required
+- test to see if town_or_city field is required
+- test to see if street_address1 field is required
+- check the field only displays certain fields
+
+[Back to contents](#contents)
+
+#### **Profiles**
+Automated testing of views was completed to:
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- Test the profile page is accessible by name
+- Test the profile form works if form is valid
+- Test orders displayed on login to profile page
+
+Automated testing of models was completed to:
+- Test retrieving the user profile
+- Test the user profile string method returns the username
+
+Automated testing of forms was completed to:
+- Test that none of the form fields are required
+
+
+#### **Products**
+Automated testing of views was completed to:
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- Test the products page is accessible by name
+- Test products display
+- Test categories sort functionality
+- Test that the sort functionality works
+- Test that the search functionality works as expected
+- Test that the search error message display correctly
+- Test product detail page loads via url
+- Test product detail page loads via name
+- Test product detail page loads via template
+
+Automated testing of models was completed to:
+- Test category model string method
+- Testing category models friendly name string method returns friendly name
+- Test product model string method
+- Test that the product name is returned
+- Test that the product description is returned
+- Test whether a product has sizes or not
+- Test whether a product has weights or not
+
+Automated testing of forms was completed to:
+- Test to see if review title field is required
+- Test to see if review field is required
+- Check the field only displays certain fields
+- Test to see if review title field is required
+
+
+#### **Blog**
+Automated testing of views was completed to:
+- Test the blog page loads correctly
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- Test the blog page is accessible by name
+- Test blog posts display as expected
+- Test to see if the post string method returns the title as expected
+- Test post detail page loads via name
+- Test post detail page loads via template
+
+
+#### **Home**
+Automated testing of views was completed to:
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- Test the home page is accessible by name
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- Test the privacy page is accessible by name
+- Test the url works when loading the page
+- Test the correct template loads on page load
+- Test the terms and conditions page is accessible by name
+
+[Back to contents](#contents)
 
 ### **Manual Testing**
 #### **Browsers**
@@ -60,7 +171,6 @@ The site was tested on these devices:
 - 27" iMac
 - Acer Swift 3 running Windows 11
 
-[Back to contents](#contents)
 
 #### **Navigation**
     - all users
@@ -94,6 +204,7 @@ The site was tested on these devices:
 | Navbar links | Click Log In redirects to log in page | Click Log In | User redirected to Log In Page | Pass |
 |  | Click Register redirects to log in page | Click Register | User redirected to Register Page | Pass |
 
+[Back to contents](#contents)
 
 #### **Home Page**
 | Feature        | Expected           | Testing  | Result | Pass/Fail |
@@ -129,6 +240,7 @@ The site was tested on these devices:
 | Order History | Order History is visible if order placed while logged in | Navigate to Profile page, view Order History Section | The Order History is visible | Pass |
 | | Order information can be accessed by clicking order number | Navigate to Profile page, view Order History Section, click Order Number | Order Information is visible | Pass |
 
+[Back to contents](#contents)
 
 #### **Products Pages**
 
@@ -164,6 +276,8 @@ The site was tested on these devices:
 | Edit Products | Only admin is allowed to visit edit product page | Log in as non-superuser and attempt to access /products/<item_id>/edit/ | Redirect to home page, error message displayed "Sorry, only store owners can do that." | Pass |
 | Form Validation | Required fields must be completed to edit the product  | Attempt to edit product without filling in a required field | Error message "Please fill in this field" | Pass |
 
+[Back to contents](#contents)
+
 #### **Bag**
 | Feature        | Expected           | Testing  | Result | Pass/Fail |
 | ------------- |-------------| -----|  ---------- | :----:|
@@ -197,6 +311,10 @@ The site was tested on these devices:
 
 
 [Back to contents](#contents)
+
+### User Stories Testing
+
+
 ### **Wave**
 
 The site was inspected for accessibility using the [Wave Browser Extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) and changes made to HTML following this inspection. 
