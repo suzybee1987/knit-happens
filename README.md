@@ -44,7 +44,6 @@ Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
   - [**Code**](#code)
   - [**Content**](#content)
   - [**Media**](#media)
-  - [**Inspiration**](#inspiration)
   - [**Acknowledgements**](#acknowledgements)
   
 
@@ -330,8 +329,6 @@ The Database schema is below
     - Used to run the site and database
 
 
-
-
 ### **Frameworks and Libraries**
 
 - [Bulma](https://bulma.io/)
@@ -372,7 +369,8 @@ The Database schema is below
     - Markup validation service for HTML5
 - [Jigsaw Validator](https://jigsaw.w3.org/css-validator/)
     - CSS3 Validation Service
-
+- [Wave](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh)
+    - Accessibility validation service.
 
 
 [Back to contents](#contents)
@@ -397,8 +395,6 @@ The Database schema is below
 - Sorting products works on first page but when clicking next page it stops working.
 
 
-
-
 ## **Version Control**
 
 **Version control** was managed within **GitHub** and **Gitpod** and regular commits pushed to **GitHub**. 
@@ -419,29 +415,21 @@ See below for how this was managed:
 
 Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
 
-
-
 ## **Credits**
 
 ### **Code**
-
+- A large portion of the Python code was developed following the Code Institute's [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/250e2c2b8e43cccb56b4721cd8a8bd4de6686546) walkthrough. 
 - CodeInstitute Full Stack Developer Course
 - Wes Bos [JavaScript 30](https://javascript30.com/) for extra ideas on using JavaScript
-
 - [Background layout](https://css-tricks.com/perfect-full-page-background-image/) this was taught in one of the Code Institute lessons from css-tricks.com and I use it constantly for my background images. 
 - Code taken from Bulma GitHub [thread](https://github.com/jgthms/bulma/issues/2361) to fix the navbar menu always open on mobile.
 - Uni-form Crispy Form CSS and JS code taken from the uni-form GitHub [repo](https://github.com/draganbabic/uni-form)
-
 - Code inspiration taken from [CI Student Kyle Lawrence](https://github.com/kylelawrencedev/lawrence-collections-ms4/blob/main/products/views.py) for help with the reviews section. 
-
 - [Code with Stein](https://codewithstein.com/build-a-simple-blog-using-django-3-in-under-20-minutes/) tutorial followed to complete the blog model on the project and some extra information from [jennymalmoe](https://github.com/jennymalmoe/MSP4) fellow student.
-
-
 - Testing Tools docs [1](https://docs.djangoproject.com/en/4.0/topics/testing/tools/), [2](https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup), [3](https://pythoneatstail.com/en/overview-all-articles/testing-custom-user-model-djangos-testing-tools-and-coverage/)
-
 - [Pagination Tutorial](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html)
-
 - [Stack Overflow](https://stackoverflow.com/questions/54467992/bulma-scale-image-to-container) to help position the images within the cards and ensure any new uploaded products or blog posts had images to fit the columns. 
+- Student friend [Abi](https://github.com/Abibubble/ms4-lead-shot-hazard) where I got help with automated testing. 
 
 
 ### **Content**
@@ -454,13 +442,12 @@ Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
 All product images sourced from Pexels
 Homepage [image by K8 on Unsplash](https://unsplash.com/photos/uYf_C34PAao)
   
-
-
-### **Inspiration**
-
-
 ### **Acknowledgements**
 
-
+- My Mentor for confidence boosting and helpful advice and feedback.
+- Friends and family for testing the site and giving feedback on different devices, especially Alasdair and mum for diligently testing and finding things to be fixed.
+- @Eventyret_mentor, Amy O'Shea, Iryna, Claire Lemmonaire on Slack who supported me through the journey.
+- My husband for all his support, patience and great ideas.
+- And, lastly my cheerleader Emanuel Silva for helping me to stay motivated, sharing great ideas and bad jokes to keep us going. 
 
 [Back to contents](#contents)

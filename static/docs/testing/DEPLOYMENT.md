@@ -1,20 +1,16 @@
+Back to [README](README.md)
+
 # Deployment Steps
 
 ## **Contents**
 
-- [**GitPod IDE**](#gitpod-ide)
 - [**Heroku Deployment**](#heroku-deployment)
-  - [**Connecting to Heroku**](#connecting-to-heroku)
-  - [**Config Vars**](#config-vars)
-  - [**Where to find Config Var Key-value Pairs**](#where-to-find-config-var-key-value-pairs)
-- [**Design Choices**](#design-choices)
-  - [**Fonts**](#fonts)
-  - [**Colours**](#colours)
-  - [**Imagery**](#imagery)
-  - [**Wireframes**](#wireframes)
-
-
-### **Gitpod IDE**
+- [**Connecting to Heroku**](#connecting-to-heroku)
+- [**AWS**](#amazon-aws)
+- [**GMail Client**](#gmail-client)
+- [**Config Vars**](#config-vars)
+- [**How to contribute to the site**](#how-to-contribute-to-the-site)
+- [**How to run the project locally](#how-to-run-the-project-locally)
 
 
 ### **Heroku Deployment**
@@ -79,8 +75,6 @@ If the git remote isn't initialised you may have to do that first by running *he
 
 In `settings.py` change the `DEFAULT_FROM_EMAIL` to your own email address.
 
-### Gmail
-
 1. Go to your Gmail account and navigate to the 'Settings' tab.
 2. Go to 'Accounts and Imports', 'Other Google Account Settings'.
 3. Go to the 'Security' tab, and scroll down to 'Signing in to Google'.
@@ -90,7 +84,7 @@ In `settings.py` change the `DEFAULT_FROM_EMAIL` to your own email address.
 7. Enter your password again if prompted, then set 'App' to `Mail`, 'Device' to `Other`, and type in `Django`.
 8. Copy and paste the passcode that shows up, this is your '**EMAIL_HOST_PASS**' variable to add to your environment/config variables. '**EMAIL_HOST_USER**' is the Gmail email address.
 
-#### **Config Vars**
+### **Config Vars**
 
 The config/environment variables should be set up as follows:
 
@@ -123,9 +117,6 @@ To find the values of each key:
 - EMAIL_HOST_PASS: Your passcode from your email client. [See below for instructions](#smtp-setup).
 - AWS_SECRET_ACCESS_KEY: From the CSV file that you download having created a User in Amazon AWS S3. [See below for instructions](#amazon-aws).
 - AWS_ACCESS_KEY_ID: From the CSV file that you download having created a User in Amazon AWS S3. [See below for instructions](#amazon-aws).
-
-
-
 
 
 ### How to contribute to the site

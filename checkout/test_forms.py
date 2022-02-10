@@ -3,10 +3,14 @@ from .forms import OrderForm
 
 
 class TestOrderForm(TestCase):
-    """ tests for the order form """
+    """
+    tests for the order form
+    """
 
     def test_full_name_is_required(self):
-        """ test to see if full name field is required"""
+        """
+        test to see if full name field is required
+        """
         form = OrderForm({
             'full_name': '',
             'email': 'email@email.com',
@@ -23,7 +27,9 @@ class TestOrderForm(TestCase):
             form.errors['full_name'][0], 'This field is required.')
 
     def test_email_is_required(self):
-        """ test to see if email field is required"""
+        """
+        test to see if email field is required
+        """
         form = OrderForm({
             'full_name': 'test',
             'email': '',
@@ -39,7 +45,9 @@ class TestOrderForm(TestCase):
             form.errors['email'][0], 'This field is required.')
 
     def test_phone_number_field_is_required(self):
-        """ test to see if phone number field is required"""
+        """
+        test to see if phone number field is required
+        """
         form = OrderForm({
             'full_name': 'test',
             'email': 'email@email.com',
@@ -55,7 +63,9 @@ class TestOrderForm(TestCase):
             form.errors['phone_number'][0], 'This field is required.')
 
     def test_country_field_is_required(self):
-        """ test to see if country field is required"""
+        """
+        test to see if country field is required
+        """
         form = OrderForm({
             'full_name': 'test',
             'email': 'email@email.com',
@@ -89,7 +99,9 @@ class TestOrderForm(TestCase):
             form.errors['town_or_city'][0], 'This field is required.')
 
     def test_street_address1_field_is_required(self):
-        """ test to see if street_address1 field is required"""
+        """
+        test to see if street_address1 field is required
+        """
         form = OrderForm({
             'full_name': 'test',
             'email': 'email@email.com',

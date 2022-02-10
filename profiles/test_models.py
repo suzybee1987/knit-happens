@@ -25,5 +25,8 @@ class TestUserProfileModel(TestCase):
         self.assertTemplateUsed(response, 'profiles/profile.html')
 
     def test_user_profile_string_method_returns_username(self):
+        """
+        Test the user profile string method returns the username
+        """
         expected_output = "testuserprofile"
         self.assertEqual(expected_output, str(self.user))
