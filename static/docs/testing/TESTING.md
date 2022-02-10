@@ -26,7 +26,7 @@ Back to [README](README.md)
   - [**Checkout**](#checkout)
   - [**Blog Page**](#blog-page)
 - [**User Stories Testing**](#user-stories-testing)
-- [**Wave**](#features)
+- [**Wave**](#wave)
 - [**Lighthouse**](#lighthouse)
 - [**Validators**](#validators)
   - [**HTML Validator**](#html-validator)
@@ -312,6 +312,7 @@ The site was tested on these devices:
 
 [Back to contents](#contents)
 
+
 ### User Stories Testing
 
 | User Story ID  | As a/an  | I want to be able to...  | So that I can... | Testing | Pass/Fail |
@@ -347,11 +348,20 @@ The site was tested on these devices:
 | 24  |   | update a product | change descriptions, sizes, images in my store. | Super users can edit a product | Pass |
 | 25  |   | delete a product | remove items no longer on sale. | Super users can delete a product | Pass |
 
+
+[Back to contents](#contents)
+
 ### **Wave**
 
 The site was inspected for accessibility using the [Wave Browser Extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh) and changes made to HTML following this inspection. 
+The result is no major errors.
 
+### **Lighthouse**
+### **Validators**
 
-
+#### **HTML Validator**
+#### **CSS Jigsaw**
+#### **JSHint**
+#### **PEP8**
 
 [Back to contents](#contents)

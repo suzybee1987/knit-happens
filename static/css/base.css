@@ -92,13 +92,6 @@ img .home-button {
     background-color: #F6F6F6;
 }
 
-a.button.is-primary.is-light.shop-buttons:hover {
-    border: 2px solid #315E5E;
-    color: #ebfffc;
-    text-decoration: underline;
-    background: #315E5E;
-}
-
 .title-heading {
     font-family: 'Lobster', cursive;
     font-size: 2.5rem;
@@ -166,11 +159,6 @@ nav.navbar.is-justify-content-space-evenly {
     top: 72px;
     right: 15px;
     z-index: 99999999999;
-}
-
-.notification.is-primary {
-    background-color: #428080;
-    color: #F6F6F6;
 }
 
 .custom-toast {
@@ -484,21 +472,7 @@ select#id_country,
     margin: auto;
 }
 
-/* home page css  */
-
-a.button.is-primary.is-light:hover {
-    border: 2px solid #428080;
-    color: #ebfffc;
-    background: #192222;
-}
-
 /* home   */
-
-.button.is-primary.is-light {
-    background-color: #ebfffc;
-    color: #428080;
-    bottom: 20px;
-}
 
 .hero-body {
     padding: 0;
@@ -597,12 +571,24 @@ a.button.is-primary.is-light:hover {
 
 /* home  */
 
+.notification.is-primary {
+    background-color: #428080 !important;
+    color: #fff !important;
+}
+
+
 a.button.is-primary.is-light:hover {
     border: 2px solid #428080;
-    color: #ebfffc;
+    color: #fff;
     background: #428080;
-
 }
+
+.button.is-primary.is-light {
+    background-color: #fff;
+    color: #428080;
+    bottom: 20px;
+}
+
 
 .hero-body {
     padding: 0;
