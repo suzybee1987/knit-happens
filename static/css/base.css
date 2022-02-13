@@ -381,6 +381,9 @@ nav.navbar.is-justify-content-space-evenly {
 
 .control {
     border-radius: 4px;
+}
+
+.column.is-vcentered.is-hidden-touch.search-bar {
     margin-top: 1rem;
 }
 
