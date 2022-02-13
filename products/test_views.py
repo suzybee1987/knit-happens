@@ -36,16 +36,6 @@ class TestProductViews(TestCase):
         response = self.client.get(reverse('products'))
         self.assertEqual(response.status_code, 200)
 
-    def test_products(self):
-        """
-        test products display
-        """
-        products = Product.objects.all()
-        for product in products:
-            response = self.client.get(reverse('products'))
-            self.assertEqual(response.status_code, 200)
-            self.assertContains(response, product.pk)
-
     def test_categories(self):
         """
         test categories sort functionality
