@@ -293,7 +293,8 @@ The site was tested on these devices:
 
 
 #### **Blog Page**
-| ------------- |-------------| -----|  ---------- | :----:|
+| Feature        | Expected           | Testing  | Result | Pass/Fail |
+| ------------- |-------------| -----|  ---------- | ---- |
 | All blog posts visible | Blog page shows all blog posts | Open Blog page and view posts | Posts visible | Pass |
 | Add Post | Only logged in users are allowed to add posts | Log out and attempt to add blog post | User redirected to home page, error message displayed "Sorry, only store owners can do that." | Pass |
 
@@ -318,35 +319,33 @@ The site was tested on these devices:
 | User Story ID  | As a/an  | I want to be able to...  | So that I can... | Testing | Pass/Fail |
 |-------------------|-------------------|-----------------|-------------------|-------------------|---------------|
 | Viewing Products & Navigation |
-| 1  | User/Shopper | view individual products | identify their qualities and compare. | View Products Page | Pass |
-| 2  |   | be able to add, edit quantity and remove items from my bag | buy them if after browsing. | Add product to bag, update item quantity, remove from bag | Pass |
-| 3  |   | see any special offers | take advantage of saving money on products I'd like to buy. | Navigation bar displays free shipping if shopper spends £50 or more | Pass |
-| 4  |   | gain inspiration from the blog | decide what to buy and make next. | Blog Page displays knitted goods with comments linking products to the store | Pass |
-| 5  |   | add posts to the blog | show other users what I have made and gain their opinions through comments. | Blog add to post function allows users to add posts to the blog | Pass |
+| 1  | User/Shopper | view individual products | identify their qualities and compare. | View Products [Page](static/docs/images/user-story-testing/us1-view-all.png), view product [1](static/docs/images/user-story-testing/us1-view-individual.png), [2](static/docs/images/user-story-testing/us1-view-individual2.png), [3](static/docs/images/user-story-testing/us1-view-individual3.png) | Pass |
+| 2  |   | be able to add, edit quantity and remove items from my bag | buy them after browsing. | [Add](static/docs/images/user-story-testing/us2-add-to-bag.png) product to bag, view [toast](static/docs/images/user-story-testing/us2-add-to-bag-toast.png), [update](static/docs/images/user-story-testing/us2-update-bag.png) item quantity, [remove](static/docs/images/user-story-testing/us2-remove-from-bag.png) from bag | Pass |
+| 3  |   | see any special offers | take advantage of saving money on products I'd like to buy. | Navigation bar displays free shipping if shopper spends £50 or [more](static/docs/images/user-story-testing/us3-special.png) | Pass |
+| 4  |   | gain inspiration from the blog | decide what to buy and make next. | Blog Page displays knitted [goods](static/docs/images/user-story-testing/us4-inspiration.png) with comments linking [products](static/docs/images/user-story-testing/us4-knit-happens.png) to the store | Pass |
+| 5  |   | add posts to the blog | show other users what I have made and gain their opinions through comments. | Blog add to post function allows users to add posts to the [blog](static/docs/images/user-story-testing/us5-add-blog-post.png), [2](static/docs/images/user-story-testing/us5-add-blog-post2.png) | Pass |
 | Registration and Accounts |
-| 6  | User/Shopper | register for an account | keep track of my orders and check my personal details. | Users can register for an account and view their orders in the profile page | Pass |
-| 7  |   | receive email confirmation upon signing up | verify my set up was successful. | User receives email when they register for an account | Pass |
-| 8  |   | be able to reset my password in case I forget it | gain access to my account. | User can request email to reset their password | Pass |
-| 9  |   | have the ability to log in to the site with my details | view my orders and personal details | Users can log in using their registered details and view their orders and personal details | Pass |
-| 10  |   | update my personal details | keep them up to date. | Users can update their personal details in the profile section | Pass |
-| 11 |   | purchase from the site without having to create an account | check out quickly and easily. | Users can use the checkout without registering for an account | Pass |
-| 12  |   | have the ability to register to the site if I choose | easily to access my account and orders. | Users can register to create an account to see orders |
-| Searching products |
-| 13  | User/Shopper | search for specific products | find products I am interested in buying. | Users can search on the site for products and if no product available message to confirm this | Pass |
-| 14  |   | easily understand the search results | quickly decide which product I want to buy. | Users can search for products and quickly see how many match their criteria | Pass |
-| 15  |   | sort by price, name, category | view a wide range and choose which to buy. | Users can sort by price, name and category on the products page | Pass |
+| 6  | User/Shopper | register for an account | keep track of my orders and check my personal details. | Users can [register](static/docs/images/user-story-testing/us6-registration.png), [2](static/docs/images/user-story-testing/us6-registration-successful.png), [3](static/docs/images/user-story-testing/us6-verify-email.png) for an account and view their orders in the profile [page](static/docs/images/user-story-testing/us9-view-profile.png) | Pass |
+| 7  |   | receive email confirmation upon signing up | verify my set up was successful. | User receives [email](static/docs/images/user-story-testing/us7-email-confirmation.png) when they register for an account | Pass |
+| 8  |   | be able to reset my password in case I forget it | gain access to my account. | User can request [email](static/docs/images/user-story-testing/us8-reset-email.png) [2](static/docs/images/user-story-testing/us8-reset-email.png) to reset their [password](static/docs/images/user-story-testing/us8-password.png) | Pass |
+| 9  |   | have the ability to log in to the site with my details | view my orders and personal details | Users can [log in](static/docs/images/user-story-testing/us9-log-in.png) using their registered details and view their orders and personal [details](static/docs/images/user-story-testing/us9-view-profile.png) | Pass |
+| 10  |   | update my personal details | keep them up to date. | Users can update their [personal](static/docs/images/user-story-testing/us10-update-profile.png) details in the profile section | Pass |
+| 11 |   | purchase from the site without having to create an account | check out quickly and easily. | Users can use the checkout without registering for an account [1](static/docs/images/user-story-testing/us11-guest.png), [2](static/docs/images/user-story-testing/us11-guest2.png), [3](static/docs/images/user-story-testing/us11-guest-confirm.png) | Pass |
+| 12  | User/Shopper | search for specific products | find products I am interested in buying. | Users can [search](static/docs/images/user-story-testing/us12-search.png), on the site for [products](static/docs/images/user-story-testing/us12-search2.png) and if no product available message to confirm [this](static/docs/images/user-story-testing/us12-no-products.png) | Pass |
+| 13  |   | easily understand the search results | quickly decide which product I want to buy. | Users can search for products and quickly see how many match their [criteria](static/docs/images/user-story-testing/us13-search.png) | Pass |
+| 14  |   | sort by price, name, category | view a wide range and choose which to buy. | Users can sort by [price](static/docs/images/user-story-testing/us14-price.png), [name](static/docs/images/user-story-testing/us14-name.png) and [category](static/docs/images/user-story-testing/us14-category.png) on the products page | Pass |
 | Checkout  |
-| 16  | Shopper | have a running total of my bag | stay within my budget. | Users can see the total in the bag icon on the navbar | Pass |
-| 17  |   | view my bag contents | keep track of which products I have selected. | Users can view their bag to see which products and quantities have been added | Pass |
-| 18  |   | easily select the correct size | ensure I have ordered the right size for my project. | Users use the dropdown to select the required size/weight and this is confirmed in the bag| Pass |
-| 19  |   | adjust the quantity of products to buy | update the order without going back to the product page. | Users can update quantities in the shopping bag successfully | Pass |
-| 20  |   | easily enter my payment details | checkout as quickly and easily as possible. | Users can navigate the checkout form payment input easily | Pass |
-| 21  |   | view the full order before entering card details | check it before confirmation. | The Order can be viewed on the checkout page before entering card details | Pass |
-| 22  |   | receive email notifications when I make an order | confirm my order has been placed and refer back to. | Users receive an email when they make an order | Pass |
+| 15  | Shopper | have a running total of my bag | stay within my budget. | Users can see the total in the bag icon on the navbar. Product [1](static/docs/images/user-story-testing/us15-add1.png), [2](static/docs/images/user-story-testing/us15-add2.png), [3](static/docs/images/user-story-testing/us15-add3.png) | Pass |
+| 16  |   | view my bag contents | keep track of which products I have selected. | Users can view their bag to see which products and quantities have been [added](static/docs/images/user-story-testing/us16-view-bag.png) | Pass |
+| 17  |   | easily select the correct size | ensure I have ordered the right size for my project. | Users use the [dropdown](static/docs/images/user-story-testing/us17-size.png) to select the required [size](static/docs/images/user-story-testing/us17-select.png)/weight and this is confirmed in the bag| Pass |
+| 18  |   | adjust the quantity of products to buy | update the order without going back to the product page. | Users can update quantities in the shopping bag successfully. see [before](static/docs/images/user-story-testing/us18-before-update.png), [after](static/docs/images/user-story-testing/us18-update-quantity.png) | Pass |
+| 19  |   | easily enter my payment details | checkout as quickly and easily as possible. | Users can navigate the [checkout](static/docs/images/user-story-testing/us19-checkout.png) form payment input easily | Pass |
+| 20  |   | view the full order before entering card details | check it before confirmation. | The [Order](static/docs/images/user-story-testing/us20.png) can be viewed on the checkout page before entering card details | Pass |
+| 21  |   | receive email notifications when I make an order | confirm my order has been placed and refer back to. | Users receive an [email](static/docs/images/user-story-testing/us21-email.png) when they make an [order](static/docs/images/user-story-testing/us21-conf.png) | Pass |
 | Admin/Management  |
-| 23  | Store owner/Admin | add a product | sell new items in my store  | Super users can add a product | Pass |
-| 24  |   | update a product | change descriptions, sizes, images in my store. | Super users can edit a product | Pass |
-| 25  |   | delete a product | remove items no longer on sale. | Super users can delete a product | Pass |
+| 22  | Store owner/Admin | add a product | sell new items in my store  | Super users can add a product see [here](static/docs/images/user-story-testing/us22-add-product-button.png) and [here](static/docs/images/user-story-testing/us22-add-product-form.png) | Pass |
+| 23  |   | update a product | change descriptions, sizes, images in my store. | Super users can [edit](static/docs/images/user-story-testing/us23-edit-product-form.png) a [product](static/docs/images/user-story-testing/us23-edit-product-form-post.png) | Pass |
+| 24  |   | delete a product | remove items no longer on sale. | Super users can delete a product [1](static/docs/images/user-story-testing/us24-product-before.png), [2](static/docs/images/user-story-testing/us24-delete-modal.png), [3](static/docs/images/user-story-testing/us24-delete-toast.png) | Pass |
 
 
 [Back to contents](#contents)

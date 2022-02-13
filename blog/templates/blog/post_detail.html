@@ -15,7 +15,7 @@
     <div class="container">
         <div class="columns is-justify-content-left my-4">
             <div class="column is-6-desktop is-10-mobile">
-                <a href="{% url 'blog' %}" class="button is-danger">Back to blog homepage</a>
+                <a href="{% url 'blog' %}" class="button is-danger"><i class="fas fa-angle-left mr-2"></i> Back to blog homepage</a>
             </div>
         </div>
         <div class="columns is-justify-content-space-around">
@@ -55,11 +55,11 @@
                     {% if post.author == request.user %}
                     <div class="columns is-mobile has-text-centered is-justify-content-center">
                         <div class="column">
-                            <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit Post</a>
+                            <a href="{% url 'edit_post' post.slug %}" class="button is-danger">Edit<i class="fas fa-edit ml-2"></i></a>
                         </div>
                         <div class="column">
-                            <button class="js-modal-trigger button is-danger is-outlined" data-target="modal-delete">
-                                Delete
+                            <button class="js-modal-trigger button is-danger is-light is-outlined" data-target="modal-delete">
+                                Delete <i class="fas fa-times ml-2"></i>
                             </button>
                             <div id="modal-delete" class="modal">
                                 <div class="modal-background"></div>
@@ -126,10 +126,10 @@
                                 <div class="control">
                                     <div class="columns is-mobile has-text-centered is-justify-content-space-evenly">
                                         <div class="column">
-                                            <button class="button is-info">Submit</button>
+                                            <button class="button is-info">Submit <i class="fas fa-check ml-2"></i></button>
                                         </div>
                                         <div class="column">
-                                            <button type="reset" class="button is-info is-light">Reset</button>
+                                            <button type="reset" class="button is-info is-light">Reset <i class="fas fa-undo ml-2"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -145,7 +145,6 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
 
 {% block postloadjs %}

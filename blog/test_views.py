@@ -61,10 +61,6 @@ class TestBlogViews(TestCase):
         post = Post.objects.create(title="Test Post")
         self.assertEqual(str(post), "Test Post")
 
-    # def test_post_detail_page_url_exists(self):
-    #     response = self.client.get('/blog/<slug:slug>/')
-    #     self.assertEqual(response.status_code, 200)
-
     def test_the_post_detail_url_is_accessible_by_name(self):
         """
         test post detail page loads via name

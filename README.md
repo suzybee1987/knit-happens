@@ -67,23 +67,22 @@ Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
 | 9  |   | have the ability to log in to the site with my details | view my orders and personal details |
 | 10  |   | update my personal details | keep them up to date. |
 | 11 |   | purchase from the site without having to create an account | check out quickly and easily. |
-| 12  |   | have the ability to register to the site if I choose | easily to access my account and orders. |
 | Searching products |
-| 13  | User/Shopper | search for specific products | find products I am interested in buying. |
-| 14  |   | easily understand the search results | quickly decide which product I want to buy. |
-| 15  |   | sort by price, name, category and rating  | view a wide range and choose which to buy. |
+| 12  | User/Shopper | search for specific products | find products I am interested in buying. |
+| 13  |   | easily understand the search results | quickly decide which product I want to buy. |
+| 14  |   | sort by price, name, category and rating  | view a wide range and choose which to buy. |
 | Checkout  |
-| 16  | Shopper | have a running total of my bag | stay within my budget. |
-| 17  |   | view my bag contents | keep track of which products I have selected. |
-| 18  |   | easily select the correct size | ensure I have ordered the right size for my project. |
-| 19  |   | adjust the quantity of products to buy | update the order without going back to the product page. |
-| 20  |   | easily enter my payment details | checkout as quickly and easily as possible. |
-| 21  |   | view the full order before entering card details | check it before confirmation. |
-| 22  |   | receive email notifications when I make an order | confirm my order has been placed and refer back to. |
+| 15  | Shopper | have a running total of my bag | stay within my budget. |
+| 16  |   | view my bag contents | keep track of which products I have selected. |
+| 17  |   | easily select the correct size | ensure I have ordered the right size for my project. |
+| 18  |   | adjust the quantity of products to buy | update the order without going back to the product page. |
+| 19  |   | easily enter my payment details | checkout as quickly and easily as possible. |
+| 20  |   | view the full order before entering card details | check it before confirmation. |
+| 21  |   | receive email notifications when I make an order | confirm my order has been placed and refer back to. |
 | Admin/Management  |
-| 23  | Store owner/Admin | add a product | sell new items in my store  |
-| 24  |   | update a product | change descriptions, sizes, images in my store. |
-| 25  |   | delete a product | remove items no longer on sale. |
+| 22  | Store owner/Admin | add a product | sell new items in my store  |
+| 23  |   | update a product | change descriptions, sizes, images in my store. |
+| 24  |   | delete a product | remove items no longer on sale. |
 
 
 [Back to contents](#contents)
@@ -94,14 +93,14 @@ Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
 
 ### **Fonts**
 
-The fonts were chosen to complement one another and also give the aesthetic of a fun, knitting store with ['Lobster', cursive](static/docs/testing/images/lobster.png) and ['Libre Franklin', sans-serif](static/docs/testing/images/libre.png) as a contrasting font to help the cursive stand out and allow for extra readability when more information given.
+The fonts were chosen to complement one another and also give the aesthetic of a fun, knitting store with ['Lobster', cursive](static/docs/images/lobster.png) and ['Libre Franklin', sans-serif](static/docs/images/libre.png) as a contrasting font to help the cursive stand out and allow for extra readability when more information given.
 
 
 
 ### **Colours**
 
-- ![](static/docs/testing/images/ms4-coolors.png) This Coolors palette was used to put together a colour scheme to reflect the different colours of the balls of wool to keep in with the theme of the knitting shop. 
-- The original colour scheme was slightly different but due to accessibility reasons this was changed near the end of building this project to improve contrast ratios. Previous colours [here]((static/docs/testing/images/knit-happens-coolors.png)) 
+- ![](static/docs/images/ms4-coolors.png) This Coolors palette was used to put together a colour scheme to reflect the different colours of the balls of wool to keep in with the theme of the knitting shop. 
+- The original colour scheme was slightly different but due to accessibility reasons this was changed near the end of building this project to improve contrast ratios. Previous colours [here]((static/docs/images/knit-happens-coolors.png)) 
 
 ### **Imagery**
 
@@ -117,35 +116,35 @@ The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/x
 
 
 #### **Desktop view**
-- [Home](static/docs/testing/images/wireframes/desktop-home.png)
-- [Register](static/docs/testing/images/wireframes/desktop-register.png)
-- [Login](static/docs/testing/images/wireframes/desktop-login.png)
-- [Profile-Orders](static/docs/testing/images/wireframes/desktop-profile-orders.png)
-- [Products](static/docs/testing/images/wireframes/desktop-products.png)
-- [Product-Detail](static/docs/testing/images/wireframes/desktop-product-detail.png)
-- [Add-Product-To-Bag](static/docs/testing/images/wireframes/desktop-add.png)
-- [Processing-Payment](static/docs/testing/images/wireframes/desktop-processing.png)
-- [Checkout](static/docs/testing/images/wireframes/desktop-checkout.png)
-- [Cart](static/docs/testing/images/wireframes/desktop-cart.png)
-- [Confirmed-Order](static/docs/testing/images/wireframes/desktop-confirmed.png)
-- [Admin](static/docs/testing/images/wireframes/desktop-admin.png)
+- [Home](static/docs/images/wireframes/desktop-home.png)
+- [Register](static/docs/images/wireframes/desktop-register.png)
+- [Login](static/docs/images/wireframes/desktop-login.png)
+- [Profile-Orders](static/docs/images/wireframes/desktop-profile-orders.png)
+- [Products](static/docs/images/wireframes/desktop-products.png)
+- [Product-Detail](static/docs/images/wireframes/desktop-product-detail.png)
+- [Add-Product-To-Bag](static/docs/images/wireframes/desktop-add.png)
+- [Processing-Payment](static/docs/images/wireframes/desktop-processing.png)
+- [Checkout](static/docs/images/wireframes/desktop-checkout.png)
+- [Cart](static/docs/images/wireframes/desktop-cart.png)
+- [Confirmed-Order](static/docs/images/wireframes/desktop-confirmed.png)
+- [Admin](static/docs/images/wireframes/desktop-admin.png)
 
 
 #### **Mobile view**
 
-- [Home](static/docs/testing/images/wireframes/mobile-home.png)
-- [Register](static/docs/testing/images/wireframes/mobile-register.png)
-- [Login](static/docs/testing/images/wireframes/mobile-login.png)
-- [Profile](static/docs/testing/images/wireframes/mobile-profile.png)
-- [Orders](static/docs/testing/images/wireframes/mobile-orders.png)
-- [Edit-Profile](static/docs/testing/images/wireframes/mobile-edit-profile.png)
-- [Products](static/docs/testing/images/wireframes/mobile-products.png)
-- [Product-Detail](static/docs/testing/images/wireframes/mobile-product-details.png)
-- [Add-Product-To-Bag](static/docs/testing/images/wireframes/mobile-add-product.png)
-- [Processing-Payment](static/docs/testing/images/wireframes/mobile-payment-processing.png)
-- [Checkout](static/docs/testing/images/wireframes/mobile-checkout.png)
-- [Cart](static/docs/testing/images/wireframes/mobile-cart.png)
-- [Blog](static/docs/testing/images/wireframes/mobile-blog.png)
+- [Home](static/docs/images/wireframes/mobile-home.png)
+- [Register](static/docs/images/wireframes/mobile-register.png)
+- [Login](static/docs/images/wireframes/mobile-login.png)
+- [Profile](static/docs/images/wireframes/mobile-profile.png)
+- [Orders](static/docs/images/wireframes/mobile-orders.png)
+- [Edit-Profile](static/docs/images/wireframes/mobile-edit-profile.png)
+- [Products](static/docs/images/wireframes/mobile-products.png)
+- [Product-Detail](static/docs/images/wireframes/mobile-product-details.png)
+- [Add-Product-To-Bag](static/docs/images/wireframes/mobile-add-product.png)
+- [Processing-Payment](static/docs/images/wireframes/mobile-payment-processing.png)
+- [Checkout](static/docs/images/wireframes/mobile-checkout.png)
+- [Cart](static/docs/images/wireframes/mobile-cart.png)
+- [Blog](static/docs/images/wireframes/mobile-blog.png)
 
 [Back to contents](#contents)
 
@@ -288,11 +287,11 @@ The site was designed to be mobile first as more users are using their handheld 
 - **Default Image if none added**
   - In the event that a product or blog post is added without an image a default image will be added.
 - **Unauthorised Attempts**
-  - An [error](static/docs/testing/images/error.png) is launched if the user attempts to visit a part of the site where they are not authorised 
+  - An [error](static/docs/images/error.png) is launched if the user attempts to visit a part of the site where they are not authorised 
 - **@login_required**
   - @login_required decorator added to restrict access to certain pages.
       - If a logged-out user tries to access a restricted page, they will be redirected to the login page.
-      - Only authorised users may perform certain actions: Eg add, edit, delete product and edit, delete blog posts. [Example](static/docs/testing/images/not-post-author.png)
+      - Only authorised users may perform certain actions: Eg add, edit, delete product and edit, delete blog posts. [Example](static/docs/images/not-post-author.png)
 - **Bag**
   - Validation ensures a minimum of 0 product and maximum of 99 products is added to the bag. In the case that 0 is selected the item is removed from the bag.
   - Error message appears if user tries to add negative numbers of items "Value must be greater than or equal to 0"
@@ -311,7 +310,7 @@ The site was designed to be mobile first as more users are using their handheld 
 The database uses SQL through PostgreSQL and were originally formed from fixtures [*categories.json*](products/fixtures/categories.json) and [*products.json*](products/fixtures/products.json)
 
 The Database schema is below
-![](static/docs/testing/images/database.png)
+![](static/docs/images/database.png)
 
 
 ## **Technologies**

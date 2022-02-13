@@ -40,12 +40,12 @@
                     {% if request.user.is_superuser %}
                     <div class="columns justify-content-space-around has-text-centered my-3">
                         <div class="column">
-                            <a class="button is-info is-outlined" href="{% url 'edit_product' product.id %}">
-                                Edit <i class="fas fa-pen ml-2"></i></a>
+                            <a class="button is-info is-light" href="{% url 'edit_product' product.id %}">
+                                Edit <i class="fas fa-edit ml-2"></i></a>
                         </div>
                         <div class="column">
-                            <button class="js-modal-trigger button is-danger is-outlined" data-target="modal-delete">
-                                Delete
+                            <button class="js-modal-trigger button is-danger is-light" data-target="modal-delete">
+                                Delete <i class="fas fa-times ml-2"></i>
                             </button>
                         </div>
                     </div>
@@ -58,8 +58,8 @@
                     <span class="product-subtitles">{{ product.colour }}</span>
                 </p>
                 <p>{% if product.category %}
-                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3">
-                        <i class="fas fa-circle mx-1"></i>{{ product.category.friendly_name }}
+                    <a href="{% url 'products' %}?category={{ product.category.name }}" class="m-3 category-link">
+                        <i class="fas fa-circle m-1"></i>{{ product.category.friendly_name }}
                     </a>
                     {% endif %}
                 </p>
@@ -295,16 +295,13 @@
                     </div>
                     <button class="modal-close is-large" aria-label="close"></button>
                 </div>
-
                 <button class="js-modal-trigger button is-info is-light is-outlined my-4"
                     data-target="modal-crochet">Crochet Hook
                     Conversion
                 </button>
-
                 <!-- end of modals  -->
                 {% endif %}
                 {% endwith %}
-
             </div>
         </div>
     </div>
@@ -354,11 +351,11 @@
             <div class="columns has-text-centered reverse-mobile">
                 <div class="column is-6 ">
                     <button type="reset" class="button is-danger is-light is-outlined">
-                        Reset Form
+                        Reset Form <i class="fas fa-undo ml-2"></i>
                     </button>
                 </div>
                 <div class="column is-6">
-                    <button class="button is-danger" type="submit">Add Review</button>
+                    <button class="button is-danger" type="submit">Add Review <i class="fas fa-plus ml-2"></i></button>
                 </div>
             </div>
         </form>
@@ -371,10 +368,7 @@
             Please <a href="{% url 'account_login' %}">log in</a> to add a review of a product.</h6>
     </div>
 </div>
-
-
 {% endif %}
-
 <!-- Delete Product Modal  -->
 <div id="modal-delete" class="modal">
     <div class="modal-background"></div>
@@ -402,10 +396,9 @@
     </div>
 </div>
 <!-- end of delete product modal  -->
-
+{% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 <script src="{% static 'products/js/modal.js' %}"></script>
-{% endblock %}
 {% endblock %}

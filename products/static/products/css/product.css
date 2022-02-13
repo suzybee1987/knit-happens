@@ -14,7 +14,9 @@
     margin: 60px auto 40px;
 }
 
-
+.category-link {
+    padding-bottom: 0.5em; 
+}
 .qty-label {
     padding-top: 16px;
 }
@@ -36,7 +38,7 @@ label {
 .button.is-text.pag-link:hover {
     background: white;
     color: #4a4a4a;
-    border: 1px solid #4a4a4a;
+    border: 2px solid #4a4a4a;
     border-radius: 40px;
     font-weight: 1.2rem;
 }
@@ -66,7 +68,6 @@ label {
 .button[disabled] {
     opacity: 1;
 }
-
 
 /* Product detail  */
 /* mobile only  */
@@ -98,5 +99,18 @@ label {
     max-width: 100%;
     max-height: 100%;
 }
+
+.button.is-info.is-light {
+    background-color: #fff;
+    border: 1px solid #0f62a6;
+    color: #0f62a6;
+}
+
+.button.is-info.is-light:hover {
+    background-color: #0f62a6;
+    border: 1px solid #0f62a6;
+    color: #fff;
+}
+
 
 /* end of products  */
