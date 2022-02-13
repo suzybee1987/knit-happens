@@ -32,23 +32,22 @@
         {% for item in bag_items %}
         <div class="columns is-multiline m-3">
             <div class="column is-4">
-                    {% if item.product.image %}
-                    <a href="{% url 'product_detail' item.product.id %}">
-                        <div class="card-image">
-                            <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300"">
-                            <img src=" {{ item.product.image.url }}" alt="image for {{ item.product.name }}"
-                                class="product-image" height="300">
-                            </figure>
-                        </div>
-                    </a>
-                    {% else %}
+                {% if item.product.image %}
+                <a href="{% url 'product_detail' item.product.id %}">
                     <div class="card-image">
-                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
-                            <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ item.product.name }}">
+                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300"">
+                            <img src=" {{ item.product.image.url }}" alt="image for {{ item.product.name }}"
+                            class="product-image" height="300">
                         </figure>
                     </div>
-                    {% endif %}
-                
+                </a>
+                {% else %}
+                <div class="card-image">
+                    <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
+                        <img src="{{ MEDIA_URL }}noimage.png" alt="image for {{ item.product.name }}">
+                    </figure>
+                </div>
+                {% endif %}
             </div>
             <div class="column is-6">
                 <div class="card-content  has-text-right">
@@ -63,7 +62,6 @@
                     <p class="small is-6">SKU: {{ item.product.sku|upper }}</p>
                     {% endif %}
                     <p class="product-title my-2 is-6">Price Each: £{{ item.product.price }}</p>
-
                     <p class="product-title is-6 m-3 is-hidden-desktop">£ {{item.product.price}}</p>
                     <form class="update-form" action="{% url 'adjust_bag' item.item_id %}" method="POST">
                         {% csrf_token %}
@@ -78,7 +76,6 @@
                                 </div>
                             </div>
                         </div>
-
                         {% if item.product.has_sizes %}
                         <input type="hidden" name="product_size" value="{{ item.size }}">
                         <div class="columns is-mobile">
@@ -117,7 +114,6 @@
                 </div>
             </div>
             <div class="column is-2 is-hidden-mobile">
-                <!-- <p class="product-title has-text-right is-6 is-align-content-end">£ {{ item.product.price | calc_subtotal:item.quantity }}</p> -->
             </div>
         </div>
         <div class="columns">
@@ -130,7 +126,6 @@
         </div>
         <hr class="divider-bag my-5">
         {% endfor %}
-
         <div class="columns is-justify-content-flex-end">
             <div class="column is-4 total-column">
                 <div class="content has-text-right">
@@ -163,73 +158,71 @@
         {% else %}
         <div class="columns is-multiline has-text-centered my-3">
             <div class="column">
-                <h4 class="my-3">You haven't got anything in your bag!</h4>
-                <h3 class="my-3">See the
-                    <a href="{% url 'blog' %}"> blog</a>
+                <h4 class="my-3 bag-title">You haven't got anything in your bag!</h4>
+                <h3 class="my-3 bag-title">See the
+                    <a href="{% url 'blog' %}" class="bag-link"> blog</a>
                     for some inspiration or
                 </h3>
-                <a href="{% url 'products' %}" class="button is-danger ">
-                    <i class="fas fa-angle-left m-1"></i> Keep Shopping
+                <a href="{% url 'products' %}" class="button is-danger my-3">
+                    <i class="fas fa-angle-left mr-2"></i> Keep Shopping
                 </a>
             </div>
         </div>
         {% endif %}
     </div>
 </div>
-
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 <script src="{% static 'js/uni-form-validation.jquery.js' %}"></script>
-
 <script>
     // Remove item and reload on click
-    $('.remove-size').click(function (e) {
-        let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('id').split('remove_size_')[1];
-        let size = $(this).data('product_size');
-        let url = `/bag/remove/${itemId}/`;
-        let data = {
-            'csrfmiddlewaretoken': csrfToken,
-            'product_size': size,
-        };
+$('.remove-size').click(function (e) {
+    let csrfToken = "{{ csrf_token }}";
+    let itemId = $(this).attr('id').split('remove_size_')[1];
+    let size = $(this).data('product_size');
+    let url = `/bag/remove/${itemId}/`;
+    let data = {
+        'csrfmiddlewaretoken': csrfToken,
+        'product_size': size,
+    };
 
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
-    })
+    $.post(url, data)
+        .done(function () {
+            location.reload();
+        });
+})
 
-    $('.remove-weight').click(function (e) {
-        let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('id').split('remove_weight_')[1];
-        let weight = $(this).data('product_weight');
-        let url = `/bag/remove/${itemId}/`;
-        let data = {
-            'csrfmiddlewaretoken': csrfToken,
-            'product_weight': weight,
-        };
+$('.remove-weight').click(function (e) {
+    let csrfToken = "{{ csrf_token }}";
+    let itemId = $(this).attr('id').split('remove_weight_')[1];
+    let weight = $(this).data('product_weight');
+    let url = `/bag/remove/${itemId}/`;
+    let data = {
+        'csrfmiddlewaretoken': csrfToken,
+        'product_weight': weight,
+    };
 
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
-    })
+    $.post(url, data)
+        .done(function () {
+            location.reload();
+        });
+})
 
-    $('.remove-').click(function (e) {
-        let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('id').split('remove_')[1];
-        let url = `/bag/remove/${itemId}/`;
-        let data = {
-            'csrfmiddlewaretoken': csrfToken,
-        };
+$('.remove-').click(function (e) {
+    let csrfToken = "{{ csrf_token }}";
+    let itemId = $(this).attr('id').split('remove_')[1];
+    let url = `/bag/remove/${itemId}/`;
+    let data = {
+        'csrfmiddlewaretoken': csrfToken,
+    };
 
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
-    })
+    $.post(url, data)
+        .done(function () {
+            location.reload();
+        });
+})
 </script>
 
 {% endblock %}

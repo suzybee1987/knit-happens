@@ -125,7 +125,6 @@ class TestBagViews(TestCase):
         updated_bag = self.client.session.get('bag')
         self.assertEqual(updated_bag['25'], 3)
 
-
     def test_adjust_bag(self):
         """
         Test that the adjust bag view works as expected to 

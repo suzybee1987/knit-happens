@@ -29,11 +29,12 @@
                             {{ form | crispy }}
                             <div class="is-justify-content-space-between blog-buttons columns has-text-centered">
                                 <div class="column is-4-mobile">
-                                    <button class="button is-danger" type="submit">Add Post</button>
+                                    <button class="button is-danger" type="submit">Add Post <i
+                                        class="fas fa-plus-circle ml-2"></i></button>
                                 </div>
                                 <div class="column is-4-mobile">
                                     <a href="{% url 'blog' %}" class="button is-danger is-light is-outlined">
-                                        Cancel
+                                        Cancel<i class="fas fa-times ml-2"></i>
                                     </a>
                                 </div>
                             </div>

@@ -40,6 +40,11 @@
     max-height: 100%;
 }
 
-.is-danger {
-    /* color:#E8113C; */
+.bag-title {
+    font-weight: 700;
+    color: #4a4a4a;
+}
+
+.bag-link:hover {
+    border-bottom: 2px solid;
 }
