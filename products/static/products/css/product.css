@@ -40,14 +40,14 @@ label {
     color: #4a4a4a;
     border: 2px solid #4a4a4a;
     border-radius: 40px;
-    font-weight: 1.2rem;
+    font-size: 1.2rem;
 }
 
 .btn-round {
     border-radius: 40px;
     background: #E8113C;
     color:white;
-    font-weight: 1.2rem;
+    font-size: 1.2rem;
     border: 1px solid #E8113C;
 }
 
@@ -61,7 +61,7 @@ label {
     border-radius: 40px;
     background: white;
     color:#E8113C;
-    font-weight: 1.2rem;
+    font-size: 1.2rem;
     border: 1px solid #E8113C;
 }
 

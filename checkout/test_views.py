@@ -59,7 +59,6 @@ class TestBagViews(TestCase):
         response = self.client.get('/checkout/cache_checkout_data/')
         self.assertEqual(response.status_code, 405)
 
-
     def test_checkout_page_url_works(self):
         """
         Test the url works when loading the page

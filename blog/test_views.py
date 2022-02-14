@@ -1,9 +1,8 @@
 from django.test import TestCase, Client
 from django.shortcuts import reverse
 from django.contrib.auth.models import User
-from django.contrib.messages import get_messages
 
-from .models import Post, Comment
+from .models import Post
 
 
 class TestBlogViews(TestCase):
@@ -60,20 +59,3 @@ class TestBlogViews(TestCase):
         """
         post = Post.objects.create(title="Test Post")
         self.assertEqual(str(post), "Test Post")
-
-    def test_post_detail_page_template(self):
-        """
-        test post detail page loads via template
-        """
-        posts = Post.objects.all()
-        
-        response = self.client.get('/blog/slug/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, '/blog/post_detail.html')
-
-    def test_the_post_detail_url_is_accessible_by_name(self):
-        """
-        test post detail page loads via name
-        """
-        response = self.client.get(reverse('blog', args=["IMG-2808.JPG"]))
-        self.assertEqual(response.status_code, 200)
