@@ -1,4 +1,4 @@
-Back to [README](README.md)
+Back to [README](../../README.md)
 
 # Deployment Steps
 
@@ -10,7 +10,7 @@ Back to [README](README.md)
 - [**GMail Client**](#gmail-client)
 - [**Config Vars**](#config-vars)
 - [**How to contribute to the site**](#how-to-contribute-to-the-site)
-- [**How to run the project locally](#how-to-run-the-project-locally)
+- [**How to run the project locally**](#how-to-run-the-project-locally)
 
 
 ### **Heroku Deployment**
