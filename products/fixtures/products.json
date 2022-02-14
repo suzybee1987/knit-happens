@@ -765,7 +765,7 @@
         "pk": 49,
         "model": "products.product",
         "fields": {
-            "sku": "",
+            "sku": "var-ohi-rib-16",
             "name": "'Ohio' ribbed hat knitting pattern",
             "colour": "various",
             "description": "Ribbed knitting pattern for cosy hat for the winter. Made up using 4.0mm knitting needles.",
