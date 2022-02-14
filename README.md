@@ -416,7 +416,7 @@ Click [here](static/docs/DEPLOYMENT.md) to see deployment steps
 ## **Credits**
 
 ### **Code**
-- A large portion of the Python code was developed following the Code Institute's [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/250e2c2b8e43cccb56b4721cd8a8bd4de6686546) walkthrough. 
+- A large portion of the Django, Python and JavaScript code was developed following the Code Institute's [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/tree/250e2c2b8e43cccb56b4721cd8a8bd4de6686546) walkthrough. 
 - CodeInstitute Full Stack Developer Course
 - Wes Bos [JavaScript 30](https://javascript30.com/) for extra ideas on using JavaScript
 - [Background layout](https://css-tricks.com/perfect-full-page-background-image/) this was taught in one of the Code Institute lessons from css-tricks.com and I use it constantly for my background images. 
