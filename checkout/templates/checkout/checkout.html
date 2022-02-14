@@ -29,7 +29,7 @@
             <div class="column is-5-desktop">
                 <div class="card">
                     <div class="card-content">
-                        <h1 class="is-underlined title-heading-small"> Order Summary:</h1>
+                        <h2 class="is-underlined title-heading-small"> Order Summary:</h2>
                         <div class="columns is-mobile">
                             <div class="column is-6-touch has-text-left">
                                 <p class="is-underlined product-title">Items</p>
@@ -38,7 +38,6 @@
                                 <p class="is-underlined">Subtotal</p>
                             </div>
                         </div>
-                        <!-- <hr class="divider--form"> -->
                         {% for item in bag_items %}
                         <div class="columns is-justify-content-center is-mobile">
                             <div class="column is-8">
@@ -80,10 +79,10 @@
             <!-- end of items  -->
             <!-- payment form  -->
             <div class="column is-7-desktop">
-                <h1 class="title-heading-small">
+                <h2 class="title-heading-small">
                     Please fill out the form below to complete your order
                     <i class="fas fa-pen"></i>
-                </h1>
+                </h2>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form"
                     class="ctrl-holder has-text-left payment-form">
                     {% csrf_token %}
@@ -149,11 +148,11 @@
 </div>
 
 <div id="loading-overlay">
-    <h1 class="text-light logo-font loading-spinner">
+    <p class="text-light logo-font loading-spinner">
         <span class="icon">
             <i class="fas fa-3x fa-sync-alt fa-spin"></i>
         </span>
-    </h1>
+    </p>
 </div>
 
 {% endblock %}

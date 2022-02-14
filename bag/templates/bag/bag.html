@@ -35,7 +35,7 @@
                 {% if item.product.image %}
                 <a href="{% url 'product_detail' item.product.id %}">
                     <div class="card-image">
-                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300"">
+                        <figure class="is-flex is-align-items-center is-justify-content-center image is-height-300">
                             <img src=" {{ item.product.image.url }}" alt="image for {{ item.product.name }}"
                             class="product-image" height="300">
                         </figure>

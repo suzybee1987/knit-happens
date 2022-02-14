@@ -61,13 +61,6 @@ class TestBlogViews(TestCase):
         post = Post.objects.create(title="Test Post")
         self.assertEqual(str(post), "Test Post")
 
-    def test_the_post_detail_url_is_accessible_by_name(self):
-        """
-        test post detail page loads via name
-        """
-        response = self.client.get(reverse('blog', args=["alfie-test"]))
-        self.assertEqual(response.status_code, 200)
-
     def test_post_detail_page_template(self):
         """
         test post detail page loads via template
@@ -77,3 +70,10 @@ class TestBlogViews(TestCase):
         response = self.client.get('/blog/slug/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, '/blog/post_detail.html')
+
+    def test_the_post_detail_url_is_accessible_by_name(self):
+        """
+        test post detail page loads via name
+        """
+        response = self.client.get(reverse('blog', args=["IMG-2808.JPG"]))
+        self.assertEqual(response.status_code, 200)
