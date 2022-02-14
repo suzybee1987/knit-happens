@@ -201,7 +201,7 @@ nav.navbar.is-justify-content-space-evenly {
 
 .message-container {
     position: fixed;
-    top: 90px;
+    top: 100px;
     right: 15px;
     z-index: 99999999999;
 }
@@ -277,6 +277,7 @@ nav.navbar.is-justify-content-space-evenly {
 
 .tabs {
     white-space: normal;
+    overflow-x: hidden;
 }
 
 .tabs a:hover {
