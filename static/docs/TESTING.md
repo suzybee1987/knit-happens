@@ -136,8 +136,6 @@ Automated testing of views was completed to:
 - Test the blog page is accessible by name
 - Test blog posts display as expected
 - Test to see if the post string method returns the title as expected
-- Test post detail page loads via name
-- Test post detail page loads via template
 
 
 #### **Home**
@@ -356,11 +354,47 @@ The site was inspected for accessibility using the [Wave Browser Extension](http
 The result is no major errors.
 
 ### **Lighthouse**
+
 ### **Validators**
 
 #### **HTML Validator**
-#### **CSS Jigsaw**
-#### **JSHint**
-#### **PEP8**
+HTML validator was used for all pages and only one minor warning about the use of h1 element as this is used for the title but not the first child of the section. The section and h1 were used for accessibility reasons and this warning is very minor so the structure was kept in place.
+- [Home](static/docs/images/validation/index.png)
+- [Products](static/docs/images/validation/products-pag.png)
+- [Product Detail](static/docs/images/validation/product_detail.png)
+- [Bag](static/docs/images/validation/bag.png)
+- [Checkout](static/docs/images/validation/checkout.png)
+- [Checkout Success](static/docs/images/validation/checkout-success.png)
+- [Profile](static/docs/images/validation/profile.png)
+- [Blog](static/docs/images/validation/blog.png)
+- [Post Detail](static/docs/images/validation/post-detail.png)
+- [Add Blog Post](static/docs/images/validation/add-blog-post.png)
+- [Edit Blog Post](static/docs/images/validation/edit-blog-post.png)
+- [Add Product](static/docs/images/validation/add-product.png)
+- [Edit Product](static/docs/images/validation/edit-product.png)
 
+#### **CSS Jigsaw**
+CSS Jigsaw validation passed for all pages
+- [products.css](static/docs/images/validation/jigsaw-product-css.png)
+- [blog.css](static/docs/images/validation/jigsaw-blog-css.png)
+- [bag.css](static/docs/images/validation/jigsaw-bag-css.png)
+- [checkout.css](static/docs/images/validation/jigsaw-checkout-css.png)
+- [profile.css](static/docs/images/validation/jigsaw-profile-css.png)
+- [style-uni-form.css](static/docs/images/validation/jigsaw-style-uni-form-css.png)
+- [uni-form.css](static/docs/images/validation/jigsaw-uni-form-css.png)
+- [base.css](static/docs/images/validation/jigsaw-base-css.png)
+
+#### **JSHint**
+JavaScript JSHint validator passed for all pages
+- [base.js](static/docs/images/validation/jshint-base-js.png)
+- [back-to-top.js](static/docs/images/validation/jshint-back-to-top-js.png)
+- [modal.js](static/docs/images/validation/jshint-modal-js.png)
+- [sort-selector.js](static/docs/images/validation/jshint-sort-selector-js.png)
+- [uni-form-validation.jquery.js](static/docs/images/validation/jshint-uni-form-validation-jquery-js.png)
+
+#### **PEP8**
+- Checkout [signals](https://code-institute-room.slack.com/archives/C7HS3U3AP/p1642780620039300) imported but not used in problems tab however this is required as it is being accessed elsewhere so the problem can be ignored.  
+- [Line too long](static/docs/images/validation/test_models_problem.png) error in test_models.py however this is required to confirm the test passes.
+
+[With all Python files open](static/docs/images/validation/pep8.png) those are the only two issues.
 [Back to contents](#contents)

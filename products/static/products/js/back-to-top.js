@@ -1,9 +1,9 @@
 // script from https://www.w3schools.com/howto/howto_js_scroll_to_top.asp 
     //Get the button
-    let mybutton = document.getElementById("btt-button")
+    let mybutton = document.getElementById("btt-button");
     // When the user scrolls down 20px from the top of the document, show the button
     window.onscroll = function () {
-        scrollFunction()
+        scrollFunction();
     };
 
     function scrollFunction() {

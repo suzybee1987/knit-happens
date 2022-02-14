@@ -7,7 +7,7 @@ from .forms import CommentForm, PostForm
 
 
 def blog(request):
-    """ 
+    """
     View all blog posts
     """
     posts = Post.objects.all()
@@ -126,7 +126,7 @@ def delete_post(request, slug):
 
     else:
         messages.error(request, "You are not allowed to do that.")
-    
+
     template = 'blog/edit_post.html'
     context = {
         'post': post,

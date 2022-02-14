@@ -13,7 +13,7 @@ def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
     products_list = Product.objects.all()
-    
+
     query = None
     categories = None
     sort = None
@@ -25,7 +25,8 @@ def all_products(request):
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
-                products_list = products_list.annotate(lower_name=Lower('name'))
+                products_list = products_list.annotate(
+                    lower_name=Lower('name'))
             if sortkey == 'category':
                 sortkey = 'category__name'
             if 'direction' in request.GET:

@@ -13,7 +13,7 @@ class TestHomeViews(TestCase):
     """
 
     def test_home_page_url_works(self):
-        """ 
+        """
         Test the url works when loading the page
         """
         response = self.client.get('/')
@@ -35,7 +35,7 @@ class TestHomeViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_privacy_page_url_works(self):
-        """ 
+        """
         Test the url works when loading the page
         """
         response = self.client.get('/privacy/')
@@ -57,7 +57,7 @@ class TestHomeViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_tandc_page_url_works(self):
-        """ 
+        """
         Test the url works when loading the page
         """
         response = self.client.get('/terms/')

@@ -23,7 +23,7 @@ class TestBagViews(TestCase):
         )
 
         self.item = Product.objects.create(
-            category = self.category,
+            category=self.category,
             name='testing product',
             description='testing product description',
             price=0.01,
@@ -127,7 +127,7 @@ class TestBagViews(TestCase):
 
     def test_adjust_bag(self):
         """
-        Test that the adjust bag view works as expected to 
+        Test that the adjust bag view works as expected to
         calculate total
         """
         link = reverse('adjust_bag', args=['item_id'])

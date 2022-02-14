@@ -375,7 +375,7 @@ The Database schema is below
 
 ## **Testing**
 
-- Testing can be found [here](TESTING.md)
+- Testing can be found [here](static/docs/TESTING.md)
 
 ## **Bugs**
 
@@ -409,7 +409,7 @@ See below for how this was managed:
 
 ## **Deployment**
 
-Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
+Click [here](static/docs/DEPLOYMENT.md) to see deployment steps
 
 ## **Credits**
 
