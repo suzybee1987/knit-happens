@@ -11,6 +11,8 @@
 
 **Knit Happens** is an eCommerce site aimed at lovers of knitting looking to find wool, needles and patterns to purchase and allows them to leave blog posts of their creations and find inspiration for their next project. The site is designed to be responsive and easy to navigate on a range of devices to make it easily accessible for all users. 
 
+This site was built for educational reasons and no deliveries will be fulfilled. 
+
 Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
 
 ## **Contents**
