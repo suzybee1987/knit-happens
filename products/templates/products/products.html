@@ -99,11 +99,11 @@
                         <div class="mt-2 py-3">
                             <a class="button is-info is-light products" href="{% url 'edit_product' product.id %}">Edit <i
                                     class="fas fa-edit ml-2"></i></a>
-                            <button class="js-modal-trigger button is-danger is-light products" data-target="modal-delete">
+                            <button class="js-modal-trigger button is-danger is-light products" data-target="modal-{{product.sku}}">
                                 Delete <i class="fas fa-times ml-2"></i>
                             </button>
                             <!-- Delete Product Modal  -->
-                            <div id="modal-delete" class="modal">
+                            <div id="modal-{{product.sku}}" class="modal">
                                 <div class="modal-background"></div>
                                 <div class="modal-card">
                                     <header class="modal-card-head is-justify-content-center has-text-centered">

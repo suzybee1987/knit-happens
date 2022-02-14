@@ -16,21 +16,19 @@
 
 <div class="hero-body">
     <div class="container">
-        <!-- heading  -->
         <div class="columns is-justify-content-center">
             <div class="column has-text-centered">
-                <h1 class="title-heading my-3">Thank you for shopping small business! You Rock!</h1>
+                <h2 class="title-heading my-3">Thank you for shopping small business! You Rock!</h2>
             </div>
         </div>
         <div class="columns is-justify-content-center">
             <div class="column is-8-fullhd is-12-mobile has-text-centered">
-                <h2 class="title-heading-small">
+                <h3 class="title-heading-small">
                     Your order information is below, a confirmation email will be sent to
-                    you at {{ order.email }}</h2>
+                    you at {{ order.email }}
+                </h3>
             </div>
         </div>
-        <!-- end of heading  -->
-
         <div class="columns is-justify-content-center">
             <div class="column is-6 has-text-centered">
                 {% if from_profile %}
@@ -124,7 +122,6 @@
                                         <p class="mt-3"><span class="product-title">Grand Total:</span>
                                             £{{ order.grand_total }}</p>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

@@ -123,10 +123,14 @@ body {
     font-weight: 600;
 }
 
-.all-patterns:hover, .navbar-item:hover, a.product-title:hover, .category-link:hover{
+.all-patterns:hover, .navbar-item.menu:hover, a.product-title:hover, .category-link:hover{
     background-color: #fafafa;
     color: #485fc7;
     border-bottom: 2px solid;
+}
+
+.navbar-item:hover {
+    background-color: #fafafa;
 }
 
 img .home-button {

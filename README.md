@@ -1,6 +1,6 @@
 # Knit Happens
 
-![](static/images/readme/amiresponsive.PNG)
+![](static/docs/images/responsive.png)
 
 ![GitHub contributors](https://img.shields.io/github/contributors/suzybee1987/knit-happens)
 ![GitHub last commit](https://img.shields.io/github/last-commit/suzybee1987/knit-happens)
@@ -99,8 +99,9 @@ The fonts were chosen to complement one another and also give the aesthetic of a
 
 ### **Colours**
 
-- ![](static/docs/images/ms4-coolors.png) This Coolors palette was used to put together a colour scheme to reflect the different colours of the balls of wool to keep in with the theme of the knitting shop. 
-- The original colour scheme was slightly different but due to accessibility reasons this was changed near the end of building this project to improve contrast ratios. Previous colours [here]((static/docs/images/knit-happens-coolors.png)) 
+- ![](static/docs/images/ms4-coolors.png) 
+- This Coolors palette was used to put together a colour scheme to reflect the different colours of the balls of wool to keep in with the theme of the knitting shop. 
+- The original colour scheme was slightly different but due to accessibility reasons this was changed near the end of building this project to improve contrast ratios. Previous colours [here](static/docs/images/knit-happens-coolors.png)
 
 ### **Imagery**
 
@@ -112,7 +113,7 @@ The images used were taken from these sources:
 
 ### **Wireframes**
 
-The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/xd.html) and can be found in pdf form in [wireframes](wireframes).
+The wireframes were created using [Adobe XD](https://www.adobe.com/uk/products/xd.html) and can be found in pdf form in [wireframes](static/docs/images/wireframes).
 
 
 #### **Desktop view**
@@ -228,9 +229,6 @@ If the user is a super user they can:
   - Edit their own blog posts
   - Delete their own blog posts
 
-- Super users are able to:
-  - Add, edit and delete any blog posts
-
 
 ##### **Navigation**
 
@@ -250,8 +248,6 @@ If the user is a super user they can:
 
 - All users can access social media links, terms and conditions and privacy policy pages.
 
-
-
 [Back to contents](#contents)
 
 ### **Error Pages**
@@ -270,8 +266,10 @@ If the user is a super user they can:
 
 ### **Future Features**
 
-- When user logs out their bag is emptied so that when they log bag in the existing items would be in their bag from the previous log in. I would implement a feature where this was saved to the profile. 
-- The ability for users to change their username
+- I would like to implement a feature where if users log out of the site with items in their bags the items would be there upon log in again. Currently this is not the case.
+- A chat bot where users can ask questions on the site.
+- The ability to add many filters to their search criteria eg colour, category.
+- The ability for users to change their username.
 - A star rating or upvote functionality for the products and blog posts.
 
 ### **Responsive Design**
@@ -285,7 +283,7 @@ The site was designed to be mobile first as more users are using their handheld 
   - If incorrect data is input a warning text appears to advise the user how to continue
 
 - **Default Image if none added**
-  - In the event that a product or blog post is added without an image a default image will be added.
+  - In the event that a product or blog post is added without an image a default image will be added however this is unlikely due to form validation.
 - **Unauthorised Attempts**
   - An [error](static/docs/images/error.png) is launched if the user attempts to visit a part of the site where they are not authorised 
 - **@login_required**
@@ -307,7 +305,7 @@ The site was designed to be mobile first as more users are using their handheld 
 
 ### **Database Design**
 
-The database uses SQL through PostgreSQL and were originally formed from fixtures [*categories.json*](products/fixtures/categories.json) and [*products.json*](products/fixtures/products.json)
+The database uses SQL through PostgreSQL and was originally formed from fixtures [*categories.json*](products/fixtures/categories.json) and [*products.json*](products/fixtures/products.json)
 
 The Database schema is below
 ![](static/docs/images/database.png)
@@ -356,8 +354,8 @@ The Database schema is below
   - Used to generate a favicon for the website title.
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
   - Used to audit the site for quality and ensure responsiveness.
-- [amiresponsive](http://ami.responsivedesign.is/)
-  - An online tool to check how responsive the site is on different devices.
+- [techsini](https://techsini.com/multi-mockup/index.php)
+  - An online tool to check how responsive the site is on different devices and displayed at the top of the README file. 
 - [tinypng](https://tinypng.com/)
   - Used to reduce the size of the images for better user experience.
 - [JSHint](https://jshint.com/)
@@ -385,7 +383,6 @@ The Database schema is below
 ### Bugs Fixed 
 
 - Fix for [Favicon 401 error](https://medium.com/@aurelien.delogu/401-error-on-a-webmanifest-file-cb9e3678b9f3) found as resolved using the site linked.
-<!-- - Bug using [Bulma columns](https://github.com/jgthms/bulma/issues/449) creates overflow on mobile as there is margin top, left and right of 0.75rem so addressed this in CSS using margin: 0 !important; on columns. -->
 - Fix for price negative numbers on Add Product page form found on [Stack Overflow](https://stackoverflow.com/questions/12384460/allow-only-positive-decimal-numbers)
 
 
@@ -424,6 +421,7 @@ Click [here](static/docs/testing/DEPLOYMENT.md) to see deployment steps
 - Code taken from Bulma GitHub [thread](https://github.com/jgthms/bulma/issues/2361) to fix the navbar menu always open on mobile.
 - Uni-form Crispy Form CSS and JS code taken from the uni-form GitHub [repo](https://github.com/draganbabic/uni-form)
 - Code inspiration taken from [CI Student Kyle Lawrence](https://github.com/kylelawrencedev/lawrence-collections-ms4/blob/main/products/views.py) for help with the reviews section. 
+- Code inspiration from [CI student Jenny Malmoe](https://github.com/jennymalmoe/MSP4) while completing the Blog section. 
 - [Code with Stein](https://codewithstein.com/build-a-simple-blog-using-django-3-in-under-20-minutes/) tutorial followed to complete the blog model on the project and some extra information from [jennymalmoe](https://github.com/jennymalmoe/MSP4) fellow student.
 - Testing Tools docs [1](https://docs.djangoproject.com/en/4.0/topics/testing/tools/), [2](https://stackoverflow.com/questions/29428894/django-setuptestdata-vs-setup), [3](https://pythoneatstail.com/en/overview-all-articles/testing-custom-user-model-djangos-testing-tools-and-coverage/)
 - [Pagination Tutorial](https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html)
@@ -444,7 +442,7 @@ Homepage [image by K8 on Unsplash](https://unsplash.com/photos/uYf_C34PAao)
 ### **Acknowledgements**
 
 - My Mentor for confidence boosting and helpful advice and feedback.
-- Friends and family for testing the site and giving feedback on different devices, especially Alasdair and mum for diligently testing and finding things to be fixed.
+- Friends and family for testing the site and giving feedback on different devices, especially Alasdair, Eleanor and my mum for diligently testing and finding things to be fixed.
 - @Eventyret_mentor, Amy O'Shea, Iryna, Claire Lemmonaire on Slack who supported me through the journey.
 - My husband for all his support, patience and great ideas.
 - And, lastly my cheerleader Emanuel Silva for helping me to stay motivated, sharing great ideas and bad jokes to keep us going. 

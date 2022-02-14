@@ -75,5 +75,5 @@ class TestBlogViews(TestCase):
         """
         test post detail page loads via name
         """
-        response = self.client.get(reverse('blog', args=["alfie1234-test"]))
+        response = self.client.get(reverse('blog', args=["IMG-2808.JPG"]))
         self.assertEqual(response.status_code, 200)
