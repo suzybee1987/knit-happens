@@ -36,6 +36,9 @@ Back to [README](README.md)
 
 ### **Automated Testing**
 
+Coverage shows 75% of automated testing was [completed](static/docs/images/validation/coverage.png).
+
+
 #### **Bag**
 Automated testing of views was completed to:
 - Test the calc_subtotal function works as expected
@@ -354,6 +357,23 @@ The site was inspected for accessibility using the [Wave Browser Extension](http
 The result is no major errors.
 
 ### **Lighthouse**
+
+Lighthouse testing was completed on all pages of the site
+- [Home](static/docs/images/validation/lighthouse-home.png)
+- [Products](static/docs/images/validation/lighthouse-products.png)
+- [Product Detail](static/docs/images/validation/lighthouse-product_detail.png)
+- [Bag](static/docs/images/validation/lighthouse-bag.png)
+- [Checkout](static/docs/images/validation/lighthouse-checkout.png)
+- [Checkout Success](static/docs/images/validation/lighthouse-checkout-success.png)
+- [Profile](static/docs/images/validation/lighthouse-profile.png)
+- [Blog](static/docs/images/validation/lighthouse-blog.png)
+- [Post Detail](static/docs/images/validation/lighthouse-post-detail.png)
+- [Add Blog Post](static/docs/images/validation/lighthouse-add-post.png)
+- [Add Product](static/docs/images/validation/lighthouse-add-product.png)
+
+
+The Lighthouse scores are quite good in my opinion and a lot of the warnings that appeared were due to things outside my control like external CSS, JS and JQuery libraries. One of the main warnings was regarding the explicit height and width of images however as all the images are different ratios and generated from the backend it was not possible for me to fix this. 
+
 
 ### **Validators**
 
