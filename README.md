@@ -13,7 +13,7 @@
 
 This site was built for educational reasons and no deliveries will be fulfilled. 
 
-Link to [live site](https://suzybee-knit-happens.herokuapp.com/)
+Link to [live site](https://knit-happens1.onrender.com/)
 
 ## **Contents**
 
